@@ -12,3 +12,4 @@ once_cell = "1.4.0"
 [build-dependencies]
 bindgen = "0.54.0"
 once_cell = "1.4.0"
+pkg-config = "0.3.17"
