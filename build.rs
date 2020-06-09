@@ -1,10 +1,11 @@
 #![feature(bool_to_option)]
-use bindgen::{self, CargoCallbacks};
+use bindgen::{self, callbacks, CargoCallbacks};
 use once_cell::sync::{Lazy, OnceCell};
 use pkg_config as pkgconfig;
 
 use std::{collections::HashSet, convert::From, env, fs, path};
 
+/// All the libs that FFmpeg has
 static LIBS: Lazy<[&str; 8]> = Lazy::new(|| {
     [
         "avcodec",
@@ -59,8 +60,6 @@ static HEADERS: Lazy<[&str; 64]> = Lazy::new(|| {
         "libavutil/imgutils.h",
         "libavutil/lfg.h",
         "libavutil/log.h",
-        // LZO is not "standalone" header. It's pulled as dependency of avcodec's
-        // "libavutil/lzo.h",
         "libavutil/macros.h",
         "libavutil/mathematics.h",
         "libavutil/md5.h",
@@ -89,6 +88,24 @@ static HEADERS: Lazy<[&str; 64]> = Lazy::new(|| {
         "libswscale/swscale.h",
     ]
 });
+
+/// Filter out all symbols in the HashSet, and for others things it will act
+/// exactly the same as `CargoCallback`.
+#[derive(Debug)]
+struct FilterCargoCallbacks(CargoCallbacks, HashSet<String>);
+
+impl callbacks::ParseCallbacks for FilterCargoCallbacks {
+    fn will_parse_macro(&self, _name: &str) -> callbacks::MacroParsingBehavior {
+        if self.1.contains(_name) {
+            callbacks::MacroParsingBehavior::Ignore
+        } else {
+            callbacks::MacroParsingBehavior::Default
+        }
+    }
+    fn include_file(&self, _filename: &str) {
+        self.0.include_file(_filename);
+    }
+}
 
 fn out_dir() -> path::PathBuf {
     let x = OnceCell::new();
@@ -132,10 +149,24 @@ fn main() {
         .iter()
         .map(|path| "-I".to_owned() + path.to_str().unwrap());
 
+    // Because the strange `FP_*` in `math.h` https://github.com/rust-lang/rust-bindgen/issues/687
+    let filter_callback = FilterCargoCallbacks(
+        CargoCallbacks,
+        vec![
+            "FP_NAN".to_owned(),
+            "FP_INFINITE".to_owned(),
+            "FP_ZERO".to_owned(),
+            "FP_SUBNORMAL".to_owned(),
+            "FP_NORMAL".to_owned(),
+        ]
+        .into_iter()
+        .collect(),
+    );
+
     // Bindgen the headers
     let builder = bindgen::builder()
         .clang_args(clang_args)
-        .parse_callbacks(Box::new(CargoCallbacks));
+        .parse_callbacks(Box::new(filter_callback));
 
     let builder = (&*HEADERS)
         .iter()
@@ -146,17 +177,14 @@ fn main() {
                 .find_map(|path| {
                     let full_path = path.join(header);
                     println!("{}", full_path.to_string_lossy());
-                    if let Ok(_) = fs::metadata(&full_path) {
-                        Some(full_path)
-                    } else {
-                        None
-                    }
+                    fs::metadata(&full_path).ok().map(|_| full_path)
                 })
                 .unwrap()
         })
         .fold(builder, |builder, header| {
             builder.header(header.to_str().unwrap())
         });
+
     /* This is a ill try, FFmpeg strangely generate corresponding header file
      * even if some feature is not usable. e.g. We get
      * libavcodec/videotoolbox.h(MacOS only) even when we are on Linux. SO
