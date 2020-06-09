@@ -88,7 +88,7 @@ fn main() {
                     // Builder binds header files
                     .fold(builder, |builder, name| {
                         let file_path: path::PathBuf = [path.clone(), name].iter().collect();
-                        builder.header(file_path.to_string_lossy())
+                        builder.header(file_path.to_str().expect("invalid Unicode header name!"))
                     })
             },
         );
