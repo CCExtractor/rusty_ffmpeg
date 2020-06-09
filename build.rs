@@ -78,11 +78,14 @@ fn main() {
                 fs::read_dir(&path)
                     .expect(&format!("Cannot open libfolder:{}", libname))
                     .map(|entry| entry.unwrap())
+                    // Filter out all entries which is file
                     .filter_map(|entry| entry.file_type().unwrap().is_file().then_some(entry))
+                    // Filter out all files which name ends with `.h`
                     .filter_map(|entry| {
                         let name = entry.file_name();
                         name.to_string_lossy().ends_with(".h").then_some(name)
                     })
+                    // Builder binds header files
                     .fold(builder, |builder, name| {
                         let file_path: path::PathBuf = [path.clone(), name].iter().collect();
                         builder.header(file_path.to_string_lossy())
