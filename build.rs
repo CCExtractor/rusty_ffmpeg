@@ -18,6 +18,78 @@ static LIBS: Lazy<[&str; 8]> = Lazy::new(|| {
     ]
 });
 
+/// Whitelist of the headers we want to generate bindings
+static HEADERS: Lazy<[&str; 64]> = Lazy::new(|| {
+    [
+        "libavcodec/avcodec.h",
+        "libavcodec/avfft.h",
+        "libavcodec/dv_profile.h",
+        "libavcodec/vaapi.h",
+        "libavcodec/vorbis_parser.h",
+        "libavdevice/avdevice.h",
+        "libavfilter/avfilter.h",
+        "libavfilter/buffersink.h",
+        "libavfilter/buffersrc.h",
+        "libavformat/avformat.h",
+        "libavformat/avio.h",
+        "libavutil/adler32.h",
+        "libavutil/aes.h",
+        "libavutil/audio_fifo.h",
+        "libavutil/avstring.h",
+        "libavutil/avutil.h",
+        "libavutil/base64.h",
+        "libavutil/blowfish.h",
+        "libavutil/bprint.h",
+        "libavutil/buffer.h",
+        "libavutil/camellia.h",
+        "libavutil/cast5.h",
+        "libavutil/channel_layout.h",
+        "libavutil/cpu.h",
+        "libavutil/crc.h",
+        "libavutil/dict.h",
+        "libavutil/display.h",
+        "libavutil/downmix_info.h",
+        "libavutil/error.h",
+        "libavutil/eval.h",
+        "libavutil/fifo.h",
+        "libavutil/file.h",
+        "libavutil/frame.h",
+        "libavutil/hash.h",
+        "libavutil/hmac.h",
+        "libavutil/imgutils.h",
+        "libavutil/lfg.h",
+        "libavutil/log.h",
+        // LZO is not "standalone" header. It's pulled as dependency of avcodec's
+        // "libavutil/lzo.h",
+        "libavutil/macros.h",
+        "libavutil/mathematics.h",
+        "libavutil/md5.h",
+        "libavutil/mem.h",
+        "libavutil/motion_vector.h",
+        "libavutil/murmur3.h",
+        "libavutil/opt.h",
+        "libavutil/parseutils.h",
+        "libavutil/pixdesc.h",
+        "libavutil/pixfmt.h",
+        "libavutil/random_seed.h",
+        "libavutil/rational.h",
+        "libavutil/replaygain.h",
+        "libavutil/ripemd.h",
+        "libavutil/samplefmt.h",
+        "libavutil/sha.h",
+        "libavutil/sha512.h",
+        "libavutil/stereo3d.h",
+        "libavutil/threadmessage.h",
+        "libavutil/time.h",
+        "libavutil/timecode.h",
+        "libavutil/twofish.h",
+        "libavutil/xtea.h",
+        "libpostproc/postprocess.h",
+        "libswresample/swresample.h",
+        "libswscale/swscale.h",
+    ]
+});
+
 fn out_dir() -> path::PathBuf {
     let x = OnceCell::new();
     x.get_or_init(|| path::PathBuf::from(env::var("OUT_DIR").unwrap()))
@@ -52,16 +124,53 @@ fn main() {
             });
             acc
         });
-    // TODO: need this be panic?
+
+    // TODO mysterious feature checking should be done
+
+    // Add clang path, for `#include` header finding
+    let clang_args = include_paths
+        .iter()
+        .map(|path| "-I".to_owned() + path.to_str().unwrap());
+
+    // Bindgen the headers
+    let builder = bindgen::builder()
+        .clang_args(clang_args)
+        .parse_callbacks(Box::new(CargoCallbacks));
+
+    let builder = (&*HEADERS)
+        .iter()
+        // map header short path to full path
+        .map(|header| {
+            include_paths
+                .iter()
+                .find_map(|path| {
+                    let full_path = path.join(header);
+                    println!("{}", full_path.to_string_lossy());
+                    if let Ok(_) = fs::metadata(&full_path) {
+                        Some(full_path)
+                    } else {
+                        None
+                    }
+                })
+                .unwrap()
+        })
+        .fold(builder, |builder, header| {
+            builder.header(header.to_str().unwrap())
+        });
+    /* This is a ill try, FFmpeg strangely generate corresponding header file
+     * even if some feature is not usable. e.g. We get
+     * libavcodec/videotoolbox.h(MacOS only) even when we are on Linux. SO
+     * generate it's binding will fails. So I use the white list way.
+
+    // Shrink to one path and search header in it. Using it will make the
+    // situation that headers are not placed in one folder invalid.
     let include_path = if include_paths.len() > 1 {
         panic!("Inconsistent include paths");
     } else {
         include_paths.iter().next().expect("No include_path.")
     };
 
-    // TODO mysterious feature checking should be done
-
-    // Bindgen the headers
+    // Find all headers in include path and generate binding to it.
     let builder = (&*LIBS)
         .iter()
         // TODO if not enabled, we should not manipulate it, consider adding a filter here
@@ -92,9 +201,11 @@ fn main() {
                     })
             },
         );
+    */
 
     // Is it correct to generate binding to one file? :-/
     let output_path: path::PathBuf = [out_dir(), "binding.rs".into()].iter().collect();
+
     builder
         .generate()
         .expect("Binding generation failed.")
