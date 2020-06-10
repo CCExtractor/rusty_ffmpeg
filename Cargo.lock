@@ -267,6 +267,7 @@ name = "rusty_ffmpeg"
 version = "0.1.0"
 dependencies = [
  "bindgen",
+ "libc",
  "once_cell",
  "pkg-config",
 ]
