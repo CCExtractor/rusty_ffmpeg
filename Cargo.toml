@@ -4,6 +4,25 @@ version = "0.1.0"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2018"
 
+license-file = "LICENSE"
+description = "A library that provides Rust bindings for FFmpeg"
+homepage = "https://github.com/CCExtractor/rusty_ffmpeg/"
+documentation = "https://docs.rs/rusty_ffmpeg"
+repository = "https://github.com/CCExtractor/rusty_ffmpeg/"
+readme = "README.md"
+
+keywords = ["ffmpeg", "ffi", "binding", "video", "audio"]
+categories = ["external-ffi-bindings", "multimedia"]
+
+exclude = [
+    "ffmpeg",
+    # Should we exclude examples file? I see <https://github.com/rust-lang/git2-rs/> haven't exclude it.
+    # "examples"
+]
+build = "build.rs"
+# TODO: links = "foo"
+# [badges] https://github.com/rust-lang/crates.io/issues/2436
+
 # Doc test of generated binding is non-sense https://github.com/rust-lang/cargo/issues/3720
 [lib]
 doctest = false
