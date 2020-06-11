@@ -1,5 +1,7 @@
 # Rusty FFmpeg
 
+![CI](https://github.com/CCExtractor/rusty_ffmpeg/workflows/CI/badge.svg?branch=master)
+
 FFI binding for FFmpeg inner library.
 
 #### Building
