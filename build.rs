@@ -132,7 +132,7 @@ fn main() {
             pkgconfig::Config::new()
                 .statik(true)
                 .probe(&libname)
-                .expect(&format!("{} not found!", libname))
+                .unwrap_or_else(|_| panic!(format!("{} not found!", libname)))
                 .include_paths
         })
         .fold(HashSet::new(), |mut acc, paths| {
