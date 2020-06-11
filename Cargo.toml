@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2018"
 
-license-file = "LICENSE"
+license = "MIT"
 description = "A library that provides Rust bindings for FFmpeg"
 homepage = "https://github.com/CCExtractor/rusty_ffmpeg/"
 documentation = "https://docs.rs/rusty_ffmpeg"
