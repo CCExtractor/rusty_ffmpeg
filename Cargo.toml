@@ -16,6 +16,7 @@ categories = ["external-ffi-bindings", "multimedia"]
 
 exclude = [
     "ffmpeg",
+    ".github",
     # Should we exclude examples file? I see <https://github.com/rust-lang/git2-rs/> haven't exclude it.
     # "examples"
 ]
