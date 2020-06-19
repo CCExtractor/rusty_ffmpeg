@@ -8,9 +8,17 @@ FFI binding for FFmpeg inner library.
 
 #### Building
 
-Attention: Currently Nightly Rust is required.
+1. Prerequisites  
+    A Linux Machine with the Nightly Rust toolchain. You can use this [one-liner script](https://doc.rust-lang.org/1.5.0/book/nightly-rust.html) to install nightly Rust:
 
-Prerequisites are a Linux Machine and a successfully builded FFmpeg on it. Run `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build` to build it(where `PKG_CONFIG_PATH` points to `*.pc` files in the build result).
+    ```
+    $ curl -s https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly
+    ```
+
+2. Build the FFmpeg (Skip this step if you already have a built FFmpeg)  
+    FFmpeg is a submodule of this repo, you can fetch it by using `git submodule update --init`. Then `cd ffmpeg` and follow the steps of [official installation guide](https://trac.ffmpeg.org/wiki/CompilationGuide) to compile it.
+3. Generate and build the bindings:  
+    Run `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build` to build the binding (Where `PKG_CONFIG_PATH` points to `*.pc` files in the build result). The build script will take advantage of the package-config(`*.pc`) files to probe paths of the header files for binding generation and dependencies as project build dependencies to ensure this project can be built successfully.
 
 #### Testing
 
