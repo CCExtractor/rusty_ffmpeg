@@ -98,8 +98,8 @@ jobs:
             --enable-libx264 \
             --enable-libx265 \
             --enable-nonfree && \
-          PATH="$HOME/bin:$PATH" make && \
-          make -j4 install && \
+          PATH="$HOME/bin:$PATH" make -j$(nproc) && \
+          make -j$(nproc) install && \
           hash -r
           cd ..
 
@@ -174,8 +174,8 @@ jobs:
             --enable-libx264 \
             --enable-libx265 \
             --enable-nonfree && \
-          PATH="$HOME/bin:$PATH" make && \
-          make -j4 install && \
+          PATH="$HOME/bin:$PATH" make -j$(nproc) && \
+          make -j$(nproc) install && \
           hash -r
           cd ..
       - name: BindingBuild
