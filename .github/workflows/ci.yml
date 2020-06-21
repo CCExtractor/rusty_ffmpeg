@@ -103,7 +103,7 @@ jobs:
           hash -r
           cd ..
 
-      - run: PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig cargo clippy -- -D warnings"
+      - run: cargo clippy -- -D warnings"
 
   build_and_test:
     runs-on: ubuntu-latest
@@ -179,7 +179,7 @@ jobs:
           hash -r
           cd ..
       - name: BindingBuild
-        run: PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build --verbose
+        run: cargo build --verbose
       - name: BindingTest
         run: cargo test --verbose
       - name: BuildExamples
