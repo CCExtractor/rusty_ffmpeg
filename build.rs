@@ -1,8 +1,8 @@
 #![feature(bool_to_option)]
 use bindgen::{self, callbacks, CargoCallbacks};
+use dotenv::dotenv;
 use once_cell::sync::{Lazy, OnceCell};
 use pkg_config as pkgconfig;
-use dotenv::dotenv;
 
 use std::{collections::HashSet, convert::From, env, fs, path};
 
