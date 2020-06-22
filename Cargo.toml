@@ -1,6 +1,6 @@
 [package]
 name = "rusty_ffmpeg"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2018"
 
@@ -15,7 +15,6 @@ keywords = ["ffmpeg", "ffi", "binding", "video", "audio"]
 categories = ["external-ffi-bindings", "multimedia"]
 
 exclude = [
-    "ffmpeg",
     ".github",
     # Should we exclude examples file? I see <https://github.com/rust-lang/git2-rs/> haven't exclude it.
     # "examples"
