@@ -1,7 +1,7 @@
 //! Port from Original code: https://github.com/leandromoreira/ffmpeg-libav-tutorial/blob/master/0_hello_world.c
 //! Since this is a ported code, many warnings will emits.
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
-use rusty_ffmpeg::*;
+use rusty_ffmpeg::ffi::*;
 
 use libc::c_int;
 use std::{
