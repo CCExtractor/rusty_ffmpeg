@@ -4,7 +4,7 @@ use num_cpus as ncpus;
 use once_cell::sync::Lazy;
 use pkg_config as pkgconfig;
 
-use std::{collections::HashSet, convert::From, env, fs, path, process::Command};
+use std::{collections::HashSet, env, fs, path, process::Command};
 
 /// All the libs that FFmpeg has
 static LIBS: Lazy<[&str; 8]> = Lazy::new(|| {
@@ -124,9 +124,12 @@ fn main() {
         env::set_var("PATH", format!("{}/build/bin:{}", *SUBMODULE_DIR, *PATH));
 
         // Check if submodule is not get cloned.
-        if !path::PathBuf::from("./ffmpeg/fftools").is_dir() {
-            panic!("FFmpeg submodule is not initialized");
-        }
+        Command::new("git")
+            .args(["submodule", "update", "--init"].iter())
+            .spawn()
+            .expect("FFmpeg submodule failed to init.")
+            .wait()
+            .expect("FFmpeg submodule failed to init.");
 
         // Corresponding to the shell script below:
         // ./configure \
