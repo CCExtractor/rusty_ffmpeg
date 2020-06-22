@@ -92,7 +92,8 @@ static HEADERS: Lazy<[&str; 64]> = Lazy::new(|| {
 
 static PATH: Lazy<String> = Lazy::new(|| env::var("PATH").unwrap());
 static OUT_DIR: Lazy<String> = Lazy::new(|| env::var("OUT_DIR").unwrap());
-static SUBMODULE_DIR: Lazy<String> = Lazy::new(|| format!("{}/ffmpeg", env::var("PWD").unwrap()));
+static SUBMODULE_DIR: Lazy<String> =
+    Lazy::new(|| format!("{}/ffmpeg", env::var("CARGO_MANIFEST_DIR").unwrap()));
 static NUM_CPUS: Lazy<usize> = Lazy::new(ncpus::get);
 
 /// Filter out all symbols in the HashSet, and for others things it will act
@@ -150,7 +151,7 @@ fn main() {
         //     --enable-libx264 \
         //     --enable-libx265 \
         //     --enable-nonfree
-        Command::new("./configure")
+        Command::new(format!("{}/configure", *SUBMODULE_DIR))
             .current_dir(&*SUBMODULE_DIR)
             .env(
                 "PKG_CONFIG_PATH",
