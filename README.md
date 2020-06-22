@@ -14,14 +14,13 @@ FFI binding for FFmpeg inner library.
     ```
     $ curl -s https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly
     ```
-
-2. Build the FFmpeg (Skip this step if you already have a built FFmpeg)  
-    FFmpeg is a submodule of this repo, you can fetch it by using `git submodule update --init`. Then `cd ffmpeg` and follow the steps of [official installation guide](https://trac.ffmpeg.org/wiki/CompilationGuide) to compile it.
-3. Generate and build the bindings:  
-    Run `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build` to build the binding (Where `PKG_CONFIG_PATH` points to `*.pc` files in the build result). The build script will take advantage of the package-config(`*.pc`) files to probe paths of the header files for binding generation and dependencies as project build dependencies to ensure this project can be built successfully.
+2. Generate and build the bindings:  
+    Run `cargo build` to build the bindings, we will compile the FFmpeg in the git submodule for you. If you have a pre-built ffmpeg, set `PKG_CONFIG_PATH` to the path which points to `*.pc` files in the build result(e.g. `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build`) then we will use the pre-built FFmpeg libraries. After the FFmpeg is built, the build script will take advantage of the package-config(`*.pc`) files to:
+    1. Probe paths of the header files for binding generation and generate the binding.
+    2. Probe library dependencies as project dependencies to ensure this project can be built successfully.
 
 #### Testing
 
-After building, you can use `cargo test` to test the generated bindings. Or you can `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo test` directly without building.
+You can use `cargo test` to test the generated bindings. If you haven't run `cargo build` and you have pre-built FFmpeg libraries. Set the `PKG_CONFIG_PATH` like this: `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo test` which doesn't need to build the FFmpeg redundantly.
 
-To see it works, you can run `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo run --example slice`.
+To see it works, you can run `cargo run --example slice`.
