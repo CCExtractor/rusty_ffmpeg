@@ -1,9 +1,10 @@
 #![feature(bool_to_option)]
 use bindgen::{self, callbacks, CargoCallbacks};
-use once_cell::sync::{Lazy, OnceCell};
+use num_cpus as ncpus;
+use once_cell::sync::Lazy;
 use pkg_config as pkgconfig;
 
-use std::{collections::HashSet, convert::From, env, fs, path};
+use std::{collections::HashSet, convert::From, env, fs, path, process::Command};
 
 /// All the libs that FFmpeg has
 static LIBS: Lazy<[&str; 8]> = Lazy::new(|| {
@@ -89,6 +90,11 @@ static HEADERS: Lazy<[&str; 64]> = Lazy::new(|| {
     ]
 });
 
+static PATH: Lazy<String> = Lazy::new(|| env::var("PATH").unwrap());
+static OUT_DIR: Lazy<String> = Lazy::new(|| env::var("OUT_DIR").unwrap());
+static SUBMODULE_DIR: Lazy<String> = Lazy::new(|| format!("{}/ffmpeg", env::var("PWD").unwrap()));
+static NUM_CPUS: Lazy<usize> = Lazy::new(ncpus::get);
+
 /// Filter out all symbols in the HashSet, and for others things it will act
 /// exactly the same as `CargoCallback`.
 #[derive(Debug)]
@@ -107,16 +113,109 @@ impl callbacks::ParseCallbacks for FilterCargoCallbacks {
     }
 }
 
-fn out_dir() -> path::PathBuf {
-    let x = OnceCell::new();
-    x.get_or_init(|| path::PathBuf::from(env::var("OUT_DIR").unwrap()))
-        .clone()
-}
-
 fn main() {
+    if env::var("PKG_CONFIG_PATH").is_err() {
+        // All outputs are stored in ./ffmpeg/build/{bin, lib, share, include}
+        // If no prebuilt FFmpeg libraries provided, we custom build a FFmpeg.
+        env::set_var(
+            "PKG_CONFIG_PATH",
+            format!("{}/build/lib/pkgconfig", *SUBMODULE_DIR),
+        );
+        env::set_var("PATH", format!("{}/build/bin:{}", *SUBMODULE_DIR, *PATH));
+
+        // Check if submodule is not get cloned.
+        if !path::PathBuf::from("./ffmpeg/fftools").is_dir() {
+            panic!("FFmpeg submodule is not initialized");
+        }
+
+        // Corresponding to the shell script below:
+        // ./configure \
+        //     --prefix="$PWD/build" \
+        //     --extra-cflags="-I$PWD/build/include" \
+        //     --extra-ldflags="-L$PWD/build/lib" \
+        //     --bindir="$PWD/build/bin" \
+        //     --pkg-config-flags="--static" \
+        //     --extra-libs="-lpthread -lm" \
+        //     --enable-gpl \
+        //     --enable-libass \
+        //     --enable-libfdk-aac \
+        //     --enable-libfreetype \
+        //     --enable-libmp3lame \
+        //     --enable-libopus \
+        //     --enable-libvorbis \
+        //     --enable-libvpx \
+        //     --enable-libx264 \
+        //     --enable-libx265 \
+        //     --enable-nonfree
+        Command::new("./configure")
+            .current_dir(&*SUBMODULE_DIR)
+            .env(
+                "PKG_CONFIG_PATH",
+                format!("{}/build/lib/pkgconfig", *SUBMODULE_DIR),
+            )
+            .args(
+                [
+                    format!(r#"--prefix={}/build"#, *SUBMODULE_DIR),
+                    format!(r#"--extra-cflags=-I{}/build/include"#, *SUBMODULE_DIR),
+                    format!(r#"--extra-ldflags=-L{}/build/lib"#, *SUBMODULE_DIR),
+                    format!(r#"--bindir={}/build/bin"#, *SUBMODULE_DIR),
+                ]
+                .iter(),
+            )
+            .args(
+                [
+                    "--pkg-config-flags=--static",
+                    "--extra-libs=-lpthread -lm",
+                    "--enable-gpl",
+                    "--enable-libass",
+                    "--enable-libfdk-aac",
+                    "--enable-libfreetype",
+                    "--enable-libmp3lame",
+                    "--enable-libopus",
+                    "--enable-libvorbis",
+                    "--enable-libvpx",
+                    "--enable-libx264",
+                    "--enable-libx265",
+                    "--enable-nonfree",
+                ]
+                .iter(),
+            )
+            .spawn()
+            .expect("FFmpeg build process: configure failed!")
+            .wait()
+            .expect("FFmpeg build process: configure failed!");
+
+        Command::new("make")
+            .current_dir(&*SUBMODULE_DIR)
+            .arg(format!("-j{}", *NUM_CPUS))
+            .spawn()
+            .expect("FFmpeg build process: make compile failed!")
+            .wait()
+            .expect("FFmpeg build process: make compile failed!");
+
+        Command::new("make")
+            .current_dir(&*SUBMODULE_DIR)
+            .arg(format!("-j{}", *NUM_CPUS))
+            .arg("install")
+            .spawn()
+            .expect("FFmpeg build process: make install failed!")
+            .wait()
+            .expect("FFmpeg build process: make install failed!");
+
+        /* Commented because it's not needed, we are not using any specific shell.
+        Command::new("hash")
+            .current_dir(&*SUBMODULE_DIR)
+            .arg("-r")
+            .spawn()
+            .expect("FFmpeg build process: clear hash cache failed!")
+            .wait()
+            .expect("FFmpeg build process: clear hash cache failed!");
+        */
+    }
+
     // We currently only support building with static libraries.
 
-    /* Thanks to pkg-config, we almost don't need this.
+    /* Thanks to pkg-config, we don't need this.
     // Output link libraries
     (&*LIBS)
         .iter()
@@ -232,7 +331,7 @@ fn main() {
     */
 
     // Is it correct to generate binding to one file? :-/
-    let output_path: path::PathBuf = [out_dir(), "binding.rs".into()].iter().collect();
+    let output_path: path::PathBuf = [&*OUT_DIR, "binding.rs"].iter().collect();
 
     builder
         .generate()
