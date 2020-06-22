@@ -105,6 +105,56 @@ jobs:
 
       - run: PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo clippy -- -D warnings
 
+  placement_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # FFmpeg may have submodule so 'recursive' rather than just 'true'(not quite possible but)
+          submodules: recursive
+
+      - name: Install latest nightly
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          override: true
+
+      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+      - name: Install FFmpegBuildTools
+        run: |
+          sudo apt-get update -qq && sudo apt-get -y install \
+            autoconf \
+            automake \
+            build-essential \
+            cmake \
+            git-core \
+            libass-dev \
+            libfreetype6-dev \
+            libgnutls28-dev \
+            libsdl2-dev \
+            libtool \
+            libva-dev \
+            libvdpau-dev \
+            libvorbis-dev \
+            libxcb1-dev \
+            libxcb-shm0-dev \
+            libxcb-xfixes0-dev \
+            pkg-config \
+            texinfo \
+            wget \
+            yasm \
+            zlib1g-dev
+          sudo apt-get install nasm
+          sudo apt-get install libx264-dev
+          sudo apt-get install libx265-dev libnuma-dev
+          sudo apt-get install libvpx-dev
+          sudo apt-get install libfdk-aac-dev
+          sudo apt-get install libmp3lame-dev
+          sudo apt-get install libopus-dev
+      - name: BindingBuild
+        run: cargo build --verbose
+
   build_and_test:
     runs-on: ubuntu-latest
     steps:
