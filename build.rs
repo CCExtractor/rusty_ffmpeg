@@ -92,8 +92,7 @@ static HEADERS: Lazy<[&str; 64]> = Lazy::new(|| {
 
 static PATH: Lazy<String> = Lazy::new(|| env::var("PATH").unwrap());
 static OUT_DIR: Lazy<String> = Lazy::new(|| env::var("OUT_DIR").unwrap());
-static SUBMODULE_DIR: Lazy<String> =
-    Lazy::new(|| format!("{}/ffmpeg", env::var("CARGO_MANIFEST_DIR").unwrap()));
+static FFMPEG_DIR: Lazy<String> = Lazy::new(|| format!("{}/ffmpeg", env::var("OUT_DIR").unwrap()));
 static NUM_CPUS: Lazy<usize> = Lazy::new(ncpus::get);
 
 /// Filter out all symbols in the HashSet, and for others things it will act
@@ -120,17 +119,20 @@ fn main() {
         // If no prebuilt FFmpeg libraries provided, we custom build a FFmpeg.
         env::set_var(
             "PKG_CONFIG_PATH",
-            format!("{}/build/lib/pkgconfig", *SUBMODULE_DIR),
+            format!("{}/build/lib/pkgconfig", *FFMPEG_DIR),
         );
-        env::set_var("PATH", format!("{}/build/bin:{}", *SUBMODULE_DIR, *PATH));
+        env::set_var("PATH", format!("{}/build/bin:{}", *FFMPEG_DIR, *PATH));
 
         // Check if submodule is not get cloned.
-        Command::new("git")
-            .args(["submodule", "update", "--init"].iter())
-            .spawn()
-            .expect("FFmpeg submodule failed to init.")
-            .wait()
-            .expect("FFmpeg submodule failed to init.");
+        if !path::PathBuf::from(format!("{}/fftools", &*FFMPEG_DIR)).is_dir() {
+            Command::new("git")
+                .current_dir(&*OUT_DIR)
+                .args(["clone", "https://github.com/ffmpeg/ffmpeg"].iter())
+                .spawn()
+                .expect("FFmpeg submodule failed to clone.")
+                .wait()
+                .expect("FFmpeg submodule failed to clone.");
+        }
 
         // Corresponding to the shell script below:
         // ./configure \
@@ -151,18 +153,18 @@ fn main() {
         //     --enable-libx264 \
         //     --enable-libx265 \
         //     --enable-nonfree
-        Command::new(format!("{}/configure", *SUBMODULE_DIR))
-            .current_dir(&*SUBMODULE_DIR)
+        Command::new(format!("{}/configure", *FFMPEG_DIR))
+            .current_dir(&*FFMPEG_DIR)
             .env(
                 "PKG_CONFIG_PATH",
-                format!("{}/build/lib/pkgconfig", *SUBMODULE_DIR),
+                format!("{}/build/lib/pkgconfig", *FFMPEG_DIR),
             )
             .args(
                 [
-                    format!(r#"--prefix={}/build"#, *SUBMODULE_DIR),
-                    format!(r#"--extra-cflags=-I{}/build/include"#, *SUBMODULE_DIR),
-                    format!(r#"--extra-ldflags=-L{}/build/lib"#, *SUBMODULE_DIR),
-                    format!(r#"--bindir={}/build/bin"#, *SUBMODULE_DIR),
+                    format!(r#"--prefix={}/build"#, *FFMPEG_DIR),
+                    format!(r#"--extra-cflags=-I{}/build/include"#, *FFMPEG_DIR),
+                    format!(r#"--extra-ldflags=-L{}/build/lib"#, *FFMPEG_DIR),
+                    format!(r#"--bindir={}/build/bin"#, *FFMPEG_DIR),
                 ]
                 .iter(),
             )
@@ -190,7 +192,7 @@ fn main() {
             .expect("FFmpeg build process: configure failed!");
 
         Command::new("make")
-            .current_dir(&*SUBMODULE_DIR)
+            .current_dir(&*FFMPEG_DIR)
             .arg(format!("-j{}", *NUM_CPUS))
             .spawn()
             .expect("FFmpeg build process: make compile failed!")
@@ -198,7 +200,7 @@ fn main() {
             .expect("FFmpeg build process: make compile failed!");
 
         Command::new("make")
-            .current_dir(&*SUBMODULE_DIR)
+            .current_dir(&*FFMPEG_DIR)
             .arg(format!("-j{}", *NUM_CPUS))
             .arg("install")
             .spawn()
@@ -208,7 +210,7 @@ fn main() {
 
         /* Commented because it's not needed, we are not using any specific shell.
         Command::new("hash")
-            .current_dir(&*SUBMODULE_DIR)
+            .current_dir(&*FFMPEG_DIR)
             .arg("-r")
             .spawn()
             .expect("FFmpeg build process: clear hash cache failed!")
