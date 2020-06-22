@@ -105,13 +105,10 @@ jobs:
 
       - run: PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo clippy -- -D warnings
 
-  placement_build:
+  build_and_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          # FFmpeg may have submodule so 'recursive' rather than just 'true'(not quite possible but)
-          submodules: recursive
 
       - name: Install latest nightly
         uses: actions-rs/toolchain@v1
@@ -154,8 +151,24 @@ jobs:
           sudo apt-get install libopus-dev
       - name: BindingBuild
         run: cargo build --verbose
+      - name: BindingTest
+        run: cargo test --verbose
+      - name: BuildExamples
+        run: cargo build --examples --verbose
 
-  build_and_test:
+      - name: RunSliceExample
+        run: cargo run --example slice
+      # Avoid the situation that example outputs incorrect results.
+      # (Is this really essential? Maybe I'm too anxious?)
+      - name: CheckNoChange
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "0"
+          else
+            echo "1"
+          fi
+
+  build_with_prebuilt_ffmpeg:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -230,19 +243,3 @@ jobs:
           cd ..
       - name: BindingBuild
         run: PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build --verbose
-      - name: BindingTest
-        run: cargo test --verbose
-      - name: BuildExamples
-        run: cargo build --examples --verbose
-
-      - name: RunSliceExample
-        run: cargo run --example slice
-      # Avoid the situation that example outputs incorrect results.
-      # (Is this really essential? Maybe I'm too anxious?)
-      - name: CheckNoChange
-        run: |
-          if [[ -z "$(git status --porcelain)" ]]; then
-            echo "0"
-          else
-            echo "1"
-          fi
