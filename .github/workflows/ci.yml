@@ -33,8 +33,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: recursive
 
       - name: Install latest nightly
         uses: actions-rs/toolchain@v1
@@ -77,33 +75,7 @@ jobs:
           sudo apt-get install libmp3lame-dev
           sudo apt-get install libopus-dev
 
-      - name: FFmpegBuild
-        run: |
-          cd ./ffmpeg
-          PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
-            --prefix="$HOME/ffmpeg_build" \
-            --pkg-config-flags="--static" \
-            --extra-cflags="-I$HOME/ffmpeg_build/include" \
-            --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
-            --extra-libs="-lpthread -lm" \
-            --bindir="$HOME/bin" \
-            --enable-gpl \
-            --enable-libass \
-            --enable-libfdk-aac \
-            --enable-libfreetype \
-            --enable-libmp3lame \
-            --enable-libopus \
-            --enable-libvorbis \
-            --enable-libvpx \
-            --enable-libx264 \
-            --enable-libx265 \
-            --enable-nonfree && \
-          PATH="$HOME/bin:$PATH" make -j$(nproc) && \
-          make -j$(nproc) install && \
-          hash -r
-          cd ..
-
-      - run: PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo clippy -- -D warnings
+      - run: cargo clippy -- -D warnings
 
   build_and_test:
     runs-on: ubuntu-latest
@@ -172,9 +144,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          # FFmpeg may have submodule so 'recursive' rather than just 'true'(not quite possible but)
-          submodules: recursive
 
       - name: Install latest nightly
         uses: actions-rs/toolchain@v1
@@ -218,6 +187,7 @@ jobs:
 
       - name: FFmpegBuild
         run: |
+          git clone https://github.com/ffmpeg/ffmpeg
           cd ./ffmpeg
           PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
             --prefix="$HOME/ffmpeg_build" \
