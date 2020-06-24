@@ -93,6 +93,8 @@ static HEADERS: Lazy<[&str; 64]> = Lazy::new(|| {
 static PATH: Lazy<String> = Lazy::new(|| env::var("PATH").unwrap());
 static OUT_DIR: Lazy<String> = Lazy::new(|| env::var("OUT_DIR").unwrap());
 static FFMPEG_DIR: Lazy<String> = Lazy::new(|| format!("{}/ffmpeg", env::var("OUT_DIR").unwrap()));
+static BINDING_FILE_PATH: Lazy<String> =
+    Lazy::new(|| format!("{}/binding.rs", env::var("OUT_DIR").unwrap()));
 static NUM_CPUS: Lazy<usize> = Lazy::new(ncpus::get);
 
 /// Filter out all symbols in the HashSet, and for others things it will act
@@ -114,6 +116,19 @@ impl callbacks::ParseCallbacks for FilterCargoCallbacks {
 }
 
 fn main() {
+    // If it's a documentation generation from docs.rs, just copy the bindings
+    // generated locally to `OUT_DIR`. We do this because the building
+    // environment of docs.rs doesn't have an network connection, so we cannot
+    // git clone the FFmpeg. And they also have a limitation on crate's size:
+    // 10MB, which is not enough to fit in full FFmpeg source files. So the only
+    // thing we can do is copy the locally generated binding files to the
+    // `OUT_DIR`.
+    if env::var("DOCS_RS").is_ok() {
+        fs::copy("src/binding.rs", &*BINDING_FILE_PATH)
+            .expect("Prebuilt binding file failed to be copied.");
+        return;
+    }
+
     if env::var("PKG_CONFIG_PATH").is_err() {
         // All outputs are stored in ./ffmpeg/build/{bin, lib, share, include}
         // If no prebuilt FFmpeg libraries provided, we custom build a FFmpeg.
@@ -336,12 +351,10 @@ fn main() {
         );
     */
 
-    // Is it correct to generate binding to one file? :-/
-    let output_path: path::PathBuf = [&*OUT_DIR, "binding.rs"].iter().collect();
-
     builder
         .generate()
         .expect("Binding generation failed.")
-        .write_to_file(output_path)
+        // Is it correct to generate binding to one file? :-/
+        .write_to_file(&*BINDING_FILE_PATH)
         .expect("Cannot write binding to file!")
 }
