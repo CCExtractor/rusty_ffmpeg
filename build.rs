@@ -115,13 +115,30 @@ impl callbacks::ParseCallbacks for FilterCargoCallbacks {
     }
 }
 
+fn probe_system_ffmpeg() -> Result<(), String> {
+    match (&*LIBS)
+        .iter()
+        .map(|name| "lib".to_owned() + name)
+        .find(|libname| {
+            pkgconfig::Config::new()
+                .statik(true)
+                // Remove side effect
+                .cargo_metadata(false)
+                .probe(&libname)
+                .is_err()
+        }) {
+        Some(libname) => Err(format!("{} not found", libname)),
+        None => Ok(()),
+    }
+}
+
 fn main() {
     // If it's a documentation generation from docs.rs, just copy the bindings
     // generated locally to `OUT_DIR`. We do this because the building
     // environment of docs.rs doesn't have an network connection, so we cannot
     // git clone the FFmpeg. And they also have a limitation on crate's size:
-    // 10MB, which is not enough to fit in full FFmpeg source files. So the only
-    // thing we can do is copy the locally generated binding files to the
+    // 10MB, which is not enough to fit in FFmpeg source files. So the only
+    // thing we can do is copying the locally generated binding files to the
     // `OUT_DIR`.
     if env::var("DOCS_RS").is_ok() {
         fs::copy("src/binding.rs", &*BINDING_FILE_PATH)
@@ -130,127 +147,124 @@ fn main() {
     }
 
     if env::var("PKG_CONFIG_PATH").is_err() {
-        // All outputs are stored in ./ffmpeg/build/{bin, lib, share, include}
-        // If no prebuilt FFmpeg libraries provided, we custom build a FFmpeg.
-        env::set_var(
-            "PKG_CONFIG_PATH",
-            format!("{}/build/lib/pkgconfig", *FFMPEG_DIR),
-        );
-        env::set_var("PATH", format!("{}/build/bin:{}", *FFMPEG_DIR, *PATH));
-
-        // Check if submodule is not get cloned.
-        if !path::PathBuf::from(format!("{}/fftools", &*FFMPEG_DIR)).is_dir() {
-            Command::new("git")
-                .current_dir(&*OUT_DIR)
-                .args(["clone", "https://github.com/ffmpeg/ffmpeg", "--depth", "1"].iter())
-                .spawn()
-                .expect("FFmpeg submodule failed to clone.")
-                .wait()
-                .expect("FFmpeg submodule failed to clone.");
-        }
-
-        // Corresponding to the shell script below:
-        // ./configure \
-        //     --prefix="$PWD/build" \
-        //     --extra-cflags="-I$PWD/build/include" \
-        //     --extra-ldflags="-L$PWD/build/lib" \
-        //     --bindir="$PWD/build/bin" \
-        //     --pkg-config-flags="--static" \
-        //     --extra-libs="-lpthread -lm" \
-        //     --enable-gpl \
-        //     --enable-libass \
-        //     --enable-libfdk-aac \
-        //     --enable-libfreetype \
-        //     --enable-libmp3lame \
-        //     --enable-libopus \
-        //     --enable-libvorbis \
-        //     --enable-libvpx \
-        //     --enable-libx264 \
-        //     --enable-libx265 \
-        //     --enable-nonfree
-        Command::new(format!("{}/configure", *FFMPEG_DIR))
-            .current_dir(&*FFMPEG_DIR)
-            .env(
+        // If no system FFmpeg found, download and build one
+        if let Err(msg) = probe_system_ffmpeg() {
+            eprintln!("{}! Try to git clone an FFmpeg and build.", msg);
+            // All outputs are stored in ./ffmpeg/build/{bin, lib, share, include}
+            // If no prebuilt FFmpeg libraries provided, we custom build a FFmpeg.
+            env::set_var(
                 "PKG_CONFIG_PATH",
                 format!("{}/build/lib/pkgconfig", *FFMPEG_DIR),
-            )
-            .args(
-                [
-                    format!(r#"--prefix={}/build"#, *FFMPEG_DIR),
-                    format!(r#"--extra-cflags=-I{}/build/include"#, *FFMPEG_DIR),
-                    format!(r#"--extra-ldflags=-L{}/build/lib"#, *FFMPEG_DIR),
-                    format!(r#"--bindir={}/build/bin"#, *FFMPEG_DIR),
-                ]
-                .iter(),
-            )
-            .args(
-                [
-                    "--pkg-config-flags=--static",
-                    "--extra-libs=-lpthread -lm",
-                    "--enable-gpl",
-                    "--enable-libass",
-                    "--enable-libfdk-aac",
-                    "--enable-libfreetype",
-                    "--enable-libmp3lame",
-                    "--enable-libopus",
-                    "--enable-libvorbis",
-                    "--enable-libvpx",
-                    "--enable-libx264",
-                    "--enable-libx265",
-                    "--enable-nonfree",
-                ]
-                .iter(),
-            )
-            .spawn()
-            .expect("FFmpeg build process: configure failed!")
-            .wait()
-            .expect("FFmpeg build process: configure failed!");
+            );
+            env::set_var("PATH", format!("{}/build/bin:{}", *FFMPEG_DIR, *PATH));
 
-        Command::new("make")
-            .current_dir(&*FFMPEG_DIR)
-            .arg(format!("-j{}", *NUM_CPUS))
-            .spawn()
-            .expect("FFmpeg build process: make compile failed!")
-            .wait()
-            .expect("FFmpeg build process: make compile failed!");
+            // Check if FFmpeg is not get cloned.
+            if !path::PathBuf::from(format!("{}/fftools", &*FFMPEG_DIR)).is_dir() {
+                Command::new("git")
+                    .current_dir(&*OUT_DIR)
+                    .args(["clone", "https://github.com/ffmpeg/ffmpeg", "--depth", "1"].iter())
+                    .spawn()
+                    .expect("FFmpeg submodule failed to clone.")
+                    .wait()
+                    .expect("FFmpeg submodule failed to clone.");
+            }
 
-        Command::new("make")
-            .current_dir(&*FFMPEG_DIR)
-            .arg(format!("-j{}", *NUM_CPUS))
-            .arg("install")
-            .spawn()
-            .expect("FFmpeg build process: make install failed!")
-            .wait()
-            .expect("FFmpeg build process: make install failed!");
+            // Corresponding to the shell script below:
+            // ./configure \
+            //     --prefix="$PWD/build" \
+            //     --extra-cflags="-I$PWD/build/include" \
+            //     --extra-ldflags="-L$PWD/build/lib" \
+            //     --bindir="$PWD/build/bin" \
+            //     --pkg-config-flags="--static" \
+            //     --extra-libs="-lpthread -lm" \
+            //     --enable-gpl \
+            //     --enable-libass \
+            //     --enable-libfdk-aac \
+            //     --enable-libfreetype \
+            //     --enable-libmp3lame \
+            //     --enable-libopus \
+            //     --enable-libvorbis \
+            //     --enable-libvpx \
+            //     --enable-libx264 \
+            //     --enable-libx265 \
+            //     --enable-nonfree
+            Command::new(format!("{}/configure", *FFMPEG_DIR))
+                .current_dir(&*FFMPEG_DIR)
+                .env(
+                    "PKG_CONFIG_PATH",
+                    format!("{}/build/lib/pkgconfig", *FFMPEG_DIR),
+                )
+                .args(
+                    [
+                        format!(r#"--prefix={}/build"#, *FFMPEG_DIR),
+                        format!(r#"--extra-cflags=-I{}/build/include"#, *FFMPEG_DIR),
+                        format!(r#"--extra-ldflags=-L{}/build/lib"#, *FFMPEG_DIR),
+                        format!(r#"--bindir={}/build/bin"#, *FFMPEG_DIR),
+                    ]
+                    .iter(),
+                )
+                .args(
+                    [
+                        "--pkg-config-flags=--static",
+                        "--extra-libs=-lpthread -lm",
+                        "--enable-gpl",
+                        "--enable-libass",
+                        "--enable-libfdk-aac",
+                        "--enable-libfreetype",
+                        "--enable-libmp3lame",
+                        "--enable-libopus",
+                        "--enable-libvorbis",
+                        "--enable-libvpx",
+                        "--enable-libx264",
+                        "--enable-libx265",
+                        "--enable-nonfree",
+                    ]
+                    .iter(),
+                )
+                .spawn()
+                .expect("FFmpeg build process: configure failed!")
+                .wait()
+                .expect("FFmpeg build process: configure failed!");
 
-        /* Commented because it's not needed, we are not using any specific shell.
-        Command::new("hash")
-            .current_dir(&*FFMPEG_DIR)
-            .arg("-r")
-            .spawn()
-            .expect("FFmpeg build process: clear hash cache failed!")
-            .wait()
-            .expect("FFmpeg build process: clear hash cache failed!");
-        */
+            Command::new("make")
+                .current_dir(&*FFMPEG_DIR)
+                .arg(format!("-j{}", *NUM_CPUS))
+                .spawn()
+                .expect("FFmpeg build process: make compile failed!")
+                .wait()
+                .expect("FFmpeg build process: make compile failed!");
+
+            Command::new("make")
+                .current_dir(&*FFMPEG_DIR)
+                .arg(format!("-j{}", *NUM_CPUS))
+                .arg("install")
+                .spawn()
+                .expect("FFmpeg build process: make install failed!")
+                .wait()
+                .expect("FFmpeg build process: make install failed!");
+
+            /* Commented because it's not needed, we are not using any specific shell.
+            Command::new("hash")
+                .current_dir(&*FFMPEG_DIR)
+                .arg("-r")
+                .spawn()
+                .expect("FFmpeg build process: clear hash cache failed!")
+                .wait()
+                .expect("FFmpeg build process: clear hash cache failed!");
+            */
+        }
     }
 
     // We currently only support building with static libraries.
-
-    /* Thanks to pkg-config, we don't need this.
-    // Output link libraries
-    (&*LIBS)
-        .iter()
-        .for_each(|name| println!("cargo:rustc-link-lib={}={}", "static", name));
-    */
-
     // Probe libraries
-    // TODO if not enabled, we should not probe it
+    // TODO if not enabled, we should not probe it. Should modify probe_system_ffmpeg() too.
     let include_paths = (&*LIBS)
         .iter()
         .map(|name| "lib".to_owned() + name)
         .map(|libname| {
             pkgconfig::Config::new()
                 .statik(true)
+                .cargo_metadata(true)
                 .probe(&libname)
                 .unwrap_or_else(|_| panic!(format!("{} not found!", libname)))
                 .include_paths
