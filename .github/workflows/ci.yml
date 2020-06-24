@@ -33,47 +33,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install latest nightly
-        uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: nightly
           override: true
           components: clippy
 
-      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
-      - name: Install FFmpegBuildTools
+      - name: Install System FFmpeg
         run: |
-          sudo apt-get update -qq && sudo apt-get -y install \
-            autoconf \
-            automake \
-            build-essential \
-            cmake \
-            git-core \
-            libass-dev \
-            libfreetype6-dev \
-            libgnutls28-dev \
-            libsdl2-dev \
-            libtool \
-            libva-dev \
-            libvdpau-dev \
-            libvorbis-dev \
-            libxcb1-dev \
-            libxcb-shm0-dev \
-            libxcb-xfixes0-dev \
-            pkg-config \
-            texinfo \
-            wget \
-            yasm \
-            zlib1g-dev
-          sudo apt-get install nasm
-          sudo apt-get install libx264-dev
-          sudo apt-get install libx265-dev libnuma-dev
-          sudo apt-get install libvpx-dev
-          sudo apt-get install libfdk-aac-dev
-          sudo apt-get install libmp3lame-dev
-          sudo apt-get install libopus-dev
+          sudo apt-get -y install libavcodec-dev libavdevice-dev \
+              libavfilter-dev libavformat-dev libavutil-dev \
+              libpostproc-dev libswresample-dev libswscale-dev
 
       - run: cargo clippy -- -D warnings
 
@@ -81,9 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install latest nightly
-        uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: nightly
@@ -114,25 +83,26 @@ jobs:
             wget \
             yasm \
             zlib1g-dev
-          sudo apt-get install nasm
-          sudo apt-get install libx264-dev
-          sudo apt-get install libx265-dev libnuma-dev
-          sudo apt-get install libvpx-dev
-          sudo apt-get install libfdk-aac-dev
-          sudo apt-get install libmp3lame-dev
-          sudo apt-get install libopus-dev
-      - name: BindingBuild
+          sudo apt-get -y install nasm
+          sudo apt-get -y install libx264-dev
+          sudo apt-get -y install libx265-dev libnuma-dev
+          sudo apt-get -y install libvpx-dev
+          sudo apt-get -y install libfdk-aac-dev
+          sudo apt-get -y install libmp3lame-dev
+          sudo apt-get -y install libopus-dev
+
+      - name: Binding Build
         run: cargo build --verbose
-      - name: BindingTest
+      - name: Binding Test
         run: cargo test --verbose
-      - name: BuildExamples
+      - name: Build Examples
         run: cargo build --examples --verbose
 
-      - name: RunSliceExample
+      - name: Run Slice Example
         run: cargo run --example slice
       # Avoid the situation that example outputs incorrect results.
       # (Is this really essential? Maybe I'm too anxious?)
-      - name: CheckNoChange
+      - name: Check No Change
         run: |
           if [[ -z "$(git status --porcelain)" ]]; then
             echo "0"
@@ -140,13 +110,11 @@ jobs:
             echo "1"
           fi
 
-  build_with_prebuilt_ffmpeg:
+  build_with_cloned_ffmpeg:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install latest nightly
-        uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: nightly
@@ -177,17 +145,63 @@ jobs:
             wget \
             yasm \
             zlib1g-dev
-          sudo apt-get install nasm
-          sudo apt-get install libx264-dev
-          sudo apt-get install libx265-dev libnuma-dev
-          sudo apt-get install libvpx-dev
-          sudo apt-get install libfdk-aac-dev
-          sudo apt-get install libmp3lame-dev
-          sudo apt-get install libopus-dev
+          sudo apt-get -y install nasm
+          sudo apt-get -y install libx264-dev
+          sudo apt-get -y install libx265-dev libnuma-dev
+          sudo apt-get -y install libvpx-dev
+          sudo apt-get -y install libfdk-aac-dev
+          sudo apt-get -y install libmp3lame-dev
+          sudo apt-get -y install libopus-dev
 
-      - name: FFmpegBuild
+      - name: Binding Build
+        run: cargo build --verbose
+
+  build_with_prebuilt_ffmpeg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          override: true
+
+      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+      - name: Install FFmpegBuildTools
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg
+          sudo apt-get update -qq && sudo apt-get -y install \
+            autoconf \
+            automake \
+            build-essential \
+            cmake \
+            git-core \
+            libass-dev \
+            libfreetype6-dev \
+            libgnutls28-dev \
+            libsdl2-dev \
+            libtool \
+            libva-dev \
+            libvdpau-dev \
+            libvorbis-dev \
+            libxcb1-dev \
+            libxcb-shm0-dev \
+            libxcb-xfixes0-dev \
+            pkg-config \
+            texinfo \
+            wget \
+            yasm \
+            zlib1g-dev
+          sudo apt-get -y install nasm
+          sudo apt-get -y install libx264-dev
+          sudo apt-get -y install libx265-dev libnuma-dev
+          sudo apt-get -y install libvpx-dev
+          sudo apt-get -y install libfdk-aac-dev
+          sudo apt-get -y install libmp3lame-dev
+          sudo apt-get -y install libopus-dev
+
+      - name: FFmpeg Build
+        run: |
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1
           cd ./ffmpeg
           PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
             --prefix="$HOME/ffmpeg_build" \
@@ -211,16 +225,14 @@ jobs:
           make -j$(nproc) install && \
           hash -r
           cd ..
-      - name: BindingBuild
+      - name: Binding Build
         run: PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build --verbose
 
   build_with_system_ffmpeg:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install latest nightly
-        uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: nightly
@@ -228,7 +240,7 @@ jobs:
 
       - name: Install System FFmpeg
         run: |
-          sudo apt-get install -y libavcodec-dev libavdevice-dev \
+          sudo apt-get -y install libavcodec-dev libavdevice-dev \
               libavfilter-dev libavformat-dev libavutil-dev \
               libpostproc-dev libswresample-dev libswscale-dev
 
@@ -240,15 +252,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install latest nightly
-        uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: nightly
           override: true
 
-      - name: BindingBuild
+      - name: Binding Build
         run: DOCS_RS=1 cargo build --verbose
-      - name: DocumentGeneration
+      - name: Document Generation
         run: cargo doc --verbose
