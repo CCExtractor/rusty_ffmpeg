@@ -127,7 +127,7 @@ fn main() {
         if !path::PathBuf::from(format!("{}/fftools", &*FFMPEG_DIR)).is_dir() {
             Command::new("git")
                 .current_dir(&*OUT_DIR)
-                .args(["clone", "https://github.com/ffmpeg/ffmpeg"].iter())
+                .args(["clone", "https://github.com/ffmpeg/ffmpeg", "--depth", "1"].iter())
                 .spawn()
                 .expect("FFmpeg submodule failed to clone.")
                 .wait()
