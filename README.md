@@ -15,7 +15,7 @@ FFI binding for FFmpeg inner library.
     $ curl -s https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly
     ```
 2. Generate and build the bindings:  
-    Run `cargo build` to build the bindings, we will compile the FFmpeg in the git submodule for you. If you have a pre-built ffmpeg, set `PKG_CONFIG_PATH` to the path which points to `*.pc` files in the build result(e.g. `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build`) then we will use the pre-built FFmpeg libraries. After the FFmpeg is built, the build script will take advantage of the package-config(`*.pc`) files to:
+    Run `cargo build` to build the bindings. If you have a pre-built ffmpeg, set `PKG_CONFIG_PATH` to the path which points to `*.pc` files in the build result(e.g. `PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build`) then it will use the pre-built FFmpeg libraries. If no `PKG_CONFIG_PATH` is set, it will first check if there are `libav*-dev` installed. If not, it will git clone the FFmpeg from <https://github.com/ffmpeg/ffmpeg> and then configure and compile it for you. After the FFmpeg libraries is ready, the build script will take advantage of the package-config(`*.pc`) files to:  
     1. Probe paths of the header files for binding generation and generate the binding.
     2. Probe library dependencies as project dependencies to ensure this project can be built successfully.
 
