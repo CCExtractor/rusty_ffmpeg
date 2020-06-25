@@ -1,3 +1,6 @@
 pub mod common;
+
+#[rustfmt::skip]
 pub mod error;
-pub mod avutil;
+
+pub mod avutils;
