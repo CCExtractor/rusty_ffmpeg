@@ -8,3 +8,6 @@
 pub mod ffi {
     include!(concat!(env!("OUT_DIR"), "/binding.rs"));
 }
+
+#[rustfmt::skip]
+pub mod avutil;
