@@ -133,6 +133,10 @@ fn probe_system_ffmpeg() -> Result<(), String> {
 }
 
 fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+    println!("cargo:rerun-if-env-changed=DOCS_RS");
+    println!("cargo:rerun-if-env-changed=PKG_CONFIG_PATH");
+
     // If it's a documentation generation from docs.rs, just copy the bindings
     // generated locally to `OUT_DIR`. We do this because the building
     // environment of docs.rs doesn't have an network connection, so we cannot
