@@ -727,7 +727,7 @@ pub const _BITS_TYPES_LOCALE_T_H: u32 = 1;
 pub const _BITS_TYPES___LOCALE_T_H: u32 = 1;
 pub const _STRINGS_H: u32 = 1;
 pub const LIBAVUTIL_VERSION_MAJOR: u32 = 56;
-pub const LIBAVUTIL_VERSION_MINOR: u32 = 53;
+pub const LIBAVUTIL_VERSION_MINOR: u32 = 55;
 pub const LIBAVUTIL_VERSION_MICRO: u32 = 100;
 pub const AV_HAVE_BIGENDIAN: u32 = 0;
 pub const AV_HAVE_FAST_UNALIGNED: u32 = 1;
@@ -861,7 +861,7 @@ pub const FF_DECODE_ERROR_MISSING_REFERENCE: u32 = 2;
 pub const FF_DECODE_ERROR_CONCEALMENT_ACTIVE: u32 = 4;
 pub const FF_DECODE_ERROR_DECODE_SLICES: u32 = 8;
 pub const LIBAVCODEC_VERSION_MAJOR: u32 = 58;
-pub const LIBAVCODEC_VERSION_MINOR: u32 = 92;
+pub const LIBAVCODEC_VERSION_MINOR: u32 = 95;
 pub const LIBAVCODEC_VERSION_MICRO: u32 = 100;
 pub const AV_PKT_FLAG_KEY: u32 = 1;
 pub const AV_PKT_FLAG_CORRUPT: u32 = 2;
@@ -1155,7 +1155,7 @@ pub const VORBIS_FLAG_COMMENT: u32 = 2;
 pub const VORBIS_FLAG_SETUP: u32 = 4;
 pub const LIBAVDEVICE_VERSION_MAJOR: u32 = 58;
 pub const LIBAVDEVICE_VERSION_MINOR: u32 = 11;
-pub const LIBAVDEVICE_VERSION_MICRO: u32 = 100;
+pub const LIBAVDEVICE_VERSION_MICRO: u32 = 101;
 pub const AV_OPT_FLAG_ENCODING_PARAM: u32 = 1;
 pub const AV_OPT_FLAG_DECODING_PARAM: u32 = 2;
 pub const AV_OPT_FLAG_AUDIO_PARAM: u32 = 8;
@@ -1192,8 +1192,8 @@ pub const __struct_tm_defined: u32 = 1;
 pub const __itimerspec_defined: u32 = 1;
 pub const TIME_UTC: u32 = 1;
 pub const LIBAVFORMAT_VERSION_MAJOR: u32 = 58;
-pub const LIBAVFORMAT_VERSION_MINOR: u32 = 46;
-pub const LIBAVFORMAT_VERSION_MICRO: u32 = 101;
+pub const LIBAVFORMAT_VERSION_MINOR: u32 = 48;
+pub const LIBAVFORMAT_VERSION_MICRO: u32 = 100;
 pub const FF_API_R_FRAME_RATE: u32 = 1;
 pub const AVIO_SEEKABLE_NORMAL: u32 = 1;
 pub const AVIO_SEEKABLE_TIME: u32 = 2;
@@ -1284,7 +1284,7 @@ pub const AVSTREAM_INIT_IN_WRITE_HEADER: u32 = 0;
 pub const AVSTREAM_INIT_IN_INIT_OUTPUT: u32 = 1;
 pub const AV_FRAME_FILENAME_FLAGS_MULTIPLE: u32 = 1;
 pub const LIBAVFILTER_VERSION_MAJOR: u32 = 7;
-pub const LIBAVFILTER_VERSION_MINOR: u32 = 86;
+pub const LIBAVFILTER_VERSION_MINOR: u32 = 87;
 pub const LIBAVFILTER_VERSION_MICRO: u32 = 100;
 pub const AVFILTER_FLAG_DYNAMIC_INPUTS: u32 = 1;
 pub const AVFILTER_FLAG_DYNAMIC_OUTPUTS: u32 = 2;
@@ -8097,8 +8097,12 @@ pub const AVPixelFormat_AV_PIX_FMT_VULKAN: AVPixelFormat = 193;
 pub const AVPixelFormat_AV_PIX_FMT_Y210BE: AVPixelFormat = 194;
 #[doc = "< packed YUV 4:2:2 like YUYV422, 20bpp, data in the high bits, little-endian"]
 pub const AVPixelFormat_AV_PIX_FMT_Y210LE: AVPixelFormat = 195;
+#[doc = "< packed RGB 10:10:10, 30bpp, (msb)2X 10R 10G 10B(lsb), little-endian, X=unused/undefined"]
+pub const AVPixelFormat_AV_PIX_FMT_X2RGB10LE: AVPixelFormat = 196;
+#[doc = "< packed RGB 10:10:10, 30bpp, (msb)2X 10R 10G 10B(lsb), big-endian, X=unused/undefined"]
+pub const AVPixelFormat_AV_PIX_FMT_X2RGB10BE: AVPixelFormat = 197;
 #[doc = "< number of pixel formats, DO NOT USE THIS if you want to link with shared libav* because the number of formats might differ between versions"]
-pub const AVPixelFormat_AV_PIX_FMT_NB: AVPixelFormat = 196;
+pub const AVPixelFormat_AV_PIX_FMT_NB: AVPixelFormat = 198;
 #[doc = " Pixel format."]
 #[doc = ""]
 #[doc = " @note"]
@@ -9221,6 +9225,11 @@ pub const AVFrameSideDataType_AV_FRAME_DATA_DYNAMIC_HDR_PLUS: AVFrameSideDataTyp
 pub const AVFrameSideDataType_AV_FRAME_DATA_REGIONS_OF_INTEREST: AVFrameSideDataType = 20;
 #[doc = " Encoding parameters for a video frame, as described by AVVideoEncParams."]
 pub const AVFrameSideDataType_AV_FRAME_DATA_VIDEO_ENC_PARAMS: AVFrameSideDataType = 21;
+#[doc = " User data unregistered metadata associated with a video frame."]
+#[doc = " This is the H.26[45] UDU SEI message, and shouldn't be used for any other purpose"]
+#[doc = " The data is stored as uint8_t in AVFrameSideData.data which is 16 bytes of"]
+#[doc = " uuid_iso_iec_11578 followed by AVFrameSideData.size - 16 bytes of user_data_payload_byte."]
+pub const AVFrameSideDataType_AV_FRAME_DATA_SEI_UNREGISTERED: AVFrameSideDataType = 22;
 #[doc = " @defgroup lavu_frame AVFrame"]
 #[doc = " @ingroup lavu_data"]
 #[doc = ""]
@@ -11542,6 +11551,7 @@ pub const AVCodecID_AV_CODEC_ID_DXV: AVCodecID = 189;
 pub const AVCodecID_AV_CODEC_ID_SCREENPRESSO: AVCodecID = 190;
 pub const AVCodecID_AV_CODEC_ID_RSCC: AVCodecID = 191;
 pub const AVCodecID_AV_CODEC_ID_AVS2: AVCodecID = 192;
+pub const AVCodecID_AV_CODEC_ID_PGX: AVCodecID = 193;
 pub const AVCodecID_AV_CODEC_ID_Y41P: AVCodecID = 32768;
 pub const AVCodecID_AV_CODEC_ID_AVRP: AVCodecID = 32769;
 pub const AVCodecID_AV_CODEC_ID_012V: AVCodecID = 32770;
@@ -12905,7 +12915,8 @@ extern "C" {
     #[doc = ""]
     #[doc = " @param pkt packet"]
     #[doc = " @param type desired side information type"]
-    #[doc = " @param size pointer for side information size to store (optional)"]
+    #[doc = " @param size If supplied, *size will be set to the size of the side data"]
+    #[doc = "             or to zero if the desired side data is not present."]
     #[doc = " @return pointer to data if present or NULL otherwise"]
     pub fn av_packet_get_side_data(
         pkt: *const AVPacket,
@@ -13638,18 +13649,9 @@ pub struct AVCodec {
     pub close: ::std::option::Option<
         unsafe extern "C" fn(arg1: *mut AVCodecContext) -> ::std::os::raw::c_int,
     >,
-    #[doc = " Encode API with decoupled packet/frame dataflow. The API is the"]
-    #[doc = " same as the avcodec_ prefixed APIs (avcodec_send_frame() etc.), except"]
-    #[doc = " that:"]
-    #[doc = " - never called if the codec is closed or the wrong type,"]
-    #[doc = " - if AV_CODEC_CAP_DELAY is not set, drain frames are never sent,"]
-    #[doc = " - only one drain frame is ever passed down,"]
-    pub send_frame: ::std::option::Option<
-        unsafe extern "C" fn(
-            avctx: *mut AVCodecContext,
-            frame: *const AVFrame,
-        ) -> ::std::os::raw::c_int,
-    >,
+    #[doc = " Encode API with decoupled frame/packet dataflow. This function is called"]
+    #[doc = " to get one output packet. It should call ff_encode_get_frame() to obtain"]
+    #[doc = " input data."]
     pub receive_packet: ::std::option::Option<
         unsafe extern "C" fn(
             avctx: *mut AVCodecContext,
@@ -13687,7 +13689,7 @@ pub struct AVCodec {
 fn bindgen_test_layout_AVCodec() {
     assert_eq!(
         ::std::mem::size_of::<AVCodec>(),
-        248usize,
+        240usize,
         concat!("Size of: ", stringify!(AVCodec))
     );
     assert_eq!(
@@ -13936,18 +13938,8 @@ fn bindgen_test_layout_AVCodec() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVCodec>())).send_frame as *const _ as usize },
-        184usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(AVCodec),
-            "::",
-            stringify!(send_frame)
-        )
-    );
-    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodec>())).receive_packet as *const _ as usize },
-        192usize,
+        184usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
@@ -13957,7 +13949,7 @@ fn bindgen_test_layout_AVCodec() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodec>())).receive_frame as *const _ as usize },
-        200usize,
+        192usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
@@ -13967,7 +13959,7 @@ fn bindgen_test_layout_AVCodec() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodec>())).flush as *const _ as usize },
-        208usize,
+        200usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
@@ -13977,7 +13969,7 @@ fn bindgen_test_layout_AVCodec() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodec>())).caps_internal as *const _ as usize },
-        216usize,
+        208usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
@@ -13987,7 +13979,7 @@ fn bindgen_test_layout_AVCodec() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodec>())).bsfs as *const _ as usize },
-        224usize,
+        216usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
@@ -13997,7 +13989,7 @@ fn bindgen_test_layout_AVCodec() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodec>())).hw_configs as *const _ as usize },
-        232usize,
+        224usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
@@ -14007,7 +13999,7 @@ fn bindgen_test_layout_AVCodec() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodec>())).codec_tags as *const _ as usize },
-        240usize,
+        232usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
@@ -27707,7 +27699,8 @@ extern "C" {
     #[doc = ""]
     #[doc = " @param stream stream"]
     #[doc = " @param type desired side information type"]
-    #[doc = " @param size pointer for side information size to store (optional)"]
+    #[doc = " @param size If supplied, *size will be set to the size of the side data"]
+    #[doc = "             or to zero if the desired side data is not present."]
     #[doc = " @return pointer to data if present or NULL otherwise"]
     pub fn av_stream_get_side_data(
         stream: *const AVStream,
@@ -35608,6 +35601,25 @@ extern "C" {
     pub fn av_timecode_get_smpte_from_framenum(
         tc: *const AVTimecode,
         framenum: ::std::os::raw::c_int,
+    ) -> u32;
+}
+extern "C" {
+    #[doc = " Convert sei info to SMPTE 12M binary representation."]
+    #[doc = ""]
+    #[doc = " @param rate     frame rate in rational form"]
+    #[doc = " @param drop     drop flag"]
+    #[doc = " @param hh       hour"]
+    #[doc = " @param mm       minute"]
+    #[doc = " @param ss       second"]
+    #[doc = " @param ff       frame number"]
+    #[doc = " @return         the SMPTE binary representation"]
+    pub fn av_timecode_get_smpte(
+        rate: AVRational,
+        drop: ::std::os::raw::c_int,
+        hh: ::std::os::raw::c_int,
+        mm: ::std::os::raw::c_int,
+        ss: ::std::os::raw::c_int,
+        ff: ::std::os::raw::c_int,
     ) -> u32;
 }
 extern "C" {
