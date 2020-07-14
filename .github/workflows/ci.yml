@@ -20,7 +20,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: nightly
+          toolchain: stable
           override: true
           components: rustfmt
       - uses: actions-rs/cargo@v1
@@ -36,13 +36,13 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: nightly
+          toolchain: stable
           override: true
           components: clippy
 
       - name: Install System FFmpeg
         run: |
-          sudo apt-get -y install libavcodec-dev libavdevice-dev \
+          sudo apt-get update -qq && sudo apt-get -y install libavcodec-dev libavdevice-dev \
               libavfilter-dev libavformat-dev libavutil-dev \
               libpostproc-dev libswresample-dev libswscale-dev
 
@@ -55,7 +55,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: nightly
+          toolchain: stable
           override: true
 
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
@@ -117,7 +117,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: nightly
+          toolchain: stable
           override: true
 
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
@@ -163,7 +163,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: nightly
+          toolchain: stable
           override: true
 
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
@@ -235,12 +235,12 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: nightly
+          toolchain: stable
           override: true
 
       - name: Install System FFmpeg
         run: |
-          sudo apt-get -y install libavcodec-dev libavdevice-dev \
+          sudo apt-get update -qq && sudo apt-get -y install libavcodec-dev libavdevice-dev \
               libavfilter-dev libavformat-dev libavutil-dev \
               libpostproc-dev libswresample-dev libswscale-dev
 
@@ -255,7 +255,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: nightly
+          toolchain: stable
           override: true
 
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu

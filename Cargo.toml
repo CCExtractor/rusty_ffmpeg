@@ -1,6 +1,6 @@
 [package]
 name = "rusty_ffmpeg"
-version = "0.2.4"
+version = "0.2.5"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2018"
 
@@ -20,8 +20,6 @@ exclude = [
     # "examples"
 ]
 build = "build.rs"
-# TODO: links = "foo"
-# [badges] https://github.com/rust-lang/crates.io/issues/2436
 
 # Doc test of generated binding is non-sense https://github.com/rust-lang/cargo/issues/3720
 [lib]

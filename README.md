@@ -9,11 +9,8 @@ FFI bindings for FFmpeg inner libraries.
 ## Building
 
 ### Prerequisites  
-A Linux Machine with the Nightly Rust toolchain. You can use this [one-liner script](https://doc.rust-lang.org/1.5.0/book/nightly-rust.html) to install nightly Rust:
+Linux environment.
 
-```
-$ curl -s https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly
-```
 ### Generate and build the bindings:  
 
 Run `cargo build` to build the bindings. There are three ways for developer to provide FFmpeg libraries for this crate to generate bindings:  
