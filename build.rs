@@ -1,4 +1,3 @@
-#![feature(bool_to_option)]
 use bindgen::{self, callbacks, CargoCallbacks};
 use num_cpus as ncpus;
 use once_cell::sync::Lazy;
@@ -280,13 +279,6 @@ fn main() {
             acc
         });
 
-    // TODO mysterious feature checking should be done
-
-    // Add clang path, for `#include` header finding
-    let clang_args = include_paths
-        .iter()
-        .map(|path| "-I".to_owned() + path.to_str().unwrap());
-
     // Because the strange `FP_*` in `math.h` https://github.com/rust-lang/rust-bindgen/issues/687
     let filter_callback = FilterCargoCallbacks(
         CargoCallbacks,
@@ -302,11 +294,7 @@ fn main() {
     );
 
     // Bindgen the headers
-    let builder = bindgen::builder()
-        .clang_args(clang_args)
-        .parse_callbacks(Box::new(filter_callback));
-
-    let builder = (&*HEADERS)
+    (&*HEADERS)
         .iter()
         // map header short path to full path
         .map(|header| {
@@ -314,62 +302,21 @@ fn main() {
                 .iter()
                 .find_map(|path| {
                     let full_path = path.join(header);
-                    println!("{}", full_path.to_string_lossy());
                     fs::metadata(&full_path).ok().map(|_| full_path)
                 })
                 .unwrap()
         })
-        .fold(builder, |builder, header| {
-            builder.header(header.to_str().unwrap())
-        });
-
-    /* This is a ill try, FFmpeg strangely generate corresponding header file
-     * even if some feature is not usable. e.g. We get
-     * libavcodec/videotoolbox.h(MacOS only) even when we are on Linux. SO
-     * generate it's binding will fails. So I use the white list way.
-
-    // Shrink to one path and search header in it. Using it will make the
-    // situation that headers are not placed in one folder invalid.
-    let include_path = if include_paths.len() > 1 {
-        panic!("Inconsistent include paths");
-    } else {
-        include_paths.iter().next().expect("No include_path.")
-    };
-
-    // Find all headers in include path and generate binding to it.
-    let builder = (&*LIBS)
-        .iter()
-        // TODO if not enabled, we should not manipulate it, consider adding a filter here
-        .map(|name| "lib".to_owned() + name)
-        .map(|libname| {
-            let mut path = path::PathBuf::from(include_path);
-            path.push(&libname);
-            (libname, path.into_os_string())
-        })
         .fold(
-            // For each library(e.g. libavcodec), find all headers under its folder and `Builder::header()` it.
-            bindgen::builder().parse_callbacks(Box::new(CargoCallbacks)),
-            |builder, (libname, path)| {
-                fs::read_dir(&path)
-                    .expect(&format!("Cannot open libfolder:{}", libname))
-                    .map(|entry| entry.unwrap())
-                    // Filter out all entries which is file
-                    .filter_map(|entry| entry.file_type().unwrap().is_file().then_some(entry))
-                    // Filter out all files which name ends with `.h`
-                    .filter_map(|entry| {
-                        let name = entry.file_name();
-                        name.to_string_lossy().ends_with(".h").then_some(name)
-                    })
-                    // Builder binds header files
-                    .fold(builder, |builder, name| {
-                        let file_path: path::PathBuf = [path.clone(), name].iter().collect();
-                        builder.header(file_path.to_str().expect("invalid Unicode header name!"))
-                    })
-            },
-        );
-    */
-
-    builder
+            bindgen::builder()
+                // Add clang path, for `#include` header finding in bindgen process.
+                .clang_args(
+                    include_paths
+                        .iter()
+                        .map(|path| "-I".to_owned() + path.to_str().unwrap()),
+                )
+                .parse_callbacks(Box::new(filter_callback)),
+            |builder, header| builder.header(header.to_str().unwrap()),
+        )
         .generate()
         .expect("Binding generation failed.")
         // Is it correct to generate binding to one file? :-/
