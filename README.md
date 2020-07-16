@@ -9,7 +9,9 @@ FFI bindings for FFmpeg inner libraries.
 ## Building
 
 ### Prerequisites  
-Linux environment.
+
+1. Linux environment.
+2. Rust environment([Install](https://www.rust-lang.org/tools/install)).
 
 ### Generate and build the bindings:  
 
