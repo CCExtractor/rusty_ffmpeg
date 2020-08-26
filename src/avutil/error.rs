@@ -1,3 +1,5 @@
+#![rustfmt::skip]
+
 use libc::c_int;
 use super::common::MKTAG;
 use crate::ffi::av_strerror;
