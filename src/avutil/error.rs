@@ -1,5 +1,6 @@
 use libc::c_int;
 use super::common::MKTAG;
+use crate::ffi::av_strerror;
 
 #[allow(non_snake_case)]
 pub const fn AVERROR(e: c_int) -> c_int {
@@ -49,3 +50,12 @@ pub const AVERROR_HTTP_OTHER_4XX: c_int     = FFERRTAG!(0xF8, b'4', b'X', b'X');
 pub const AVERROR_HTTP_SERVER_ERROR: c_int  = FFERRTAG!(0xF8, b'5', b'X', b'X');
 
 pub const AV_ERROR_MAX_STRING_SIZE: c_int   = 64;
+
+pub unsafe fn av_make_error_string(
+    errbuf: *mut libc::c_char,
+    errbuf_size: libc::size_t,
+    errnum: libc::c_int
+) -> *mut libc::c_char {
+    av_strerror(errnum, errbuf, errbuf_size as u64);
+    return errbuf;
+}
