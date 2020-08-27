@@ -1,5 +1,4 @@
 #![allow(non_upper_case_globals)]
-#![rustfmt::skip]
 
 use crate::ffi::*;
 
