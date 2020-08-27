@@ -1,10 +1,7 @@
 //! Port from Original code: https://github.com/leandromoreira/ffmpeg-libav-tutorial/blob/master/0_hello_world.c
 //! Since this is a ported code, many warnings will emits.
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
-use rusty_ffmpeg::{
-    avutil::error::{AVERROR, AVERROR_EOF},
-    ffi,
-};
+use rusty_ffmpeg::ffi;
 
 use std::{
     ffi::{CStr, CString},
@@ -167,7 +164,7 @@ fn decode_packet(
 
     while response >= 0 {
         let response = unsafe { ffi::avcodec_receive_frame(pCodecContext, pFrame) };
-        if response == AVERROR(ffi::EAGAIN as i32) || response == AVERROR_EOF {
+        if response == ffi::AVERROR(ffi::EAGAIN as i32) || response == ffi::AVERROR_EOF {
             break;
         } else if response < 0 {
             return Err(String::from(
