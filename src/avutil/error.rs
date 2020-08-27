@@ -3,13 +3,13 @@ use super::common::MKTAG;
 use crate::ffi::av_strerror;
 
 #[allow(non_snake_case)]
-pub const fn AVERROR(e: c_int) -> c_int {
-    -e
+pub const fn AVERROR(e: u32) -> c_int {
+    -(e as c_int)
 }
 
 #[allow(non_snake_case)]
-pub const fn AVUNERROR(e: c_int) -> c_int {
-    -e
+pub const fn AVUNERROR(e: u32) -> c_int {
+    -(e as c_int)
 }
 
 macro_rules! FFERRTAG {
