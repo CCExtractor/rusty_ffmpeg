@@ -37,9 +37,6 @@ pub const AVERROR_STREAM_NOT_FOUND: c_int   = FFERRTAG!(0xF8, b'S', b'T', b'R');
 
 pub const AVERROR_BUG2: c_int               = FFERRTAG!(b'B', b'U', b'G', b' ');
 pub const AVERROR_UNKNOWN: c_int            = FFERRTAG!(b'U', b'N', b'K', b'N');
-pub const AVERROR_EXPERIMENTAL: c_int       = -0x2bb2afa8; ///< Requested feature is flagged experimental. Set strict_std_compliance if you really want to use it.
-pub const AVERROR_INPUT_CHANGED: c_int      = -0x636e6701; ///< Input changed between calls. Reconfiguration is required. (can be OR-ed with AVERROR_OUTPUT_CHANGED)
-pub const AVERROR_OUTPUT_CHANGED: c_int     = -0x636e6702; ///< Output changed between calls. Reconfiguration is required. (can be OR-ed with AVERROR_INPUT_CHANGED)
 
 
 pub const AVERROR_HTTP_BAD_REQUEST: c_int   = FFERRTAG!(0xF8, b'4', b'0', b'0');
