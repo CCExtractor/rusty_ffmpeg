@@ -3,11 +3,11 @@
 /// Ref: https://github.com/rust-lang/rust-bindgen/issues/1344
 use crate::ffi::AVRational;
 
-pub unsafe fn av_make_q(num: libc::c_int, den: libc::c_int) -> AVRational {
+pub fn av_make_q(num: libc::c_int, den: libc::c_int) -> AVRational {
     AVRational { num, den }
 }
 
-pub unsafe fn av_cmp_q(a: AVRational, b: AVRational) -> libc::c_int {
+pub fn av_cmp_q(a: AVRational, b: AVRational) -> libc::c_int {
     let tmp = i64::from(a.num) * i64::from(b.den) - i64::from(b.num) * i64::from(a.den);
 
     if tmp != 0 {
@@ -21,11 +21,11 @@ pub unsafe fn av_cmp_q(a: AVRational, b: AVRational) -> libc::c_int {
     }
 }
 
-pub unsafe fn av_q2d(a: AVRational) -> libc::c_double {
+pub fn av_q2d(a: AVRational) -> libc::c_double {
     libc::c_double::from(a.num) / libc::c_double::from(a.den)
 }
 
-pub unsafe fn av_inv_q(q: AVRational) -> AVRational {
+pub fn av_inv_q(q: AVRational) -> AVRational {
     AVRational {
         num: q.den,
         den: q.num,

@@ -1,5 +1,3 @@
-#![rustfmt::skip]
-
 use libc::c_int;
 use super::common::MKTAG;
 use crate::ffi::av_strerror;
@@ -53,11 +51,23 @@ pub const AVERROR_HTTP_SERVER_ERROR: c_int  = FFERRTAG!(0xF8, b'5', b'X', b'X');
 
 pub const AV_ERROR_MAX_STRING_SIZE: c_int   = 64;
 
+/// This function should not be called before the horsemen are ready.
+/// Fill the provided buffer with a string containing an error string
+/// corresponding to the AVERROR code errnum.
+///
+/// @param errbuf         a buffer
+/// @param errbuf_size    size in bytes of errbuf
+/// @param errnum         error code to describe
+/// @return the buffer in input, filled with the error description
+/// @see av_strerror()
+///
+/// # Safety
+/// Safety requirements is the same as the  av_strerror()`
 pub unsafe fn av_make_error_string(
     errbuf: *mut libc::c_char,
     errbuf_size: libc::size_t,
     errnum: libc::c_int
 ) -> *mut libc::c_char {
     av_strerror(errnum, errbuf, errbuf_size as u64);
-    return errbuf;
+    errbuf
 }
