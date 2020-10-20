@@ -65,7 +65,11 @@ pub unsafe fn av_make_error_string(
     errbuf_size: libc::size_t,
     errnum: libc::c_int
 ) -> *mut libc::c_char {
-    av_strerror(errnum, errbuf, errbuf_size as u64);
+    #[cfg(target_arch="x86")]
+    let errbuf_size = errbuf_size as u32;
+    #[cfg(not(target_arch="x86"))]
+    let errbuf_size = errbuf_size as u64;
+    av_strerror(errnum, errbuf, errbuf_size);
     errbuf
 }
 
