@@ -26,11 +26,12 @@ build = "build.rs"
 doctest = false
 
 [dependencies]
-once_cell = "1.4.0"
-libc = "0.2.71"
+once_cell = "1.4.1"
+libc = "0.2.79"
 
 [build-dependencies]
-bindgen = "0.54.0"
-once_cell = "1.4.0"
-pkg-config = "0.3.17"
+bindgen = "0.55.1"
+once_cell = "1.4.1"
+pkg-config = "0.3.19"
+vcpkg = "0.2.10"
 num_cpus = "1.13.0"
