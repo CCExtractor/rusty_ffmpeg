@@ -369,10 +369,12 @@ mod windows {
 }
 
 fn main() {
+    /* Workaround of cargo rerun-if-env-changed bug
     println!("cargo:rerun-if-env-changed=DOCS_RS");
     println!("cargo:rerun-if-env-changed=VCPKG_ROOT");
     println!("cargo:rerun-if-env-changed=FFMPEG_PKG_CONFIG_PATH");
     println!("cargo:rerun-if-env-changed=FFMPEG_DYNAMIC_LINKING");
+    */
 
     let out_dir = &env::var("OUT_DIR").unwrap();
 
