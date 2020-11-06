@@ -1,7 +1,7 @@
 use bindgen::{self, callbacks, Bindings, CargoCallbacks};
 use once_cell::sync::Lazy;
 
-use std::{collections::HashSet, env, fs, path};
+use std::{collections::HashSet, default::Default, env, fs, ops::Deref, path};
 
 /// All the libs that FFmpeg has
 static LIBS: Lazy<[&str; 8]> = Lazy::new(|| {
@@ -90,18 +90,27 @@ static HEADERS: Lazy<[&str; 64]> = Lazy::new(|| {
 /// Filter out all symbols in the HashSet, and for others things it will act
 /// exactly the same as `CargoCallback`.
 #[derive(Debug)]
-struct FilterCargoCallbacks(CargoCallbacks, HashSet<String>);
+struct FilterCargoCallbacks {
+    inner: CargoCallbacks,
+    emitted_macro: HashSet<String>,
+}
+
+impl FilterCargoCallbacks {
+    fn new(set: HashSet<String>) -> Self {
+        Self {
+            inner: CargoCallbacks,
+            emitted_macro: set,
+        }
+    }
+}
 
 impl callbacks::ParseCallbacks for FilterCargoCallbacks {
-    fn will_parse_macro(&self, _name: &str) -> callbacks::MacroParsingBehavior {
-        if self.1.contains(_name) {
+    fn will_parse_macro(&self, name: &str) -> callbacks::MacroParsingBehavior {
+        if self.emitted_macro.contains(name) {
             callbacks::MacroParsingBehavior::Ignore
         } else {
             callbacks::MacroParsingBehavior::Default
         }
-    }
-    fn include_file(&self, _filename: &str) {
-        self.0.include_file(_filename);
     }
 }
 
@@ -110,8 +119,7 @@ fn generate_bindings(
     headers: &[&str],
 ) -> Result<Bindings, ()> {
     // Because the strange `FP_*` in `math.h` https://github.com/rust-lang/rust-bindgen/issues/687
-    let filter_callback = FilterCargoCallbacks(
-        CargoCallbacks,
+    let filter_callback = FilterCargoCallbacks::new(
         vec![
             "FP_NAN".to_owned(),
             "FP_INFINITE".to_owned(),
