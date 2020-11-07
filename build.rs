@@ -1,7 +1,7 @@
 use bindgen::{self, callbacks, Bindings, CargoCallbacks};
 use once_cell::sync::Lazy;
 
-use std::{collections::HashSet, default::Default, env, fs, ops::Deref, path};
+use std::{collections::HashSet, env, fs, path};
 
 /// All the libs that FFmpeg has
 static LIBS: Lazy<[&str; 8]> = Lazy::new(|| {
