@@ -12,31 +12,13 @@ Cross platform FFI bindings for FFmpeg inner libraries. This is a crate that:
 
 ### Generate and build the bindings:  
 
-Library linking is static by default, setting environment variable `FFMPEG_DYNAMIC_LINKING` will make rusty_ffmpeg link dynamic libraries.
+1. Set(always) `FFMPEG_INCLUDE_DIR` to the path to the header files for generating bindings.
 
-#### Linux & MacOS
+2. Set `FFMPEG_DLL_PATH` for dynamic linking with `dll` or `so`. (Windows: Put corresponding `.lib` file next to the `.dll` file.)
 
-1. Start to prepare FFmpeg libraries:
-    + If you have a pre-built ffmpeg, set `FFMPEG_PKG_CONFIG_PATH` to the path which points to `*.pc` files in the build result(e.g. `FFMPEG_PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build`) then this crate will use the pre-built FFmpeg libraries.  
-    + If no `FFMPEG_PKG_CONFIG_PATH` is set, this crate will first check if there are `libav*-dev` installed in this system.
-        + If the libraries exists, this crate will use them.
-        + If not, it will git clone the FFmpeg from <https://github.com/ffmpeg/ffmpeg> and then configure and compile it for you.
-2. After the FFmpeg libraries are ready, the build script will take advantage of the package-config(`*.pc`) files to:  
-    1. Probe paths of the header files for binding generation and generate the binding.
-    2. Probe library dependencies as project dependencies to ensure this project can be built successfully.
+3. Set `FFMPEG_PKG_CONFIG_PATH` for static linking with `pkg-config` files.
 
-So there are three ways for developers to provide FFmpeg libraries for this crate to generate bindings:  
+4. Set `FFMPEG_LIBS_DIR` for static linking with static libs.
 
-1. Provide self compiled FFmpeg by setting `FFMPEG_PKG_CONFIG_PATH`
-2. Install FFmpeg libraries via system package manager.(Make sure they can be found by pkg-config)
-3. Doesn't provide FFmpeg, waiting for this crate cloning and building a FFmpeg with some default configuration from scratch.
-
-### Windows
-
-1. Install vcpkg.
-2. Install FFmpeg using it with specific triplet according to your building target and rustflags. (Check [here](https://github.com/ldm0/rusty_ffmpeg/blob/bf4ee3c5c826443426d3f5c1ac6417b43fc88429/.github/workflows/ci.yml#L325)).
-3. build with `VCPKG_ROOT` set to the vcpkg path, and `VCPKG_DEFAULT_TRIPLET` set to the triplet you used.
-
-## Testing
-
-You can use `cargo test` to test the generated bindings. Want to see it works? There is a small example for you. Run `cargo run --example slice`.
+FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include FFPEG_LIBS_DIR=${HOME}/ffmpeg_build/lib cargo run --example slice
+FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig cargo run --example slice

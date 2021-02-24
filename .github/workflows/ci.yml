@@ -12,7 +12,6 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-
   rustfmt_check:
     strategy:
       matrix:
@@ -43,45 +42,56 @@ jobs:
           override: true
           components: clippy
 
-      - name: Install System FFmpeg
+      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+      - name: Install FFmpegBuildTools
         run: |
-          sudo apt-get update -qq && sudo apt-get -y install libavcodec-dev libavdevice-dev \
-              libavfilter-dev libavformat-dev libavutil-dev \
-              libpostproc-dev libswresample-dev libswscale-dev
+          sudo apt-get update -qq && sudo apt-get -y install \
+            autoconf \
+            automake \
+            build-essential \
+            cmake \
+            git-core \
+            libass-dev \
+            libfreetype6-dev \
+            libgnutls28-dev \
+            libsdl2-dev \
+            libtool \
+            libva-dev \
+            libvdpau-dev \
+            libvorbis-dev \
+            libxcb1-dev \
+            libxcb-shm0-dev \
+            libxcb-xfixes0-dev \
+            pkg-config \
+            texinfo \
+            wget \
+            yasm \
+            zlib1g-dev
+          sudo apt-get -y install nasm
+          sudo apt-get -y install libx264-dev
+          sudo apt-get -y install libx265-dev libnuma-dev
+          sudo apt-get -y install libvpx-dev
+          sudo apt-get -y install libfdk-aac-dev
+          sudo apt-get -y install libmp3lame-dev
+          sudo apt-get -y install libopus-dev
 
-      - run: cargo clippy -- -D warnings
+      - run: |
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          cd ffmpeg
+          mkdir build
+          cd build
+          ../configure --prefix=${PWD}/build
+          make -j$(nproc)
+          make install
+          cp -r ./build ~/ffmpeg_build
+          cd ../..
 
-  rust_clippy_check_windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: stable
-          override: true
-      # Using this since it's used by clang-sys's CI
-      - name: Install LLVM and Clang
-        uses: KyleMayes/install-llvm-action@v1
-        with:
-          version: "10.0"
-          directory: ${{ github.workspace }}/clang
+      - run: |
+          FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
+          FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
+          cargo clippy -- -D warnings
 
-      - name: Clone vcpkg FFmpeg
-        run: git clone https://github.com/microsoft/vcpkg --depth 1
-      - name: Bootstrap vcpkg FFmpeg
-        run: ./vcpkg/bootstrap-vcpkg.bat
-      - name: Vcpkg install ffmpeg
-        run: ./vcpkg/vcpkg.exe install ffmpeg:x64-windows-static-md
-
-      - name: Clippy check 
-        env:
-          VCPKG_ROOT: ${{ github.workspace }}/vcpkg
-          LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
-          LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
-        run: cargo clippy -- -D warnings
-
-  build_and_test_ubuntu:
+  build_static_and_test_ubuntu:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -124,15 +134,41 @@ jobs:
           sudo apt-get -y install libmp3lame-dev
           sudo apt-get -y install libopus-dev
 
+      - run: |
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          cd ffmpeg
+          mkdir build
+          cd build
+          ../configure --prefix=${PWD}/build
+          make -j$(nproc)
+          make install
+          cp -r ./build ~/ffmpeg_build
+          cd ../..
+
       - name: Binding Build
-        run: cargo build --verbose
+        run: |
+          FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
+          FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
+          cargo build --verbose
+
       - name: Binding Test
-        run: cargo test --verbose
+        run: |
+          FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
+          FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
+          cargo test --verbose
+
       - name: Build Examples
-        run: cargo build --examples --verbose
+        run: |
+          FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
+          FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
+          cargo build --examples --verbose
 
       - name: Run Slice Example
-        run: cargo run --example slice
+        run: |
+          FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
+          FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
+          cargo run --example slice
+
       - name: Check test result correctness
         run: |
           if [[ -z "$(git status --porcelain)" ]]; then
@@ -140,143 +176,6 @@ jobs:
           else
             echo "1"
           fi
-
-  build_with_cloned_ffmpeg:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: stable
-          override: true
-
-      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
-      - name: Install FFmpegBuildTools
-        run: |
-          sudo apt-get update -qq && sudo apt-get -y install \
-            autoconf \
-            automake \
-            build-essential \
-            cmake \
-            git-core \
-            libass-dev \
-            libfreetype6-dev \
-            libgnutls28-dev \
-            libsdl2-dev \
-            libtool \
-            libva-dev \
-            libvdpau-dev \
-            libvorbis-dev \
-            libxcb1-dev \
-            libxcb-shm0-dev \
-            libxcb-xfixes0-dev \
-            pkg-config \
-            texinfo \
-            wget \
-            yasm \
-            zlib1g-dev
-          sudo apt-get -y install nasm
-          sudo apt-get -y install libx264-dev
-          sudo apt-get -y install libx265-dev libnuma-dev
-          sudo apt-get -y install libvpx-dev
-          sudo apt-get -y install libfdk-aac-dev
-          sudo apt-get -y install libmp3lame-dev
-          sudo apt-get -y install libopus-dev
-
-      - name: Binding Build
-        run: cargo build --verbose
-
-  build_with_prebuilt_ffmpeg:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: stable
-          override: true
-
-      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
-      - name: Install FFmpegBuildTools
-        run: |
-          sudo apt-get update -qq && sudo apt-get -y install \
-            autoconf \
-            automake \
-            build-essential \
-            cmake \
-            git-core \
-            libass-dev \
-            libfreetype6-dev \
-            libgnutls28-dev \
-            libsdl2-dev \
-            libtool \
-            libva-dev \
-            libvdpau-dev \
-            libvorbis-dev \
-            libxcb1-dev \
-            libxcb-shm0-dev \
-            libxcb-xfixes0-dev \
-            pkg-config \
-            texinfo \
-            wget \
-            yasm \
-            zlib1g-dev
-          sudo apt-get -y install nasm
-          sudo apt-get -y install libx264-dev
-          sudo apt-get -y install libx265-dev libnuma-dev
-          sudo apt-get -y install libvpx-dev
-          sudo apt-get -y install libfdk-aac-dev
-          sudo apt-get -y install libmp3lame-dev
-          sudo apt-get -y install libopus-dev
-
-      - name: FFmpeg Build
-        run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1
-          cd ./ffmpeg
-          PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
-            --prefix="$HOME/ffmpeg_build" \
-            --pkg-config-flags="--static" \
-            --extra-cflags="-I$HOME/ffmpeg_build/include" \
-            --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
-            --extra-libs="-lpthread -lm" \
-            --bindir="$HOME/bin" \
-            --enable-gpl \
-            --enable-libass \
-            --enable-libfdk-aac \
-            --enable-libfreetype \
-            --enable-libmp3lame \
-            --enable-libopus \
-            --enable-libvorbis \
-            --enable-libvpx \
-            --enable-libx264 \
-            --enable-libx265 \
-            --enable-nonfree && \
-          PATH="$HOME/bin:$PATH" make -j$(nproc) && \
-          make -j$(nproc) install && \
-          hash -r
-          cd ..
-      - name: Binding Build
-        run: FFMPEG_PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" cargo build --verbose
-
-  build_with_system_ffmpeg:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: stable
-          override: true
-
-      - name: Install System FFmpeg
-        run: |
-          sudo apt-get update -qq && sudo apt-get -y install libavcodec-dev libavdevice-dev \
-              libavfilter-dev libavformat-dev libavutil-dev \
-              libpostproc-dev libswresample-dev libswscale-dev
-
-      - name: Binding Build
-        run: cargo build --verbose
 
   build_with_vcpkg_ffmpeg_windows:
     runs-on: windows-latest
@@ -317,29 +216,326 @@ jobs:
           override: true
           target: ${{ matrix.config.target }}
 
-      - name: Clone vcpkg FFmpeg
-        run: git clone https://github.com/microsoft/vcpkg --depth 1
-      - name: Bootstrap vcpkg FFmpeg
-        run: ./vcpkg/bootstrap-vcpkg.bat
-      - name: Vcpkg install ffmpeg
-        run: ./vcpkg/vcpkg.exe install ffmpeg:${{ matrix.config.vcpkg_triplet }}
+      - run: |
+          git clone https://github.com/microsoft/vcpkg --depth 1
+          ./vcpkg/bootstrap-vcpkg.bat
+          ./vcpkg/vcpkg.exe install ffmpeg:${{ matrix.config.vcpkg_triplet }}
 
       - name: Set env
         shell: bash
         run: |
           if [ '${{ matrix.config.dynamic }}' != '' ]; then
-            echo "FFMPEG_DYNAMIC_LINKING=1" >> $GITHUB_ENV
+            echo "VCPKGRS_DYNAMIC=1" >> $GITHUB_ENV
           fi
 
       - name: Binding build
         shell: bash
         env:
           VCPKG_ROOT: ${{ github.workspace }}/vcpkg
-          RUSTFLAGS: ${{ matrix.config.rustflags}}
+          RUSTFLAGS: ${{ matrix.config.rustflags }}
           VCPKG_DEFAULT_TRIPLET: ${{ matrix.config.vcpkg_triplet }}
           LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
           LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
         run: cargo build --target ${{ matrix.config.target }} --verbose
+
+  build_dynamic_and_test_ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build x264
+        # Since github actions use 2 core cpu
+        run: |
+          git clone https://github.com/mirror/x264 --depth 1
+          cd x264
+          mkdir build
+          cd build
+          ../configure \
+            --prefix=${PWD}/build \
+            --disable-cli \
+            --enable-static \
+            --enable-strip \
+            --enable-pic \
+            --disable-asm
+          make -j$(nproc)
+          make install
+          cp -r ./build ~/x264_prebuilt
+          cd ../..
+
+      - name: Build FFmpeg dylib
+        run: |
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          cd ffmpeg
+          mkdir build
+          cd build
+          ../configure --help
+          PKG_CONFIG_PATH="${HOME}/x264_prebuilt/lib/pkgconfig" ../configure \
+            --prefix=${PWD}/build \
+            --enable-small \
+            --disable-debug \
+            --disable-programs \
+            --disable-postproc \
+            --disable-doc \
+            --disable-hwaccels \
+            --disable-parsers \
+            --disable-bsfs \
+            --disable-x86asm \
+            --disable-indevs \
+            --disable-outdevs \
+            --disable-devices \
+            --disable-decoders \
+            --enable-decoder=aac,ac3,flac,mp3,hevc,vp8,mpeg4,h263,h264,ass,srt,text \
+            --disable-encoders \
+            --enable-encoder=aac,ac3,flac,libx264,ass,ssa,srt,text,mpeg4 \
+            --disable-filters \
+            --enable-filter=scale \
+            --enable-gpl \
+            --enable-libx264 \
+            --enable-pic \
+            --disable-vaapi \
+            --disable-vdpau \
+            --disable-xlib
+          make -j$(nproc)
+          make install
+          cd build/lib/
+          cp ~/x264_prebuilt/lib/libx264.a .
+          gcc -shared -o libffmpeg.so \
+            -Wl,--whole-archive *.a -Wl,--no-whole-archive \
+            -Wl,-Bsymbolic \
+            -lz \
+            -lm \
+            -lbz2
+          cd ../..
+          cp -r ./build ~/ffmpeg_prebuilt
+          cd ../..
+
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - env:
+          FFMPEG_INCLUDE_DIR: ${{ github.workspace }}/ffmpeg_prebuilt/include
+          FFMPEG_DLL_PATH: ${{ github.workspace }}/ffmpeg_prebuilt/lib/libffmpeg.so
+          LD_LIBRARY_PATH: ${{ github.workspace }}/ffmpeg_prebuilt/lib/
+        run: |
+          cp -r ~/ffmpeg_prebuilt ${{ github.workspace }}/ffmpeg_prebuilt
+          cargo build --example slice
+          cargo run --example slice
+
+  build_dynamic_and_test_macos:
+    runs-on: macos-latest
+    steps:
+      - name: Build x264
+        run: |
+          git clone https://github.com/mirror/x264 --depth 1
+          cd x264
+          mkdir build
+          cd build
+          ../configure \
+            --prefix=${PWD}/build \
+            --disable-cli \
+            --enable-static \
+            --enable-strip \
+            --enable-pic \
+            --disable-asm \
+            --extra-cflags=-mmacosx-version-min=10.9
+          make -j$(nproc)
+          make install
+          cp -r ./build ~/x264_prebuilt
+          cd ../..
+
+      - name: Build FFmpeg dylib
+        run: |
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          cd ffmpeg
+          mkdir build
+          cd build
+          ../configure --help
+          CFLAGS="-mmacosx-version-min=10.9" PKG_CONFIG_PATH="${HOME}/x264_prebuilt/lib/pkgconfig" ../configure \
+            --prefix=${PWD}/build \
+            --enable-small \
+            --disable-debug \
+            --disable-programs \
+            --disable-postproc \
+            --disable-doc \
+            --disable-hwaccels \
+            --disable-parsers \
+            --disable-bsfs \
+            --disable-x86asm \
+            --disable-indevs \
+            --disable-outdevs \
+            --disable-devices \
+            --disable-decoders \
+            --enable-decoder=aac,ac3,flac,mp3,hevc,vp8,mpeg4,h263,h264,ass,srt,text \
+            --disable-encoders \
+            --enable-encoder=aac,ac3,flac,libx264,ass,ssa,srt,text,mpeg4 \
+            --disable-filters \
+            --enable-filter=scale \
+            --enable-gpl \
+            --enable-libx264 \
+            --enable-pic
+          make -j$(nproc)
+          make install
+          cd build/lib/
+          cp ~/x264_prebuilt/lib/libx264.a .
+          gcc -shared -o libffmpeg.dylib \
+            -framework CoreFoundation \
+            -framework CoreMedia \
+            -framework CoreVideo \
+            -framework Security \
+            -framework VideoToolbox \
+            -lbz2 \
+            -liconv \
+            -lz \
+            -Wl,-all_load *.a \
+            -mmacosx-version-min=10.9
+          cd ../..
+          cp -r ./build ~/ffmpeg_prebuilt
+          cd ../..
+
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - env:
+          FFMPEG_INCLUDE_DIR: ${{ github.workspace }}/ffmpeg_prebuilt/include
+          FFMPEG_DLL_PATH: ${{ github.workspace }}/ffmpeg_prebuilt/lib/libffmpeg.dylib
+        run: |
+          cp -r ~/ffmpeg_prebuilt ${{ github.workspace }}/ffmpeg_prebuilt
+          cargo build --example slice
+          cp ${{ github.workspace }}/ffmpeg_prebuilt/lib/libffmpeg.dylib .
+          cargo run --example slice
+
+  build_dynamic_and_test_windows_pre:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install deps
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y mingw-w64
+      - name: Build x264
+        run: |
+          git clone https://github.com/mirror/x264 --depth 1
+          cd x264
+          mkdir build
+          cd build
+          ../configure \
+            --prefix=${PWD}/build \
+            --disable-cli \
+            --enable-static \
+            --enable-strip \
+            --enable-pic \
+            --disable-asm \
+            --host=i686-w64-mingw32 \
+            --cross-prefix=i686-w64-mingw32-
+          make -j$(nproc)
+          make install
+          cp -r ./build ~/x264_prebuilt_cross
+          cd ../..
+      - name: Build FFmpeg
+        run: |
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          cd ffmpeg
+          mkdir build
+          cd build
+          PKG_CONFIG_PATH="${HOME}/x264_prebuilt_cross/lib/pkgconfig" ../configure \
+            --prefix=${PWD}/build \
+            --enable-small \
+            --disable-debug \
+            --disable-programs \
+            --disable-postproc \
+            --disable-doc \
+            --disable-hwaccels \
+            --disable-parsers \
+            --disable-bsfs \
+            --disable-x86asm \
+            --disable-indevs \
+            --disable-outdevs \
+            --disable-devices \
+            --disable-decoders \
+            --enable-decoder=aac,ac3,flac,mp3,hevc,vp8,mpeg4,h263,h264,ass,srt,text \
+            --disable-encoders \
+            --enable-encoder=aac,ac3,flac,libx264,ass,ssa,srt,text,mpeg4 \
+            --disable-filters \
+            --enable-filter=scale \
+            --enable-gpl \
+            --enable-libx264 \
+            --enable-pic \
+            --arch=x86 \
+            --target-os=mingw32 \
+            --cross-prefix=i686-w64-mingw32- \
+            --pkg-config=pkg-config
+          make -j$(nproc)
+          make install
+          cd build/lib/
+          cp ~/x264_prebuilt_cross/lib/libx264.a .
+          i686-w64-mingw32-gcc -shared -o libffmpeg.dll \
+            -Wl,--out-implib,libffmpeg.lib \
+            -Wl,--whole-archive *.a -Wl,--no-whole-archive \
+            -lgdi32 \
+            -lpsapi \
+            -lole32 \
+            -lstrmiids \
+            -luuid \
+            -loleaut32 \
+            -lshlwapi \
+            -luser32 \
+            -lws2_32 \
+            -lvfw32 \
+            -luser32 \
+            -lsecur32 \
+            -lbcrypt \
+            -lm \
+            -lpsapi \
+            -ladvapi32 \
+            -lshell32 \
+            -lole32 \
+            -static-libgcc \
+            -static-libstdc++
+          cd ../..
+
+      - name: Upload Cross Compiled FFmpeg for Windows
+        uses: actions/upload-artifact@v2
+        with:
+          name: cross_ffmpeg
+          path: ffmpeg/build/build
+
+  build_dynamic_and_test_windows:
+    runs-on: windows-latest
+    needs: build_dynamic_and_test_windows_pre
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          target: i686-pc-windows-msvc
+          profile: minimal
+          toolchain: stable
+          override: true
+ 
+      - name: Download Cross Compiled FFmpeg for Windows
+        uses: actions/download-artifact@v2
+        with:
+          name: cross_ffmpeg
+          path: ${{ github.workspace }}/ffmpeg_prebuilt_cross
+
+      # Using this since it's used by clang-sys's CI
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "10.0"
+          directory: ${{ github.workspace }}/clang
+
+      - env:
+          FFMPEG_INCLUDE_DIR: ${{ github.workspace }}/ffmpeg_prebuilt_cross/include
+          FFMPEG_DLL_PATH: ${{ github.workspace }}/ffmpeg_prebuilt_cross/lib/libffmpeg.dll
+          LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
+          LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
+        run: |
+          cargo build --target i686-pc-windows-msvc --example slice
+          copy ${{ github.workspace }}/ffmpeg_prebuilt_cross/lib/libffmpeg.dll .
+          cargo run --target i686-pc-windows-msvc --example slice
 
   # Check if correct documentation can be generated by docs.rs
   docs_rs_check:
