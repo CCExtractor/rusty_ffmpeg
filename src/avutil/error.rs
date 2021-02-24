@@ -76,7 +76,7 @@ pub unsafe fn av_make_error_string(
 pub fn av_err2str(
     errnum: libc::c_int
 ) -> Vec<libc::c_char> {
-    let mut errbuf = vec![0 as libc::c_char; AV_ERROR_MAX_STRING_SIZE];
+    let mut errbuf = vec![0; AV_ERROR_MAX_STRING_SIZE];
     unsafe { av_make_error_string(errbuf.as_mut_ptr(), AV_ERROR_MAX_STRING_SIZE, errnum); }
     errbuf
 }
