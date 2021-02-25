@@ -5,20 +5,26 @@
 [![Doc](https://docs.rs/rusty_ffmpeg/badge.svg)](https://docs.rs/rusty_ffmpeg)
 
 Cross platform FFI bindings for FFmpeg inner libraries. This is a crate that:
-1. Generates Rust binding for FFmpeg libraries which can be used directly.
-2. Emits specific cargo metadata for linking FFmpeg libraries.
 
-## Building
+1. Linking FFmpeg libraries for you.
+2. Generates Rust binding for FFmpeg libraries.
 
-### Generate and build the bindings:  
+## Usage
 
-1. Set(always) `FFMPEG_INCLUDE_DIR` to the path to the header files for generating bindings.
+To use this crate, you need to set several environment variables.
 
-2. Set `FFMPEG_DLL_PATH` for dynamic linking with `dll` or `so`. (Windows: Put corresponding `.lib` file next to the `.dll` file.)
+### To link: 
 
-3. Set `FFMPEG_PKG_CONFIG_PATH` for static linking with `pkg-config` files.
+1. Dynamic linking with prebuilt dylib: Set `FFMPEG_DLL_PATH` to the path of `dll` or `so`. (Windows: Put corresponding `.lib` file next to the `.dll` file.)
 
-4. Set `FFMPEG_LIBS_DIR` for static linking with static libs.
+2. Static linking with prebuilt staticlib: Set `FFMPEG_PKG_CONFIG_PATH` to the path of the FFmpeg package-config files or set `FFMPEG_LIB_DIR` to the path of the FFmpeg prebuilt libs directory.
 
-FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include FFPEG_LIBS_DIR=${HOME}/ffmpeg_build/lib cargo run --example slice
-FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig cargo run --example slice
+### To generate bindings: 
+
+1. Compile-time binding generation(requires clang dylib): Set `FFMPEG_INCLUDE_DIR` to the path to the header files for binding generation.
+
+2. Use pre-built binding: Set `FFMPEG_BINDING_PATH` to the prebuilt binding file.
+
+### Attention
+
+FFI is not that easy, especially when you are dealing with a big old C project. Don't feel depressed when there are some problems. The CI check already have some typical use cases, you can check it. File an issue if you still have some problem.
