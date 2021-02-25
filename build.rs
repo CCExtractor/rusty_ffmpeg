@@ -358,10 +358,9 @@ mod windows {
 }
 
 fn dynamic_linking(env_vars: &EnvVars) {
-    let ffmpeg_include_dir = env_vars.ffmpeg_include_dir.as_ref().unwrap();
     let ffmpeg_dll_path = env_vars.ffmpeg_dll_path.as_ref().unwrap();
 
-    let binding_file_path = &format!("{}/binding.rs", env_vars.out_dir.as_ref().unwrap());
+    let output_binding_path = &format!("{}/binding.rs", env_vars.out_dir.as_ref().unwrap());
 
     // Extract dll name and the dir the dll is in.
     let (ffmpeg_dll_name, ffmpeg_dll_dir) = {
@@ -383,11 +382,17 @@ fn dynamic_linking(env_vars: &EnvVars) {
     println!("cargo:rustc-link-lib=dylib={}", ffmpeg_dll_name);
     println!("cargo:rustc-link-search=native={}", ffmpeg_dll_dir);
 
-    generate_bindings(Some(&ffmpeg_include_dir), HEADERS.iter().cloned())
-        .expect("Binding generation failed.")
-        // Is it correct to generate binding to one file? :-/
-        .write_to_file(binding_file_path)
-        .expect("Cannot write binding to file.");
+    if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
+        use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+    } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
+        generate_bindings(Some(&ffmpeg_include_dir), HEADERS.iter().cloned())
+            .expect("Binding generation failed.")
+            // Is it correct to generate binding to one file? :-/
+            .write_to_file(output_binding_path)
+            .expect("Cannot write binding to file.");
+    } else {
+        panic!("No binding generation method is set!");
+    }
 }
 
 fn static_linking(env_vars: &EnvVars) {
@@ -416,15 +421,15 @@ fn static_linking(env_vars: &EnvVars) {
             }
         } else if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
             static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
-
-            let ffmpeg_include_dir = env_vars.ffmpeg_include_dir.as_ref().unwrap();
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
-            } else {
+            } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
                 generate_bindings(Some(&ffmpeg_include_dir), HEADERS.iter().cloned())
                     .expect("Binding generation failed.")
                     .write_to_file(output_binding_path)
                     .expect("Cannot write binding to file.");
+            } else {
+                panic!("No binding generation method is set!");
             }
         } else {
             panic!("No linking method set!");
