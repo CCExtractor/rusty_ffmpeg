@@ -346,14 +346,13 @@ mod non_windows {
 mod windows {
     use super::*;
     pub fn static_linking_inner(_env_vars: &EnvVars, _library_names: &[&str]) -> Vec<String> {
-        let include_paths = vcpkg::Config::new()
+        vcpkg::Config::new()
             .find_package("ffmpeg")
             .unwrap()
             .include_paths
             .into_iter()
             .map(|x| x.to_str().unwrap().to_string())
-            .collect();
-        include_paths
+            .collect()
     }
 }
 
