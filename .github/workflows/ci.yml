@@ -91,6 +91,35 @@ jobs:
           FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
           cargo clippy -- -D warnings
 
+  rust_clippy_check_windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      # Using this since it's used by clang-sys's CI
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "10.0"
+          directory: ${{ github.workspace }}/clang
+
+      - run: |
+          git clone https://github.com/microsoft/vcpkg --depth 1
+          ./vcpkg/bootstrap-vcpkg.bat
+          ./vcpkg/vcpkg.exe install ffmpeg:x64-windows-static-md
+
+      - name: Clippy check 
+        env:
+          VCPKG_ROOT: ${{ github.workspace }}/vcpkg
+          LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
+          LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
+        run: cargo clippy -- -D warnings
+
   build_static_and_test_ubuntu:
     runs-on: ubuntu-latest
     steps:
