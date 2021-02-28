@@ -1,6 +1,7 @@
 use libc::c_int;
+use std::ffi::CStr;
 use super::common::MKTAG;
-use crate::ffi::av_strerror;
+use crate::ffi;
 
 #[allow(non_snake_case)]
 pub const fn AVERROR(e: u32) -> c_int {
@@ -69,14 +70,28 @@ pub unsafe fn av_make_error_string(
     let errbuf_size = errbuf_size as u32;
     #[cfg(not(target_arch="x86"))]
     let errbuf_size = errbuf_size as u64;
-    av_strerror(errnum, errbuf, errbuf_size);
+    ffi::av_strerror(errnum, errbuf, errbuf_size);
     errbuf
 }
 
 pub fn av_err2str(
     errnum: libc::c_int
-) -> Vec<libc::c_char> {
-    let mut errbuf = vec![0; AV_ERROR_MAX_STRING_SIZE];
-    unsafe { av_make_error_string(errbuf.as_mut_ptr(), AV_ERROR_MAX_STRING_SIZE, errnum); }
-    errbuf
+) -> String {
+    let mut errbuf = [0u8; AV_ERROR_MAX_STRING_SIZE];
+    let errbuf_ptr = errbuf.as_mut_ptr() as _;
+    unsafe { av_make_error_string(errbuf_ptr, AV_ERROR_MAX_STRING_SIZE, errnum); }
+    unsafe { CStr::from_ptr(errbuf_ptr) }.to_string_lossy().into()
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_err2str() {
+        assert_eq!(&av_err2str(AVERROR(ffi::EINVAL)), "Invalid argument");
+        assert_eq!(&av_err2str(AVERROR(ffi::EAGAIN)), "Resource temporarily unavailable");
+        assert_eq!(&av_err2str(AVERROR(ffi::ENOMEM)), "Cannot allocate memory");
+        assert_eq!(&av_err2str(AVERROR_EOF), "End of file");
+    }
 }
