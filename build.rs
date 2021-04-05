@@ -192,7 +192,6 @@ impl EnvVars {
 #[cfg(not(target_os = "windows"))]
 mod non_windows {
     use super::*;
-    use std::process::Command;
 
     /// Try probing ffmpeg installed in system with no side effect. Return unfound Err(library name) when failed.
     // TODO: this is useful in static lib searching
@@ -208,106 +207,6 @@ mod non_windows {
             Some(&libname) => Err(libname.to_string()),
             None => Ok(()),
         }
-    }
-
-    // TODO: this is useful in ffmpeg placement building
-    #[allow(dead_code)]
-    fn clone_and_build_ffmpeg(out_dir: &str) {
-        let ffmpeg_dir = &format!("{}/ffmpeg", out_dir);
-
-        // Check if FFmpeg is cloned.
-        if !PathBuf::from(format!("{}/fftools", ffmpeg_dir)).is_dir() {
-            Command::new("git")
-                .current_dir(out_dir)
-                .args(["clone", "https://github.com/ffmpeg/ffmpeg", "--depth", "1"].iter())
-                .spawn()
-                .expect("Failed to clone FFmpeg submodule.")
-                .wait()
-                .expect("Failed to clone FFmpeg submodule.");
-        }
-
-        let path = &format!("{}/build/bin:{}", ffmpeg_dir, env::var("PATH").unwrap());
-
-        // All outputs are stored in ./ffmpeg/build/{bin, lib, share, include}
-        // If no prebuilt FFmpeg libraries provided, we build a custom FFmpeg.
-
-        // Corresponding to the shell script below:
-        // ./configure \
-        //     --prefix="$PWD/build" \
-        //     --extra-cflags="-I$PWD/build/include" \
-        //     --extra-ldflags="-L$PWD/build/lib" \
-        //     --bindir="$PWD/build/bin" \
-        //     --pkg-config-flags="--static" \
-        //     --extra-libs="-lpthread -lm" \
-        //     --enable-gpl \
-        //     --enable-libass \
-        //     --enable-libfdk-aac \
-        //     --enable-libfreetype \
-        //     --enable-libmp3lame \
-        //     --enable-libopus \
-        //     --enable-libvorbis \
-        //     --enable-libvpx \
-        //     --enable-libx264 \
-        //     --enable-libx265 \
-        //     --enable-nonfree
-        Command::new(format!("{}/configure", ffmpeg_dir))
-            .current_dir(ffmpeg_dir)
-            .env("PATH", path)
-            .env(
-                "PKG_CONFIG_PATH",
-                format!("{}/build/lib/pkgconfig", ffmpeg_dir),
-            )
-            .args(
-                [
-                    format!(r#"--prefix={}/build"#, ffmpeg_dir),
-                    format!(r#"--extra-cflags=-I{}/build/include"#, ffmpeg_dir),
-                    format!(r#"--extra-ldflags=-L{}/build/lib"#, ffmpeg_dir),
-                    format!(r#"--bindir={}/build/bin"#, ffmpeg_dir),
-                ]
-                .iter(),
-            )
-            .args(
-                [
-                    "--pkg-config-flags=--static",
-                    "--extra-libs=-lpthread -lm",
-                    "--enable-gpl",
-                    "--enable-libass",
-                    "--enable-libfdk-aac",
-                    "--enable-libfreetype",
-                    "--enable-libmp3lame",
-                    "--enable-libopus",
-                    "--enable-libvorbis",
-                    "--enable-libvpx",
-                    "--enable-libx264",
-                    "--enable-libx265",
-                    "--enable-nonfree",
-                ]
-                .iter(),
-            )
-            .spawn()
-            .expect("FFmpeg build process: configure failed!")
-            .wait()
-            .expect("FFmpeg build process: configure failed!");
-
-        let num_cpus = num_cpus::get();
-
-        Command::new("make")
-            .current_dir(ffmpeg_dir)
-            .env("PATH", path)
-            .arg(format!("-j{}", num_cpus))
-            .spawn()
-            .expect("FFmpeg build process: make compile failed!")
-            .wait()
-            .expect("FFmpeg build process: make compile failed!");
-
-        Command::new("make")
-            .current_dir(ffmpeg_dir)
-            .arg(format!("-j{}", num_cpus))
-            .arg("install")
-            .spawn()
-            .expect("FFmpeg build process: make install failed!")
-            .wait()
-            .expect("FFmpeg build process: make install failed!");
     }
 
     pub fn static_linking_with_pkg_config(
