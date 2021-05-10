@@ -305,7 +305,7 @@ fn static_linking(env_vars: &EnvVars) {
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-                // If use ffmpeg_pkg_config_path with ffmpeg_include_dir, prefer usinig the user given dir rather than pkg_config_path.
+                // If use ffmpeg_pkg_config_path with ffmpeg_include_dir, prefer using the user given dir rather than pkg_config_path.
                 generate_bindings(Some(ffmpeg_include_dir), HEADERS.iter().cloned())
                     .expect("Binding generation failed.")
                     .write_to_file(output_binding_path)
