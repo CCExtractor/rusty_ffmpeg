@@ -10,7 +10,7 @@ Cross platform FFI bindings for FFmpeg inner libraries. This is a crate that:
 1. Linking FFmpeg libraries for you.
 2. Generates Rust binding for FFmpeg libraries.
 
-## Usage
+## Getting started:
 
 To use this crate, you need to set several environment variables.
 
@@ -28,7 +28,7 @@ Set no environment variable, then `rusty_ffmpeg` will help you download, compile
 
 ### Fine-grained usage:
 
-You need to set environment variables for both linking and binding generating procedure.
+You need to set several environment variables for both linking and binding generating procedure.
 
 #### To link: 
 
@@ -40,8 +40,8 @@ You need to set environment variables for both linking and binding generating pr
 
 1. Compile-time binding generation([requires the `Clang` dylib](https://github.com/KyleMayes/clang-sys/blob/c9ae24a7a218e73e1eccd320174349eef5a3bd1a/build.rs#L23)): Set `FFMPEG_INCLUDE_DIR` to the path to the header files for binding generation.
 
-2. Use pre-built binding: Set `FFMPEG_BINDING_PATH` to the prebuilt binding file.
+2. Use your pre-built binding: Set `FFMPEG_BINDING_PATH` to the pre-built binding file. The pre-built binding is usually copied from the `OUT_DIR` of the compile-time binding generation, by using it you don't need to regenerate the same binding file again and again.
 
 ## Attention
 
-FFI is not that easy, especially when you are dealing with a big old C project. Don't feel depressed when there are some problems. The CI check already have some typical use cases, you can check it. File an issue if you still have some problem.
+FFI is not that easy, especially when you are dealing with a big old C project. Don't feel depressed when there are some problems. The CI check already have some typical ffmpeg compilation and use cases for you to check. File an issue if you still have any problem.
