@@ -14,23 +14,31 @@ Cross platform FFI bindings for FFmpeg inner libraries. This is a crate that:
 
 To use this crate, you need to set several environment variables.
 
-### Simplest:
+### The simplest usage:
 
-Build ffmpeg staticly and set `FFMPEG_PKG_CONFIG_PATH` to the path of the generated FFmpeg package-config files. And you don't need to set other environment variables for static linking.
+#### *nix
 
-### More complex
+Build ffmpeg statically and set `FFMPEG_PKG_CONFIG_PATH` to the path of the generated FFmpeg `pkg-config` files. And you don't need to set other environment variables for static linking.
 
-You need to set environment variable for both linking and generating bindings.
+(Hint: set `FFMPEG_PKG_CONFIG_PATH` to some placeholder value will let `rusty_ffmpeg` probing system library.)
+
+#### Windows
+
+Set no environment variable, then `rusty_ffmpeg` will help you download, compile and statically linking FFmpeg using `vcpkg`.
+
+### Fine-grained usage:
+
+You need to set environment variables for both linking and binding generating procedure.
 
 #### To link: 
 
-1. Dynamic linking with prebuilt dylib: Set `FFMPEG_DLL_PATH` to the path of `dll` or `so`. (Windows: Put corresponding `.lib` file next to the `.dll` file.)
+1. Dynamic linking with pre-built dylib: Set `FFMPEG_DLL_PATH` to the path of `dll` or `so`. (Windows: Put corresponding `.lib` file next to the `.dll` file.)
 
-2. Static linking with prebuilt staticlib:  or set `FFMPEG_LIB_DIR` to the path of the FFmpeg prebuilt libs directory.
+2. Static linking with pre-built staticlib: Set `FFMPEG_LIB_DIR` to the path of the FFmpeg pre-built libs directory.
 
 #### To generate bindings: 
 
-1. Compile-time binding generation(requires clang dylib): Set `FFMPEG_INCLUDE_DIR` to the path to the header files for binding generation.
+1. Compile-time binding generation([requires the `Clang` dylib](https://github.com/KyleMayes/clang-sys/blob/c9ae24a7a218e73e1eccd320174349eef5a3bd1a/build.rs#L23)): Set `FFMPEG_INCLUDE_DIR` to the path to the header files for binding generation.
 
 2. Use pre-built binding: Set `FFMPEG_BINDING_PATH` to the prebuilt binding file.
 
