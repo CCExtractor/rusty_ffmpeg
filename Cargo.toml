@@ -1,6 +1,6 @@
 [package]
 name = "rusty_ffmpeg"
-version = "0.5.0"
+version = "0.6.0"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2018"
 
@@ -14,11 +14,7 @@ readme = "README.md"
 keywords = ["ffmpeg", "ffi", "binding", "video", "audio"]
 categories = ["external-ffi-bindings", "multimedia"]
 
-exclude = [
-    ".github",
-    # Should we exclude examples file? I see <https://github.com/rust-lang/git2-rs/> haven't exclude it.
-    # "examples"
-]
+exclude = [".github"]
 build = "build.rs"
 
 # Doc test of generated binding is non-sense https://github.com/rust-lang/cargo/issues/3720
