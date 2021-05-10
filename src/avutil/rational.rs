@@ -9,7 +9,7 @@ use crate::ffi::AVRational;
 ///
 /// @note The return value is not reduced.
 /// @see av_reduce()
-pub fn av_make_q(num: libc::c_int, den: libc::c_int) -> AVRational {
+pub const fn av_make_q(num: libc::c_int, den: libc::c_int) -> AVRational {
     AVRational { num, den }
 }
 
@@ -48,7 +48,7 @@ pub fn av_q2d(a: AVRational) -> libc::c_double {
 /// Invert a rational.
 /// @param q value
 /// @return 1 / q
-pub fn av_inv_q(q: AVRational) -> AVRational {
+pub const fn av_inv_q(q: AVRational) -> AVRational {
     AVRational {
         num: q.den,
         den: q.num,
