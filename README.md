@@ -24,7 +24,7 @@ Build ffmpeg statically and set `FFMPEG_PKG_CONFIG_PATH` to the path of the gene
 
 #### Windows
 
-Set no environment variable, then `rusty_ffmpeg` will help you download, compile and statically linking FFmpeg using `vcpkg`.
+`rusty_ffmpeg` can link FFmpeg using `vcpkg`. Install [`vcpkg`](https://github.com/microsoft/vcpkg), check [documentation of the vcpkg *crate*](https://docs.rs/vcpkg) for the environment variables to set, then it works.
 
 ### Fine-grained usage:
 
