@@ -680,8 +680,8 @@ pub const _STRING_H: u32 = 1;
 pub const _BITS_TYPES_LOCALE_T_H: u32 = 1;
 pub const _BITS_TYPES___LOCALE_T_H: u32 = 1;
 pub const _STRINGS_H: u32 = 1;
-pub const LIBAVUTIL_VERSION_MAJOR: u32 = 57;
-pub const LIBAVUTIL_VERSION_MINOR: u32 = 0;
+pub const LIBAVUTIL_VERSION_MAJOR: u32 = 56;
+pub const LIBAVUTIL_VERSION_MINOR: u32 = 70;
 pub const LIBAVUTIL_VERSION_MICRO: u32 = 100;
 pub const AV_HAVE_BIGENDIAN: u32 = 0;
 pub const AV_HAVE_FAST_UNALIGNED: u32 = 1;
@@ -822,8 +822,8 @@ pub const FF_DECODE_ERROR_INVALID_BITSTREAM: u32 = 1;
 pub const FF_DECODE_ERROR_MISSING_REFERENCE: u32 = 2;
 pub const FF_DECODE_ERROR_CONCEALMENT_ACTIVE: u32 = 4;
 pub const FF_DECODE_ERROR_DECODE_SLICES: u32 = 8;
-pub const LIBAVCODEC_VERSION_MAJOR: u32 = 59;
-pub const LIBAVCODEC_VERSION_MINOR: u32 = 1;
+pub const LIBAVCODEC_VERSION_MAJOR: u32 = 58;
+pub const LIBAVCODEC_VERSION_MINOR: u32 = 134;
 pub const LIBAVCODEC_VERSION_MICRO: u32 = 100;
 pub const AV_PKT_FLAG_KEY: u32 = 1;
 pub const AV_PKT_FLAG_CORRUPT: u32 = 2;
@@ -895,6 +895,9 @@ pub const AV_CODEC_EXPORT_DATA_FILM_GRAIN: u32 = 8;
 pub const AV_GET_BUFFER_FLAG_REF: u32 = 1;
 pub const AV_GET_ENCODE_BUFFER_FLAG_REF: u32 = 1;
 pub const FF_COMPRESSION_DEFAULT: i32 = -1;
+pub const FF_PRED_LEFT: u32 = 0;
+pub const FF_PRED_PLANE: u32 = 1;
+pub const FF_PRED_MEDIAN: u32 = 2;
 pub const FF_CMP_SAD: u32 = 0;
 pub const FF_CMP_SSE: u32 = 1;
 pub const FF_CMP_SATD: u32 = 2;
@@ -918,6 +921,10 @@ pub const SLICE_FLAG_ALLOW_PLANE: u32 = 4;
 pub const FF_MB_DECISION_SIMPLE: u32 = 0;
 pub const FF_MB_DECISION_BITS: u32 = 1;
 pub const FF_MB_DECISION_RD: u32 = 2;
+pub const FF_CODER_TYPE_VLC: u32 = 0;
+pub const FF_CODER_TYPE_AC: u32 = 1;
+pub const FF_CODER_TYPE_RAW: u32 = 2;
+pub const FF_CODER_TYPE_RLE: u32 = 3;
 pub const FF_BUG_AUTODETECT: u32 = 1;
 pub const FF_BUG_XVID_ILACE: u32 = 4;
 pub const FF_BUG_UMP4: u32 = 8;
@@ -1098,6 +1105,7 @@ pub const FF_DEBUG_VIS_MV_B_BACK: u32 = 4;
 pub const FF_CODEC_PROPERTY_LOSSLESS: u32 = 1;
 pub const FF_CODEC_PROPERTY_CLOSED_CAPTIONS: u32 = 2;
 pub const FF_SUB_TEXT_FMT_ASS: u32 = 0;
+pub const FF_SUB_TEXT_FMT_ASS_WITH_TIMINGS: u32 = 1;
 pub const AV_HWACCEL_CODEC_CAP_EXPERIMENTAL: u32 = 512;
 pub const AV_HWACCEL_FLAG_IGNORE_LEVEL: u32 = 1;
 pub const AV_HWACCEL_FLAG_ALLOW_HIGH_DEPTH: u32 = 2;
@@ -1112,8 +1120,8 @@ pub const DV_PROFILE_BYTES: u32 = 480;
 pub const VORBIS_FLAG_HEADER: u32 = 1;
 pub const VORBIS_FLAG_COMMENT: u32 = 2;
 pub const VORBIS_FLAG_SETUP: u32 = 4;
-pub const LIBAVDEVICE_VERSION_MAJOR: u32 = 59;
-pub const LIBAVDEVICE_VERSION_MINOR: u32 = 0;
+pub const LIBAVDEVICE_VERSION_MAJOR: u32 = 58;
+pub const LIBAVDEVICE_VERSION_MINOR: u32 = 13;
 pub const LIBAVDEVICE_VERSION_MICRO: u32 = 100;
 pub const AV_OPT_FLAG_ENCODING_PARAM: u32 = 1;
 pub const AV_OPT_FLAG_DECODING_PARAM: u32 = 2;
@@ -1150,9 +1158,9 @@ pub const TIMER_ABSTIME: u32 = 1;
 pub const __struct_tm_defined: u32 = 1;
 pub const __itimerspec_defined: u32 = 1;
 pub const TIME_UTC: u32 = 1;
-pub const LIBAVFORMAT_VERSION_MAJOR: u32 = 59;
-pub const LIBAVFORMAT_VERSION_MINOR: u32 = 0;
-pub const LIBAVFORMAT_VERSION_MICRO: u32 = 101;
+pub const LIBAVFORMAT_VERSION_MAJOR: u32 = 58;
+pub const LIBAVFORMAT_VERSION_MINOR: u32 = 76;
+pub const LIBAVFORMAT_VERSION_MICRO: u32 = 100;
 pub const FF_API_R_FRAME_RATE: u32 = 1;
 pub const AVIO_SEEKABLE_NORMAL: u32 = 1;
 pub const AVIO_SEEKABLE_TIME: u32 = 2;
@@ -1222,8 +1230,10 @@ pub const AVFMT_FLAG_CUSTOM_IO: u32 = 128;
 pub const AVFMT_FLAG_DISCARD_CORRUPT: u32 = 256;
 pub const AVFMT_FLAG_FLUSH_PACKETS: u32 = 512;
 pub const AVFMT_FLAG_BITEXACT: u32 = 1024;
+pub const AVFMT_FLAG_MP4A_LATM: u32 = 32768;
 pub const AVFMT_FLAG_SORT_DTS: u32 = 65536;
 pub const AVFMT_FLAG_PRIV_OPT: u32 = 131072;
+pub const AVFMT_FLAG_KEEP_SIDE_DATA: u32 = 262144;
 pub const AVFMT_FLAG_FAST_SEEK: u32 = 524288;
 pub const AVFMT_FLAG_SHORTEST: u32 = 1048576;
 pub const AVFMT_FLAG_AUTO_BSF: u32 = 2097152;
@@ -1239,9 +1249,9 @@ pub const AVSEEK_FLAG_FRAME: u32 = 8;
 pub const AVSTREAM_INIT_IN_WRITE_HEADER: u32 = 0;
 pub const AVSTREAM_INIT_IN_INIT_OUTPUT: u32 = 1;
 pub const AV_FRAME_FILENAME_FLAGS_MULTIPLE: u32 = 1;
-pub const LIBAVFILTER_VERSION_MAJOR: u32 = 8;
-pub const LIBAVFILTER_VERSION_MINOR: u32 = 0;
-pub const LIBAVFILTER_VERSION_MICRO: u32 = 101;
+pub const LIBAVFILTER_VERSION_MAJOR: u32 = 7;
+pub const LIBAVFILTER_VERSION_MINOR: u32 = 110;
+pub const LIBAVFILTER_VERSION_MICRO: u32 = 100;
 pub const AVFILTER_FLAG_DYNAMIC_INPUTS: u32 = 1;
 pub const AVFILTER_FLAG_DYNAMIC_OUTPUTS: u32 = 2;
 pub const AVFILTER_FLAG_SLICE_THREADS: u32 = 4;
@@ -1272,6 +1282,7 @@ pub const AV_PIX_FMT_FLAG_BITSTREAM: u32 = 4;
 pub const AV_PIX_FMT_FLAG_HWACCEL: u32 = 8;
 pub const AV_PIX_FMT_FLAG_PLANAR: u32 = 16;
 pub const AV_PIX_FMT_FLAG_RGB: u32 = 32;
+pub const AV_PIX_FMT_FLAG_PSEUDOPAL: u32 = 64;
 pub const AV_PIX_FMT_FLAG_ALPHA: u32 = 128;
 pub const AV_PIX_FMT_FLAG_BAYER: u32 = 256;
 pub const AV_PIX_FMT_FLAG_FLOAT: u32 = 512;
@@ -1283,12 +1294,12 @@ pub const FF_LOSS_COLORQUANT: u32 = 16;
 pub const FF_LOSS_CHROMA: u32 = 32;
 pub const AV_STEREO3D_FLAG_INVERT: u32 = 1;
 pub const AV_TIMECODE_STR_SIZE: u32 = 23;
-pub const LIBSWRESAMPLE_VERSION_MAJOR: u32 = 4;
-pub const LIBSWRESAMPLE_VERSION_MINOR: u32 = 0;
+pub const LIBSWRESAMPLE_VERSION_MAJOR: u32 = 3;
+pub const LIBSWRESAMPLE_VERSION_MINOR: u32 = 9;
 pub const LIBSWRESAMPLE_VERSION_MICRO: u32 = 100;
 pub const SWR_FLAG_RESAMPLE: u32 = 1;
-pub const LIBSWSCALE_VERSION_MAJOR: u32 = 6;
-pub const LIBSWSCALE_VERSION_MINOR: u32 = 0;
+pub const LIBSWSCALE_VERSION_MAJOR: u32 = 5;
+pub const LIBSWSCALE_VERSION_MINOR: u32 = 9;
 pub const LIBSWSCALE_VERSION_MICRO: u32 = 100;
 pub const SWS_FAST_BILINEAR: u32 = 1;
 pub const SWS_BILINEAR: u32 = 2;
@@ -7131,6 +7142,14 @@ pub struct AVClass {
             prev: *mut ::std::os::raw::c_void,
         ) -> *mut ::std::os::raw::c_void,
     >,
+    #[doc = " Return an AVClass corresponding to the next potential"]
+    #[doc = " AVOptions-enabled child."]
+    #[doc = ""]
+    #[doc = " The difference between child_next and this is that"]
+    #[doc = " child_next iterates over _already existing_ objects, while"]
+    #[doc = " child_class_next iterates over _all possible_ children."]
+    pub child_class_next:
+        ::std::option::Option<unsafe extern "C" fn(prev: *const AVClass) -> *const AVClass>,
     #[doc = " Category used for visualization (like color)"]
     #[doc = " This is only set if the category is equal for all objects using this class."]
     #[doc = " available since version (51 << 16 | 56 << 8 | 100)"]
@@ -7169,7 +7188,7 @@ pub struct AVClass {
 fn bindgen_test_layout_AVClass() {
     assert_eq!(
         ::std::mem::size_of::<AVClass>(),
-        80usize,
+        88usize,
         concat!("Size of: ", stringify!(AVClass))
     );
     assert_eq!(
@@ -7250,8 +7269,18 @@ fn bindgen_test_layout_AVClass() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVClass>())).category as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVClass>())).child_class_next as *const _ as usize },
         48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVClass),
+            "::",
+            stringify!(child_class_next)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVClass>())).category as *const _ as usize },
+        56usize,
         concat!(
             "Offset of field: ",
             stringify!(AVClass),
@@ -7261,7 +7290,7 @@ fn bindgen_test_layout_AVClass() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVClass>())).get_category as *const _ as usize },
-        56usize,
+        64usize,
         concat!(
             "Offset of field: ",
             stringify!(AVClass),
@@ -7271,7 +7300,7 @@ fn bindgen_test_layout_AVClass() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVClass>())).query_ranges as *const _ as usize },
-        64usize,
+        72usize,
         concat!(
             "Offset of field: ",
             stringify!(AVClass),
@@ -7281,7 +7310,7 @@ fn bindgen_test_layout_AVClass() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVClass>())).child_class_iterate as *const _ as usize },
-        72usize,
+        80usize,
         concat!(
             "Offset of field: ",
             stringify!(AVClass),
@@ -7558,271 +7587,276 @@ pub const AVPixelFormat_AV_PIX_FMT_BGR565LE: AVPixelFormat = 41;
 pub const AVPixelFormat_AV_PIX_FMT_BGR555BE: AVPixelFormat = 42;
 #[doc = "< packed BGR 5:5:5, 16bpp, (msb)1X 5B 5G 5R(lsb), little-endian, X=unused/undefined"]
 pub const AVPixelFormat_AV_PIX_FMT_BGR555LE: AVPixelFormat = 43;
-#[doc = "  Hardware acceleration through VA-API, data[3] contains a"]
-#[doc = "  VASurfaceID."]
-pub const AVPixelFormat_AV_PIX_FMT_VAAPI: AVPixelFormat = 44;
+#[doc = "< HW acceleration through VA API at motion compensation entry-point, Picture.data[3] contains a vaapi_render_state struct which contains macroblocks as well as various fields extracted from headers"]
+pub const AVPixelFormat_AV_PIX_FMT_VAAPI_MOCO: AVPixelFormat = 44;
+#[doc = "< HW acceleration through VA API at IDCT entry-point, Picture.data[3] contains a vaapi_render_state struct which contains fields extracted from headers"]
+pub const AVPixelFormat_AV_PIX_FMT_VAAPI_IDCT: AVPixelFormat = 45;
+#[doc = "< HW decoding through VA API, Picture.data[3] contains a VASurfaceID"]
+pub const AVPixelFormat_AV_PIX_FMT_VAAPI_VLD: AVPixelFormat = 46;
+#[doc = "@}"]
+pub const AVPixelFormat_AV_PIX_FMT_VAAPI: AVPixelFormat = 46;
 #[doc = "< planar YUV 4:2:0, 24bpp, (1 Cr & Cb sample per 2x2 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P16LE: AVPixelFormat = 45;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P16LE: AVPixelFormat = 47;
 #[doc = "< planar YUV 4:2:0, 24bpp, (1 Cr & Cb sample per 2x2 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P16BE: AVPixelFormat = 46;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P16BE: AVPixelFormat = 48;
 #[doc = "< planar YUV 4:2:2, 32bpp, (1 Cr & Cb sample per 2x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P16LE: AVPixelFormat = 47;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P16LE: AVPixelFormat = 49;
 #[doc = "< planar YUV 4:2:2, 32bpp, (1 Cr & Cb sample per 2x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P16BE: AVPixelFormat = 48;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P16BE: AVPixelFormat = 50;
 #[doc = "< planar YUV 4:4:4, 48bpp, (1 Cr & Cb sample per 1x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P16LE: AVPixelFormat = 49;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P16LE: AVPixelFormat = 51;
 #[doc = "< planar YUV 4:4:4, 48bpp, (1 Cr & Cb sample per 1x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P16BE: AVPixelFormat = 50;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P16BE: AVPixelFormat = 52;
 #[doc = "< HW decoding through DXVA2, Picture.data[3] contains a LPDIRECT3DSURFACE9 pointer"]
-pub const AVPixelFormat_AV_PIX_FMT_DXVA2_VLD: AVPixelFormat = 51;
+pub const AVPixelFormat_AV_PIX_FMT_DXVA2_VLD: AVPixelFormat = 53;
 #[doc = "< packed RGB 4:4:4, 16bpp, (msb)4X 4R 4G 4B(lsb), little-endian, X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_RGB444LE: AVPixelFormat = 52;
+pub const AVPixelFormat_AV_PIX_FMT_RGB444LE: AVPixelFormat = 54;
 #[doc = "< packed RGB 4:4:4, 16bpp, (msb)4X 4R 4G 4B(lsb), big-endian,    X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_RGB444BE: AVPixelFormat = 53;
+pub const AVPixelFormat_AV_PIX_FMT_RGB444BE: AVPixelFormat = 55;
 #[doc = "< packed BGR 4:4:4, 16bpp, (msb)4X 4B 4G 4R(lsb), little-endian, X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_BGR444LE: AVPixelFormat = 54;
+pub const AVPixelFormat_AV_PIX_FMT_BGR444LE: AVPixelFormat = 56;
 #[doc = "< packed BGR 4:4:4, 16bpp, (msb)4X 4B 4G 4R(lsb), big-endian,    X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_BGR444BE: AVPixelFormat = 55;
+pub const AVPixelFormat_AV_PIX_FMT_BGR444BE: AVPixelFormat = 57;
 #[doc = "< 8 bits gray, 8 bits alpha"]
-pub const AVPixelFormat_AV_PIX_FMT_YA8: AVPixelFormat = 56;
+pub const AVPixelFormat_AV_PIX_FMT_YA8: AVPixelFormat = 58;
 #[doc = "< alias for AV_PIX_FMT_YA8"]
-pub const AVPixelFormat_AV_PIX_FMT_Y400A: AVPixelFormat = 56;
+pub const AVPixelFormat_AV_PIX_FMT_Y400A: AVPixelFormat = 58;
 #[doc = "< alias for AV_PIX_FMT_YA8"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY8A: AVPixelFormat = 56;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY8A: AVPixelFormat = 58;
 #[doc = "< packed RGB 16:16:16, 48bpp, 16B, 16G, 16R, the 2-byte value for each R/G/B component is stored as big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BGR48BE: AVPixelFormat = 57;
+pub const AVPixelFormat_AV_PIX_FMT_BGR48BE: AVPixelFormat = 59;
 #[doc = "< packed RGB 16:16:16, 48bpp, 16B, 16G, 16R, the 2-byte value for each R/G/B component is stored as little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BGR48LE: AVPixelFormat = 58;
+pub const AVPixelFormat_AV_PIX_FMT_BGR48LE: AVPixelFormat = 60;
 #[doc = "< planar YUV 4:2:0, 13.5bpp, (1 Cr & Cb sample per 2x2 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P9BE: AVPixelFormat = 59;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P9BE: AVPixelFormat = 61;
 #[doc = "< planar YUV 4:2:0, 13.5bpp, (1 Cr & Cb sample per 2x2 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P9LE: AVPixelFormat = 60;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P9LE: AVPixelFormat = 62;
 #[doc = "< planar YUV 4:2:0, 15bpp, (1 Cr & Cb sample per 2x2 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P10BE: AVPixelFormat = 61;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P10BE: AVPixelFormat = 63;
 #[doc = "< planar YUV 4:2:0, 15bpp, (1 Cr & Cb sample per 2x2 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P10LE: AVPixelFormat = 62;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P10LE: AVPixelFormat = 64;
 #[doc = "< planar YUV 4:2:2, 20bpp, (1 Cr & Cb sample per 2x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P10BE: AVPixelFormat = 63;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P10BE: AVPixelFormat = 65;
 #[doc = "< planar YUV 4:2:2, 20bpp, (1 Cr & Cb sample per 2x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P10LE: AVPixelFormat = 64;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P10LE: AVPixelFormat = 66;
 #[doc = "< planar YUV 4:4:4, 27bpp, (1 Cr & Cb sample per 1x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P9BE: AVPixelFormat = 65;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P9BE: AVPixelFormat = 67;
 #[doc = "< planar YUV 4:4:4, 27bpp, (1 Cr & Cb sample per 1x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P9LE: AVPixelFormat = 66;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P9LE: AVPixelFormat = 68;
 #[doc = "< planar YUV 4:4:4, 30bpp, (1 Cr & Cb sample per 1x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P10BE: AVPixelFormat = 67;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P10BE: AVPixelFormat = 69;
 #[doc = "< planar YUV 4:4:4, 30bpp, (1 Cr & Cb sample per 1x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P10LE: AVPixelFormat = 68;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P10LE: AVPixelFormat = 70;
 #[doc = "< planar YUV 4:2:2, 18bpp, (1 Cr & Cb sample per 2x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P9BE: AVPixelFormat = 69;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P9BE: AVPixelFormat = 71;
 #[doc = "< planar YUV 4:2:2, 18bpp, (1 Cr & Cb sample per 2x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P9LE: AVPixelFormat = 70;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P9LE: AVPixelFormat = 72;
 #[doc = "< planar GBR 4:4:4 24bpp"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP: AVPixelFormat = 71;
-pub const AVPixelFormat_AV_PIX_FMT_GBR24P: AVPixelFormat = 71;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP: AVPixelFormat = 73;
+pub const AVPixelFormat_AV_PIX_FMT_GBR24P: AVPixelFormat = 73;
 #[doc = "< planar GBR 4:4:4 27bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP9BE: AVPixelFormat = 72;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP9BE: AVPixelFormat = 74;
 #[doc = "< planar GBR 4:4:4 27bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP9LE: AVPixelFormat = 73;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP9LE: AVPixelFormat = 75;
 #[doc = "< planar GBR 4:4:4 30bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP10BE: AVPixelFormat = 74;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP10BE: AVPixelFormat = 76;
 #[doc = "< planar GBR 4:4:4 30bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP10LE: AVPixelFormat = 75;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP10LE: AVPixelFormat = 77;
 #[doc = "< planar GBR 4:4:4 48bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP16BE: AVPixelFormat = 76;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP16BE: AVPixelFormat = 78;
 #[doc = "< planar GBR 4:4:4 48bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP16LE: AVPixelFormat = 77;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP16LE: AVPixelFormat = 79;
 #[doc = "< planar YUV 4:2:2 24bpp, (1 Cr & Cb sample per 2x1 Y & A samples)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P: AVPixelFormat = 78;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P: AVPixelFormat = 80;
 #[doc = "< planar YUV 4:4:4 32bpp, (1 Cr & Cb sample per 1x1 Y & A samples)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P: AVPixelFormat = 79;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P: AVPixelFormat = 81;
 #[doc = "< planar YUV 4:2:0 22.5bpp, (1 Cr & Cb sample per 2x2 Y & A samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA420P9BE: AVPixelFormat = 80;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA420P9BE: AVPixelFormat = 82;
 #[doc = "< planar YUV 4:2:0 22.5bpp, (1 Cr & Cb sample per 2x2 Y & A samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA420P9LE: AVPixelFormat = 81;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA420P9LE: AVPixelFormat = 83;
 #[doc = "< planar YUV 4:2:2 27bpp, (1 Cr & Cb sample per 2x1 Y & A samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P9BE: AVPixelFormat = 82;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P9BE: AVPixelFormat = 84;
 #[doc = "< planar YUV 4:2:2 27bpp, (1 Cr & Cb sample per 2x1 Y & A samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P9LE: AVPixelFormat = 83;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P9LE: AVPixelFormat = 85;
 #[doc = "< planar YUV 4:4:4 36bpp, (1 Cr & Cb sample per 1x1 Y & A samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P9BE: AVPixelFormat = 84;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P9BE: AVPixelFormat = 86;
 #[doc = "< planar YUV 4:4:4 36bpp, (1 Cr & Cb sample per 1x1 Y & A samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P9LE: AVPixelFormat = 85;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P9LE: AVPixelFormat = 87;
 #[doc = "< planar YUV 4:2:0 25bpp, (1 Cr & Cb sample per 2x2 Y & A samples, big-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA420P10BE: AVPixelFormat = 86;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA420P10BE: AVPixelFormat = 88;
 #[doc = "< planar YUV 4:2:0 25bpp, (1 Cr & Cb sample per 2x2 Y & A samples, little-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA420P10LE: AVPixelFormat = 87;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA420P10LE: AVPixelFormat = 89;
 #[doc = "< planar YUV 4:2:2 30bpp, (1 Cr & Cb sample per 2x1 Y & A samples, big-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P10BE: AVPixelFormat = 88;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P10BE: AVPixelFormat = 90;
 #[doc = "< planar YUV 4:2:2 30bpp, (1 Cr & Cb sample per 2x1 Y & A samples, little-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P10LE: AVPixelFormat = 89;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P10LE: AVPixelFormat = 91;
 #[doc = "< planar YUV 4:4:4 40bpp, (1 Cr & Cb sample per 1x1 Y & A samples, big-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P10BE: AVPixelFormat = 90;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P10BE: AVPixelFormat = 92;
 #[doc = "< planar YUV 4:4:4 40bpp, (1 Cr & Cb sample per 1x1 Y & A samples, little-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P10LE: AVPixelFormat = 91;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P10LE: AVPixelFormat = 93;
 #[doc = "< planar YUV 4:2:0 40bpp, (1 Cr & Cb sample per 2x2 Y & A samples, big-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA420P16BE: AVPixelFormat = 92;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA420P16BE: AVPixelFormat = 94;
 #[doc = "< planar YUV 4:2:0 40bpp, (1 Cr & Cb sample per 2x2 Y & A samples, little-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA420P16LE: AVPixelFormat = 93;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA420P16LE: AVPixelFormat = 95;
 #[doc = "< planar YUV 4:2:2 48bpp, (1 Cr & Cb sample per 2x1 Y & A samples, big-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P16BE: AVPixelFormat = 94;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P16BE: AVPixelFormat = 96;
 #[doc = "< planar YUV 4:2:2 48bpp, (1 Cr & Cb sample per 2x1 Y & A samples, little-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P16LE: AVPixelFormat = 95;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P16LE: AVPixelFormat = 97;
 #[doc = "< planar YUV 4:4:4 64bpp, (1 Cr & Cb sample per 1x1 Y & A samples, big-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P16BE: AVPixelFormat = 96;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P16BE: AVPixelFormat = 98;
 #[doc = "< planar YUV 4:4:4 64bpp, (1 Cr & Cb sample per 1x1 Y & A samples, little-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P16LE: AVPixelFormat = 97;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P16LE: AVPixelFormat = 99;
 #[doc = "< HW acceleration through VDPAU, Picture.data[3] contains a VdpVideoSurface"]
-pub const AVPixelFormat_AV_PIX_FMT_VDPAU: AVPixelFormat = 98;
+pub const AVPixelFormat_AV_PIX_FMT_VDPAU: AVPixelFormat = 100;
 #[doc = "< packed XYZ 4:4:4, 36 bpp, (msb) 12X, 12Y, 12Z (lsb), the 2-byte value for each X/Y/Z is stored as little-endian, the 4 lower bits are set to 0"]
-pub const AVPixelFormat_AV_PIX_FMT_XYZ12LE: AVPixelFormat = 99;
+pub const AVPixelFormat_AV_PIX_FMT_XYZ12LE: AVPixelFormat = 101;
 #[doc = "< packed XYZ 4:4:4, 36 bpp, (msb) 12X, 12Y, 12Z (lsb), the 2-byte value for each X/Y/Z is stored as big-endian, the 4 lower bits are set to 0"]
-pub const AVPixelFormat_AV_PIX_FMT_XYZ12BE: AVPixelFormat = 100;
+pub const AVPixelFormat_AV_PIX_FMT_XYZ12BE: AVPixelFormat = 102;
 #[doc = "< interleaved chroma YUV 4:2:2, 16bpp, (1 Cr & Cb sample per 2x1 Y samples)"]
-pub const AVPixelFormat_AV_PIX_FMT_NV16: AVPixelFormat = 101;
+pub const AVPixelFormat_AV_PIX_FMT_NV16: AVPixelFormat = 103;
 #[doc = "< interleaved chroma YUV 4:2:2, 20bpp, (1 Cr & Cb sample per 2x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_NV20LE: AVPixelFormat = 102;
+pub const AVPixelFormat_AV_PIX_FMT_NV20LE: AVPixelFormat = 104;
 #[doc = "< interleaved chroma YUV 4:2:2, 20bpp, (1 Cr & Cb sample per 2x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_NV20BE: AVPixelFormat = 103;
+pub const AVPixelFormat_AV_PIX_FMT_NV20BE: AVPixelFormat = 105;
 #[doc = "< packed RGBA 16:16:16:16, 64bpp, 16R, 16G, 16B, 16A, the 2-byte value for each R/G/B/A component is stored as big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_RGBA64BE: AVPixelFormat = 104;
+pub const AVPixelFormat_AV_PIX_FMT_RGBA64BE: AVPixelFormat = 106;
 #[doc = "< packed RGBA 16:16:16:16, 64bpp, 16R, 16G, 16B, 16A, the 2-byte value for each R/G/B/A component is stored as little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_RGBA64LE: AVPixelFormat = 105;
+pub const AVPixelFormat_AV_PIX_FMT_RGBA64LE: AVPixelFormat = 107;
 #[doc = "< packed RGBA 16:16:16:16, 64bpp, 16B, 16G, 16R, 16A, the 2-byte value for each R/G/B/A component is stored as big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BGRA64BE: AVPixelFormat = 106;
+pub const AVPixelFormat_AV_PIX_FMT_BGRA64BE: AVPixelFormat = 108;
 #[doc = "< packed RGBA 16:16:16:16, 64bpp, 16B, 16G, 16R, 16A, the 2-byte value for each R/G/B/A component is stored as little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BGRA64LE: AVPixelFormat = 107;
+pub const AVPixelFormat_AV_PIX_FMT_BGRA64LE: AVPixelFormat = 109;
 #[doc = "< packed YUV 4:2:2, 16bpp, Y0 Cr Y1 Cb"]
-pub const AVPixelFormat_AV_PIX_FMT_YVYU422: AVPixelFormat = 108;
+pub const AVPixelFormat_AV_PIX_FMT_YVYU422: AVPixelFormat = 110;
 #[doc = "< 16 bits gray, 16 bits alpha (big-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YA16BE: AVPixelFormat = 109;
+pub const AVPixelFormat_AV_PIX_FMT_YA16BE: AVPixelFormat = 111;
 #[doc = "< 16 bits gray, 16 bits alpha (little-endian)"]
-pub const AVPixelFormat_AV_PIX_FMT_YA16LE: AVPixelFormat = 110;
+pub const AVPixelFormat_AV_PIX_FMT_YA16LE: AVPixelFormat = 112;
 #[doc = "< planar GBRA 4:4:4:4 32bpp"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAP: AVPixelFormat = 111;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAP: AVPixelFormat = 113;
 #[doc = "< planar GBRA 4:4:4:4 64bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAP16BE: AVPixelFormat = 112;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAP16BE: AVPixelFormat = 114;
 #[doc = "< planar GBRA 4:4:4:4 64bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAP16LE: AVPixelFormat = 113;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAP16LE: AVPixelFormat = 115;
 #[doc = "  HW acceleration through QSV, data[3] contains a pointer to the"]
 #[doc = "  mfxFrameSurface1 structure."]
-pub const AVPixelFormat_AV_PIX_FMT_QSV: AVPixelFormat = 114;
+pub const AVPixelFormat_AV_PIX_FMT_QSV: AVPixelFormat = 116;
 #[doc = " HW acceleration though MMAL, data[3] contains a pointer to the"]
 #[doc = " MMAL_BUFFER_HEADER_T structure."]
-pub const AVPixelFormat_AV_PIX_FMT_MMAL: AVPixelFormat = 115;
+pub const AVPixelFormat_AV_PIX_FMT_MMAL: AVPixelFormat = 117;
 #[doc = "< HW decoding through Direct3D11 via old API, Picture.data[3] contains a ID3D11VideoDecoderOutputView pointer"]
-pub const AVPixelFormat_AV_PIX_FMT_D3D11VA_VLD: AVPixelFormat = 116;
+pub const AVPixelFormat_AV_PIX_FMT_D3D11VA_VLD: AVPixelFormat = 118;
 #[doc = " HW acceleration through CUDA. data[i] contain CUdeviceptr pointers"]
 #[doc = " exactly as for system memory frames."]
-pub const AVPixelFormat_AV_PIX_FMT_CUDA: AVPixelFormat = 117;
+pub const AVPixelFormat_AV_PIX_FMT_CUDA: AVPixelFormat = 119;
 #[doc = "< packed RGB 8:8:8, 32bpp, XRGBXRGB...   X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_0RGB: AVPixelFormat = 118;
+pub const AVPixelFormat_AV_PIX_FMT_0RGB: AVPixelFormat = 120;
 #[doc = "< packed RGB 8:8:8, 32bpp, RGBXRGBX...   X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_RGB0: AVPixelFormat = 119;
+pub const AVPixelFormat_AV_PIX_FMT_RGB0: AVPixelFormat = 121;
 #[doc = "< packed BGR 8:8:8, 32bpp, XBGRXBGR...   X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_0BGR: AVPixelFormat = 120;
+pub const AVPixelFormat_AV_PIX_FMT_0BGR: AVPixelFormat = 122;
 #[doc = "< packed BGR 8:8:8, 32bpp, BGRXBGRX...   X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_BGR0: AVPixelFormat = 121;
+pub const AVPixelFormat_AV_PIX_FMT_BGR0: AVPixelFormat = 123;
 #[doc = "< planar YUV 4:2:0,18bpp, (1 Cr & Cb sample per 2x2 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P12BE: AVPixelFormat = 122;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P12BE: AVPixelFormat = 124;
 #[doc = "< planar YUV 4:2:0,18bpp, (1 Cr & Cb sample per 2x2 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P12LE: AVPixelFormat = 123;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P12LE: AVPixelFormat = 125;
 #[doc = "< planar YUV 4:2:0,21bpp, (1 Cr & Cb sample per 2x2 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P14BE: AVPixelFormat = 124;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P14BE: AVPixelFormat = 126;
 #[doc = "< planar YUV 4:2:0,21bpp, (1 Cr & Cb sample per 2x2 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV420P14LE: AVPixelFormat = 125;
+pub const AVPixelFormat_AV_PIX_FMT_YUV420P14LE: AVPixelFormat = 127;
 #[doc = "< planar YUV 4:2:2,24bpp, (1 Cr & Cb sample per 2x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P12BE: AVPixelFormat = 126;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P12BE: AVPixelFormat = 128;
 #[doc = "< planar YUV 4:2:2,24bpp, (1 Cr & Cb sample per 2x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P12LE: AVPixelFormat = 127;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P12LE: AVPixelFormat = 129;
 #[doc = "< planar YUV 4:2:2,28bpp, (1 Cr & Cb sample per 2x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P14BE: AVPixelFormat = 128;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P14BE: AVPixelFormat = 130;
 #[doc = "< planar YUV 4:2:2,28bpp, (1 Cr & Cb sample per 2x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV422P14LE: AVPixelFormat = 129;
+pub const AVPixelFormat_AV_PIX_FMT_YUV422P14LE: AVPixelFormat = 131;
 #[doc = "< planar YUV 4:4:4,36bpp, (1 Cr & Cb sample per 1x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P12BE: AVPixelFormat = 130;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P12BE: AVPixelFormat = 132;
 #[doc = "< planar YUV 4:4:4,36bpp, (1 Cr & Cb sample per 1x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P12LE: AVPixelFormat = 131;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P12LE: AVPixelFormat = 133;
 #[doc = "< planar YUV 4:4:4,42bpp, (1 Cr & Cb sample per 1x1 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P14BE: AVPixelFormat = 132;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P14BE: AVPixelFormat = 134;
 #[doc = "< planar YUV 4:4:4,42bpp, (1 Cr & Cb sample per 1x1 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV444P14LE: AVPixelFormat = 133;
+pub const AVPixelFormat_AV_PIX_FMT_YUV444P14LE: AVPixelFormat = 135;
 #[doc = "< planar GBR 4:4:4 36bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP12BE: AVPixelFormat = 134;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP12BE: AVPixelFormat = 136;
 #[doc = "< planar GBR 4:4:4 36bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP12LE: AVPixelFormat = 135;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP12LE: AVPixelFormat = 137;
 #[doc = "< planar GBR 4:4:4 42bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP14BE: AVPixelFormat = 136;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP14BE: AVPixelFormat = 138;
 #[doc = "< planar GBR 4:4:4 42bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRP14LE: AVPixelFormat = 137;
+pub const AVPixelFormat_AV_PIX_FMT_GBRP14LE: AVPixelFormat = 139;
 #[doc = "< planar YUV 4:1:1, 12bpp, (1 Cr & Cb sample per 4x1 Y samples) full scale (JPEG), deprecated in favor of AV_PIX_FMT_YUV411P and setting color_range"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVJ411P: AVPixelFormat = 138;
+pub const AVPixelFormat_AV_PIX_FMT_YUVJ411P: AVPixelFormat = 140;
 #[doc = "< bayer, BGBG..(odd line), GRGR..(even line), 8-bit samples"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_BGGR8: AVPixelFormat = 139;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_BGGR8: AVPixelFormat = 141;
 #[doc = "< bayer, RGRG..(odd line), GBGB..(even line), 8-bit samples"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_RGGB8: AVPixelFormat = 140;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_RGGB8: AVPixelFormat = 142;
 #[doc = "< bayer, GBGB..(odd line), RGRG..(even line), 8-bit samples"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_GBRG8: AVPixelFormat = 141;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_GBRG8: AVPixelFormat = 143;
 #[doc = "< bayer, GRGR..(odd line), BGBG..(even line), 8-bit samples"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_GRBG8: AVPixelFormat = 142;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_GRBG8: AVPixelFormat = 144;
 #[doc = "< bayer, BGBG..(odd line), GRGR..(even line), 16-bit samples, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_BGGR16LE: AVPixelFormat = 143;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_BGGR16LE: AVPixelFormat = 145;
 #[doc = "< bayer, BGBG..(odd line), GRGR..(even line), 16-bit samples, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_BGGR16BE: AVPixelFormat = 144;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_BGGR16BE: AVPixelFormat = 146;
 #[doc = "< bayer, RGRG..(odd line), GBGB..(even line), 16-bit samples, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_RGGB16LE: AVPixelFormat = 145;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_RGGB16LE: AVPixelFormat = 147;
 #[doc = "< bayer, RGRG..(odd line), GBGB..(even line), 16-bit samples, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_RGGB16BE: AVPixelFormat = 146;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_RGGB16BE: AVPixelFormat = 148;
 #[doc = "< bayer, GBGB..(odd line), RGRG..(even line), 16-bit samples, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_GBRG16LE: AVPixelFormat = 147;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_GBRG16LE: AVPixelFormat = 149;
 #[doc = "< bayer, GBGB..(odd line), RGRG..(even line), 16-bit samples, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_GBRG16BE: AVPixelFormat = 148;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_GBRG16BE: AVPixelFormat = 150;
 #[doc = "< bayer, GRGR..(odd line), BGBG..(even line), 16-bit samples, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_GRBG16LE: AVPixelFormat = 149;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_GRBG16LE: AVPixelFormat = 151;
 #[doc = "< bayer, GRGR..(odd line), BGBG..(even line), 16-bit samples, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_BAYER_GRBG16BE: AVPixelFormat = 150;
+pub const AVPixelFormat_AV_PIX_FMT_BAYER_GRBG16BE: AVPixelFormat = 152;
 #[doc = "< XVideo Motion Acceleration via common packet passing"]
-pub const AVPixelFormat_AV_PIX_FMT_XVMC: AVPixelFormat = 151;
+pub const AVPixelFormat_AV_PIX_FMT_XVMC: AVPixelFormat = 153;
 #[doc = "< planar YUV 4:4:0,20bpp, (1 Cr & Cb sample per 1x2 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV440P10LE: AVPixelFormat = 152;
+pub const AVPixelFormat_AV_PIX_FMT_YUV440P10LE: AVPixelFormat = 154;
 #[doc = "< planar YUV 4:4:0,20bpp, (1 Cr & Cb sample per 1x2 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV440P10BE: AVPixelFormat = 153;
+pub const AVPixelFormat_AV_PIX_FMT_YUV440P10BE: AVPixelFormat = 155;
 #[doc = "< planar YUV 4:4:0,24bpp, (1 Cr & Cb sample per 1x2 Y samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV440P12LE: AVPixelFormat = 154;
+pub const AVPixelFormat_AV_PIX_FMT_YUV440P12LE: AVPixelFormat = 156;
 #[doc = "< planar YUV 4:4:0,24bpp, (1 Cr & Cb sample per 1x2 Y samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUV440P12BE: AVPixelFormat = 155;
+pub const AVPixelFormat_AV_PIX_FMT_YUV440P12BE: AVPixelFormat = 157;
 #[doc = "< packed AYUV 4:4:4,64bpp (1 Cr & Cb sample per 1x1 Y & A samples), little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_AYUV64LE: AVPixelFormat = 156;
+pub const AVPixelFormat_AV_PIX_FMT_AYUV64LE: AVPixelFormat = 158;
 #[doc = "< packed AYUV 4:4:4,64bpp (1 Cr & Cb sample per 1x1 Y & A samples), big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_AYUV64BE: AVPixelFormat = 157;
+pub const AVPixelFormat_AV_PIX_FMT_AYUV64BE: AVPixelFormat = 159;
 #[doc = "< hardware decoding through Videotoolbox"]
-pub const AVPixelFormat_AV_PIX_FMT_VIDEOTOOLBOX: AVPixelFormat = 158;
+pub const AVPixelFormat_AV_PIX_FMT_VIDEOTOOLBOX: AVPixelFormat = 160;
 #[doc = "< like NV12, with 10bpp per component, data in the high bits, zeros in the low bits, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_P010LE: AVPixelFormat = 159;
+pub const AVPixelFormat_AV_PIX_FMT_P010LE: AVPixelFormat = 161;
 #[doc = "< like NV12, with 10bpp per component, data in the high bits, zeros in the low bits, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_P010BE: AVPixelFormat = 160;
+pub const AVPixelFormat_AV_PIX_FMT_P010BE: AVPixelFormat = 162;
 #[doc = "< planar GBR 4:4:4:4 48bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAP12BE: AVPixelFormat = 161;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAP12BE: AVPixelFormat = 163;
 #[doc = "< planar GBR 4:4:4:4 48bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAP12LE: AVPixelFormat = 162;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAP12LE: AVPixelFormat = 164;
 #[doc = "< planar GBR 4:4:4:4 40bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAP10BE: AVPixelFormat = 163;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAP10BE: AVPixelFormat = 165;
 #[doc = "< planar GBR 4:4:4:4 40bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAP10LE: AVPixelFormat = 164;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAP10LE: AVPixelFormat = 166;
 #[doc = "< hardware decoding through MediaCodec"]
-pub const AVPixelFormat_AV_PIX_FMT_MEDIACODEC: AVPixelFormat = 165;
+pub const AVPixelFormat_AV_PIX_FMT_MEDIACODEC: AVPixelFormat = 167;
 #[doc = "<        Y        , 12bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY12BE: AVPixelFormat = 166;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY12BE: AVPixelFormat = 168;
 #[doc = "<        Y        , 12bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY12LE: AVPixelFormat = 167;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY12LE: AVPixelFormat = 169;
 #[doc = "<        Y        , 10bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY10BE: AVPixelFormat = 168;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY10BE: AVPixelFormat = 170;
 #[doc = "<        Y        , 10bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY10LE: AVPixelFormat = 169;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY10LE: AVPixelFormat = 171;
 #[doc = "< like NV12, with 16bpp per component, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_P016LE: AVPixelFormat = 170;
+pub const AVPixelFormat_AV_PIX_FMT_P016LE: AVPixelFormat = 172;
 #[doc = "< like NV12, with 16bpp per component, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_P016BE: AVPixelFormat = 171;
+pub const AVPixelFormat_AV_PIX_FMT_P016BE: AVPixelFormat = 173;
 #[doc = " Hardware surfaces for Direct3D11."]
 #[doc = ""]
 #[doc = " This is preferred over the legacy AV_PIX_FMT_D3D11VA_VLD. The new D3D11"]
@@ -7831,62 +7865,62 @@ pub const AVPixelFormat_AV_PIX_FMT_P016BE: AVPixelFormat = 171;
 #[doc = " data[0] contains a ID3D11Texture2D pointer, and data[1] contains the"]
 #[doc = " texture array index of the frame as intptr_t if the ID3D11Texture2D is"]
 #[doc = " an array texture (or always 0 if it's a normal texture)."]
-pub const AVPixelFormat_AV_PIX_FMT_D3D11: AVPixelFormat = 172;
+pub const AVPixelFormat_AV_PIX_FMT_D3D11: AVPixelFormat = 174;
 #[doc = "<        Y        , 9bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY9BE: AVPixelFormat = 173;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY9BE: AVPixelFormat = 175;
 #[doc = "<        Y        , 9bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY9LE: AVPixelFormat = 174;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY9LE: AVPixelFormat = 176;
 #[doc = "< IEEE-754 single precision planar GBR 4:4:4,     96bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRPF32BE: AVPixelFormat = 175;
+pub const AVPixelFormat_AV_PIX_FMT_GBRPF32BE: AVPixelFormat = 177;
 #[doc = "< IEEE-754 single precision planar GBR 4:4:4,     96bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRPF32LE: AVPixelFormat = 176;
+pub const AVPixelFormat_AV_PIX_FMT_GBRPF32LE: AVPixelFormat = 178;
 #[doc = "< IEEE-754 single precision planar GBRA 4:4:4:4, 128bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAPF32BE: AVPixelFormat = 177;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAPF32BE: AVPixelFormat = 179;
 #[doc = "< IEEE-754 single precision planar GBRA 4:4:4:4, 128bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GBRAPF32LE: AVPixelFormat = 178;
+pub const AVPixelFormat_AV_PIX_FMT_GBRAPF32LE: AVPixelFormat = 180;
 #[doc = " DRM-managed buffers exposed through PRIME buffer sharing."]
 #[doc = ""]
 #[doc = " data[0] points to an AVDRMFrameDescriptor."]
-pub const AVPixelFormat_AV_PIX_FMT_DRM_PRIME: AVPixelFormat = 179;
+pub const AVPixelFormat_AV_PIX_FMT_DRM_PRIME: AVPixelFormat = 181;
 #[doc = " Hardware surfaces for OpenCL."]
 #[doc = ""]
 #[doc = " data[i] contain 2D image objects (typed in C as cl_mem, used"]
 #[doc = " in OpenCL as image2d_t) for each plane of the surface."]
-pub const AVPixelFormat_AV_PIX_FMT_OPENCL: AVPixelFormat = 180;
+pub const AVPixelFormat_AV_PIX_FMT_OPENCL: AVPixelFormat = 182;
 #[doc = "<        Y        , 14bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY14BE: AVPixelFormat = 181;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY14BE: AVPixelFormat = 183;
 #[doc = "<        Y        , 14bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAY14LE: AVPixelFormat = 182;
+pub const AVPixelFormat_AV_PIX_FMT_GRAY14LE: AVPixelFormat = 184;
 #[doc = "< IEEE-754 single precision Y, 32bpp, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAYF32BE: AVPixelFormat = 183;
+pub const AVPixelFormat_AV_PIX_FMT_GRAYF32BE: AVPixelFormat = 185;
 #[doc = "< IEEE-754 single precision Y, 32bpp, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_GRAYF32LE: AVPixelFormat = 184;
+pub const AVPixelFormat_AV_PIX_FMT_GRAYF32LE: AVPixelFormat = 186;
 #[doc = "< planar YUV 4:2:2,24bpp, (1 Cr & Cb sample per 2x1 Y samples), 12b alpha, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P12BE: AVPixelFormat = 185;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P12BE: AVPixelFormat = 187;
 #[doc = "< planar YUV 4:2:2,24bpp, (1 Cr & Cb sample per 2x1 Y samples), 12b alpha, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA422P12LE: AVPixelFormat = 186;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA422P12LE: AVPixelFormat = 188;
 #[doc = "< planar YUV 4:4:4,36bpp, (1 Cr & Cb sample per 1x1 Y samples), 12b alpha, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P12BE: AVPixelFormat = 187;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P12BE: AVPixelFormat = 189;
 #[doc = "< planar YUV 4:4:4,36bpp, (1 Cr & Cb sample per 1x1 Y samples), 12b alpha, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_YUVA444P12LE: AVPixelFormat = 188;
+pub const AVPixelFormat_AV_PIX_FMT_YUVA444P12LE: AVPixelFormat = 190;
 #[doc = "< planar YUV 4:4:4, 24bpp, 1 plane for Y and 1 plane for the UV components, which are interleaved (first byte U and the following byte V)"]
-pub const AVPixelFormat_AV_PIX_FMT_NV24: AVPixelFormat = 189;
+pub const AVPixelFormat_AV_PIX_FMT_NV24: AVPixelFormat = 191;
 #[doc = "< as above, but U and V bytes are swapped"]
-pub const AVPixelFormat_AV_PIX_FMT_NV42: AVPixelFormat = 190;
+pub const AVPixelFormat_AV_PIX_FMT_NV42: AVPixelFormat = 192;
 #[doc = " Vulkan hardware images."]
 #[doc = ""]
 #[doc = " data[0] points to an AVVkFrame"]
-pub const AVPixelFormat_AV_PIX_FMT_VULKAN: AVPixelFormat = 191;
+pub const AVPixelFormat_AV_PIX_FMT_VULKAN: AVPixelFormat = 193;
 #[doc = "< packed YUV 4:2:2 like YUYV422, 20bpp, data in the high bits, big-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_Y210BE: AVPixelFormat = 192;
+pub const AVPixelFormat_AV_PIX_FMT_Y210BE: AVPixelFormat = 194;
 #[doc = "< packed YUV 4:2:2 like YUYV422, 20bpp, data in the high bits, little-endian"]
-pub const AVPixelFormat_AV_PIX_FMT_Y210LE: AVPixelFormat = 193;
+pub const AVPixelFormat_AV_PIX_FMT_Y210LE: AVPixelFormat = 195;
 #[doc = "< packed RGB 10:10:10, 30bpp, (msb)2X 10R 10G 10B(lsb), little-endian, X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_X2RGB10LE: AVPixelFormat = 194;
+pub const AVPixelFormat_AV_PIX_FMT_X2RGB10LE: AVPixelFormat = 196;
 #[doc = "< packed RGB 10:10:10, 30bpp, (msb)2X 10R 10G 10B(lsb), big-endian, X=unused/undefined"]
-pub const AVPixelFormat_AV_PIX_FMT_X2RGB10BE: AVPixelFormat = 195;
+pub const AVPixelFormat_AV_PIX_FMT_X2RGB10BE: AVPixelFormat = 197;
 #[doc = "< number of pixel formats, DO NOT USE THIS if you want to link with shared libav* because the number of formats might differ between versions"]
-pub const AVPixelFormat_AV_PIX_FMT_NB: AVPixelFormat = 196;
+pub const AVPixelFormat_AV_PIX_FMT_NB: AVPixelFormat = 198;
 #[doc = " Pixel format."]
 #[doc = ""]
 #[doc = " @note"]
@@ -8407,8 +8441,7 @@ pub struct AVBufferRef {
     #[doc = " this is the only reference to the buffer, in which case"]
     #[doc = " av_buffer_is_writable() returns 1."]
     pub data: *mut u8,
-    #[doc = " Size of data in bytes."]
-    pub size: size_t,
+    pub size: ::std::os::raw::c_int,
 }
 #[test]
 fn bindgen_test_layout_AVBufferRef() {
@@ -8454,33 +8487,15 @@ fn bindgen_test_layout_AVBufferRef() {
     );
 }
 extern "C" {
-    #[doc = " Allocate an AVBuffer of the given size using av_malloc()."]
-    #[doc = ""]
-    #[doc = " @return an AVBufferRef of given size or NULL when out of memory"]
-    pub fn av_buffer_alloc(size: size_t) -> *mut AVBufferRef;
+    pub fn av_buffer_alloc(size: ::std::os::raw::c_int) -> *mut AVBufferRef;
 }
 extern "C" {
-    #[doc = " Same as av_buffer_alloc(), except the returned buffer will be initialized"]
-    #[doc = " to zero."]
-    pub fn av_buffer_allocz(size: size_t) -> *mut AVBufferRef;
+    pub fn av_buffer_allocz(size: ::std::os::raw::c_int) -> *mut AVBufferRef;
 }
 extern "C" {
-    #[doc = " Create an AVBuffer from an existing array."]
-    #[doc = ""]
-    #[doc = " If this function is successful, data is owned by the AVBuffer. The caller may"]
-    #[doc = " only access data through the returned AVBufferRef and references derived from"]
-    #[doc = " it."]
-    #[doc = " If this function fails, data is left untouched."]
-    #[doc = " @param data   data array"]
-    #[doc = " @param size   size of data in bytes"]
-    #[doc = " @param free   a callback for freeing this buffer's data"]
-    #[doc = " @param opaque parameter to be got for processing or passed to free"]
-    #[doc = " @param flags  a combination of AV_BUFFER_FLAG_*"]
-    #[doc = ""]
-    #[doc = " @return an AVBufferRef referring to data on success, NULL on failure."]
     pub fn av_buffer_create(
         data: *mut u8,
-        size: size_t,
+        size: ::std::os::raw::c_int,
         free: ::std::option::Option<
             unsafe extern "C" fn(opaque: *mut ::std::os::raw::c_void, data: *mut u8),
         >,
@@ -8533,20 +8548,10 @@ extern "C" {
     pub fn av_buffer_make_writable(buf: *mut *mut AVBufferRef) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Reallocate a given buffer."]
-    #[doc = ""]
-    #[doc = " @param buf  a buffer reference to reallocate. On success, buf will be"]
-    #[doc = "             unreferenced and a new reference with the required size will be"]
-    #[doc = "             written in its place. On failure buf will be left untouched. *buf"]
-    #[doc = "             may be NULL, then a new buffer is allocated."]
-    #[doc = " @param size required new buffer size."]
-    #[doc = " @return 0 on success, a negative AVERROR on failure."]
-    #[doc = ""]
-    #[doc = " @note the buffer is actually reallocated with av_realloc() only if it was"]
-    #[doc = " initially allocated through av_buffer_realloc(NULL) and there is only one"]
-    #[doc = " reference to it (i.e. the one passed to this function). In all other cases"]
-    #[doc = " a new buffer is allocated and the data is copied."]
-    pub fn av_buffer_realloc(buf: *mut *mut AVBufferRef, size: size_t) -> ::std::os::raw::c_int;
+    pub fn av_buffer_realloc(
+        buf: *mut *mut AVBufferRef,
+        size: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Ensure dst refers to the same data as src."]
@@ -8572,39 +8577,21 @@ pub struct AVBufferPool {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[doc = " Allocate and initialize a buffer pool."]
-    #[doc = ""]
-    #[doc = " @param size size of each buffer in this pool"]
-    #[doc = " @param alloc a function that will be used to allocate new buffers when the"]
-    #[doc = " pool is empty. May be NULL, then the default allocator will be used"]
-    #[doc = " (av_buffer_alloc())."]
-    #[doc = " @return newly created buffer pool on success, NULL on error."]
     pub fn av_buffer_pool_init(
-        size: size_t,
-        alloc: ::std::option::Option<unsafe extern "C" fn(size: size_t) -> *mut AVBufferRef>,
+        size: ::std::os::raw::c_int,
+        alloc: ::std::option::Option<
+            unsafe extern "C" fn(size: ::std::os::raw::c_int) -> *mut AVBufferRef,
+        >,
     ) -> *mut AVBufferPool;
 }
 extern "C" {
-    #[doc = " Allocate and initialize a buffer pool with a more complex allocator."]
-    #[doc = ""]
-    #[doc = " @param size size of each buffer in this pool"]
-    #[doc = " @param opaque arbitrary user data used by the allocator"]
-    #[doc = " @param alloc a function that will be used to allocate new buffers when the"]
-    #[doc = "              pool is empty. May be NULL, then the default allocator will be"]
-    #[doc = "              used (av_buffer_alloc())."]
-    #[doc = " @param pool_free a function that will be called immediately before the pool"]
-    #[doc = "                  is freed. I.e. after av_buffer_pool_uninit() is called"]
-    #[doc = "                  by the caller and all the frames are returned to the pool"]
-    #[doc = "                  and freed. It is intended to uninitialize the user opaque"]
-    #[doc = "                  data. May be NULL."]
-    #[doc = " @return newly created buffer pool on success, NULL on error."]
     pub fn av_buffer_pool_init2(
-        size: size_t,
+        size: ::std::os::raw::c_int,
         opaque: *mut ::std::os::raw::c_void,
         alloc: ::std::option::Option<
             unsafe extern "C" fn(
                 opaque: *mut ::std::os::raw::c_void,
-                size: size_t,
+                size: ::std::os::raw::c_int,
             ) -> *mut AVBufferRef,
         >,
         pool_free: ::std::option::Option<unsafe extern "C" fn(opaque: *mut ::std::os::raw::c_void)>,
@@ -8649,6 +8636,22 @@ extern "C" {
     #[doc = " Disables cpu detection and forces the specified flags."]
     #[doc = " -1 is a special case that disables forcing of specific flags."]
     pub fn av_force_cpu_flags(flags: ::std::os::raw::c_int);
+}
+extern "C" {
+    #[doc = " Set a mask on flags returned by av_get_cpu_flags()."]
+    #[doc = " This function is mainly useful for testing."]
+    #[doc = " Please use av_force_cpu_flags() and av_get_cpu_flags() instead which are more flexible"]
+    pub fn av_set_cpu_flags_mask(mask: ::std::os::raw::c_int);
+}
+extern "C" {
+    #[doc = " Parse CPU flags from a string."]
+    #[doc = ""]
+    #[doc = " The returned flags contain the specified flags as well as related unspecified flags."]
+    #[doc = ""]
+    #[doc = " This function exists only for compatibility with libav."]
+    #[doc = " Please use av_parse_cpu_caps() when possible."]
+    #[doc = " @return a combination of AV_CPU_* flags, negative on error."]
+    pub fn av_parse_cpu_flags(s: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Parse CPU caps from a string and update the given AV_CPU_* flags based on that."]
@@ -9023,31 +9026,37 @@ pub const AVFrameSideDataType_AV_FRAME_DATA_CONTENT_LIGHT_LEVEL: AVFrameSideData
 #[doc = " format described by ISO 15076-1 with an optional name defined in the"]
 #[doc = " metadata key entry \"name\"."]
 pub const AVFrameSideDataType_AV_FRAME_DATA_ICC_PROFILE: AVFrameSideDataType = 15;
+#[doc = " Implementation-specific description of the format of AV_FRAME_QP_TABLE_DATA."]
+#[doc = " The contents of this side data are undocumented and internal; use"]
+#[doc = " av_frame_set_qp_table() and av_frame_get_qp_table() to access this in a"]
+#[doc = " meaningful way instead."]
+pub const AVFrameSideDataType_AV_FRAME_DATA_QP_TABLE_PROPERTIES: AVFrameSideDataType = 16;
+#[doc = " Raw QP table data. Its format is described by"]
+#[doc = " AV_FRAME_DATA_QP_TABLE_PROPERTIES. Use av_frame_set_qp_table() and"]
+#[doc = " av_frame_get_qp_table() to access this instead."]
+pub const AVFrameSideDataType_AV_FRAME_DATA_QP_TABLE_DATA: AVFrameSideDataType = 17;
 #[doc = " Timecode which conforms to SMPTE ST 12-1. The data is an array of 4 uint32_t"]
 #[doc = " where the first uint32_t describes how many (1-3) of the other timecodes are used."]
 #[doc = " The timecode format is described in the documentation of av_timecode_get_smpte_from_framenum()"]
 #[doc = " function in libavutil/timecode.h."]
-pub const AVFrameSideDataType_AV_FRAME_DATA_S12M_TIMECODE: AVFrameSideDataType = 16;
+pub const AVFrameSideDataType_AV_FRAME_DATA_S12M_TIMECODE: AVFrameSideDataType = 18;
 #[doc = " HDR dynamic metadata associated with a video frame. The payload is"]
 #[doc = " an AVDynamicHDRPlus type and contains information for color"]
 #[doc = " volume transform - application 4 of SMPTE 2094-40:2016 standard."]
-pub const AVFrameSideDataType_AV_FRAME_DATA_DYNAMIC_HDR_PLUS: AVFrameSideDataType = 17;
+pub const AVFrameSideDataType_AV_FRAME_DATA_DYNAMIC_HDR_PLUS: AVFrameSideDataType = 19;
 #[doc = " Regions Of Interest, the data is an array of AVRegionOfInterest type, the number of"]
 #[doc = " array element is implied by AVFrameSideData.size / AVRegionOfInterest.self_size."]
-pub const AVFrameSideDataType_AV_FRAME_DATA_REGIONS_OF_INTEREST: AVFrameSideDataType = 18;
+pub const AVFrameSideDataType_AV_FRAME_DATA_REGIONS_OF_INTEREST: AVFrameSideDataType = 20;
 #[doc = " Encoding parameters for a video frame, as described by AVVideoEncParams."]
-pub const AVFrameSideDataType_AV_FRAME_DATA_VIDEO_ENC_PARAMS: AVFrameSideDataType = 19;
+pub const AVFrameSideDataType_AV_FRAME_DATA_VIDEO_ENC_PARAMS: AVFrameSideDataType = 21;
 #[doc = " User data unregistered metadata associated with a video frame."]
 #[doc = " This is the H.26[45] UDU SEI message, and shouldn't be used for any other purpose"]
 #[doc = " The data is stored as uint8_t in AVFrameSideData.data which is 16 bytes of"]
 #[doc = " uuid_iso_iec_11578 followed by AVFrameSideData.size - 16 bytes of user_data_payload_byte."]
-pub const AVFrameSideDataType_AV_FRAME_DATA_SEI_UNREGISTERED: AVFrameSideDataType = 20;
+pub const AVFrameSideDataType_AV_FRAME_DATA_SEI_UNREGISTERED: AVFrameSideDataType = 22;
 #[doc = " Film grain parameters for a frame, described by AVFilmGrainParams."]
 #[doc = " Must be present for every frame which should have film grain applied."]
-pub const AVFrameSideDataType_AV_FRAME_DATA_FILM_GRAIN_PARAMS: AVFrameSideDataType = 21;
-#[doc = " Bounding boxes for object detection and classification,"]
-#[doc = " as described by AVDetectionBBoxHeader."]
-pub const AVFrameSideDataType_AV_FRAME_DATA_DETECTION_BBOXES: AVFrameSideDataType = 22;
+pub const AVFrameSideDataType_AV_FRAME_DATA_FILM_GRAIN_PARAMS: AVFrameSideDataType = 23;
 #[doc = " @defgroup lavu_frame AVFrame"]
 #[doc = " @ingroup lavu_data"]
 #[doc = ""]
@@ -9071,7 +9080,7 @@ pub type AVActiveFormatDescription = ::std::os::raw::c_uint;
 pub struct AVFrameSideData {
     pub type_: AVFrameSideDataType,
     pub data: *mut u8,
-    pub size: size_t,
+    pub size: ::std::os::raw::c_int,
     pub metadata: *mut AVDictionary,
     pub buf: *mut AVBufferRef,
 }
@@ -9359,6 +9368,9 @@ pub struct AVFrame {
     pub sample_aspect_ratio: AVRational,
     #[doc = " Presentation timestamp in time_base units (time when frame should be shown to user)."]
     pub pts: i64,
+    #[doc = " PTS copied from the AVPacket that was decoded to produce this frame."]
+    #[doc = " @deprecated use the pts field instead"]
+    pub pkt_pts: i64,
     #[doc = " DTS copied from the AVPacket that triggered returning this frame. (if frame threading isn't used)"]
     #[doc = " This is also the Presentation time of this AVFrame calculated from"]
     #[doc = " only AVPacket.dts values without pts values."]
@@ -9371,6 +9383,8 @@ pub struct AVFrame {
     pub quality: ::std::os::raw::c_int,
     #[doc = " for some private data of the user"]
     pub opaque: *mut ::std::os::raw::c_void,
+    #[doc = " @deprecated unused"]
+    pub error: [u64; 8usize],
     #[doc = " When decoding, this signals how much the picture must be delayed."]
     #[doc = " extra_delay = repeat_pict / (2*fps)"]
     pub repeat_pict: ::std::os::raw::c_int,
@@ -9463,6 +9477,12 @@ pub struct AVFrame {
     #[doc = " - encoding: unused"]
     #[doc = " - decoding: set by libavcodec, read by user."]
     pub pkt_size: ::std::os::raw::c_int,
+    #[doc = " QP table"]
+    pub qscale_table: *mut i8,
+    #[doc = " QP store stride"]
+    pub qstride: ::std::os::raw::c_int,
+    pub qscale_type: ::std::os::raw::c_int,
+    pub qp_table_buf: *mut AVBufferRef,
     #[doc = " For hwaccel-format frames, this should be a reference to the"]
     #[doc = " AVHWFramesContext describing the frame."]
     pub hw_frames_ctx: *mut AVBufferRef,
@@ -9499,7 +9519,7 @@ pub struct AVFrame {
 fn bindgen_test_layout_AVFrame() {
     assert_eq!(
         ::std::mem::size_of::<AVFrame>(),
-        440usize,
+        536usize,
         concat!("Size of: ", stringify!(AVFrame))
     );
     assert_eq!(
@@ -9618,8 +9638,18 @@ fn bindgen_test_layout_AVFrame() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVFrame>())).pkt_dts as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVFrame>())).pkt_pts as *const _ as usize },
         144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFrame),
+            "::",
+            stringify!(pkt_pts)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFrame>())).pkt_dts as *const _ as usize },
+        152usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9629,7 +9659,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).coded_picture_number as *const _ as usize },
-        152usize,
+        160usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9639,7 +9669,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).display_picture_number as *const _ as usize },
-        156usize,
+        164usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9649,7 +9679,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).quality as *const _ as usize },
-        160usize,
+        168usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9659,7 +9689,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).opaque as *const _ as usize },
-        168usize,
+        176usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9668,8 +9698,18 @@ fn bindgen_test_layout_AVFrame() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFrame>())).error as *const _ as usize },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFrame),
+            "::",
+            stringify!(error)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).repeat_pict as *const _ as usize },
-        176usize,
+        248usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9679,7 +9719,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).interlaced_frame as *const _ as usize },
-        180usize,
+        252usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9689,7 +9729,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).top_field_first as *const _ as usize },
-        184usize,
+        256usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9699,7 +9739,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).palette_has_changed as *const _ as usize },
-        188usize,
+        260usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9709,7 +9749,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).reordered_opaque as *const _ as usize },
-        192usize,
+        264usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9719,7 +9759,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).sample_rate as *const _ as usize },
-        200usize,
+        272usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9729,7 +9769,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).channel_layout as *const _ as usize },
-        208usize,
+        280usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9739,7 +9779,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).buf as *const _ as usize },
-        216usize,
+        288usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9749,7 +9789,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).extended_buf as *const _ as usize },
-        280usize,
+        352usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9759,7 +9799,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).nb_extended_buf as *const _ as usize },
-        288usize,
+        360usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9769,7 +9809,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).side_data as *const _ as usize },
-        296usize,
+        368usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9779,7 +9819,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).nb_side_data as *const _ as usize },
-        304usize,
+        376usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9789,7 +9829,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).flags as *const _ as usize },
-        308usize,
+        380usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9799,7 +9839,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).color_range as *const _ as usize },
-        312usize,
+        384usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9809,7 +9849,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).color_primaries as *const _ as usize },
-        316usize,
+        388usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9819,7 +9859,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).color_trc as *const _ as usize },
-        320usize,
+        392usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9829,7 +9869,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).colorspace as *const _ as usize },
-        324usize,
+        396usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9839,7 +9879,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).chroma_location as *const _ as usize },
-        328usize,
+        400usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9849,7 +9889,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).best_effort_timestamp as *const _ as usize },
-        336usize,
+        408usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9859,7 +9899,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).pkt_pos as *const _ as usize },
-        344usize,
+        416usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9869,7 +9909,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).pkt_duration as *const _ as usize },
-        352usize,
+        424usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9879,7 +9919,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).metadata as *const _ as usize },
-        360usize,
+        432usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9889,7 +9929,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).decode_error_flags as *const _ as usize },
-        368usize,
+        440usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9899,7 +9939,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).channels as *const _ as usize },
-        372usize,
+        444usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9909,7 +9949,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).pkt_size as *const _ as usize },
-        376usize,
+        448usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9918,8 +9958,48 @@ fn bindgen_test_layout_AVFrame() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFrame>())).qscale_table as *const _ as usize },
+        456usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFrame),
+            "::",
+            stringify!(qscale_table)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFrame>())).qstride as *const _ as usize },
+        464usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFrame),
+            "::",
+            stringify!(qstride)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFrame>())).qscale_type as *const _ as usize },
+        468usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFrame),
+            "::",
+            stringify!(qscale_type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFrame>())).qp_table_buf as *const _ as usize },
+        472usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFrame),
+            "::",
+            stringify!(qp_table_buf)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).hw_frames_ctx as *const _ as usize },
-        384usize,
+        480usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9929,7 +10009,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).opaque_ref as *const _ as usize },
-        392usize,
+        488usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9939,7 +10019,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).crop_top as *const _ as usize },
-        400usize,
+        496usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9949,7 +10029,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).crop_bottom as *const _ as usize },
-        408usize,
+        504usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9959,7 +10039,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).crop_left as *const _ as usize },
-        416usize,
+        512usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9969,7 +10049,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).crop_right as *const _ as usize },
-        424usize,
+        520usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9979,7 +10059,7 @@ fn bindgen_test_layout_AVFrame() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFrame>())).private_ref as *const _ as usize },
-        432usize,
+        528usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFrame),
@@ -9989,9 +10069,91 @@ fn bindgen_test_layout_AVFrame() {
     );
 }
 extern "C" {
+    #[doc = " Accessors for some AVFrame fields. These used to be provided for ABI"]
+    #[doc = " compatibility, and do not need to be used anymore."]
+    pub fn av_frame_get_best_effort_timestamp(frame: *const AVFrame) -> i64;
+}
+extern "C" {
+    pub fn av_frame_set_best_effort_timestamp(frame: *mut AVFrame, val: i64);
+}
+extern "C" {
+    pub fn av_frame_get_pkt_duration(frame: *const AVFrame) -> i64;
+}
+extern "C" {
+    pub fn av_frame_set_pkt_duration(frame: *mut AVFrame, val: i64);
+}
+extern "C" {
+    pub fn av_frame_get_pkt_pos(frame: *const AVFrame) -> i64;
+}
+extern "C" {
+    pub fn av_frame_set_pkt_pos(frame: *mut AVFrame, val: i64);
+}
+extern "C" {
+    pub fn av_frame_get_channel_layout(frame: *const AVFrame) -> i64;
+}
+extern "C" {
+    pub fn av_frame_set_channel_layout(frame: *mut AVFrame, val: i64);
+}
+extern "C" {
+    pub fn av_frame_get_channels(frame: *const AVFrame) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_frame_set_channels(frame: *mut AVFrame, val: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn av_frame_get_sample_rate(frame: *const AVFrame) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_frame_set_sample_rate(frame: *mut AVFrame, val: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn av_frame_get_metadata(frame: *const AVFrame) -> *mut AVDictionary;
+}
+extern "C" {
+    pub fn av_frame_set_metadata(frame: *mut AVFrame, val: *mut AVDictionary);
+}
+extern "C" {
+    pub fn av_frame_get_decode_error_flags(frame: *const AVFrame) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_frame_set_decode_error_flags(frame: *mut AVFrame, val: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn av_frame_get_pkt_size(frame: *const AVFrame) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_frame_set_pkt_size(frame: *mut AVFrame, val: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn av_frame_get_qp_table(
+        f: *mut AVFrame,
+        stride: *mut ::std::os::raw::c_int,
+        type_: *mut ::std::os::raw::c_int,
+    ) -> *mut i8;
+}
+extern "C" {
+    pub fn av_frame_set_qp_table(
+        f: *mut AVFrame,
+        buf: *mut AVBufferRef,
+        stride: ::std::os::raw::c_int,
+        type_: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_frame_get_colorspace(frame: *const AVFrame) -> AVColorSpace;
+}
+extern "C" {
+    pub fn av_frame_set_colorspace(frame: *mut AVFrame, val: AVColorSpace);
+}
+extern "C" {
+    pub fn av_frame_get_color_range(frame: *const AVFrame) -> AVColorRange;
+}
+extern "C" {
+    pub fn av_frame_set_color_range(frame: *mut AVFrame, val: AVColorRange);
+}
+extern "C" {
     #[doc = " Get the name of a colorspace."]
     #[doc = " @return a static string identifying the colorspace; can be NULL."]
-    #[doc = " @deprecated use av_color_space_name()"]
     pub fn av_get_colorspace_name(val: AVColorSpace) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
@@ -10145,7 +10307,7 @@ extern "C" {
     pub fn av_frame_new_side_data(
         frame: *mut AVFrame,
         type_: AVFrameSideDataType,
-        size: size_t,
+        size: ::std::os::raw::c_int,
     ) -> *mut AVFrameSideData;
 }
 extern "C" {
@@ -11220,66 +11382,66 @@ pub const AVCodecID_AV_CODEC_ID_PGX: AVCodecID = 193;
 pub const AVCodecID_AV_CODEC_ID_AVS3: AVCodecID = 194;
 pub const AVCodecID_AV_CODEC_ID_MSP2: AVCodecID = 195;
 pub const AVCodecID_AV_CODEC_ID_VVC: AVCodecID = 196;
-pub const AVCodecID_AV_CODEC_ID_Y41P: AVCodecID = 197;
-pub const AVCodecID_AV_CODEC_ID_AVRP: AVCodecID = 198;
-pub const AVCodecID_AV_CODEC_ID_012V: AVCodecID = 199;
-pub const AVCodecID_AV_CODEC_ID_AVUI: AVCodecID = 200;
-pub const AVCodecID_AV_CODEC_ID_AYUV: AVCodecID = 201;
-pub const AVCodecID_AV_CODEC_ID_TARGA_Y216: AVCodecID = 202;
-pub const AVCodecID_AV_CODEC_ID_V308: AVCodecID = 203;
-pub const AVCodecID_AV_CODEC_ID_V408: AVCodecID = 204;
-pub const AVCodecID_AV_CODEC_ID_YUV4: AVCodecID = 205;
-pub const AVCodecID_AV_CODEC_ID_AVRN: AVCodecID = 206;
-pub const AVCodecID_AV_CODEC_ID_CPIA: AVCodecID = 207;
-pub const AVCodecID_AV_CODEC_ID_XFACE: AVCodecID = 208;
-pub const AVCodecID_AV_CODEC_ID_SNOW: AVCodecID = 209;
-pub const AVCodecID_AV_CODEC_ID_SMVJPEG: AVCodecID = 210;
-pub const AVCodecID_AV_CODEC_ID_APNG: AVCodecID = 211;
-pub const AVCodecID_AV_CODEC_ID_DAALA: AVCodecID = 212;
-pub const AVCodecID_AV_CODEC_ID_CFHD: AVCodecID = 213;
-pub const AVCodecID_AV_CODEC_ID_TRUEMOTION2RT: AVCodecID = 214;
-pub const AVCodecID_AV_CODEC_ID_M101: AVCodecID = 215;
-pub const AVCodecID_AV_CODEC_ID_MAGICYUV: AVCodecID = 216;
-pub const AVCodecID_AV_CODEC_ID_SHEERVIDEO: AVCodecID = 217;
-pub const AVCodecID_AV_CODEC_ID_YLC: AVCodecID = 218;
-pub const AVCodecID_AV_CODEC_ID_PSD: AVCodecID = 219;
-pub const AVCodecID_AV_CODEC_ID_PIXLET: AVCodecID = 220;
-pub const AVCodecID_AV_CODEC_ID_SPEEDHQ: AVCodecID = 221;
-pub const AVCodecID_AV_CODEC_ID_FMVC: AVCodecID = 222;
-pub const AVCodecID_AV_CODEC_ID_SCPR: AVCodecID = 223;
-pub const AVCodecID_AV_CODEC_ID_CLEARVIDEO: AVCodecID = 224;
-pub const AVCodecID_AV_CODEC_ID_XPM: AVCodecID = 225;
-pub const AVCodecID_AV_CODEC_ID_AV1: AVCodecID = 226;
-pub const AVCodecID_AV_CODEC_ID_BITPACKED: AVCodecID = 227;
-pub const AVCodecID_AV_CODEC_ID_MSCC: AVCodecID = 228;
-pub const AVCodecID_AV_CODEC_ID_SRGC: AVCodecID = 229;
-pub const AVCodecID_AV_CODEC_ID_SVG: AVCodecID = 230;
-pub const AVCodecID_AV_CODEC_ID_GDV: AVCodecID = 231;
-pub const AVCodecID_AV_CODEC_ID_FITS: AVCodecID = 232;
-pub const AVCodecID_AV_CODEC_ID_IMM4: AVCodecID = 233;
-pub const AVCodecID_AV_CODEC_ID_PROSUMER: AVCodecID = 234;
-pub const AVCodecID_AV_CODEC_ID_MWSC: AVCodecID = 235;
-pub const AVCodecID_AV_CODEC_ID_WCMV: AVCodecID = 236;
-pub const AVCodecID_AV_CODEC_ID_RASC: AVCodecID = 237;
-pub const AVCodecID_AV_CODEC_ID_HYMT: AVCodecID = 238;
-pub const AVCodecID_AV_CODEC_ID_ARBC: AVCodecID = 239;
-pub const AVCodecID_AV_CODEC_ID_AGM: AVCodecID = 240;
-pub const AVCodecID_AV_CODEC_ID_LSCR: AVCodecID = 241;
-pub const AVCodecID_AV_CODEC_ID_VP4: AVCodecID = 242;
-pub const AVCodecID_AV_CODEC_ID_IMM5: AVCodecID = 243;
-pub const AVCodecID_AV_CODEC_ID_MVDV: AVCodecID = 244;
-pub const AVCodecID_AV_CODEC_ID_MVHA: AVCodecID = 245;
-pub const AVCodecID_AV_CODEC_ID_CDTOONS: AVCodecID = 246;
-pub const AVCodecID_AV_CODEC_ID_MV30: AVCodecID = 247;
-pub const AVCodecID_AV_CODEC_ID_NOTCHLC: AVCodecID = 248;
-pub const AVCodecID_AV_CODEC_ID_PFM: AVCodecID = 249;
-pub const AVCodecID_AV_CODEC_ID_MOBICLIP: AVCodecID = 250;
-pub const AVCodecID_AV_CODEC_ID_PHOTOCD: AVCodecID = 251;
-pub const AVCodecID_AV_CODEC_ID_IPU: AVCodecID = 252;
-pub const AVCodecID_AV_CODEC_ID_ARGO: AVCodecID = 253;
-pub const AVCodecID_AV_CODEC_ID_CRI: AVCodecID = 254;
-pub const AVCodecID_AV_CODEC_ID_SIMBIOSIS_IMX: AVCodecID = 255;
-pub const AVCodecID_AV_CODEC_ID_SGA_VIDEO: AVCodecID = 256;
+pub const AVCodecID_AV_CODEC_ID_Y41P: AVCodecID = 32768;
+pub const AVCodecID_AV_CODEC_ID_AVRP: AVCodecID = 32769;
+pub const AVCodecID_AV_CODEC_ID_012V: AVCodecID = 32770;
+pub const AVCodecID_AV_CODEC_ID_AVUI: AVCodecID = 32771;
+pub const AVCodecID_AV_CODEC_ID_AYUV: AVCodecID = 32772;
+pub const AVCodecID_AV_CODEC_ID_TARGA_Y216: AVCodecID = 32773;
+pub const AVCodecID_AV_CODEC_ID_V308: AVCodecID = 32774;
+pub const AVCodecID_AV_CODEC_ID_V408: AVCodecID = 32775;
+pub const AVCodecID_AV_CODEC_ID_YUV4: AVCodecID = 32776;
+pub const AVCodecID_AV_CODEC_ID_AVRN: AVCodecID = 32777;
+pub const AVCodecID_AV_CODEC_ID_CPIA: AVCodecID = 32778;
+pub const AVCodecID_AV_CODEC_ID_XFACE: AVCodecID = 32779;
+pub const AVCodecID_AV_CODEC_ID_SNOW: AVCodecID = 32780;
+pub const AVCodecID_AV_CODEC_ID_SMVJPEG: AVCodecID = 32781;
+pub const AVCodecID_AV_CODEC_ID_APNG: AVCodecID = 32782;
+pub const AVCodecID_AV_CODEC_ID_DAALA: AVCodecID = 32783;
+pub const AVCodecID_AV_CODEC_ID_CFHD: AVCodecID = 32784;
+pub const AVCodecID_AV_CODEC_ID_TRUEMOTION2RT: AVCodecID = 32785;
+pub const AVCodecID_AV_CODEC_ID_M101: AVCodecID = 32786;
+pub const AVCodecID_AV_CODEC_ID_MAGICYUV: AVCodecID = 32787;
+pub const AVCodecID_AV_CODEC_ID_SHEERVIDEO: AVCodecID = 32788;
+pub const AVCodecID_AV_CODEC_ID_YLC: AVCodecID = 32789;
+pub const AVCodecID_AV_CODEC_ID_PSD: AVCodecID = 32790;
+pub const AVCodecID_AV_CODEC_ID_PIXLET: AVCodecID = 32791;
+pub const AVCodecID_AV_CODEC_ID_SPEEDHQ: AVCodecID = 32792;
+pub const AVCodecID_AV_CODEC_ID_FMVC: AVCodecID = 32793;
+pub const AVCodecID_AV_CODEC_ID_SCPR: AVCodecID = 32794;
+pub const AVCodecID_AV_CODEC_ID_CLEARVIDEO: AVCodecID = 32795;
+pub const AVCodecID_AV_CODEC_ID_XPM: AVCodecID = 32796;
+pub const AVCodecID_AV_CODEC_ID_AV1: AVCodecID = 32797;
+pub const AVCodecID_AV_CODEC_ID_BITPACKED: AVCodecID = 32798;
+pub const AVCodecID_AV_CODEC_ID_MSCC: AVCodecID = 32799;
+pub const AVCodecID_AV_CODEC_ID_SRGC: AVCodecID = 32800;
+pub const AVCodecID_AV_CODEC_ID_SVG: AVCodecID = 32801;
+pub const AVCodecID_AV_CODEC_ID_GDV: AVCodecID = 32802;
+pub const AVCodecID_AV_CODEC_ID_FITS: AVCodecID = 32803;
+pub const AVCodecID_AV_CODEC_ID_IMM4: AVCodecID = 32804;
+pub const AVCodecID_AV_CODEC_ID_PROSUMER: AVCodecID = 32805;
+pub const AVCodecID_AV_CODEC_ID_MWSC: AVCodecID = 32806;
+pub const AVCodecID_AV_CODEC_ID_WCMV: AVCodecID = 32807;
+pub const AVCodecID_AV_CODEC_ID_RASC: AVCodecID = 32808;
+pub const AVCodecID_AV_CODEC_ID_HYMT: AVCodecID = 32809;
+pub const AVCodecID_AV_CODEC_ID_ARBC: AVCodecID = 32810;
+pub const AVCodecID_AV_CODEC_ID_AGM: AVCodecID = 32811;
+pub const AVCodecID_AV_CODEC_ID_LSCR: AVCodecID = 32812;
+pub const AVCodecID_AV_CODEC_ID_VP4: AVCodecID = 32813;
+pub const AVCodecID_AV_CODEC_ID_IMM5: AVCodecID = 32814;
+pub const AVCodecID_AV_CODEC_ID_MVDV: AVCodecID = 32815;
+pub const AVCodecID_AV_CODEC_ID_MVHA: AVCodecID = 32816;
+pub const AVCodecID_AV_CODEC_ID_CDTOONS: AVCodecID = 32817;
+pub const AVCodecID_AV_CODEC_ID_MV30: AVCodecID = 32818;
+pub const AVCodecID_AV_CODEC_ID_NOTCHLC: AVCodecID = 32819;
+pub const AVCodecID_AV_CODEC_ID_PFM: AVCodecID = 32820;
+pub const AVCodecID_AV_CODEC_ID_MOBICLIP: AVCodecID = 32821;
+pub const AVCodecID_AV_CODEC_ID_PHOTOCD: AVCodecID = 32822;
+pub const AVCodecID_AV_CODEC_ID_IPU: AVCodecID = 32823;
+pub const AVCodecID_AV_CODEC_ID_ARGO: AVCodecID = 32824;
+pub const AVCodecID_AV_CODEC_ID_CRI: AVCodecID = 32825;
+pub const AVCodecID_AV_CODEC_ID_SIMBIOSIS_IMX: AVCodecID = 32826;
+pub const AVCodecID_AV_CODEC_ID_SGA_VIDEO: AVCodecID = 32827;
 #[doc = "< A dummy id pointing at the start of audio codecs"]
 pub const AVCodecID_AV_CODEC_ID_FIRST_AUDIO: AVCodecID = 65536;
 pub const AVCodecID_AV_CODEC_ID_PCM_S16LE: AVCodecID = 65536;
@@ -11313,12 +11475,12 @@ pub const AVCodecID_AV_CODEC_ID_PCM_S8_PLANAR: AVCodecID = 65563;
 pub const AVCodecID_AV_CODEC_ID_PCM_S24LE_PLANAR: AVCodecID = 65564;
 pub const AVCodecID_AV_CODEC_ID_PCM_S32LE_PLANAR: AVCodecID = 65565;
 pub const AVCodecID_AV_CODEC_ID_PCM_S16BE_PLANAR: AVCodecID = 65566;
-pub const AVCodecID_AV_CODEC_ID_PCM_S64LE: AVCodecID = 65567;
-pub const AVCodecID_AV_CODEC_ID_PCM_S64BE: AVCodecID = 65568;
-pub const AVCodecID_AV_CODEC_ID_PCM_F16LE: AVCodecID = 65569;
-pub const AVCodecID_AV_CODEC_ID_PCM_F24LE: AVCodecID = 65570;
-pub const AVCodecID_AV_CODEC_ID_PCM_VIDC: AVCodecID = 65571;
-pub const AVCodecID_AV_CODEC_ID_PCM_SGA: AVCodecID = 65572;
+pub const AVCodecID_AV_CODEC_ID_PCM_S64LE: AVCodecID = 67584;
+pub const AVCodecID_AV_CODEC_ID_PCM_S64BE: AVCodecID = 67585;
+pub const AVCodecID_AV_CODEC_ID_PCM_F16LE: AVCodecID = 67586;
+pub const AVCodecID_AV_CODEC_ID_PCM_F24LE: AVCodecID = 67587;
+pub const AVCodecID_AV_CODEC_ID_PCM_VIDC: AVCodecID = 67588;
+pub const AVCodecID_AV_CODEC_ID_PCM_SGA: AVCodecID = 67589;
 pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_QT: AVCodecID = 69632;
 pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_WAV: AVCodecID = 69633;
 pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_DK3: AVCodecID = 69634;
@@ -11350,26 +11512,25 @@ pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_ISS: AVCodecID = 69659;
 pub const AVCodecID_AV_CODEC_ID_ADPCM_G722: AVCodecID = 69660;
 pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_APC: AVCodecID = 69661;
 pub const AVCodecID_AV_CODEC_ID_ADPCM_VIMA: AVCodecID = 69662;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_AFC: AVCodecID = 69663;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_OKI: AVCodecID = 69664;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_DTK: AVCodecID = 69665;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_RAD: AVCodecID = 69666;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_G726LE: AVCodecID = 69667;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_THP_LE: AVCodecID = 69668;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_PSX: AVCodecID = 69669;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_AICA: AVCodecID = 69670;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_DAT4: AVCodecID = 69671;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_MTAF: AVCodecID = 69672;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_AGM: AVCodecID = 69673;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_ARGO: AVCodecID = 69674;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_SSI: AVCodecID = 69675;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_ZORK: AVCodecID = 69676;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_APM: AVCodecID = 69677;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_ALP: AVCodecID = 69678;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_MTF: AVCodecID = 69679;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_CUNNING: AVCodecID = 69680;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_MOFLEX: AVCodecID = 69681;
-pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_ACORN: AVCodecID = 69682;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_AFC: AVCodecID = 71680;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_OKI: AVCodecID = 71681;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_DTK: AVCodecID = 71682;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_RAD: AVCodecID = 71683;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_G726LE: AVCodecID = 71684;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_THP_LE: AVCodecID = 71685;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_PSX: AVCodecID = 71686;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_AICA: AVCodecID = 71687;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_DAT4: AVCodecID = 71688;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_MTAF: AVCodecID = 71689;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_AGM: AVCodecID = 71690;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_ARGO: AVCodecID = 71691;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_SSI: AVCodecID = 71692;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_ZORK: AVCodecID = 71693;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_APM: AVCodecID = 71694;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_ALP: AVCodecID = 71695;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_MTF: AVCodecID = 71696;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_CUNNING: AVCodecID = 71697;
+pub const AVCodecID_AV_CODEC_ID_ADPCM_IMA_MOFLEX: AVCodecID = 71698;
 pub const AVCodecID_AV_CODEC_ID_AMR_NB: AVCodecID = 73728;
 pub const AVCodecID_AV_CODEC_ID_AMR_WB: AVCodecID = 73729;
 pub const AVCodecID_AV_CODEC_ID_RA_144: AVCodecID = 77824;
@@ -11378,9 +11539,9 @@ pub const AVCodecID_AV_CODEC_ID_ROQ_DPCM: AVCodecID = 81920;
 pub const AVCodecID_AV_CODEC_ID_INTERPLAY_DPCM: AVCodecID = 81921;
 pub const AVCodecID_AV_CODEC_ID_XAN_DPCM: AVCodecID = 81922;
 pub const AVCodecID_AV_CODEC_ID_SOL_DPCM: AVCodecID = 81923;
-pub const AVCodecID_AV_CODEC_ID_SDX2_DPCM: AVCodecID = 81924;
-pub const AVCodecID_AV_CODEC_ID_GREMLIN_DPCM: AVCodecID = 81925;
-pub const AVCodecID_AV_CODEC_ID_DERF_DPCM: AVCodecID = 81926;
+pub const AVCodecID_AV_CODEC_ID_SDX2_DPCM: AVCodecID = 83968;
+pub const AVCodecID_AV_CODEC_ID_GREMLIN_DPCM: AVCodecID = 83969;
+pub const AVCodecID_AV_CODEC_ID_DERF_DPCM: AVCodecID = 83970;
 pub const AVCodecID_AV_CODEC_ID_MP2: AVCodecID = 86016;
 #[doc = "< preferred ID for decoding MPEG audio layer 1, 2 or 3"]
 pub const AVCodecID_AV_CODEC_ID_MP3: AVCodecID = 86017;
@@ -11451,33 +11612,33 @@ pub const AVCodecID_AV_CODEC_ID_PAF_AUDIO: AVCodecID = 86080;
 pub const AVCodecID_AV_CODEC_ID_ON2AVC: AVCodecID = 86081;
 pub const AVCodecID_AV_CODEC_ID_DSS_SP: AVCodecID = 86082;
 pub const AVCodecID_AV_CODEC_ID_CODEC2: AVCodecID = 86083;
-pub const AVCodecID_AV_CODEC_ID_FFWAVESYNTH: AVCodecID = 86084;
-pub const AVCodecID_AV_CODEC_ID_SONIC: AVCodecID = 86085;
-pub const AVCodecID_AV_CODEC_ID_SONIC_LS: AVCodecID = 86086;
-pub const AVCodecID_AV_CODEC_ID_EVRC: AVCodecID = 86087;
-pub const AVCodecID_AV_CODEC_ID_SMV: AVCodecID = 86088;
-pub const AVCodecID_AV_CODEC_ID_DSD_LSBF: AVCodecID = 86089;
-pub const AVCodecID_AV_CODEC_ID_DSD_MSBF: AVCodecID = 86090;
-pub const AVCodecID_AV_CODEC_ID_DSD_LSBF_PLANAR: AVCodecID = 86091;
-pub const AVCodecID_AV_CODEC_ID_DSD_MSBF_PLANAR: AVCodecID = 86092;
-pub const AVCodecID_AV_CODEC_ID_4GV: AVCodecID = 86093;
-pub const AVCodecID_AV_CODEC_ID_INTERPLAY_ACM: AVCodecID = 86094;
-pub const AVCodecID_AV_CODEC_ID_XMA1: AVCodecID = 86095;
-pub const AVCodecID_AV_CODEC_ID_XMA2: AVCodecID = 86096;
-pub const AVCodecID_AV_CODEC_ID_DST: AVCodecID = 86097;
-pub const AVCodecID_AV_CODEC_ID_ATRAC3AL: AVCodecID = 86098;
-pub const AVCodecID_AV_CODEC_ID_ATRAC3PAL: AVCodecID = 86099;
-pub const AVCodecID_AV_CODEC_ID_DOLBY_E: AVCodecID = 86100;
-pub const AVCodecID_AV_CODEC_ID_APTX: AVCodecID = 86101;
-pub const AVCodecID_AV_CODEC_ID_APTX_HD: AVCodecID = 86102;
-pub const AVCodecID_AV_CODEC_ID_SBC: AVCodecID = 86103;
-pub const AVCodecID_AV_CODEC_ID_ATRAC9: AVCodecID = 86104;
-pub const AVCodecID_AV_CODEC_ID_HCOM: AVCodecID = 86105;
-pub const AVCodecID_AV_CODEC_ID_ACELP_KELVIN: AVCodecID = 86106;
-pub const AVCodecID_AV_CODEC_ID_MPEGH_3D_AUDIO: AVCodecID = 86107;
-pub const AVCodecID_AV_CODEC_ID_SIREN: AVCodecID = 86108;
-pub const AVCodecID_AV_CODEC_ID_HCA: AVCodecID = 86109;
-pub const AVCodecID_AV_CODEC_ID_FASTAUDIO: AVCodecID = 86110;
+pub const AVCodecID_AV_CODEC_ID_FFWAVESYNTH: AVCodecID = 88064;
+pub const AVCodecID_AV_CODEC_ID_SONIC: AVCodecID = 88065;
+pub const AVCodecID_AV_CODEC_ID_SONIC_LS: AVCodecID = 88066;
+pub const AVCodecID_AV_CODEC_ID_EVRC: AVCodecID = 88067;
+pub const AVCodecID_AV_CODEC_ID_SMV: AVCodecID = 88068;
+pub const AVCodecID_AV_CODEC_ID_DSD_LSBF: AVCodecID = 88069;
+pub const AVCodecID_AV_CODEC_ID_DSD_MSBF: AVCodecID = 88070;
+pub const AVCodecID_AV_CODEC_ID_DSD_LSBF_PLANAR: AVCodecID = 88071;
+pub const AVCodecID_AV_CODEC_ID_DSD_MSBF_PLANAR: AVCodecID = 88072;
+pub const AVCodecID_AV_CODEC_ID_4GV: AVCodecID = 88073;
+pub const AVCodecID_AV_CODEC_ID_INTERPLAY_ACM: AVCodecID = 88074;
+pub const AVCodecID_AV_CODEC_ID_XMA1: AVCodecID = 88075;
+pub const AVCodecID_AV_CODEC_ID_XMA2: AVCodecID = 88076;
+pub const AVCodecID_AV_CODEC_ID_DST: AVCodecID = 88077;
+pub const AVCodecID_AV_CODEC_ID_ATRAC3AL: AVCodecID = 88078;
+pub const AVCodecID_AV_CODEC_ID_ATRAC3PAL: AVCodecID = 88079;
+pub const AVCodecID_AV_CODEC_ID_DOLBY_E: AVCodecID = 88080;
+pub const AVCodecID_AV_CODEC_ID_APTX: AVCodecID = 88081;
+pub const AVCodecID_AV_CODEC_ID_APTX_HD: AVCodecID = 88082;
+pub const AVCodecID_AV_CODEC_ID_SBC: AVCodecID = 88083;
+pub const AVCodecID_AV_CODEC_ID_ATRAC9: AVCodecID = 88084;
+pub const AVCodecID_AV_CODEC_ID_HCOM: AVCodecID = 88085;
+pub const AVCodecID_AV_CODEC_ID_ACELP_KELVIN: AVCodecID = 88086;
+pub const AVCodecID_AV_CODEC_ID_MPEGH_3D_AUDIO: AVCodecID = 88087;
+pub const AVCodecID_AV_CODEC_ID_SIREN: AVCodecID = 88088;
+pub const AVCodecID_AV_CODEC_ID_HCA: AVCodecID = 88089;
+pub const AVCodecID_AV_CODEC_ID_FASTAUDIO: AVCodecID = 88090;
 #[doc = "< A dummy ID pointing at the start of subtitle codecs."]
 pub const AVCodecID_AV_CODEC_ID_FIRST_SUBTITLE: AVCodecID = 94208;
 pub const AVCodecID_AV_CODEC_ID_DVD_SUBTITLE: AVCodecID = 94208;
@@ -11490,37 +11651,37 @@ pub const AVCodecID_AV_CODEC_ID_MOV_TEXT: AVCodecID = 94213;
 pub const AVCodecID_AV_CODEC_ID_HDMV_PGS_SUBTITLE: AVCodecID = 94214;
 pub const AVCodecID_AV_CODEC_ID_DVB_TELETEXT: AVCodecID = 94215;
 pub const AVCodecID_AV_CODEC_ID_SRT: AVCodecID = 94216;
-pub const AVCodecID_AV_CODEC_ID_MICRODVD: AVCodecID = 94217;
-pub const AVCodecID_AV_CODEC_ID_EIA_608: AVCodecID = 94218;
-pub const AVCodecID_AV_CODEC_ID_JACOSUB: AVCodecID = 94219;
-pub const AVCodecID_AV_CODEC_ID_SAMI: AVCodecID = 94220;
-pub const AVCodecID_AV_CODEC_ID_REALTEXT: AVCodecID = 94221;
-pub const AVCodecID_AV_CODEC_ID_STL: AVCodecID = 94222;
-pub const AVCodecID_AV_CODEC_ID_SUBVIEWER1: AVCodecID = 94223;
-pub const AVCodecID_AV_CODEC_ID_SUBVIEWER: AVCodecID = 94224;
-pub const AVCodecID_AV_CODEC_ID_SUBRIP: AVCodecID = 94225;
-pub const AVCodecID_AV_CODEC_ID_WEBVTT: AVCodecID = 94226;
-pub const AVCodecID_AV_CODEC_ID_MPL2: AVCodecID = 94227;
-pub const AVCodecID_AV_CODEC_ID_VPLAYER: AVCodecID = 94228;
-pub const AVCodecID_AV_CODEC_ID_PJS: AVCodecID = 94229;
-pub const AVCodecID_AV_CODEC_ID_ASS: AVCodecID = 94230;
-pub const AVCodecID_AV_CODEC_ID_HDMV_TEXT_SUBTITLE: AVCodecID = 94231;
-pub const AVCodecID_AV_CODEC_ID_TTML: AVCodecID = 94232;
-pub const AVCodecID_AV_CODEC_ID_ARIB_CAPTION: AVCodecID = 94233;
+pub const AVCodecID_AV_CODEC_ID_MICRODVD: AVCodecID = 96256;
+pub const AVCodecID_AV_CODEC_ID_EIA_608: AVCodecID = 96257;
+pub const AVCodecID_AV_CODEC_ID_JACOSUB: AVCodecID = 96258;
+pub const AVCodecID_AV_CODEC_ID_SAMI: AVCodecID = 96259;
+pub const AVCodecID_AV_CODEC_ID_REALTEXT: AVCodecID = 96260;
+pub const AVCodecID_AV_CODEC_ID_STL: AVCodecID = 96261;
+pub const AVCodecID_AV_CODEC_ID_SUBVIEWER1: AVCodecID = 96262;
+pub const AVCodecID_AV_CODEC_ID_SUBVIEWER: AVCodecID = 96263;
+pub const AVCodecID_AV_CODEC_ID_SUBRIP: AVCodecID = 96264;
+pub const AVCodecID_AV_CODEC_ID_WEBVTT: AVCodecID = 96265;
+pub const AVCodecID_AV_CODEC_ID_MPL2: AVCodecID = 96266;
+pub const AVCodecID_AV_CODEC_ID_VPLAYER: AVCodecID = 96267;
+pub const AVCodecID_AV_CODEC_ID_PJS: AVCodecID = 96268;
+pub const AVCodecID_AV_CODEC_ID_ASS: AVCodecID = 96269;
+pub const AVCodecID_AV_CODEC_ID_HDMV_TEXT_SUBTITLE: AVCodecID = 96270;
+pub const AVCodecID_AV_CODEC_ID_TTML: AVCodecID = 96271;
+pub const AVCodecID_AV_CODEC_ID_ARIB_CAPTION: AVCodecID = 96272;
 #[doc = "< A dummy ID pointing at the start of various fake codecs."]
 pub const AVCodecID_AV_CODEC_ID_FIRST_UNKNOWN: AVCodecID = 98304;
 pub const AVCodecID_AV_CODEC_ID_TTF: AVCodecID = 98304;
 #[doc = "< Contain timestamp estimated through PCR of program stream."]
 pub const AVCodecID_AV_CODEC_ID_SCTE_35: AVCodecID = 98305;
 pub const AVCodecID_AV_CODEC_ID_EPG: AVCodecID = 98306;
-pub const AVCodecID_AV_CODEC_ID_BINTEXT: AVCodecID = 98307;
-pub const AVCodecID_AV_CODEC_ID_XBIN: AVCodecID = 98308;
-pub const AVCodecID_AV_CODEC_ID_IDF: AVCodecID = 98309;
-pub const AVCodecID_AV_CODEC_ID_OTF: AVCodecID = 98310;
-pub const AVCodecID_AV_CODEC_ID_SMPTE_KLV: AVCodecID = 98311;
-pub const AVCodecID_AV_CODEC_ID_DVD_NAV: AVCodecID = 98312;
-pub const AVCodecID_AV_CODEC_ID_TIMED_ID3: AVCodecID = 98313;
-pub const AVCodecID_AV_CODEC_ID_BIN_DATA: AVCodecID = 98314;
+pub const AVCodecID_AV_CODEC_ID_BINTEXT: AVCodecID = 100352;
+pub const AVCodecID_AV_CODEC_ID_XBIN: AVCodecID = 100353;
+pub const AVCodecID_AV_CODEC_ID_IDF: AVCodecID = 100354;
+pub const AVCodecID_AV_CODEC_ID_OTF: AVCodecID = 100355;
+pub const AVCodecID_AV_CODEC_ID_SMPTE_KLV: AVCodecID = 100356;
+pub const AVCodecID_AV_CODEC_ID_DVD_NAV: AVCodecID = 100357;
+pub const AVCodecID_AV_CODEC_ID_TIMED_ID3: AVCodecID = 100358;
+pub const AVCodecID_AV_CODEC_ID_BIN_DATA: AVCodecID = 100359;
 #[doc = "< codec_id is not known (like AV_CODEC_ID_NONE) but lavf should attempt to identify it"]
 pub const AVCodecID_AV_CODEC_ID_PROBE: AVCodecID = 102400;
 #[doc = "< _FAKE_ codec to indicate a raw MPEG-2 TS"]
@@ -12179,14 +12340,14 @@ pub type AVPacketSideDataType = ::std::os::raw::c_uint;
 #[derive(Debug, Copy, Clone)]
 pub struct AVPacketSideData {
     pub data: *mut u8,
-    pub size: size_t,
+    pub size: ::std::os::raw::c_int,
     pub type_: AVPacketSideDataType,
 }
 #[test]
 fn bindgen_test_layout_AVPacketSideData() {
     assert_eq!(
         ::std::mem::size_of::<AVPacketSideData>(),
-        24usize,
+        16usize,
         concat!("Size of: ", stringify!(AVPacketSideData))
     );
     assert_eq!(
@@ -12216,7 +12377,7 @@ fn bindgen_test_layout_AVPacketSideData() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVPacketSideData>())).type_ as *const _ as usize },
-        16usize,
+        12usize,
         concat!(
             "Offset of field: ",
             stringify!(AVPacketSideData),
@@ -12286,12 +12447,16 @@ pub struct AVPacket {
     pub duration: i64,
     #[doc = "< byte position in stream, -1 if unknown"]
     pub pos: i64,
+    #[doc = " @deprecated Same as the duration field, but as int64_t. This was required"]
+    #[doc = " for Matroska subtitles, whose duration values could overflow when the"]
+    #[doc = " duration field was still an int."]
+    pub convergence_duration: i64,
 }
 #[test]
 fn bindgen_test_layout_AVPacket() {
     assert_eq!(
         ::std::mem::size_of::<AVPacket>(),
-        80usize,
+        88usize,
         concat!("Size of: ", stringify!(AVPacket))
     );
     assert_eq!(
@@ -12409,6 +12574,16 @@ fn bindgen_test_layout_AVPacket() {
             stringify!(pos)
         )
     );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVPacket>())).convergence_duration as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVPacket),
+            "::",
+            stringify!(convergence_duration)
+        )
+    );
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12420,7 +12595,7 @@ pub struct AVPacketList {
 fn bindgen_test_layout_AVPacketList() {
     assert_eq!(
         ::std::mem::size_of::<AVPacketList>(),
-        88usize,
+        96usize,
         concat!("Size of: ", stringify!(AVPacketList))
     );
     assert_eq!(
@@ -12440,7 +12615,7 @@ fn bindgen_test_layout_AVPacketList() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVPacketList>())).next as *const _ as usize },
-        80usize,
+        88usize,
         concat!(
             "Offset of field: ",
             stringify!(AVPacketList),
@@ -12549,6 +12724,40 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    #[doc = " @warning This is a hack - the packet memory allocation stuff is broken. The"]
+    #[doc = " packet is allocated if it was not really allocated."]
+    #[doc = ""]
+    #[doc = " @deprecated Use av_packet_ref or av_packet_make_refcounted"]
+    pub fn av_dup_packet(pkt: *mut AVPacket) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Copy packet, including contents"]
+    #[doc = ""]
+    #[doc = " @return 0 on success, negative AVERROR on fail"]
+    #[doc = ""]
+    #[doc = " @deprecated Use av_packet_ref"]
+    pub fn av_copy_packet(dst: *mut AVPacket, src: *const AVPacket) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Copy packet side data"]
+    #[doc = ""]
+    #[doc = " @return 0 on success, negative AVERROR on fail"]
+    #[doc = ""]
+    #[doc = " @deprecated Use av_packet_copy_props"]
+    pub fn av_copy_packet_side_data(
+        dst: *mut AVPacket,
+        src: *const AVPacket,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Free a packet."]
+    #[doc = ""]
+    #[doc = " @deprecated Use av_packet_unref"]
+    #[doc = ""]
+    #[doc = " @param pkt packet to free"]
+    pub fn av_free_packet(pkt: *mut AVPacket);
+}
+extern "C" {
     #[doc = " Allocate new information of a packet."]
     #[doc = ""]
     #[doc = " @param pkt packet"]
@@ -12558,7 +12767,7 @@ extern "C" {
     pub fn av_packet_new_side_data(
         pkt: *mut AVPacket,
         type_: AVPacketSideDataType,
-        size: size_t,
+        size: ::std::os::raw::c_int,
     ) -> *mut u8;
 }
 extern "C" {
@@ -12590,7 +12799,7 @@ extern "C" {
     pub fn av_packet_shrink_side_data(
         pkt: *mut AVPacket,
         type_: AVPacketSideDataType,
-        size: size_t,
+        size: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -12604,30 +12813,28 @@ extern "C" {
     pub fn av_packet_get_side_data(
         pkt: *const AVPacket,
         type_: AVPacketSideDataType,
-        size: *mut size_t,
+        size: *mut ::std::os::raw::c_int,
     ) -> *mut u8;
+}
+extern "C" {
+    pub fn av_packet_merge_side_data(pkt: *mut AVPacket) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_packet_split_side_data(pkt: *mut AVPacket) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn av_packet_side_data_name(type_: AVPacketSideDataType) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " Pack a dictionary for use in side_data."]
-    #[doc = ""]
-    #[doc = " @param dict The dictionary to pack."]
-    #[doc = " @param size pointer to store the size of the returned data"]
-    #[doc = " @return pointer to data if successful, NULL otherwise"]
-    pub fn av_packet_pack_dictionary(dict: *mut AVDictionary, size: *mut size_t) -> *mut u8;
+    pub fn av_packet_pack_dictionary(
+        dict: *mut AVDictionary,
+        size: *mut ::std::os::raw::c_int,
+    ) -> *mut u8;
 }
 extern "C" {
-    #[doc = " Unpack a dictionary from side_data."]
-    #[doc = ""]
-    #[doc = " @param data data from side_data"]
-    #[doc = " @param size size of the data"]
-    #[doc = " @param dict the metadata storage dictionary"]
-    #[doc = " @return 0 on success, < 0 on failure"]
     pub fn av_packet_unpack_dictionary(
         data: *const u8,
-        size: size_t,
+        size: ::std::os::raw::c_int,
         dict: *mut *mut AVDictionary,
     ) -> ::std::os::raw::c_int;
 }
@@ -13264,6 +13471,7 @@ pub struct AVCodec {
     #[doc = " New public fields should be added right above."]
     #[doc = ""]
     pub priv_data_size: ::std::os::raw::c_int,
+    pub next: *mut AVCodec,
     #[doc = " @name Frame-level threading support functions"]
     #[doc = " @{"]
     #[doc = " Copy necessary context variables from a previous thread context to the current one."]
@@ -13272,13 +13480,6 @@ pub struct AVCodec {
     #[doc = ""]
     #[doc = " dst and src will (rarely) point to the same context, in which case memcpy should be skipped."]
     pub update_thread_context: ::std::option::Option<
-        unsafe extern "C" fn(
-            dst: *mut AVCodecContext,
-            src: *const AVCodecContext,
-        ) -> ::std::os::raw::c_int,
-    >,
-    #[doc = " Copy variables back to the user-facing context"]
-    pub update_thread_context_for_user: ::std::option::Option<
         unsafe extern "C" fn(
             dst: *mut AVCodecContext,
             src: *const AVCodecContext,
@@ -13538,25 +13739,23 @@ fn bindgen_test_layout_AVCodec() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVCodec>())).update_thread_context as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVCodec>())).next as *const _ as usize },
         112usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
             "::",
-            stringify!(update_thread_context)
+            stringify!(next)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<AVCodec>())).update_thread_context_for_user as *const _ as usize
-        },
+        unsafe { &(*(::std::ptr::null::<AVCodec>())).update_thread_context as *const _ as usize },
         120usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodec),
             "::",
-            stringify!(update_thread_context_for_user)
+            stringify!(update_thread_context)
         )
     );
     assert_eq!(
@@ -13715,28 +13914,28 @@ extern "C" {
     #[doc = ""]
     #[doc = " @param id AVCodecID of the requested decoder"]
     #[doc = " @return A decoder if one was found, NULL otherwise."]
-    pub fn avcodec_find_decoder(id: AVCodecID) -> *const AVCodec;
+    pub fn avcodec_find_decoder(id: AVCodecID) -> *mut AVCodec;
 }
 extern "C" {
     #[doc = " Find a registered decoder with the specified name."]
     #[doc = ""]
     #[doc = " @param name name of the requested decoder"]
     #[doc = " @return A decoder if one was found, NULL otherwise."]
-    pub fn avcodec_find_decoder_by_name(name: *const ::std::os::raw::c_char) -> *const AVCodec;
+    pub fn avcodec_find_decoder_by_name(name: *const ::std::os::raw::c_char) -> *mut AVCodec;
 }
 extern "C" {
     #[doc = " Find a registered encoder with a matching codec ID."]
     #[doc = ""]
     #[doc = " @param id AVCodecID of the requested encoder"]
     #[doc = " @return An encoder if one was found, NULL otherwise."]
-    pub fn avcodec_find_encoder(id: AVCodecID) -> *const AVCodec;
+    pub fn avcodec_find_encoder(id: AVCodecID) -> *mut AVCodec;
 }
 extern "C" {
     #[doc = " Find a registered encoder with the specified name."]
     #[doc = ""]
     #[doc = " @param name name of the requested encoder"]
     #[doc = " @return An encoder if one was found, NULL otherwise."]
-    pub fn avcodec_find_encoder_by_name(name: *const ::std::os::raw::c_char) -> *const AVCodec;
+    pub fn avcodec_find_encoder_by_name(name: *const ::std::os::raw::c_char) -> *mut AVCodec;
 }
 extern "C" {
     #[doc = " @return a non-zero number if codec is an encoder, zero otherwise"]
@@ -14144,18 +14343,12 @@ fn bindgen_test_layout_AVPanScan() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVCPBProperties {
-    #[doc = " Maximum bitrate of the stream, in bits per second."]
-    #[doc = " Zero if unknown or unspecified."]
-    pub max_bitrate: i64,
-    #[doc = " Minimum bitrate of the stream, in bits per second."]
-    #[doc = " Zero if unknown or unspecified."]
-    pub min_bitrate: i64,
-    #[doc = " Average bitrate of the stream, in bits per second."]
-    #[doc = " Zero if unknown or unspecified."]
-    pub avg_bitrate: i64,
+    pub max_bitrate: ::std::os::raw::c_int,
+    pub min_bitrate: ::std::os::raw::c_int,
+    pub avg_bitrate: ::std::os::raw::c_int,
     #[doc = " The size of the buffer to which the ratecontrol is applied, in bits."]
     #[doc = " Zero if unknown or unspecified."]
-    pub buffer_size: i64,
+    pub buffer_size: ::std::os::raw::c_int,
     #[doc = " The delay between the time the packet this structure is associated with"]
     #[doc = " is received and the time when it should be decoded, in periods of a 27MHz"]
     #[doc = " clock."]
@@ -14167,7 +14360,7 @@ pub struct AVCPBProperties {
 fn bindgen_test_layout_AVCPBProperties() {
     assert_eq!(
         ::std::mem::size_of::<AVCPBProperties>(),
-        40usize,
+        24usize,
         concat!("Size of: ", stringify!(AVCPBProperties))
     );
     assert_eq!(
@@ -14187,7 +14380,7 @@ fn bindgen_test_layout_AVCPBProperties() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCPBProperties>())).min_bitrate as *const _ as usize },
-        8usize,
+        4usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCPBProperties),
@@ -14197,7 +14390,7 @@ fn bindgen_test_layout_AVCPBProperties() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCPBProperties>())).avg_bitrate as *const _ as usize },
-        16usize,
+        8usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCPBProperties),
@@ -14207,7 +14400,7 @@ fn bindgen_test_layout_AVCPBProperties() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCPBProperties>())).buffer_size as *const _ as usize },
-        24usize,
+        12usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCPBProperties),
@@ -14217,7 +14410,7 @@ fn bindgen_test_layout_AVCPBProperties() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCPBProperties>())).vbv_delay as *const _ as usize },
-        32usize,
+        16usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCPBProperties),
@@ -14405,7 +14598,7 @@ pub struct AVCodecContext {
     #[doc = " picture width / height."]
     #[doc = ""]
     #[doc = " @note Those fields may not match the values of the last"]
-    #[doc = " AVFrame output by avcodec_receive_frame() due frame"]
+    #[doc = " AVFrame output by avcodec_decode_video2 due frame"]
     #[doc = " reordering."]
     #[doc = ""]
     #[doc = " - encoding: MUST be set by user."]
@@ -14417,7 +14610,7 @@ pub struct AVCodecContext {
     #[doc = " picture width / height."]
     #[doc = ""]
     #[doc = " @note Those fields may not match the values of the last"]
-    #[doc = " AVFrame output by avcodec_receive_frame() due frame"]
+    #[doc = " AVFrame output by avcodec_decode_video2 due frame"]
     #[doc = " reordering."]
     #[doc = ""]
     #[doc = " - encoding: MUST be set by user."]
@@ -14522,6 +14715,8 @@ pub struct AVCodecContext {
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
     pub b_quant_factor: f32,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub b_frame_strategy: ::std::os::raw::c_int,
     #[doc = " qscale offset between IP and B-frames"]
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
@@ -14531,6 +14726,8 @@ pub struct AVCodecContext {
     #[doc = " - encoding: Set by libavcodec."]
     #[doc = " - decoding: Set by libavcodec."]
     pub has_b_frames: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub mpeg_quant: ::std::os::raw::c_int,
     #[doc = " qscale factor between P- and I-frames"]
     #[doc = " If > 0 then the last P-frame quantizer will be used (q = lastp_q * factor + offset)."]
     #[doc = " If < 0 then normal ratecontrol will be done (q= -normal_q*factor+offset)."]
@@ -14565,6 +14762,8 @@ pub struct AVCodecContext {
     #[doc = " - encoding: Set by libavcodec."]
     #[doc = " - decoding: Set by user (or 0)."]
     pub slice_count: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub prediction_method: ::std::os::raw::c_int,
     #[doc = " slice offsets in the frame in bytes"]
     #[doc = " - encoding: Set/allocated by libavcodec."]
     #[doc = " - decoding: Set/allocated by user (or NULL)."]
@@ -14599,6 +14798,8 @@ pub struct AVCodecContext {
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
     pub last_predictor_count: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub pre_me: ::std::os::raw::c_int,
     #[doc = " motion estimation prepass comparison function"]
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
@@ -14637,6 +14838,10 @@ pub struct AVCodecContext {
     #[doc = " - encoding: Set/allocated by user, freed by libavcodec. Can be NULL."]
     #[doc = " - decoding: Set/allocated/freed by libavcodec."]
     pub inter_matrix: *mut u16,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub scenechange_threshold: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub noise_reduction: ::std::os::raw::c_int,
     #[doc = " precision of the intra DC coefficient - 8"]
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: Set by libavcodec"]
@@ -14657,9 +14862,13 @@ pub struct AVCodecContext {
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
     pub mb_lmax: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub me_penalty_compensation: ::std::os::raw::c_int,
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
     pub bidir_refine: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub brd_scale: ::std::os::raw::c_int,
     #[doc = " minimum GOP size"]
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
@@ -14668,10 +14877,14 @@ pub struct AVCodecContext {
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: Set by lavc."]
     pub refs: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub chromaoffset: ::std::os::raw::c_int,
     #[doc = " Note: Value depends upon the compare function used for fullpel ME."]
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
     pub mv0_threshold: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub b_sensitivity: ::std::os::raw::c_int,
     #[doc = " Chromaticity coordinates of the source primaries."]
     #[doc = " - encoding: Set by user"]
     #[doc = " - decoding: Set by libavcodec"]
@@ -14833,6 +15046,18 @@ pub struct AVCodecContext {
             flags: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_int,
     >,
+    #[doc = " If non-zero, the decoded audio and video frames returned from"]
+    #[doc = " avcodec_decode_video2() and avcodec_decode_audio4() are reference-counted"]
+    #[doc = " and are valid indefinitely. The caller must free them with"]
+    #[doc = " av_frame_unref() when they are not needed anymore."]
+    #[doc = " Otherwise, the decoded frames must not be freed by the caller and are"]
+    #[doc = " only valid until the next decode call."]
+    #[doc = ""]
+    #[doc = " This is always automatically enabled if avcodec_receive_frame() is used."]
+    #[doc = ""]
+    #[doc = " - encoding: unused"]
+    #[doc = " - decoding: set by the caller before avcodec_open2()."]
+    pub refcounted_frames: ::std::os::raw::c_int,
     #[doc = "< amount of qscale change between easy & hard scenes (0.0-1.0)"]
     pub qcompress: f32,
     #[doc = "< amount of qscale smoothing over time (0.0-1.0)"]
@@ -14878,10 +15103,49 @@ pub struct AVCodecContext {
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
     pub rc_initial_buffer_occupancy: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub coder_type: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub context_model: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub frame_skip_threshold: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub frame_skip_factor: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub frame_skip_exp: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub frame_skip_cmp: ::std::os::raw::c_int,
     #[doc = " trellis RD quantization"]
     #[doc = " - encoding: Set by user."]
     #[doc = " - decoding: unused"]
     pub trellis: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub min_prediction_order: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub max_prediction_order: ::std::os::raw::c_int,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub timecode_frame_start: i64,
+    #[doc = " @deprecated unused"]
+    pub rtp_callback: ::std::option::Option<
+        unsafe extern "C" fn(
+            avctx: *mut AVCodecContext,
+            data: *mut ::std::os::raw::c_void,
+            size: ::std::os::raw::c_int,
+            mb_nb: ::std::os::raw::c_int,
+        ),
+    >,
+    #[doc = " @deprecated use encoder private options instead"]
+    pub rtp_payload_size: ::std::os::raw::c_int,
+    pub mv_bits: ::std::os::raw::c_int,
+    pub header_bits: ::std::os::raw::c_int,
+    pub i_tex_bits: ::std::os::raw::c_int,
+    pub p_tex_bits: ::std::os::raw::c_int,
+    pub i_count: ::std::os::raw::c_int,
+    pub p_count: ::std::os::raw::c_int,
+    pub skip_count: ::std::os::raw::c_int,
+    pub misc_bits: ::std::os::raw::c_int,
+    #[doc = " @deprecated this field is unused"]
+    pub frame_bits: ::std::os::raw::c_int,
     #[doc = " pass1 encoding statistics output buffer"]
     #[doc = " - encoding: Set by libavcodec."]
     #[doc = " - decoding: unused"]
@@ -14934,7 +15198,8 @@ pub struct AVCodecContext {
     #[doc = " For some hardware accelerators, a global context needs to be"]
     #[doc = " provided by the user. In that case, this holds display-dependent"]
     #[doc = " data FFmpeg cannot instantiate itself. Please refer to the"]
-    #[doc = " FFmpeg HW accelerator documentation to know how to fill this."]
+    #[doc = " FFmpeg HW accelerator documentation to know how to fill this"]
+    #[doc = " is. e.g. for VA API, this is a struct vaapi_context."]
     #[doc = " - encoding: unused"]
     #[doc = " - decoding: Set by user"]
     pub hwaccel_context: *mut ::std::os::raw::c_void,
@@ -14962,6 +15227,12 @@ pub struct AVCodecContext {
     #[doc = " - encoding: unused"]
     #[doc = " - decoding: Set by user."]
     pub lowres: ::std::os::raw::c_int,
+    #[doc = " the picture in the bitstream"]
+    #[doc = " - encoding: Set by libavcodec."]
+    #[doc = " - decoding: unused"]
+    #[doc = ""]
+    #[doc = " @deprecated use the quality factor packet side data instead"]
+    pub coded_frame: *mut AVFrame,
     #[doc = " thread count"]
     #[doc = " is used to decide how many independent tasks should be passed to execute()"]
     #[doc = " - encoding: Set by user."]
@@ -15079,6 +15350,22 @@ pub struct AVCodecContext {
     #[doc = " - decoding: Set/allocated/freed by libavcodec (by avcodec_open2())"]
     pub subtitle_header: *mut u8,
     pub subtitle_header_size: ::std::os::raw::c_int,
+    #[doc = " VBV delay coded in the last frame (in periods of a 27 MHz clock)."]
+    #[doc = " Used for compliant TS muxing."]
+    #[doc = " - encoding: Set by libavcodec."]
+    #[doc = " - decoding: unused."]
+    #[doc = " @deprecated this value is now exported as a part of"]
+    #[doc = " AV_PKT_DATA_CPB_PROPERTIES packet side data"]
+    pub vbv_delay: u64,
+    #[doc = " Encoding only and set by default. Allow encoders to output packets"]
+    #[doc = " that do not contain any encoded data, only side data."]
+    #[doc = ""]
+    #[doc = " Some encoders need to output such packets, e.g. to update some stream"]
+    #[doc = " parameters at the end of encoding."]
+    #[doc = ""]
+    #[doc = " @deprecated this field disables the default behaviour and"]
+    #[doc = "             it is kept only for compatibility."]
+    pub side_data_only_packets: ::std::os::raw::c_int,
     #[doc = " Audio only. The number of \"priming\" samples (padding) inserted by the"]
     #[doc = " encoder at the beginning of the audio. I.e. this number of leading"]
     #[doc = " decoded samples must be discarded by the caller to get the original audio"]
@@ -15285,10 +15572,6 @@ pub struct AVCodecContext {
     #[doc = " This callback must use the above value to calculate the required buffer size,"]
     #[doc = " which must padded by at least AV_INPUT_BUFFER_PADDING_SIZE bytes."]
     #[doc = ""]
-    #[doc = " In some specific cases, the encoder may not use the entire buffer allocated by this"]
-    #[doc = " callback. This will be reflected in the size value in the packet once returned by"]
-    #[doc = " avcodec_receive_packet()."]
-    #[doc = ""]
     #[doc = " This callback must fill the following fields in the packet:"]
     #[doc = " - data: alignment requirements for AVPacket apply, if any. Some architectures and"]
     #[doc = "   encoders may benefit from having aligned data."]
@@ -15326,7 +15609,7 @@ pub struct AVCodecContext {
 fn bindgen_test_layout_AVCodecContext() {
     assert_eq!(
         ::std::mem::size_of::<AVCodecContext>(),
-        920usize,
+        1080usize,
         concat!("Size of: ", stringify!(AVCodecContext))
     );
     assert_eq!(
@@ -15639,8 +15922,18 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).b_quant_offset as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).b_frame_strategy as *const _ as usize },
         168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(b_frame_strategy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).b_quant_offset as *const _ as usize },
+        172usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15650,7 +15943,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).has_b_frames as *const _ as usize },
-        172usize,
+        176usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15659,8 +15952,18 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).mpeg_quant as *const _ as usize },
+        180usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(mpeg_quant)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).i_quant_factor as *const _ as usize },
-        176usize,
+        184usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15670,7 +15973,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).i_quant_offset as *const _ as usize },
-        180usize,
+        188usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15680,7 +15983,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).lumi_masking as *const _ as usize },
-        184usize,
+        192usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15692,7 +15995,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).temporal_cplx_masking as *const _ as usize
         },
-        188usize,
+        196usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15704,7 +16007,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).spatial_cplx_masking as *const _ as usize
         },
-        192usize,
+        200usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15714,7 +16017,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).p_masking as *const _ as usize },
-        196usize,
+        204usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15724,7 +16027,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).dark_masking as *const _ as usize },
-        200usize,
+        208usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15734,7 +16037,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).slice_count as *const _ as usize },
-        204usize,
+        212usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15743,8 +16046,20 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).prediction_method as *const _ as usize
+        },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(prediction_method)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).slice_offset as *const _ as usize },
-        208usize,
+        224usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15756,7 +16071,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).sample_aspect_ratio as *const _ as usize
         },
-        216usize,
+        232usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15766,7 +16081,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).me_cmp as *const _ as usize },
-        224usize,
+        240usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15776,7 +16091,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).me_sub_cmp as *const _ as usize },
-        228usize,
+        244usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15786,7 +16101,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).mb_cmp as *const _ as usize },
-        232usize,
+        248usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15796,7 +16111,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).ildct_cmp as *const _ as usize },
-        236usize,
+        252usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15806,7 +16121,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).dia_size as *const _ as usize },
-        240usize,
+        256usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15818,7 +16133,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).last_predictor_count as *const _ as usize
         },
-        244usize,
+        260usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15827,8 +16142,18 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).pre_me as *const _ as usize },
+        264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(pre_me)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).me_pre_cmp as *const _ as usize },
-        248usize,
+        268usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15838,7 +16163,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).pre_dia_size as *const _ as usize },
-        252usize,
+        272usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15850,7 +16175,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).me_subpel_quality as *const _ as usize
         },
-        256usize,
+        276usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15860,7 +16185,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).me_range as *const _ as usize },
-        260usize,
+        280usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15870,7 +16195,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).slice_flags as *const _ as usize },
-        264usize,
+        284usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15880,7 +16205,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).mb_decision as *const _ as usize },
-        268usize,
+        288usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15890,7 +16215,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).intra_matrix as *const _ as usize },
-        272usize,
+        296usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15900,7 +16225,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).inter_matrix as *const _ as usize },
-        280usize,
+        304usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15910,9 +16235,31 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).scenechange_threshold as *const _ as usize
+        },
+        312usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(scenechange_threshold)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).noise_reduction as *const _ as usize },
+        316usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(noise_reduction)
+        )
+    );
+    assert_eq!(
+        unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).intra_dc_precision as *const _ as usize
         },
-        288usize,
+        320usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15922,7 +16269,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).skip_top as *const _ as usize },
-        292usize,
+        324usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15932,7 +16279,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).skip_bottom as *const _ as usize },
-        296usize,
+        328usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15942,7 +16289,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).mb_lmin as *const _ as usize },
-        300usize,
+        332usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15952,7 +16299,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).mb_lmax as *const _ as usize },
-        304usize,
+        336usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15961,8 +16308,20 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).me_penalty_compensation as *const _ as usize
+        },
+        340usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(me_penalty_compensation)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).bidir_refine as *const _ as usize },
-        308usize,
+        344usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15971,8 +16330,18 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).brd_scale as *const _ as usize },
+        348usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(brd_scale)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).keyint_min as *const _ as usize },
-        312usize,
+        352usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15982,7 +16351,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).refs as *const _ as usize },
-        316usize,
+        356usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -15991,8 +16360,18 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).chromaoffset as *const _ as usize },
+        360usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(chromaoffset)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).mv0_threshold as *const _ as usize },
-        320usize,
+        364usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16001,8 +16380,18 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).b_sensitivity as *const _ as usize },
+        368usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(b_sensitivity)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).color_primaries as *const _ as usize },
-        324usize,
+        372usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16012,7 +16401,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).color_trc as *const _ as usize },
-        328usize,
+        376usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16022,7 +16411,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).colorspace as *const _ as usize },
-        332usize,
+        380usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16032,7 +16421,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).color_range as *const _ as usize },
-        336usize,
+        384usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16044,7 +16433,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).chroma_sample_location as *const _ as usize
         },
-        340usize,
+        388usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16054,7 +16443,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).slices as *const _ as usize },
-        344usize,
+        392usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16064,7 +16453,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).field_order as *const _ as usize },
-        348usize,
+        396usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16074,7 +16463,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).sample_rate as *const _ as usize },
-        352usize,
+        400usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16084,7 +16473,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).channels as *const _ as usize },
-        356usize,
+        404usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16094,7 +16483,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).sample_fmt as *const _ as usize },
-        360usize,
+        408usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16104,7 +16493,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).frame_size as *const _ as usize },
-        364usize,
+        412usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16114,7 +16503,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).frame_number as *const _ as usize },
-        368usize,
+        416usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16124,7 +16513,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).block_align as *const _ as usize },
-        372usize,
+        420usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16134,7 +16523,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).cutoff as *const _ as usize },
-        376usize,
+        424usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16144,7 +16533,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).channel_layout as *const _ as usize },
-        384usize,
+        432usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16156,7 +16545,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).request_channel_layout as *const _ as usize
         },
-        392usize,
+        440usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16168,7 +16557,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).audio_service_type as *const _ as usize
         },
-        400usize,
+        448usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16180,7 +16569,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).request_sample_fmt as *const _ as usize
         },
-        404usize,
+        452usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16190,7 +16579,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).get_buffer2 as *const _ as usize },
-        408usize,
+        456usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16199,8 +16588,20 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).refcounted_frames as *const _ as usize
+        },
+        464usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(refcounted_frames)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).qcompress as *const _ as usize },
-        416usize,
+        468usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16210,7 +16611,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).qblur as *const _ as usize },
-        420usize,
+        472usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16220,7 +16621,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).qmin as *const _ as usize },
-        424usize,
+        476usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16230,7 +16631,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).qmax as *const _ as usize },
-        428usize,
+        480usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16240,7 +16641,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).max_qdiff as *const _ as usize },
-        432usize,
+        484usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16250,7 +16651,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).rc_buffer_size as *const _ as usize },
-        436usize,
+        488usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16262,7 +16663,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).rc_override_count as *const _ as usize
         },
-        440usize,
+        492usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16272,7 +16673,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).rc_override as *const _ as usize },
-        448usize,
+        496usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16282,7 +16683,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).rc_max_rate as *const _ as usize },
-        456usize,
+        504usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16292,7 +16693,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).rc_min_rate as *const _ as usize },
-        464usize,
+        512usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16304,7 +16705,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).rc_max_available_vbv_use as *const _ as usize
         },
-        472usize,
+        520usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16316,7 +16717,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).rc_min_vbv_overflow_use as *const _ as usize
         },
-        476usize,
+        524usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16329,7 +16730,7 @@ fn bindgen_test_layout_AVCodecContext() {
             &(*(::std::ptr::null::<AVCodecContext>())).rc_initial_buffer_occupancy as *const _
                 as usize
         },
-        480usize,
+        528usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16338,8 +16739,72 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).coder_type as *const _ as usize },
+        532usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(coder_type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).context_model as *const _ as usize },
+        536usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(context_model)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).frame_skip_threshold as *const _ as usize
+        },
+        540usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(frame_skip_threshold)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).frame_skip_factor as *const _ as usize
+        },
+        544usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(frame_skip_factor)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).frame_skip_exp as *const _ as usize },
+        548usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(frame_skip_exp)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).frame_skip_cmp as *const _ as usize },
+        552usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(frame_skip_cmp)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).trellis as *const _ as usize },
-        484usize,
+        556usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16348,8 +16813,154 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).min_prediction_order as *const _ as usize
+        },
+        560usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(min_prediction_order)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).max_prediction_order as *const _ as usize
+        },
+        564usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(max_prediction_order)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).timecode_frame_start as *const _ as usize
+        },
+        568usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(timecode_frame_start)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).rtp_callback as *const _ as usize },
+        576usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(rtp_callback)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).rtp_payload_size as *const _ as usize },
+        584usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(rtp_payload_size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).mv_bits as *const _ as usize },
+        588usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(mv_bits)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).header_bits as *const _ as usize },
+        592usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(header_bits)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).i_tex_bits as *const _ as usize },
+        596usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(i_tex_bits)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).p_tex_bits as *const _ as usize },
+        600usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(p_tex_bits)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).i_count as *const _ as usize },
+        604usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(i_count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).p_count as *const _ as usize },
+        608usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(p_count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).skip_count as *const _ as usize },
+        612usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(skip_count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).misc_bits as *const _ as usize },
+        616usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(misc_bits)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).frame_bits as *const _ as usize },
+        620usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(frame_bits)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).stats_out as *const _ as usize },
-        488usize,
+        624usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16359,7 +16970,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).stats_in as *const _ as usize },
-        496usize,
+        632usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16369,7 +16980,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).workaround_bugs as *const _ as usize },
-        504usize,
+        640usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16381,7 +16992,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).strict_std_compliance as *const _ as usize
         },
-        508usize,
+        644usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16393,7 +17004,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).error_concealment as *const _ as usize
         },
-        512usize,
+        648usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16403,7 +17014,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).debug as *const _ as usize },
-        516usize,
+        652usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16413,7 +17024,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).err_recognition as *const _ as usize },
-        520usize,
+        656usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16423,7 +17034,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).reordered_opaque as *const _ as usize },
-        528usize,
+        664usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16433,7 +17044,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).hwaccel as *const _ as usize },
-        536usize,
+        672usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16443,7 +17054,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).hwaccel_context as *const _ as usize },
-        544usize,
+        680usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16453,7 +17064,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).error as *const _ as usize },
-        552usize,
+        688usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16463,7 +17074,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).dct_algo as *const _ as usize },
-        616usize,
+        752usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16473,7 +17084,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).idct_algo as *const _ as usize },
-        620usize,
+        756usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16485,7 +17096,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).bits_per_coded_sample as *const _ as usize
         },
-        624usize,
+        760usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16497,7 +17108,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).bits_per_raw_sample as *const _ as usize
         },
-        628usize,
+        764usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16507,7 +17118,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).lowres as *const _ as usize },
-        632usize,
+        768usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16516,8 +17127,18 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).coded_frame as *const _ as usize },
+        776usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(coded_frame)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).thread_count as *const _ as usize },
-        636usize,
+        784usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16527,7 +17148,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).thread_type as *const _ as usize },
-        640usize,
+        788usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16539,7 +17160,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).active_thread_type as *const _ as usize
         },
-        644usize,
+        792usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16551,7 +17172,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).thread_safe_callbacks as *const _ as usize
         },
-        648usize,
+        796usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16561,7 +17182,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).execute as *const _ as usize },
-        656usize,
+        800usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16571,7 +17192,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).execute2 as *const _ as usize },
-        664usize,
+        808usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16581,7 +17202,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).nsse_weight as *const _ as usize },
-        672usize,
+        816usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16591,7 +17212,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).profile as *const _ as usize },
-        676usize,
+        820usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16601,7 +17222,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).level as *const _ as usize },
-        680usize,
+        824usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16611,7 +17232,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).skip_loop_filter as *const _ as usize },
-        684usize,
+        828usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16621,7 +17242,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).skip_idct as *const _ as usize },
-        688usize,
+        832usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16631,7 +17252,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).skip_frame as *const _ as usize },
-        692usize,
+        836usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16641,7 +17262,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).subtitle_header as *const _ as usize },
-        696usize,
+        840usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16653,7 +17274,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).subtitle_header_size as *const _ as usize
         },
-        704usize,
+        848usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16662,8 +17283,30 @@ fn bindgen_test_layout_AVCodecContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecContext>())).vbv_delay as *const _ as usize },
+        856usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(vbv_delay)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVCodecContext>())).side_data_only_packets as *const _ as usize
+        },
+        864usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecContext),
+            "::",
+            stringify!(side_data_only_packets)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).initial_padding as *const _ as usize },
-        708usize,
+        868usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16673,7 +17316,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).framerate as *const _ as usize },
-        712usize,
+        872usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16683,7 +17326,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).sw_pix_fmt as *const _ as usize },
-        720usize,
+        880usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16693,7 +17336,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).pkt_timebase as *const _ as usize },
-        724usize,
+        884usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16703,7 +17346,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).codec_descriptor as *const _ as usize },
-        736usize,
+        896usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16716,7 +17359,7 @@ fn bindgen_test_layout_AVCodecContext() {
             &(*(::std::ptr::null::<AVCodecContext>())).pts_correction_num_faulty_pts as *const _
                 as usize
         },
-        744usize,
+        904usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16729,7 +17372,7 @@ fn bindgen_test_layout_AVCodecContext() {
             &(*(::std::ptr::null::<AVCodecContext>())).pts_correction_num_faulty_dts as *const _
                 as usize
         },
-        752usize,
+        912usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16741,7 +17384,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).pts_correction_last_pts as *const _ as usize
         },
-        760usize,
+        920usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16753,7 +17396,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).pts_correction_last_dts as *const _ as usize
         },
-        768usize,
+        928usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16763,7 +17406,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).sub_charenc as *const _ as usize },
-        776usize,
+        936usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16773,7 +17416,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).sub_charenc_mode as *const _ as usize },
-        784usize,
+        944usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16783,7 +17426,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).skip_alpha as *const _ as usize },
-        788usize,
+        948usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16793,7 +17436,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).seek_preroll as *const _ as usize },
-        792usize,
+        952usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16803,7 +17446,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).debug_mv as *const _ as usize },
-        796usize,
+        956usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16815,7 +17458,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).chroma_intra_matrix as *const _ as usize
         },
-        800usize,
+        960usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16825,7 +17468,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).dump_separator as *const _ as usize },
-        808usize,
+        968usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16835,7 +17478,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).codec_whitelist as *const _ as usize },
-        816usize,
+        976usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16845,7 +17488,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).properties as *const _ as usize },
-        824usize,
+        984usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16855,7 +17498,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).coded_side_data as *const _ as usize },
-        832usize,
+        992usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16867,7 +17510,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).nb_coded_side_data as *const _ as usize
         },
-        840usize,
+        1000usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16877,7 +17520,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).hw_frames_ctx as *const _ as usize },
-        848usize,
+        1008usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16887,7 +17530,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).sub_text_format as *const _ as usize },
-        856usize,
+        1016usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16897,7 +17540,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).trailing_padding as *const _ as usize },
-        860usize,
+        1020usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16907,7 +17550,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).max_pixels as *const _ as usize },
-        864usize,
+        1024usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16917,7 +17560,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).hw_device_ctx as *const _ as usize },
-        872usize,
+        1032usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16927,7 +17570,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).hwaccel_flags as *const _ as usize },
-        880usize,
+        1040usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16937,7 +17580,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).apply_cropping as *const _ as usize },
-        884usize,
+        1044usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16947,7 +17590,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).extra_hw_frames as *const _ as usize },
-        888usize,
+        1048usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16960,7 +17603,7 @@ fn bindgen_test_layout_AVCodecContext() {
             &(*(::std::ptr::null::<AVCodecContext>())).discard_damaged_percentage as *const _
                 as usize
         },
-        892usize,
+        1052usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16970,7 +17613,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).max_samples as *const _ as usize },
-        896usize,
+        1056usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16980,7 +17623,7 @@ fn bindgen_test_layout_AVCodecContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecContext>())).export_side_data as *const _ as usize },
-        904usize,
+        1064usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -16992,7 +17635,7 @@ fn bindgen_test_layout_AVCodecContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecContext>())).get_encode_buffer as *const _ as usize
         },
-        912usize,
+        1072usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecContext),
@@ -17000,6 +17643,47 @@ fn bindgen_test_layout_AVCodecContext() {
             stringify!(get_encode_buffer)
         )
     );
+}
+extern "C" {
+    #[doc = " Accessors for some AVCodecContext fields. These used to be provided for ABI"]
+    #[doc = " compatibility, and do not need to be used anymore."]
+    pub fn av_codec_get_pkt_timebase(avctx: *const AVCodecContext) -> AVRational;
+}
+extern "C" {
+    pub fn av_codec_set_pkt_timebase(avctx: *mut AVCodecContext, val: AVRational);
+}
+extern "C" {
+    pub fn av_codec_get_codec_descriptor(avctx: *const AVCodecContext) -> *const AVCodecDescriptor;
+}
+extern "C" {
+    pub fn av_codec_set_codec_descriptor(
+        avctx: *mut AVCodecContext,
+        desc: *const AVCodecDescriptor,
+    );
+}
+extern "C" {
+    pub fn av_codec_get_codec_properties(avctx: *const AVCodecContext) -> ::std::os::raw::c_uint;
+}
+extern "C" {
+    pub fn av_codec_get_lowres(avctx: *const AVCodecContext) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_codec_set_lowres(avctx: *mut AVCodecContext, val: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn av_codec_get_seek_preroll(avctx: *const AVCodecContext) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_codec_set_seek_preroll(avctx: *mut AVCodecContext, val: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn av_codec_get_chroma_intra_matrix(avctx: *const AVCodecContext) -> *mut u16;
+}
+extern "C" {
+    pub fn av_codec_set_chroma_intra_matrix(avctx: *mut AVCodecContext, val: *mut u16);
+}
+extern "C" {
+    pub fn av_codec_get_max_lowres(codec: *const AVCodec) -> ::std::os::raw::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -17335,6 +18019,52 @@ fn bindgen_test_layout_AVHWAccel() {
         )
     );
 }
+#[doc = " Picture data structure."]
+#[doc = ""]
+#[doc = " Up to four components can be stored into it, the last component is"]
+#[doc = " alpha."]
+#[doc = " @deprecated use AVFrame or imgutils functions instead"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct AVPicture {
+    #[doc = "< pointers to the image data planes"]
+    pub data: [*mut u8; 8usize],
+    #[doc = "< number of bytes per line"]
+    pub linesize: [::std::os::raw::c_int; 8usize],
+}
+#[test]
+fn bindgen_test_layout_AVPicture() {
+    assert_eq!(
+        ::std::mem::size_of::<AVPicture>(),
+        96usize,
+        concat!("Size of: ", stringify!(AVPicture))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVPicture>(),
+        8usize,
+        concat!("Alignment of ", stringify!(AVPicture))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVPicture>())).data as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVPicture),
+            "::",
+            stringify!(data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVPicture>())).linesize as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVPicture),
+            "::",
+            stringify!(linesize)
+        )
+    );
+}
 pub const AVSubtitleType_SUBTITLE_NONE: AVSubtitleType = 0;
 #[doc = "< A bitmap, pict will be set"]
 pub const AVSubtitleType_SUBTITLE_BITMAP: AVSubtitleType = 1;
@@ -17344,7 +18074,6 @@ pub const AVSubtitleType_SUBTITLE_TEXT: AVSubtitleType = 2;
 #[doc = " Formatted text, the ass field must be set by the decoder and is"]
 #[doc = " authoritative. pict and text fields may contain approximations."]
 pub const AVSubtitleType_SUBTITLE_ASS: AVSubtitleType = 3;
-#[doc = " @}"]
 pub type AVSubtitleType = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -17359,6 +18088,8 @@ pub struct AVSubtitleRect {
     pub h: ::std::os::raw::c_int,
     #[doc = "< number of colors in pict, undefined when pict is not set"]
     pub nb_colors: ::std::os::raw::c_int,
+    #[doc = " @deprecated unused"]
+    pub pict: AVPicture,
     #[doc = " data+linesize for the bitmap of this subtitle."]
     #[doc = " Can be set for text/ass as well once they are rendered."]
     pub data: [*mut u8; 4usize],
@@ -17376,7 +18107,7 @@ pub struct AVSubtitleRect {
 fn bindgen_test_layout_AVSubtitleRect() {
     assert_eq!(
         ::std::mem::size_of::<AVSubtitleRect>(),
-        104usize,
+        200usize,
         concat!("Size of: ", stringify!(AVSubtitleRect))
     );
     assert_eq!(
@@ -17435,8 +18166,18 @@ fn bindgen_test_layout_AVSubtitleRect() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVSubtitleRect>())).data as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVSubtitleRect>())).pict as *const _ as usize },
         24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVSubtitleRect),
+            "::",
+            stringify!(pict)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVSubtitleRect>())).data as *const _ as usize },
+        120usize,
         concat!(
             "Offset of field: ",
             stringify!(AVSubtitleRect),
@@ -17446,7 +18187,7 @@ fn bindgen_test_layout_AVSubtitleRect() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVSubtitleRect>())).linesize as *const _ as usize },
-        56usize,
+        152usize,
         concat!(
             "Offset of field: ",
             stringify!(AVSubtitleRect),
@@ -17456,7 +18197,7 @@ fn bindgen_test_layout_AVSubtitleRect() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVSubtitleRect>())).type_ as *const _ as usize },
-        72usize,
+        168usize,
         concat!(
             "Offset of field: ",
             stringify!(AVSubtitleRect),
@@ -17466,7 +18207,7 @@ fn bindgen_test_layout_AVSubtitleRect() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVSubtitleRect>())).text as *const _ as usize },
-        80usize,
+        176usize,
         concat!(
             "Offset of field: ",
             stringify!(AVSubtitleRect),
@@ -17476,7 +18217,7 @@ fn bindgen_test_layout_AVSubtitleRect() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVSubtitleRect>())).ass as *const _ as usize },
-        88usize,
+        184usize,
         concat!(
             "Offset of field: ",
             stringify!(AVSubtitleRect),
@@ -17486,7 +18227,7 @@ fn bindgen_test_layout_AVSubtitleRect() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVSubtitleRect>())).flags as *const _ as usize },
-        96usize,
+        192usize,
         concat!(
             "Offset of field: ",
             stringify!(AVSubtitleRect),
@@ -17580,6 +18321,12 @@ fn bindgen_test_layout_AVSubtitle() {
     );
 }
 extern "C" {
+    #[doc = " If c is NULL, returns the first registered codec,"]
+    #[doc = " if c is non-NULL, returns the next registered codec after c,"]
+    #[doc = " or NULL if c is the last one."]
+    pub fn av_codec_next(c: *const AVCodec) -> *mut AVCodec;
+}
+extern "C" {
     #[doc = " Return the LIBAVCODEC_VERSION_INT constant."]
     pub fn avcodec_version() -> ::std::os::raw::c_uint;
 }
@@ -17590,6 +18337,14 @@ extern "C" {
 extern "C" {
     #[doc = " Return the libavcodec license."]
     pub fn avcodec_license() -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    #[doc = " @deprecated Calling this function is unnecessary."]
+    pub fn avcodec_register(codec: *mut AVCodec);
+}
+extern "C" {
+    #[doc = " @deprecated Calling this function is unnecessary."]
+    pub fn avcodec_register_all();
 }
 extern "C" {
     #[doc = " Allocate an AVCodecContext and set its fields to default values. The"]
@@ -17611,6 +18366,15 @@ extern "C" {
     pub fn avcodec_free_context(avctx: *mut *mut AVCodecContext);
 }
 extern "C" {
+    #[doc = " @deprecated This function should not be used, as closing and opening a codec"]
+    #[doc = " context multiple time is not supported. A new codec context should be"]
+    #[doc = " allocated for each new use."]
+    pub fn avcodec_get_context_defaults3(
+        s: *mut AVCodecContext,
+        codec: *const AVCodec,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     #[doc = " Get the AVClass for AVCodecContext. It can be used in combination with"]
     #[doc = " AV_OPT_SEARCH_FAKE_OBJ for examining options."]
     #[doc = ""]
@@ -17627,6 +18391,27 @@ extern "C" {
     #[doc = ""]
     #[doc = " @see av_opt_find()."]
     pub fn avcodec_get_subtitle_rect_class() -> *const AVClass;
+}
+extern "C" {
+    #[doc = " Copy the settings of the source AVCodecContext into the destination"]
+    #[doc = " AVCodecContext. The resulting destination codec context will be"]
+    #[doc = " unopened, i.e. you are required to call avcodec_open2() before you"]
+    #[doc = " can use this AVCodecContext to decode/encode video/audio data."]
+    #[doc = ""]
+    #[doc = " @param dest target codec context, should be initialized with"]
+    #[doc = "             avcodec_alloc_context3(NULL), but otherwise uninitialized"]
+    #[doc = " @param src source codec context"]
+    #[doc = " @return AVERROR() on error (e.g. memory allocation error), 0 on success"]
+    #[doc = ""]
+    #[doc = " @deprecated The semantics of this function are ill-defined and it should not"]
+    #[doc = " be used. If you need to transfer the stream parameters from one codec context"]
+    #[doc = " to another, use an intermediate AVCodecParameters instance and the"]
+    #[doc = " avcodec_parameters_from_context() / avcodec_parameters_to_context()"]
+    #[doc = " functions."]
+    pub fn avcodec_copy_context(
+        dest: *mut AVCodecContext,
+        src: *const AVCodecContext,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Fill the parameters struct based on the values from the supplied codec"]
@@ -17786,6 +18571,116 @@ extern "C" {
     ) -> AVChromaLocation;
 }
 extern "C" {
+    #[doc = " Decode the audio frame of size avpkt->size from avpkt->data into frame."]
+    #[doc = ""]
+    #[doc = " Some decoders may support multiple frames in a single AVPacket. Such"]
+    #[doc = " decoders would then just decode the first frame and the return value would be"]
+    #[doc = " less than the packet size. In this case, avcodec_decode_audio4 has to be"]
+    #[doc = " called again with an AVPacket containing the remaining data in order to"]
+    #[doc = " decode the second frame, etc...  Even if no frames are returned, the packet"]
+    #[doc = " needs to be fed to the decoder with remaining data until it is completely"]
+    #[doc = " consumed or an error occurs."]
+    #[doc = ""]
+    #[doc = " Some decoders (those marked with AV_CODEC_CAP_DELAY) have a delay between input"]
+    #[doc = " and output. This means that for some packets they will not immediately"]
+    #[doc = " produce decoded output and need to be flushed at the end of decoding to get"]
+    #[doc = " all the decoded data. Flushing is done by calling this function with packets"]
+    #[doc = " with avpkt->data set to NULL and avpkt->size set to 0 until it stops"]
+    #[doc = " returning samples. It is safe to flush even those decoders that are not"]
+    #[doc = " marked with AV_CODEC_CAP_DELAY, then no samples will be returned."]
+    #[doc = ""]
+    #[doc = " @warning The input buffer, avpkt->data must be AV_INPUT_BUFFER_PADDING_SIZE"]
+    #[doc = "          larger than the actual read bytes because some optimized bitstream"]
+    #[doc = "          readers read 32 or 64 bits at once and could read over the end."]
+    #[doc = ""]
+    #[doc = " @note The AVCodecContext MUST have been opened with @ref avcodec_open2()"]
+    #[doc = " before packets may be fed to the decoder."]
+    #[doc = ""]
+    #[doc = " @param      avctx the codec context"]
+    #[doc = " @param[out] frame The AVFrame in which to store decoded audio samples."]
+    #[doc = "                   The decoder will allocate a buffer for the decoded frame by"]
+    #[doc = "                   calling the AVCodecContext.get_buffer2() callback."]
+    #[doc = "                   When AVCodecContext.refcounted_frames is set to 1, the frame is"]
+    #[doc = "                   reference counted and the returned reference belongs to the"]
+    #[doc = "                   caller. The caller must release the frame using av_frame_unref()"]
+    #[doc = "                   when the frame is no longer needed. The caller may safely write"]
+    #[doc = "                   to the frame if av_frame_is_writable() returns 1."]
+    #[doc = "                   When AVCodecContext.refcounted_frames is set to 0, the returned"]
+    #[doc = "                   reference belongs to the decoder and is valid only until the"]
+    #[doc = "                   next call to this function or until closing or flushing the"]
+    #[doc = "                   decoder. The caller may not write to it."]
+    #[doc = " @param[out] got_frame_ptr Zero if no frame could be decoded, otherwise it is"]
+    #[doc = "                           non-zero. Note that this field being set to zero"]
+    #[doc = "                           does not mean that an error has occurred. For"]
+    #[doc = "                           decoders with AV_CODEC_CAP_DELAY set, no given decode"]
+    #[doc = "                           call is guaranteed to produce a frame."]
+    #[doc = " @param[in]  avpkt The input AVPacket containing the input buffer."]
+    #[doc = "                   At least avpkt->data and avpkt->size should be set. Some"]
+    #[doc = "                   decoders might also require additional fields to be set."]
+    #[doc = " @return A negative error code is returned if an error occurred during"]
+    #[doc = "         decoding, otherwise the number of bytes consumed from the input"]
+    #[doc = "         AVPacket is returned."]
+    #[doc = ""]
+    #[doc = " @deprecated Use avcodec_send_packet() and avcodec_receive_frame()."]
+    pub fn avcodec_decode_audio4(
+        avctx: *mut AVCodecContext,
+        frame: *mut AVFrame,
+        got_frame_ptr: *mut ::std::os::raw::c_int,
+        avpkt: *const AVPacket,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Decode the video frame of size avpkt->size from avpkt->data into picture."]
+    #[doc = " Some decoders may support multiple frames in a single AVPacket, such"]
+    #[doc = " decoders would then just decode the first frame."]
+    #[doc = ""]
+    #[doc = " @warning The input buffer must be AV_INPUT_BUFFER_PADDING_SIZE larger than"]
+    #[doc = " the actual read bytes because some optimized bitstream readers read 32 or 64"]
+    #[doc = " bits at once and could read over the end."]
+    #[doc = ""]
+    #[doc = " @warning The end of the input buffer buf should be set to 0 to ensure that"]
+    #[doc = " no overreading happens for damaged MPEG streams."]
+    #[doc = ""]
+    #[doc = " @note Codecs which have the AV_CODEC_CAP_DELAY capability set have a delay"]
+    #[doc = " between input and output, these need to be fed with avpkt->data=NULL,"]
+    #[doc = " avpkt->size=0 at the end to return the remaining frames."]
+    #[doc = ""]
+    #[doc = " @note The AVCodecContext MUST have been opened with @ref avcodec_open2()"]
+    #[doc = " before packets may be fed to the decoder."]
+    #[doc = ""]
+    #[doc = " @param avctx the codec context"]
+    #[doc = " @param[out] picture The AVFrame in which the decoded video frame will be stored."]
+    #[doc = "             Use av_frame_alloc() to get an AVFrame. The codec will"]
+    #[doc = "             allocate memory for the actual bitmap by calling the"]
+    #[doc = "             AVCodecContext.get_buffer2() callback."]
+    #[doc = "             When AVCodecContext.refcounted_frames is set to 1, the frame is"]
+    #[doc = "             reference counted and the returned reference belongs to the"]
+    #[doc = "             caller. The caller must release the frame using av_frame_unref()"]
+    #[doc = "             when the frame is no longer needed. The caller may safely write"]
+    #[doc = "             to the frame if av_frame_is_writable() returns 1."]
+    #[doc = "             When AVCodecContext.refcounted_frames is set to 0, the returned"]
+    #[doc = "             reference belongs to the decoder and is valid only until the"]
+    #[doc = "             next call to this function or until closing or flushing the"]
+    #[doc = "             decoder. The caller may not write to it."]
+    #[doc = ""]
+    #[doc = " @param[in] avpkt The input AVPacket containing the input buffer."]
+    #[doc = "            You can create such packet with av_init_packet() and by then setting"]
+    #[doc = "            data and size, some decoders might in addition need other fields like"]
+    #[doc = "            flags&AV_PKT_FLAG_KEY. All decoders are designed to use the least"]
+    #[doc = "            fields possible."]
+    #[doc = " @param[in,out] got_picture_ptr Zero if no frame could be decompressed, otherwise, it is nonzero."]
+    #[doc = " @return On error a negative value is returned, otherwise the number of bytes"]
+    #[doc = " used or zero if no frame could be decompressed."]
+    #[doc = ""]
+    #[doc = " @deprecated Use avcodec_send_packet() and avcodec_receive_frame()."]
+    pub fn avcodec_decode_video2(
+        avctx: *mut AVCodecContext,
+        picture: *mut AVFrame,
+        got_picture_ptr: *mut ::std::os::raw::c_int,
+        avpkt: *const AVPacket,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     #[doc = " Decode a subtitle message."]
     #[doc = " Return a negative value on error, otherwise return the number of bytes used."]
     #[doc = " If no subtitle could be decompressed, got_sub_ptr is zero."]
@@ -17829,6 +18724,10 @@ extern "C" {
     #[doc = " @warning The input buffer, avpkt->data must be AV_INPUT_BUFFER_PADDING_SIZE"]
     #[doc = "          larger than the actual read bytes because some optimized bitstream"]
     #[doc = "          readers read 32 or 64 bits at once and could read over the end."]
+    #[doc = ""]
+    #[doc = " @warning Do not mix this API with the legacy API (like avcodec_decode_video2())"]
+    #[doc = "          on the same AVCodecContext. It will return unexpected results now"]
+    #[doc = "          or in future libavcodec versions."]
     #[doc = ""]
     #[doc = " @note The AVCodecContext MUST have been opened with @ref avcodec_open2()"]
     #[doc = "       before packets may be fed to the decoder."]
@@ -18065,7 +18964,7 @@ pub type AVPictureStructure = ::std::os::raw::c_uint;
 #[derive(Debug, Copy, Clone)]
 pub struct AVCodecParserContext {
     pub priv_data: *mut ::std::os::raw::c_void,
-    pub parser: *const AVCodecParser,
+    pub parser: *mut AVCodecParser,
     pub frame_offset: i64,
     pub cur_offset: i64,
     pub next_frame_offset: i64,
@@ -18096,6 +18995,8 @@ pub struct AVCodecParserContext {
     #[doc = " old-style fallback using AV_PICTURE_TYPE_I picture type as key frames"]
     #[doc = " will be used."]
     pub key_frame: ::std::os::raw::c_int,
+    #[doc = " @deprecated unused"]
+    pub convergence_duration: i64,
     #[doc = " Synchronization point for start of timestamp generation."]
     #[doc = ""]
     #[doc = " Set to >0 for sync point, 0 for no sync point and <0 for undefined"]
@@ -18170,7 +19071,7 @@ pub struct AVCodecParserContext {
 fn bindgen_test_layout_AVCodecParserContext() {
     assert_eq!(
         ::std::mem::size_of::<AVCodecParserContext>(),
-        336usize,
+        352usize,
         concat!("Size of: ", stringify!(AVCodecParserContext))
     );
     assert_eq!(
@@ -18399,9 +19300,22 @@ fn bindgen_test_layout_AVCodecParserContext() {
     );
     assert_eq!(
         unsafe {
+            &(*(::std::ptr::null::<AVCodecParserContext>())).convergence_duration as *const _
+                as usize
+        },
+        240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecParserContext),
+            "::",
+            stringify!(convergence_duration)
+        )
+    );
+    assert_eq!(
+        unsafe {
             &(*(::std::ptr::null::<AVCodecParserContext>())).dts_sync_point as *const _ as usize
         },
-        236usize,
+        248usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18413,7 +19327,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecParserContext>())).dts_ref_dts_delta as *const _ as usize
         },
-        240usize,
+        252usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18425,7 +19339,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecParserContext>())).pts_dts_delta as *const _ as usize
         },
-        244usize,
+        256usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18437,7 +19351,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecParserContext>())).cur_frame_pos as *const _ as usize
         },
-        248usize,
+        264usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18447,7 +19361,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecParserContext>())).pos as *const _ as usize },
-        280usize,
+        296usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18457,7 +19371,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecParserContext>())).last_pos as *const _ as usize },
-        288usize,
+        304usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18467,7 +19381,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecParserContext>())).duration as *const _ as usize },
-        296usize,
+        312usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18479,7 +19393,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecParserContext>())).field_order as *const _ as usize
         },
-        300usize,
+        316usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18491,7 +19405,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecParserContext>())).picture_structure as *const _ as usize
         },
-        304usize,
+        320usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18504,7 +19418,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
             &(*(::std::ptr::null::<AVCodecParserContext>())).output_picture_number as *const _
                 as usize
         },
-        308usize,
+        324usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18514,7 +19428,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecParserContext>())).width as *const _ as usize },
-        312usize,
+        328usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18524,7 +19438,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecParserContext>())).height as *const _ as usize },
-        316usize,
+        332usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18536,7 +19450,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecParserContext>())).coded_width as *const _ as usize
         },
-        320usize,
+        336usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18548,7 +19462,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
         unsafe {
             &(*(::std::ptr::null::<AVCodecParserContext>())).coded_height as *const _ as usize
         },
-        324usize,
+        340usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18558,7 +19472,7 @@ fn bindgen_test_layout_AVCodecParserContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVCodecParserContext>())).format as *const _ as usize },
-        328usize,
+        344usize,
         concat!(
             "Offset of field: ",
             stringify!(AVCodecParserContext),
@@ -18593,12 +19507,13 @@ pub struct AVCodecParser {
             buf_size: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_int,
     >,
+    pub next: *mut AVCodecParser,
 }
 #[test]
 fn bindgen_test_layout_AVCodecParser() {
     assert_eq!(
         ::std::mem::size_of::<AVCodecParser>(),
-        56usize,
+        64usize,
         concat!("Size of: ", stringify!(AVCodecParser))
     );
     assert_eq!(
@@ -18666,6 +19581,16 @@ fn bindgen_test_layout_AVCodecParser() {
             stringify!(split)
         )
     );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVCodecParser>())).next as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVCodecParser),
+            "::",
+            stringify!(next)
+        )
+    );
 }
 extern "C" {
     #[doc = " Iterate over all registered codec parsers."]
@@ -18676,6 +19601,12 @@ extern "C" {
     #[doc = " @return the next registered codec parser or NULL when the iteration is"]
     #[doc = "         finished"]
     pub fn av_parser_iterate(opaque: *mut *mut ::std::os::raw::c_void) -> *const AVCodecParser;
+}
+extern "C" {
+    pub fn av_parser_next(c: *const AVCodecParser) -> *mut AVCodecParser;
+}
+extern "C" {
+    pub fn av_register_codec_parser(parser: *mut AVCodecParser);
 }
 extern "C" {
     pub fn av_parser_init(codec_id: ::std::os::raw::c_int) -> *mut AVCodecParserContext;
@@ -18723,17 +19654,205 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    #[doc = " @return 0 if the output buffer is a subset of the input, 1 if it is allocated and must be freed"]
+    #[doc = " @deprecated Use dump_extradata, remove_extra or extract_extradata"]
+    #[doc = "             bitstream filters instead."]
+    pub fn av_parser_change(
+        s: *mut AVCodecParserContext,
+        avctx: *mut AVCodecContext,
+        poutbuf: *mut *mut u8,
+        poutbuf_size: *mut ::std::os::raw::c_int,
+        buf: *const u8,
+        buf_size: ::std::os::raw::c_int,
+        keyframe: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     pub fn av_parser_close(s: *mut AVCodecParserContext);
 }
 extern "C" {
-    #[doc = " @addtogroup lavc_encoding"]
-    #[doc = " @{"]
+    #[doc = " Encode a frame of audio."]
+    #[doc = ""]
+    #[doc = " Takes input samples from frame and writes the next output packet, if"]
+    #[doc = " available, to avpkt. The output packet does not necessarily contain data for"]
+    #[doc = " the most recent frame, as encoders can delay, split, and combine input frames"]
+    #[doc = " internally as needed."]
+    #[doc = ""]
+    #[doc = " @param avctx     codec context"]
+    #[doc = " @param avpkt     output AVPacket."]
+    #[doc = "                  The user can supply an output buffer by setting"]
+    #[doc = "                  avpkt->data and avpkt->size prior to calling the"]
+    #[doc = "                  function, but if the size of the user-provided data is not"]
+    #[doc = "                  large enough, encoding will fail. If avpkt->data and"]
+    #[doc = "                  avpkt->size are set, avpkt->destruct must also be set. All"]
+    #[doc = "                  other AVPacket fields will be reset by the encoder using"]
+    #[doc = "                  av_init_packet(). If avpkt->data is NULL, the encoder will"]
+    #[doc = "                  allocate it. The encoder will set avpkt->size to the size"]
+    #[doc = "                  of the output packet."]
+    #[doc = ""]
+    #[doc = "                  If this function fails or produces no output, avpkt will be"]
+    #[doc = "                  freed using av_packet_unref()."]
+    #[doc = " @param[in] frame AVFrame containing the raw audio data to be encoded."]
+    #[doc = "                  May be NULL when flushing an encoder that has the"]
+    #[doc = "                  AV_CODEC_CAP_DELAY capability set."]
+    #[doc = "                  If AV_CODEC_CAP_VARIABLE_FRAME_SIZE is set, then each frame"]
+    #[doc = "                  can have any number of samples."]
+    #[doc = "                  If it is not set, frame->nb_samples must be equal to"]
+    #[doc = "                  avctx->frame_size for all frames except the last."]
+    #[doc = "                  The final frame may be smaller than avctx->frame_size."]
+    #[doc = " @param[out] got_packet_ptr This field is set to 1 by libavcodec if the"]
+    #[doc = "                            output packet is non-empty, and to 0 if it is"]
+    #[doc = "                            empty. If the function returns an error, the"]
+    #[doc = "                            packet can be assumed to be invalid, and the"]
+    #[doc = "                            value of got_packet_ptr is undefined and should"]
+    #[doc = "                            not be used."]
+    #[doc = " @return          0 on success, negative error code on failure"]
+    #[doc = ""]
+    #[doc = " @deprecated use avcodec_send_frame()/avcodec_receive_packet() instead."]
+    #[doc = "             If allowed and required, set AVCodecContext.get_encode_buffer to"]
+    #[doc = "             a custom function to pass user supplied output buffers."]
+    pub fn avcodec_encode_audio2(
+        avctx: *mut AVCodecContext,
+        avpkt: *mut AVPacket,
+        frame: *const AVFrame,
+        got_packet_ptr: *mut ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Encode a frame of video."]
+    #[doc = ""]
+    #[doc = " Takes input raw video data from frame and writes the next output packet, if"]
+    #[doc = " available, to avpkt. The output packet does not necessarily contain data for"]
+    #[doc = " the most recent frame, as encoders can delay and reorder input frames"]
+    #[doc = " internally as needed."]
+    #[doc = ""]
+    #[doc = " @param avctx     codec context"]
+    #[doc = " @param avpkt     output AVPacket."]
+    #[doc = "                  The user can supply an output buffer by setting"]
+    #[doc = "                  avpkt->data and avpkt->size prior to calling the"]
+    #[doc = "                  function, but if the size of the user-provided data is not"]
+    #[doc = "                  large enough, encoding will fail. All other AVPacket fields"]
+    #[doc = "                  will be reset by the encoder using av_init_packet(). If"]
+    #[doc = "                  avpkt->data is NULL, the encoder will allocate it."]
+    #[doc = "                  The encoder will set avpkt->size to the size of the"]
+    #[doc = "                  output packet. The returned data (if any) belongs to the"]
+    #[doc = "                  caller, he is responsible for freeing it."]
+    #[doc = ""]
+    #[doc = "                  If this function fails or produces no output, avpkt will be"]
+    #[doc = "                  freed using av_packet_unref()."]
+    #[doc = " @param[in] frame AVFrame containing the raw video data to be encoded."]
+    #[doc = "                  May be NULL when flushing an encoder that has the"]
+    #[doc = "                  AV_CODEC_CAP_DELAY capability set."]
+    #[doc = " @param[out] got_packet_ptr This field is set to 1 by libavcodec if the"]
+    #[doc = "                            output packet is non-empty, and to 0 if it is"]
+    #[doc = "                            empty. If the function returns an error, the"]
+    #[doc = "                            packet can be assumed to be invalid, and the"]
+    #[doc = "                            value of got_packet_ptr is undefined and should"]
+    #[doc = "                            not be used."]
+    #[doc = " @return          0 on success, negative error code on failure"]
+    #[doc = ""]
+    #[doc = " @deprecated use avcodec_send_frame()/avcodec_receive_packet() instead."]
+    #[doc = "             If allowed and required, set AVCodecContext.get_encode_buffer to"]
+    #[doc = "             a custom function to pass user supplied output buffers."]
+    pub fn avcodec_encode_video2(
+        avctx: *mut AVCodecContext,
+        avpkt: *mut AVPacket,
+        frame: *const AVFrame,
+        got_packet_ptr: *mut ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     pub fn avcodec_encode_subtitle(
         avctx: *mut AVCodecContext,
         buf: *mut u8,
         buf_size: ::std::os::raw::c_int,
         sub: *const AVSubtitle,
     ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated unused"]
+    pub fn avpicture_alloc(
+        picture: *mut AVPicture,
+        pix_fmt: AVPixelFormat,
+        width: ::std::os::raw::c_int,
+        height: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated unused"]
+    pub fn avpicture_free(picture: *mut AVPicture);
+}
+extern "C" {
+    #[doc = " @deprecated use av_image_fill_arrays() instead."]
+    pub fn avpicture_fill(
+        picture: *mut AVPicture,
+        ptr: *const u8,
+        pix_fmt: AVPixelFormat,
+        width: ::std::os::raw::c_int,
+        height: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated use av_image_copy_to_buffer() instead."]
+    pub fn avpicture_layout(
+        src: *const AVPicture,
+        pix_fmt: AVPixelFormat,
+        width: ::std::os::raw::c_int,
+        height: ::std::os::raw::c_int,
+        dest: *mut ::std::os::raw::c_uchar,
+        dest_size: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated use av_image_get_buffer_size() instead."]
+    pub fn avpicture_get_size(
+        pix_fmt: AVPixelFormat,
+        width: ::std::os::raw::c_int,
+        height: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated av_image_copy() instead."]
+    pub fn av_picture_copy(
+        dst: *mut AVPicture,
+        src: *const AVPicture,
+        pix_fmt: AVPixelFormat,
+        width: ::std::os::raw::c_int,
+        height: ::std::os::raw::c_int,
+    );
+}
+extern "C" {
+    #[doc = " @deprecated unused"]
+    pub fn av_picture_crop(
+        dst: *mut AVPicture,
+        src: *const AVPicture,
+        pix_fmt: AVPixelFormat,
+        top_band: ::std::os::raw::c_int,
+        left_band: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated unused"]
+    pub fn av_picture_pad(
+        dst: *mut AVPicture,
+        src: *const AVPicture,
+        height: ::std::os::raw::c_int,
+        width: ::std::os::raw::c_int,
+        pix_fmt: AVPixelFormat,
+        padtop: ::std::os::raw::c_int,
+        padbottom: ::std::os::raw::c_int,
+        padleft: ::std::os::raw::c_int,
+        padright: ::std::os::raw::c_int,
+        color: *mut ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated Use av_pix_fmt_get_chroma_sub_sample"]
+    pub fn avcodec_get_chroma_sub_sample(
+        pix_fmt: AVPixelFormat,
+        h_shift: *mut ::std::os::raw::c_int,
+        v_shift: *mut ::std::os::raw::c_int,
+    );
 }
 extern "C" {
     #[doc = " Return a value representing the fourCC code associated to the"]
@@ -18765,13 +19884,55 @@ extern "C" {
     ) -> AVPixelFormat;
 }
 extern "C" {
+    #[doc = " @deprecated see av_get_pix_fmt_loss()"]
+    pub fn avcodec_get_pix_fmt_loss(
+        dst_pix_fmt: AVPixelFormat,
+        src_pix_fmt: AVPixelFormat,
+        has_alpha: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated see av_find_best_pix_fmt_of_2()"]
+    pub fn avcodec_find_best_pix_fmt_of_2(
+        dst_pix_fmt1: AVPixelFormat,
+        dst_pix_fmt2: AVPixelFormat,
+        src_pix_fmt: AVPixelFormat,
+        has_alpha: ::std::os::raw::c_int,
+        loss_ptr: *mut ::std::os::raw::c_int,
+    ) -> AVPixelFormat;
+}
+extern "C" {
+    pub fn avcodec_find_best_pix_fmt2(
+        dst_pix_fmt1: AVPixelFormat,
+        dst_pix_fmt2: AVPixelFormat,
+        src_pix_fmt: AVPixelFormat,
+        has_alpha: ::std::os::raw::c_int,
+        loss_ptr: *mut ::std::os::raw::c_int,
+    ) -> AVPixelFormat;
+}
+extern "C" {
     pub fn avcodec_default_get_format(
         s: *mut AVCodecContext,
         fmt: *const AVPixelFormat,
     ) -> AVPixelFormat;
 }
 extern "C" {
-    #[doc = " @}"]
+    #[doc = " Put a string representing the codec tag codec_tag in buf."]
+    #[doc = ""]
+    #[doc = " @param buf       buffer to place codec tag in"]
+    #[doc = " @param buf_size size in bytes of buf"]
+    #[doc = " @param codec_tag codec tag to assign"]
+    #[doc = " @return the length of the string that would have been generated if"]
+    #[doc = " enough space had been available, excluding the trailing null"]
+    #[doc = ""]
+    #[doc = " @deprecated see av_fourcc_make_string() and av_fourcc2str()."]
+    pub fn av_get_codec_tag_string(
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: size_t,
+        codec_tag: ::std::os::raw::c_uint,
+    ) -> size_t;
+}
+extern "C" {
     pub fn avcodec_string(
         buf: *mut ::std::os::raw::c_char,
         buf_size: ::std::os::raw::c_int,
@@ -18928,6 +20089,125 @@ extern "C" {
         frame_bytes: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct AVBitStreamFilterContext {
+    pub priv_data: *mut ::std::os::raw::c_void,
+    pub filter: *const AVBitStreamFilter,
+    pub parser: *mut AVCodecParserContext,
+    pub next: *mut AVBitStreamFilterContext,
+    #[doc = " Internal default arguments, used if NULL is passed to av_bitstream_filter_filter()."]
+    #[doc = " Not for access by library users."]
+    pub args: *mut ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_AVBitStreamFilterContext() {
+    assert_eq!(
+        ::std::mem::size_of::<AVBitStreamFilterContext>(),
+        40usize,
+        concat!("Size of: ", stringify!(AVBitStreamFilterContext))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVBitStreamFilterContext>(),
+        8usize,
+        concat!("Alignment of ", stringify!(AVBitStreamFilterContext))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVBitStreamFilterContext>())).priv_data as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVBitStreamFilterContext),
+            "::",
+            stringify!(priv_data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVBitStreamFilterContext>())).filter as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVBitStreamFilterContext),
+            "::",
+            stringify!(filter)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVBitStreamFilterContext>())).parser as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVBitStreamFilterContext),
+            "::",
+            stringify!(parser)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVBitStreamFilterContext>())).next as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVBitStreamFilterContext),
+            "::",
+            stringify!(next)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVBitStreamFilterContext>())).args as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVBitStreamFilterContext),
+            "::",
+            stringify!(args)
+        )
+    );
+}
+extern "C" {
+    #[doc = " @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)"]
+    #[doc = " is deprecated. Use the new bitstream filtering API (using AVBSFContext)."]
+    pub fn av_register_bitstream_filter(bsf: *mut AVBitStreamFilter);
+}
+extern "C" {
+    #[doc = " @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)"]
+    #[doc = " is deprecated. Use av_bsf_get_by_name(), av_bsf_alloc(), and av_bsf_init()"]
+    #[doc = " from the new bitstream filtering API (using AVBSFContext)."]
+    pub fn av_bitstream_filter_init(
+        name: *const ::std::os::raw::c_char,
+    ) -> *mut AVBitStreamFilterContext;
+}
+extern "C" {
+    #[doc = " @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)"]
+    #[doc = " is deprecated. Use av_bsf_send_packet() and av_bsf_receive_packet() from the"]
+    #[doc = " new bitstream filtering API (using AVBSFContext)."]
+    pub fn av_bitstream_filter_filter(
+        bsfc: *mut AVBitStreamFilterContext,
+        avctx: *mut AVCodecContext,
+        args: *const ::std::os::raw::c_char,
+        poutbuf: *mut *mut u8,
+        poutbuf_size: *mut ::std::os::raw::c_int,
+        buf: *const u8,
+        buf_size: ::std::os::raw::c_int,
+        keyframe: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)"]
+    #[doc = " is deprecated. Use av_bsf_free() from the new bitstream filtering API (using"]
+    #[doc = " AVBSFContext)."]
+    pub fn av_bitstream_filter_close(bsf: *mut AVBitStreamFilterContext);
+}
+extern "C" {
+    #[doc = " @deprecated the old bitstream filtering API (using AVBitStreamFilterContext)"]
+    #[doc = " is deprecated. Use av_bsf_iterate() from the new bitstream filtering API (using"]
+    #[doc = " AVBSFContext)."]
+    pub fn av_bitstream_filter_next(f: *const AVBitStreamFilter) -> *const AVBitStreamFilter;
+}
+extern "C" {
+    pub fn av_bsf_next(opaque: *mut *mut ::std::os::raw::c_void) -> *const AVBitStreamFilter;
+}
 extern "C" {
     #[doc = " Same behaviour av_fast_malloc but the buffer has additional"]
     #[doc = " AV_INPUT_BUFFER_PADDING_SIZE at the end which will always be 0."]
@@ -18959,6 +20239,67 @@ extern "C" {
         s: *mut ::std::os::raw::c_uchar,
         v: ::std::os::raw::c_uint,
     ) -> ::std::os::raw::c_uint;
+}
+extern "C" {
+    #[doc = " Register the hardware accelerator hwaccel."]
+    #[doc = ""]
+    #[doc = " @deprecated  This function doesn't do anything."]
+    pub fn av_register_hwaccel(hwaccel: *mut AVHWAccel);
+}
+extern "C" {
+    #[doc = " If hwaccel is NULL, returns the first registered hardware accelerator,"]
+    #[doc = " if hwaccel is non-NULL, returns the next registered hardware accelerator"]
+    #[doc = " after hwaccel, or NULL if hwaccel is the last one."]
+    #[doc = ""]
+    #[doc = " @deprecated  AVHWaccel structures contain no user-serviceable parts, so"]
+    #[doc = "              this function should not be used."]
+    pub fn av_hwaccel_next(hwaccel: *const AVHWAccel) -> *mut AVHWAccel;
+}
+#[doc = "< Create a mutex"]
+pub const AVLockOp_AV_LOCK_CREATE: AVLockOp = 0;
+#[doc = "< Lock the mutex"]
+pub const AVLockOp_AV_LOCK_OBTAIN: AVLockOp = 1;
+#[doc = "< Unlock the mutex"]
+pub const AVLockOp_AV_LOCK_RELEASE: AVLockOp = 2;
+#[doc = "< Free mutex resources"]
+pub const AVLockOp_AV_LOCK_DESTROY: AVLockOp = 3;
+#[doc = " Lock operation used by lockmgr"]
+#[doc = ""]
+#[doc = " @deprecated Deprecated together with av_lockmgr_register()."]
+pub type AVLockOp = ::std::os::raw::c_uint;
+extern "C" {
+    #[doc = " Register a user provided lock manager supporting the operations"]
+    #[doc = " specified by AVLockOp. The \"mutex\" argument to the function points"]
+    #[doc = " to a (void *) where the lockmgr should store/get a pointer to a user"]
+    #[doc = " allocated mutex. It is NULL upon AV_LOCK_CREATE and equal to the"]
+    #[doc = " value left by the last call for all other ops. If the lock manager is"]
+    #[doc = " unable to perform the op then it should leave the mutex in the same"]
+    #[doc = " state as when it was called and return a non-zero value. However,"]
+    #[doc = " when called with AV_LOCK_DESTROY the mutex will always be assumed to"]
+    #[doc = " have been successfully destroyed. If av_lockmgr_register succeeds"]
+    #[doc = " it will return a non-negative value, if it fails it will return a"]
+    #[doc = " negative value and destroy all mutex and unregister all callbacks."]
+    #[doc = " av_lockmgr_register is not thread-safe, it must be called from a"]
+    #[doc = " single thread before any calls which make use of locking are used."]
+    #[doc = ""]
+    #[doc = " @param cb User defined callback. av_lockmgr_register invokes calls"]
+    #[doc = "           to this callback and the previously registered callback."]
+    #[doc = "           The callback will be used to create more than one mutex"]
+    #[doc = "           each of which must be backed by its own underlying locking"]
+    #[doc = "           mechanism (i.e. do not use a single static object to"]
+    #[doc = "           implement your lock manager). If cb is set to NULL the"]
+    #[doc = "           lockmgr will be unregistered."]
+    #[doc = ""]
+    #[doc = " @deprecated This function does nothing, and always returns 0. Be sure to"]
+    #[doc = "             build with thread support to get basic thread safety."]
+    pub fn av_lockmgr_register(
+        cb: ::std::option::Option<
+            unsafe extern "C" fn(
+                mutex: *mut *mut ::std::os::raw::c_void,
+                op: AVLockOp,
+            ) -> ::std::os::raw::c_int,
+        >,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " @return a positive value if s is open (i.e. avcodec_open2() was called on it"]
@@ -20284,6 +21625,15 @@ extern "C" {
         obj: *mut ::std::os::raw::c_void,
         prev: *mut ::std::os::raw::c_void,
     ) -> *mut ::std::os::raw::c_void;
+}
+extern "C" {
+    #[doc = " Iterate over potential AVOptions-enabled children of parent."]
+    #[doc = ""]
+    #[doc = " @param prev result of a previous call to this function or NULL"]
+    #[doc = " @return AVClass corresponding to next potential child or NULL"]
+    #[doc = ""]
+    #[doc = " @deprecated use av_opt_child_class_iterate"]
+    pub fn av_opt_child_class_next(parent: *const AVClass, prev: *const AVClass) -> *const AVClass;
 }
 extern "C" {
     #[doc = " Iterate over potential AVOptions-enabled children of parent."]
@@ -22458,11 +23808,7 @@ pub struct AVOutputFormat {
     pub codec_tag: *const *const AVCodecTag,
     #[doc = "< AVClass for the private context"]
     pub priv_class: *const AVClass,
-    #[doc = " No fields below this line are part of the public API. They"]
-    #[doc = " may not be used outside of libavformat and can be changed and"]
-    #[doc = " removed at will."]
-    #[doc = " New public fields should be added right above."]
-    #[doc = ""]
+    pub next: *mut AVOutputFormat,
     #[doc = " size of private data so that it can be allocated in the wrapper"]
     pub priv_data_size: ::std::os::raw::c_int,
     pub write_header: ::std::option::Option<
@@ -22542,6 +23888,22 @@ pub struct AVOutputFormat {
             device_list: *mut AVDeviceInfoList,
         ) -> ::std::os::raw::c_int,
     >,
+    #[doc = " Initialize device capabilities submodule."]
+    #[doc = " @see avdevice_capabilities_create() for more details."]
+    pub create_device_capabilities: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *mut AVFormatContext,
+            caps: *mut AVDeviceCapabilitiesQuery,
+        ) -> ::std::os::raw::c_int,
+    >,
+    #[doc = " Free device capabilities submodule."]
+    #[doc = " @see avdevice_capabilities_free() for more details."]
+    pub free_device_capabilities: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *mut AVFormatContext,
+            caps: *mut AVDeviceCapabilitiesQuery,
+        ) -> ::std::os::raw::c_int,
+    >,
     #[doc = "< default data codec"]
     pub data_codec: AVCodecID,
     #[doc = " Initialize format. May allocate data here, and set any AVFormatContext or"]
@@ -22575,7 +23937,7 @@ pub struct AVOutputFormat {
 fn bindgen_test_layout_AVOutputFormat() {
     assert_eq!(
         ::std::mem::size_of::<AVOutputFormat>(),
-        176usize,
+        200usize,
         concat!("Size of: ", stringify!(AVOutputFormat))
     );
     assert_eq!(
@@ -22684,8 +24046,18 @@ fn bindgen_test_layout_AVOutputFormat() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).priv_data_size as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).next as *const _ as usize },
         64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVOutputFormat),
+            "::",
+            stringify!(next)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).priv_data_size as *const _ as usize },
+        72usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22695,7 +24067,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).write_header as *const _ as usize },
-        72usize,
+        80usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22705,7 +24077,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).write_packet as *const _ as usize },
-        80usize,
+        88usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22715,7 +24087,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).write_trailer as *const _ as usize },
-        88usize,
+        96usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22727,7 +24099,7 @@ fn bindgen_test_layout_AVOutputFormat() {
         unsafe {
             &(*(::std::ptr::null::<AVOutputFormat>())).interleave_packet as *const _ as usize
         },
-        96usize,
+        104usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22737,7 +24109,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).query_codec as *const _ as usize },
-        104usize,
+        112usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22749,7 +24121,7 @@ fn bindgen_test_layout_AVOutputFormat() {
         unsafe {
             &(*(::std::ptr::null::<AVOutputFormat>())).get_output_timestamp as *const _ as usize
         },
-        112usize,
+        120usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22759,7 +24131,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).control_message as *const _ as usize },
-        120usize,
+        128usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22771,7 +24143,7 @@ fn bindgen_test_layout_AVOutputFormat() {
         unsafe {
             &(*(::std::ptr::null::<AVOutputFormat>())).write_uncoded_frame as *const _ as usize
         },
-        128usize,
+        136usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22781,7 +24153,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).get_device_list as *const _ as usize },
-        136usize,
+        144usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22790,8 +24162,33 @@ fn bindgen_test_layout_AVOutputFormat() {
         )
     );
     assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVOutputFormat>())).create_device_capabilities as *const _
+                as usize
+        },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVOutputFormat),
+            "::",
+            stringify!(create_device_capabilities)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVOutputFormat>())).free_device_capabilities as *const _ as usize
+        },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVOutputFormat),
+            "::",
+            stringify!(free_device_capabilities)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).data_codec as *const _ as usize },
-        144usize,
+        168usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22801,7 +24198,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).init as *const _ as usize },
-        152usize,
+        176usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22811,7 +24208,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).deinit as *const _ as usize },
-        160usize,
+        184usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22821,7 +24218,7 @@ fn bindgen_test_layout_AVOutputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVOutputFormat>())).check_bitstream as *const _ as usize },
-        168usize,
+        192usize,
         concat!(
             "Offset of field: ",
             stringify!(AVOutputFormat),
@@ -22857,11 +24254,7 @@ pub struct AVInputFormat {
     #[doc = " It is used check for matching mime types while probing."]
     #[doc = " @see av_probe_input_format2"]
     pub mime_type: *const ::std::os::raw::c_char,
-    #[doc = " No fields below this line are part of the public API. They"]
-    #[doc = " may not be used outside of libavformat and can be changed and"]
-    #[doc = " removed at will."]
-    #[doc = " New public fields should be added right above."]
-    #[doc = ""]
+    pub next: *mut AVInputFormat,
     #[doc = " Raw demuxers store their codec ID here."]
     pub raw_codec_id: ::std::os::raw::c_int,
     #[doc = " Size of private data so that it can be allocated in the wrapper."]
@@ -22951,12 +24344,28 @@ pub struct AVInputFormat {
             device_list: *mut AVDeviceInfoList,
         ) -> ::std::os::raw::c_int,
     >,
+    #[doc = " Initialize device capabilities submodule."]
+    #[doc = " @see avdevice_capabilities_create() for more details."]
+    pub create_device_capabilities: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *mut AVFormatContext,
+            caps: *mut AVDeviceCapabilitiesQuery,
+        ) -> ::std::os::raw::c_int,
+    >,
+    #[doc = " Free device capabilities submodule."]
+    #[doc = " @see avdevice_capabilities_free() for more details."]
+    pub free_device_capabilities: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *mut AVFormatContext,
+            caps: *mut AVDeviceCapabilitiesQuery,
+        ) -> ::std::os::raw::c_int,
+    >,
 }
 #[test]
 fn bindgen_test_layout_AVInputFormat() {
     assert_eq!(
         ::std::mem::size_of::<AVInputFormat>(),
-        144usize,
+        168usize,
         concat!("Size of: ", stringify!(AVInputFormat))
     );
     assert_eq!(
@@ -23035,8 +24444,18 @@ fn bindgen_test_layout_AVInputFormat() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVInputFormat>())).raw_codec_id as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVInputFormat>())).next as *const _ as usize },
         56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVInputFormat),
+            "::",
+            stringify!(next)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVInputFormat>())).raw_codec_id as *const _ as usize },
+        64usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23046,7 +24465,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).priv_data_size as *const _ as usize },
-        60usize,
+        68usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23056,7 +24475,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_probe as *const _ as usize },
-        64usize,
+        72usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23066,7 +24485,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_header as *const _ as usize },
-        72usize,
+        80usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23076,7 +24495,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_packet as *const _ as usize },
-        80usize,
+        88usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23086,7 +24505,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_close as *const _ as usize },
-        88usize,
+        96usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23096,7 +24515,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_seek as *const _ as usize },
-        96usize,
+        104usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23106,7 +24525,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_timestamp as *const _ as usize },
-        104usize,
+        112usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23116,7 +24535,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_play as *const _ as usize },
-        112usize,
+        120usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23126,7 +24545,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_pause as *const _ as usize },
-        120usize,
+        128usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23136,7 +24555,7 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).read_seek2 as *const _ as usize },
-        128usize,
+        136usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
@@ -23146,12 +24565,37 @@ fn bindgen_test_layout_AVInputFormat() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVInputFormat>())).get_device_list as *const _ as usize },
-        136usize,
+        144usize,
         concat!(
             "Offset of field: ",
             stringify!(AVInputFormat),
             "::",
             stringify!(get_device_list)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVInputFormat>())).create_device_capabilities as *const _
+                as usize
+        },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVInputFormat),
+            "::",
+            stringify!(create_device_capabilities)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVInputFormat>())).free_device_capabilities as *const _ as usize
+        },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVInputFormat),
+            "::",
+            stringify!(free_device_capabilities)
         )
     );
 }
@@ -23287,6 +24731,8 @@ pub struct AVStream {
     #[doc = " decoding: set by libavformat"]
     #[doc = " encoding: set by the user, replaced by libavformat if left unset"]
     pub id: ::std::os::raw::c_int,
+    #[doc = " @deprecated use the codecpar struct instead"]
+    pub codec: *mut AVCodecContext,
     pub priv_data: *mut ::std::os::raw::c_void,
     #[doc = " This is the fundamental unit of time (in seconds) in terms"]
     #[doc = " of which frame timestamps are represented."]
@@ -23372,6 +24818,12 @@ pub struct AVStream {
     #[doc = " For example, if the time base is 1/90000 and all frames have either"]
     #[doc = " approximately 3600 or 1800 timer ticks, then r_frame_rate will be 50/1."]
     pub r_frame_rate: AVRational,
+    #[doc = " String containing pairs of key and values describing recommended encoder configuration."]
+    #[doc = " Pairs are separated by ','."]
+    #[doc = " Keys are separated from values by '='."]
+    #[doc = ""]
+    #[doc = " @deprecated unused"]
+    pub recommended_encoder_configuration: *mut ::std::os::raw::c_char,
     #[doc = " Codec parameters associated with this stream. Allocated and freed by"]
     #[doc = " libavformat in avformat_new_stream() and avformat_free_context()"]
     #[doc = " respectively."]
@@ -23380,6 +24832,7 @@ pub struct AVStream {
     #[doc = "             avformat_find_stream_info()"]
     #[doc = " - muxing: filled by the caller before avformat_write_header()"]
     pub codecpar: *mut AVCodecParameters,
+    pub unused: *mut ::std::os::raw::c_void,
     #[doc = "< number of bits in pts (used for wrapping control)"]
     pub pts_wrap_bits: ::std::os::raw::c_int,
     #[doc = " Timestamp corresponding to the last dts sync point."]
@@ -23389,6 +24842,29 @@ pub struct AVStream {
     #[doc = " AV_NOPTS_VALUE by default."]
     pub first_dts: i64,
     pub cur_dts: i64,
+    pub last_IP_pts: i64,
+    pub last_IP_duration: ::std::os::raw::c_int,
+    #[doc = " Number of packets to buffer for codec probing"]
+    pub probe_packets: ::std::os::raw::c_int,
+    #[doc = " Number of frames that have been demuxed during avformat_find_stream_info()"]
+    pub codec_info_nb_frames: ::std::os::raw::c_int,
+    pub need_parsing: AVStreamParseType,
+    pub parser: *mut AVCodecParserContext,
+    pub unused7: *mut ::std::os::raw::c_void,
+    pub unused6: AVProbeData,
+    pub unused5: [i64; 17usize],
+    #[doc = "< Only used if the format does not"]
+    #[doc = "support seeking natively."]
+    pub index_entries: *mut AVIndexEntry,
+    pub nb_index_entries: ::std::os::raw::c_int,
+    pub index_entries_allocated_size: ::std::os::raw::c_uint,
+    #[doc = " Stream Identifier"]
+    #[doc = " This is the MPEG-TS stream identifier +1"]
+    #[doc = " 0 means unknown"]
+    pub stream_identifier: ::std::os::raw::c_int,
+    pub unused8: ::std::os::raw::c_int,
+    pub unused9: ::std::os::raw::c_int,
+    pub unused10: ::std::os::raw::c_int,
     #[doc = " An opaque field for libavformat internal usage."]
     #[doc = " Must not be accessed in any way by callers."]
     pub internal: *mut AVStreamInternal,
@@ -23397,7 +24873,7 @@ pub struct AVStream {
 fn bindgen_test_layout_AVStream() {
     assert_eq!(
         ::std::mem::size_of::<AVStream>(),
-        224usize,
+        496usize,
         concat!("Size of: ", stringify!(AVStream))
     );
     assert_eq!(
@@ -23426,8 +24902,18 @@ fn bindgen_test_layout_AVStream() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVStream>())).priv_data as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVStream>())).codec as *const _ as usize },
         8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(codec)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).priv_data as *const _ as usize },
+        16usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23437,7 +24923,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).time_base as *const _ as usize },
-        16usize,
+        24usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23447,7 +24933,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).start_time as *const _ as usize },
-        24usize,
+        32usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23457,7 +24943,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).duration as *const _ as usize },
-        32usize,
+        40usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23467,7 +24953,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).nb_frames as *const _ as usize },
-        40usize,
+        48usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23477,7 +24963,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).disposition as *const _ as usize },
-        48usize,
+        56usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23487,7 +24973,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).discard as *const _ as usize },
-        52usize,
+        60usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23497,7 +24983,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).sample_aspect_ratio as *const _ as usize },
-        56usize,
+        64usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23507,7 +24993,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).metadata as *const _ as usize },
-        64usize,
+        72usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23517,7 +25003,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).avg_frame_rate as *const _ as usize },
-        72usize,
+        80usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23527,7 +25013,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).attached_pic as *const _ as usize },
-        80usize,
+        88usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23537,7 +25023,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).side_data as *const _ as usize },
-        160usize,
+        176usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23547,7 +25033,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).nb_side_data as *const _ as usize },
-        168usize,
+        184usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23557,7 +25043,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).event_flags as *const _ as usize },
-        172usize,
+        188usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23567,7 +25053,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).r_frame_rate as *const _ as usize },
-        176usize,
+        192usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23576,8 +25062,21 @@ fn bindgen_test_layout_AVStream() {
         )
     );
     assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVStream>())).recommended_encoder_configuration as *const _
+                as usize
+        },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(recommended_encoder_configuration)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).codecpar as *const _ as usize },
-        184usize,
+        208usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23586,8 +25085,18 @@ fn bindgen_test_layout_AVStream() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).unused as *const _ as usize },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(unused)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).pts_wrap_bits as *const _ as usize },
-        192usize,
+        224usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23597,7 +25106,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).first_dts as *const _ as usize },
-        200usize,
+        232usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23607,7 +25116,7 @@ fn bindgen_test_layout_AVStream() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).cur_dts as *const _ as usize },
-        208usize,
+        240usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
@@ -23616,14 +25125,195 @@ fn bindgen_test_layout_AVStream() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).last_IP_pts as *const _ as usize },
+        248usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(last_IP_pts)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).last_IP_duration as *const _ as usize },
+        256usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(last_IP_duration)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).probe_packets as *const _ as usize },
+        260usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(probe_packets)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).codec_info_nb_frames as *const _ as usize },
+        264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(codec_info_nb_frames)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).need_parsing as *const _ as usize },
+        268usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(need_parsing)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).parser as *const _ as usize },
+        272usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(parser)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).unused7 as *const _ as usize },
+        280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(unused7)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).unused6 as *const _ as usize },
+        288usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(unused6)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).unused5 as *const _ as usize },
+        320usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(unused5)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).index_entries as *const _ as usize },
+        456usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(index_entries)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).nb_index_entries as *const _ as usize },
+        464usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(nb_index_entries)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVStream>())).index_entries_allocated_size as *const _ as usize
+        },
+        468usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(index_entries_allocated_size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).stream_identifier as *const _ as usize },
+        472usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(stream_identifier)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).unused8 as *const _ as usize },
+        476usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(unused8)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).unused9 as *const _ as usize },
+        480usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(unused9)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVStream>())).unused10 as *const _ as usize },
+        484usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVStream),
+            "::",
+            stringify!(unused10)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVStream>())).internal as *const _ as usize },
-        216usize,
+        488usize,
         concat!(
             "Offset of field: ",
             stringify!(AVStream),
             "::",
             stringify!(internal)
         )
+    );
+}
+extern "C" {
+    #[doc = " Accessors for some AVStream fields. These used to be provided for ABI"]
+    #[doc = " compatibility, and do not need to be used anymore."]
+    pub fn av_stream_get_r_frame_rate(s: *const AVStream) -> AVRational;
+}
+extern "C" {
+    pub fn av_stream_set_r_frame_rate(s: *mut AVStream, r: AVRational);
+}
+extern "C" {
+    pub fn av_stream_get_recommended_encoder_configuration(
+        s: *const AVStream,
+    ) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn av_stream_set_recommended_encoder_configuration(
+        s: *mut AVStream,
+        configuration: *mut ::std::os::raw::c_char,
     );
 }
 extern "C" {
@@ -23822,7 +25512,7 @@ fn bindgen_test_layout_AVProgram() {
 #[derive(Debug, Copy, Clone)]
 pub struct AVChapter {
     #[doc = "< unique ID to identify the chapter"]
-    pub id: i64,
+    pub id: ::std::os::raw::c_int,
     #[doc = "< time base in which the start/end timestamps are specified"]
     pub time_base: AVRational,
     #[doc = "< chapter start/end time in time_base units"]
@@ -23855,7 +25545,7 @@ fn bindgen_test_layout_AVChapter() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVChapter>())).time_base as *const _ as usize },
-        8usize,
+        4usize,
         concat!(
             "Offset of field: ",
             stringify!(AVChapter),
@@ -23940,7 +25630,7 @@ pub struct AVFormatInternal {
 #[doc = " The AVOption/command line parameter names differ in some cases from the C"]
 #[doc = " structure field names for historic reasons or brevity."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct AVFormatContext {
     #[doc = " A class for logging and @ref avoptions. Set by avformat_alloc_context()."]
     #[doc = " Exports (de)muxer private options if they exist."]
@@ -23948,11 +25638,11 @@ pub struct AVFormatContext {
     #[doc = " The input container format."]
     #[doc = ""]
     #[doc = " Demuxing only, set by avformat_open_input()."]
-    pub iformat: *const AVInputFormat,
+    pub iformat: *mut AVInputFormat,
     #[doc = " The output container format."]
     #[doc = ""]
     #[doc = " Muxing only, must be set by the caller before avformat_write_header()."]
-    pub oformat: *const AVOutputFormat,
+    pub oformat: *mut AVOutputFormat,
     #[doc = " Format private data. This is an AVOptions-enabled struct"]
     #[doc = " if and only if iformat/oformat.priv_class is not NULL."]
     #[doc = ""]
@@ -23987,6 +25677,13 @@ pub struct AVFormatContext {
     #[doc = ""]
     #[doc = " Freed by libavformat in avformat_free_context()."]
     pub streams: *mut *mut AVStream,
+    #[doc = " input or output filename"]
+    #[doc = ""]
+    #[doc = " - demuxing: set by avformat_open_input()"]
+    #[doc = " - muxing: may be set by the caller before avformat_write_header()"]
+    #[doc = ""]
+    #[doc = " @deprecated Use url instead."]
+    pub filename: [::std::os::raw::c_char; 1024usize],
     #[doc = " input or output URL. Unlike the old filename field, this field has no"]
     #[doc = " length restriction."]
     #[doc = ""]
@@ -24218,22 +25915,22 @@ pub struct AVFormatContext {
     #[doc = " This allows forcing a specific decoder, even when there are multiple with"]
     #[doc = " the same codec_id."]
     #[doc = " Demuxing: Set by user"]
-    pub video_codec: *const AVCodec,
+    pub video_codec: *mut AVCodec,
     #[doc = " Forced audio codec."]
     #[doc = " This allows forcing a specific decoder, even when there are multiple with"]
     #[doc = " the same codec_id."]
     #[doc = " Demuxing: Set by user"]
-    pub audio_codec: *const AVCodec,
+    pub audio_codec: *mut AVCodec,
     #[doc = " Forced subtitle codec."]
     #[doc = " This allows forcing a specific decoder, even when there are multiple with"]
     #[doc = " the same codec_id."]
     #[doc = " Demuxing: Set by user"]
-    pub subtitle_codec: *const AVCodec,
+    pub subtitle_codec: *mut AVCodec,
     #[doc = " Forced data codec."]
     #[doc = " This allows forcing a specific decoder, even when there are multiple with"]
     #[doc = " the same codec_id."]
     #[doc = " Demuxing: Set by user"]
-    pub data_codec: *const AVCodec,
+    pub data_codec: *mut AVCodec,
     #[doc = " Number of bytes to be written as padding in a metadata header."]
     #[doc = " Demuxing: Unused."]
     #[doc = " Muxing: Set by user via av_format_set_metadata_header_padding."]
@@ -24254,6 +25951,31 @@ pub struct AVFormatContext {
     #[doc = " Forced Data codec_id."]
     #[doc = " Demuxing: Set by user."]
     pub data_codec_id: AVCodecID,
+    #[doc = " Called to open further IO contexts when needed for demuxing."]
+    #[doc = ""]
+    #[doc = " This can be set by the user application to perform security checks on"]
+    #[doc = " the URLs before opening them."]
+    #[doc = " The function should behave like avio_open2(), AVFormatContext is provided"]
+    #[doc = " as contextual information and to reach AVFormatContext.opaque."]
+    #[doc = ""]
+    #[doc = " If NULL then some simple checks are used together with avio_open2()."]
+    #[doc = ""]
+    #[doc = " Must not be accessed directly from outside avformat."]
+    #[doc = " @See av_format_set_open_cb()"]
+    #[doc = ""]
+    #[doc = " Demuxing: Set by user."]
+    #[doc = ""]
+    #[doc = " @deprecated Use io_open and io_close."]
+    pub open_cb: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *mut AVFormatContext,
+            p: *mut *mut AVIOContext,
+            url: *const ::std::os::raw::c_char,
+            flags: ::std::os::raw::c_int,
+            int_cb: *const AVIOInterruptCB,
+            options: *mut *mut AVDictionary,
+        ) -> ::std::os::raw::c_int,
+    >,
     #[doc = " ',' separated list of allowed protocols."]
     #[doc = " - encoding: unused"]
     #[doc = " - decoding: set by user"]
@@ -24309,7 +26031,7 @@ pub struct AVFormatContext {
 fn bindgen_test_layout_AVFormatContext() {
     assert_eq!(
         ::std::mem::size_of::<AVFormatContext>(),
-        472usize,
+        1504usize,
         concat!("Size of: ", stringify!(AVFormatContext))
     );
     assert_eq!(
@@ -24398,8 +26120,18 @@ fn bindgen_test_layout_AVFormatContext() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVFormatContext>())).url as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVFormatContext>())).filename as *const _ as usize },
         56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFormatContext),
+            "::",
+            stringify!(filename)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFormatContext>())).url as *const _ as usize },
+        1080usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24409,7 +26141,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).start_time as *const _ as usize },
-        64usize,
+        1088usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24419,7 +26151,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).duration as *const _ as usize },
-        72usize,
+        1096usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24429,7 +26161,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).bit_rate as *const _ as usize },
-        80usize,
+        1104usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24439,7 +26171,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).packet_size as *const _ as usize },
-        88usize,
+        1112usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24449,7 +26181,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).max_delay as *const _ as usize },
-        92usize,
+        1116usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24459,7 +26191,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).flags as *const _ as usize },
-        96usize,
+        1120usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24469,7 +26201,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).probesize as *const _ as usize },
-        104usize,
+        1128usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24481,7 +26213,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).max_analyze_duration as *const _ as usize
         },
-        112usize,
+        1136usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24491,7 +26223,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).key as *const _ as usize },
-        120usize,
+        1144usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24501,7 +26233,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).keylen as *const _ as usize },
-        128usize,
+        1152usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24511,7 +26243,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).nb_programs as *const _ as usize },
-        132usize,
+        1156usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24521,7 +26253,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).programs as *const _ as usize },
-        136usize,
+        1160usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24531,7 +26263,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).video_codec_id as *const _ as usize },
-        144usize,
+        1168usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24541,7 +26273,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).audio_codec_id as *const _ as usize },
-        148usize,
+        1172usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24553,7 +26285,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).subtitle_codec_id as *const _ as usize
         },
-        152usize,
+        1176usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24563,7 +26295,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).max_index_size as *const _ as usize },
-        156usize,
+        1180usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24575,7 +26307,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).max_picture_buffer as *const _ as usize
         },
-        160usize,
+        1184usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24585,7 +26317,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).nb_chapters as *const _ as usize },
-        164usize,
+        1188usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24595,7 +26327,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).chapters as *const _ as usize },
-        168usize,
+        1192usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24605,7 +26337,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).metadata as *const _ as usize },
-        176usize,
+        1200usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24617,7 +26349,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).start_time_realtime as *const _ as usize
         },
-        184usize,
+        1208usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24627,7 +26359,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).fps_probe_size as *const _ as usize },
-        192usize,
+        1216usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24639,7 +26371,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).error_recognition as *const _ as usize
         },
-        196usize,
+        1220usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24651,7 +26383,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).interrupt_callback as *const _ as usize
         },
-        200usize,
+        1224usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24661,7 +26393,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).debug as *const _ as usize },
-        216usize,
+        1240usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24673,7 +26405,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).max_interleave_delta as *const _ as usize
         },
-        224usize,
+        1248usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24685,7 +26417,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).strict_std_compliance as *const _ as usize
         },
-        232usize,
+        1256usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24695,7 +26427,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).event_flags as *const _ as usize },
-        236usize,
+        1260usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24705,7 +26437,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).max_ts_probe as *const _ as usize },
-        240usize,
+        1264usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24717,7 +26449,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).avoid_negative_ts as *const _ as usize
         },
-        244usize,
+        1268usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24727,7 +26459,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).ts_id as *const _ as usize },
-        248usize,
+        1272usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24737,7 +26469,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).audio_preload as *const _ as usize },
-        252usize,
+        1276usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24749,7 +26481,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).max_chunk_duration as *const _ as usize
         },
-        256usize,
+        1280usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24759,7 +26491,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).max_chunk_size as *const _ as usize },
-        260usize,
+        1284usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24772,7 +26504,7 @@ fn bindgen_test_layout_AVFormatContext() {
             &(*(::std::ptr::null::<AVFormatContext>())).use_wallclock_as_timestamps as *const _
                 as usize
         },
-        264usize,
+        1288usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24782,7 +26514,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).avio_flags as *const _ as usize },
-        268usize,
+        1292usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24795,7 +26527,7 @@ fn bindgen_test_layout_AVFormatContext() {
             &(*(::std::ptr::null::<AVFormatContext>())).duration_estimation_method as *const _
                 as usize
         },
-        272usize,
+        1296usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24807,7 +26539,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).skip_initial_bytes as *const _ as usize
         },
-        280usize,
+        1304usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24819,7 +26551,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).correct_ts_overflow as *const _ as usize
         },
-        288usize,
+        1312usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24829,7 +26561,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).seek2any as *const _ as usize },
-        292usize,
+        1316usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24839,7 +26571,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).flush_packets as *const _ as usize },
-        296usize,
+        1320usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24849,7 +26581,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).probe_score as *const _ as usize },
-        300usize,
+        1324usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24861,7 +26593,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).format_probesize as *const _ as usize
         },
-        304usize,
+        1328usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24871,7 +26603,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).codec_whitelist as *const _ as usize },
-        312usize,
+        1336usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24883,7 +26615,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).format_whitelist as *const _ as usize
         },
-        320usize,
+        1344usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24893,7 +26625,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).internal as *const _ as usize },
-        328usize,
+        1352usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24903,7 +26635,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).io_repositioned as *const _ as usize },
-        336usize,
+        1360usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24913,7 +26645,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).video_codec as *const _ as usize },
-        344usize,
+        1368usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24923,7 +26655,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).audio_codec as *const _ as usize },
-        352usize,
+        1376usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24933,7 +26665,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).subtitle_codec as *const _ as usize },
-        360usize,
+        1384usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24943,7 +26675,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).data_codec as *const _ as usize },
-        368usize,
+        1392usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24955,7 +26687,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).metadata_header_padding as *const _ as usize
         },
-        376usize,
+        1400usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24965,7 +26697,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).opaque as *const _ as usize },
-        384usize,
+        1408usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24977,7 +26709,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).control_message_cb as *const _ as usize
         },
-        392usize,
+        1416usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24989,7 +26721,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).output_ts_offset as *const _ as usize
         },
-        400usize,
+        1424usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -24999,7 +26731,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).dump_separator as *const _ as usize },
-        408usize,
+        1432usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25009,7 +26741,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).data_codec_id as *const _ as usize },
-        416usize,
+        1440usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25018,10 +26750,20 @@ fn bindgen_test_layout_AVFormatContext() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFormatContext>())).open_cb as *const _ as usize },
+        1448usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFormatContext),
+            "::",
+            stringify!(open_cb)
+        )
+    );
+    assert_eq!(
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).protocol_whitelist as *const _ as usize
         },
-        424usize,
+        1456usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25031,7 +26773,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).io_open as *const _ as usize },
-        432usize,
+        1464usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25041,7 +26783,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).io_close as *const _ as usize },
-        440usize,
+        1472usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25053,7 +26795,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).protocol_blacklist as *const _ as usize
         },
-        448usize,
+        1480usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25063,7 +26805,7 @@ fn bindgen_test_layout_AVFormatContext() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFormatContext>())).max_streams as *const _ as usize },
-        456usize,
+        1488usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25076,7 +26818,7 @@ fn bindgen_test_layout_AVFormatContext() {
             &(*(::std::ptr::null::<AVFormatContext>())).skip_estimate_duration_from_pts as *const _
                 as usize
         },
-        460usize,
+        1492usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25088,7 +26830,7 @@ fn bindgen_test_layout_AVFormatContext() {
         unsafe {
             &(*(::std::ptr::null::<AVFormatContext>())).max_probe_packets as *const _ as usize
         },
-        464usize,
+        1496usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFormatContext),
@@ -25096,6 +26838,65 @@ fn bindgen_test_layout_AVFormatContext() {
             stringify!(max_probe_packets)
         )
     );
+}
+extern "C" {
+    #[doc = " Accessors for some AVFormatContext fields. These used to be provided for ABI"]
+    #[doc = " compatibility, and do not need to be used anymore."]
+    pub fn av_format_get_probe_score(s: *const AVFormatContext) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_format_get_video_codec(s: *const AVFormatContext) -> *mut AVCodec;
+}
+extern "C" {
+    pub fn av_format_set_video_codec(s: *mut AVFormatContext, c: *mut AVCodec);
+}
+extern "C" {
+    pub fn av_format_get_audio_codec(s: *const AVFormatContext) -> *mut AVCodec;
+}
+extern "C" {
+    pub fn av_format_set_audio_codec(s: *mut AVFormatContext, c: *mut AVCodec);
+}
+extern "C" {
+    pub fn av_format_get_subtitle_codec(s: *const AVFormatContext) -> *mut AVCodec;
+}
+extern "C" {
+    pub fn av_format_set_subtitle_codec(s: *mut AVFormatContext, c: *mut AVCodec);
+}
+extern "C" {
+    pub fn av_format_get_data_codec(s: *const AVFormatContext) -> *mut AVCodec;
+}
+extern "C" {
+    pub fn av_format_set_data_codec(s: *mut AVFormatContext, c: *mut AVCodec);
+}
+extern "C" {
+    pub fn av_format_get_metadata_header_padding(
+        s: *const AVFormatContext,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_format_set_metadata_header_padding(s: *mut AVFormatContext, c: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn av_format_get_opaque(s: *const AVFormatContext) -> *mut ::std::os::raw::c_void;
+}
+extern "C" {
+    pub fn av_format_set_opaque(s: *mut AVFormatContext, opaque: *mut ::std::os::raw::c_void);
+}
+extern "C" {
+    pub fn av_format_get_control_message_cb(s: *const AVFormatContext)
+        -> av_format_control_message;
+}
+extern "C" {
+    pub fn av_format_set_control_message_cb(
+        s: *mut AVFormatContext,
+        callback: av_format_control_message,
+    );
+}
+extern "C" {
+    pub fn av_format_get_open_cb(s: *const AVFormatContext) -> AVOpenCallback;
+}
+extern "C" {
+    pub fn av_format_set_open_cb(s: *mut AVFormatContext, callback: AVOpenCallback);
 }
 extern "C" {
     #[doc = " This function will cause global side data to be injected in the next packet"]
@@ -25123,6 +26924,21 @@ extern "C" {
     pub fn avformat_license() -> *const ::std::os::raw::c_char;
 }
 extern "C" {
+    #[doc = " Initialize libavformat and register all the muxers, demuxers and"]
+    #[doc = " protocols. If you do not call this function, then you can select"]
+    #[doc = " exactly which formats you want to support."]
+    #[doc = ""]
+    #[doc = " @see av_register_input_format()"]
+    #[doc = " @see av_register_output_format()"]
+    pub fn av_register_all();
+}
+extern "C" {
+    pub fn av_register_input_format(format: *mut AVInputFormat);
+}
+extern "C" {
+    pub fn av_register_output_format(format: *mut AVOutputFormat);
+}
+extern "C" {
     #[doc = " Do global initialization of network libraries. This is optional,"]
     #[doc = " and not recommended anymore."]
     #[doc = ""]
@@ -25141,6 +26957,18 @@ extern "C" {
     #[doc = " Undo the initialization done by avformat_network_init. Call it only"]
     #[doc = " once for each time you called avformat_network_init."]
     pub fn avformat_network_deinit() -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " If f is NULL, returns the first registered input format,"]
+    #[doc = " if f is non-NULL, returns the next registered input format after f"]
+    #[doc = " or NULL if f is the last one."]
+    pub fn av_iformat_next(f: *const AVInputFormat) -> *mut AVInputFormat;
+}
+extern "C" {
+    #[doc = " If f is NULL, returns the first registered output format,"]
+    #[doc = " if f is non-NULL, returns the next registered output format after f"]
+    #[doc = " or NULL if f is the last one."]
+    pub fn av_oformat_next(f: *const AVOutputFormat) -> *mut AVOutputFormat;
 }
 extern "C" {
     #[doc = " Iterate over all registered muxers."]
@@ -25189,11 +27017,13 @@ extern "C" {
     #[doc = ""]
     #[doc = " When muxing, should be called by the user before avformat_write_header()."]
     #[doc = ""]
-    #[doc = " User is required to call avformat_free_context() to clean up the allocation"]
-    #[doc = " by avformat_new_stream()."]
+    #[doc = " User is required to call avcodec_close() and avformat_free_context() to"]
+    #[doc = " clean up the allocation by avformat_new_stream()."]
     #[doc = ""]
     #[doc = " @param s media file handle"]
-    #[doc = " @param c unused, does nothing"]
+    #[doc = " @param c If non-NULL, the AVCodecContext corresponding to the new stream"]
+    #[doc = " will be initialized to use this codec. This is needed for e.g. codec-specific"]
+    #[doc = " defaults to be set, so codec should be provided if it is known."]
     #[doc = ""]
     #[doc = " @return newly created stream or NULL on error."]
     pub fn avformat_new_stream(s: *mut AVFormatContext, c: *const AVCodec) -> *mut AVStream;
@@ -25226,7 +27056,7 @@ extern "C" {
     pub fn av_stream_new_side_data(
         stream: *mut AVStream,
         type_: AVPacketSideDataType,
-        size: size_t,
+        size: ::std::os::raw::c_int,
     ) -> *mut u8;
 }
 extern "C" {
@@ -25240,7 +27070,7 @@ extern "C" {
     pub fn av_stream_get_side_data(
         stream: *const AVStream,
         type_: AVPacketSideDataType,
-        size: *mut size_t,
+        size: *mut ::std::os::raw::c_int,
     ) -> *mut u8;
 }
 extern "C" {
@@ -25263,14 +27093,14 @@ extern "C" {
     #[doc = " failure"]
     pub fn avformat_alloc_output_context2(
         ctx: *mut *mut AVFormatContext,
-        oformat: *const AVOutputFormat,
+        oformat: *mut AVOutputFormat,
         format_name: *const ::std::os::raw::c_char,
         filename: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Find AVInputFormat based on the short name of the input format."]
-    pub fn av_find_input_format(short_name: *const ::std::os::raw::c_char) -> *const AVInputFormat;
+    pub fn av_find_input_format(short_name: *const ::std::os::raw::c_char) -> *mut AVInputFormat;
 }
 extern "C" {
     #[doc = " Guess the file format."]
@@ -25279,9 +27109,9 @@ extern "C" {
     #[doc = " @param is_opened Whether the file is already opened; determines whether"]
     #[doc = "                  demuxers with or without AVFMT_NOFILE are probed."]
     pub fn av_probe_input_format(
-        pd: *const AVProbeData,
+        pd: *mut AVProbeData,
         is_opened: ::std::os::raw::c_int,
-    ) -> *const AVInputFormat;
+    ) -> *mut AVInputFormat;
 }
 extern "C" {
     #[doc = " Guess the file format."]
@@ -25295,10 +27125,10 @@ extern "C" {
     #[doc = "                  If the score is <= AVPROBE_SCORE_MAX / 4 it is recommended"]
     #[doc = "                  to retry with a larger probe buffer."]
     pub fn av_probe_input_format2(
-        pd: *const AVProbeData,
+        pd: *mut AVProbeData,
         is_opened: ::std::os::raw::c_int,
         score_max: *mut ::std::os::raw::c_int,
-    ) -> *const AVInputFormat;
+    ) -> *mut AVInputFormat;
 }
 extern "C" {
     #[doc = " Guess the file format."]
@@ -25307,10 +27137,10 @@ extern "C" {
     #[doc = "                  demuxers with or without AVFMT_NOFILE are probed."]
     #[doc = " @param score_ret The score of the best detection."]
     pub fn av_probe_input_format3(
-        pd: *const AVProbeData,
+        pd: *mut AVProbeData,
         is_opened: ::std::os::raw::c_int,
         score_ret: *mut ::std::os::raw::c_int,
-    ) -> *const AVInputFormat;
+    ) -> *mut AVInputFormat;
 }
 extern "C" {
     #[doc = " Probe a bytestream to determine the input format. Each time a probe returns"]
@@ -25329,7 +27159,7 @@ extern "C" {
     #[doc = " AVERROR code otherwise"]
     pub fn av_probe_input_buffer2(
         pb: *mut AVIOContext,
-        fmt: *mut *const AVInputFormat,
+        fmt: *mut *mut AVInputFormat,
         url: *const ::std::os::raw::c_char,
         logctx: *mut ::std::os::raw::c_void,
         offset: ::std::os::raw::c_uint,
@@ -25340,7 +27170,7 @@ extern "C" {
     #[doc = " Like av_probe_input_buffer2() but returns 0 on success"]
     pub fn av_probe_input_buffer(
         pb: *mut AVIOContext,
-        fmt: *mut *const AVInputFormat,
+        fmt: *mut *mut AVInputFormat,
         url: *const ::std::os::raw::c_char,
         logctx: *mut ::std::os::raw::c_void,
         offset: ::std::os::raw::c_uint,
@@ -25368,9 +27198,13 @@ extern "C" {
     pub fn avformat_open_input(
         ps: *mut *mut AVFormatContext,
         url: *const ::std::os::raw::c_char,
-        fmt: *const AVInputFormat,
+        fmt: *mut AVInputFormat,
         options: *mut *mut AVDictionary,
     ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " @deprecated Use an AVDictionary to pass options to a demuxer."]
+    pub fn av_demuxer_open(ic: *mut AVFormatContext) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Read packets of a media file to get stream information. This"]
@@ -25447,7 +27281,7 @@ extern "C" {
         type_: AVMediaType,
         wanted_stream_nb: ::std::os::raw::c_int,
         related_stream: ::std::os::raw::c_int,
-        decoder_ret: *mut *const AVCodec,
+        decoder_ret: *mut *mut AVCodec,
         flags: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
@@ -25763,12 +27597,12 @@ extern "C" {
         short_name: *const ::std::os::raw::c_char,
         filename: *const ::std::os::raw::c_char,
         mime_type: *const ::std::os::raw::c_char,
-    ) -> *const AVOutputFormat;
+    ) -> *mut AVOutputFormat;
 }
 extern "C" {
     #[doc = " Guess the codec ID based upon muxer and filename."]
     pub fn av_guess_codec(
-        fmt: *const AVOutputFormat,
+        fmt: *mut AVOutputFormat,
         short_name: *const ::std::os::raw::c_char,
         filename: *const ::std::os::raw::c_char,
         mime_type: *const ::std::os::raw::c_char,
@@ -25912,48 +27746,6 @@ extern "C" {
         timestamp: i64,
         flags: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Get the index entry count for the given AVStream."]
-    #[doc = ""]
-    #[doc = " @param st stream"]
-    #[doc = " @return the number of index entries in the stream"]
-    pub fn avformat_index_get_entries_count(st: *const AVStream) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Get the AVIndexEntry corresponding to the given index."]
-    #[doc = ""]
-    #[doc = " @param st          Stream containing the requested AVIndexEntry."]
-    #[doc = " @param idx         The desired index."]
-    #[doc = " @return A pointer to the requested AVIndexEntry if it exists, NULL otherwise."]
-    #[doc = ""]
-    #[doc = " @note The pointer returned by this function is only guaranteed to be valid"]
-    #[doc = "       until any function that takes the stream or the parent AVFormatContext"]
-    #[doc = "       as input argument is called."]
-    pub fn avformat_index_get_entry(
-        st: *mut AVStream,
-        idx: ::std::os::raw::c_int,
-    ) -> *const AVIndexEntry;
-}
-extern "C" {
-    #[doc = " Get the AVIndexEntry corresponding to the given timestamp."]
-    #[doc = ""]
-    #[doc = " @param st          Stream containing the requested AVIndexEntry."]
-    #[doc = " @param timestamp   Timestamp to retrieve the index entry for."]
-    #[doc = " @param flags       If AVSEEK_FLAG_BACKWARD then the returned entry will correspond"]
-    #[doc = "                    to the timestamp which is <= the requested one, if backward"]
-    #[doc = "                    is 0, then it will be >="]
-    #[doc = "                    if AVSEEK_FLAG_ANY seek to any frame, only keyframes otherwise."]
-    #[doc = " @return A pointer to the requested AVIndexEntry if it exists, NULL otherwise."]
-    #[doc = ""]
-    #[doc = " @note The pointer returned by this function is only guaranteed to be valid"]
-    #[doc = "       until any function that takes the stream or the parent AVFormatContext"]
-    #[doc = "       as input argument is called."]
-    pub fn avformat_index_get_entry_from_timestamp(
-        st: *mut AVStream,
-        wanted_timestamp: i64,
-        flags: ::std::os::raw::c_int,
-    ) -> *const AVIndexEntry;
 }
 extern "C" {
     #[doc = " Add an index entry into a sorted list. Update the entry if the list"]
@@ -26184,6 +27976,22 @@ extern "C" {
 extern "C" {
     pub fn avformat_queue_attached_pictures(s: *mut AVFormatContext) -> ::std::os::raw::c_int;
 }
+extern "C" {
+    #[doc = " Apply a list of bitstream filters to a packet."]
+    #[doc = ""]
+    #[doc = " @param codec AVCodecContext, usually from an AVStream"]
+    #[doc = " @param pkt the packet to apply filters to. If, on success, the returned"]
+    #[doc = "        packet has size == 0 and side_data_elems == 0, it indicates that"]
+    #[doc = "        the packet should be dropped"]
+    #[doc = " @param bsfc a NULL-terminated list of filters to apply"]
+    #[doc = " @return  >=0 on success;"]
+    #[doc = "          AVERROR code on failure"]
+    pub fn av_apply_bitstream_filters(
+        codec: *mut AVCodecContext,
+        pkt: *mut AVPacket,
+        bsfc: *mut AVBitStreamFilterContext,
+    ) -> ::std::os::raw::c_int;
+}
 pub const AVTimebaseSource_AVFMT_TBCF_AUTO: AVTimebaseSource = -1;
 pub const AVTimebaseSource_AVFMT_TBCF_DECODER: AVTimebaseSource = 0;
 pub const AVTimebaseSource_AVFMT_TBCF_DEMUXER: AVTimebaseSource = 1;
@@ -26233,7 +28041,7 @@ extern "C" {
     #[doc = " If d is NULL, returns the first registered input audio/video device,"]
     #[doc = " if d is non-NULL, returns the next registered input audio/video device after d"]
     #[doc = " or NULL if d is the last one."]
-    pub fn av_input_audio_device_next(d: *const AVInputFormat) -> *const AVInputFormat;
+    pub fn av_input_audio_device_next(d: *mut AVInputFormat) -> *mut AVInputFormat;
 }
 extern "C" {
     #[doc = " Video input devices iterator."]
@@ -26241,7 +28049,7 @@ extern "C" {
     #[doc = " If d is NULL, returns the first registered input audio/video device,"]
     #[doc = " if d is non-NULL, returns the next registered input audio/video device after d"]
     #[doc = " or NULL if d is the last one."]
-    pub fn av_input_video_device_next(d: *const AVInputFormat) -> *const AVInputFormat;
+    pub fn av_input_video_device_next(d: *mut AVInputFormat) -> *mut AVInputFormat;
 }
 extern "C" {
     #[doc = " Audio output devices iterator."]
@@ -26249,7 +28057,7 @@ extern "C" {
     #[doc = " If d is NULL, returns the first registered output audio/video device,"]
     #[doc = " if d is non-NULL, returns the next registered output audio/video device after d"]
     #[doc = " or NULL if d is the last one."]
-    pub fn av_output_audio_device_next(d: *const AVOutputFormat) -> *const AVOutputFormat;
+    pub fn av_output_audio_device_next(d: *mut AVOutputFormat) -> *mut AVOutputFormat;
 }
 extern "C" {
     #[doc = " Video output devices iterator."]
@@ -26257,7 +28065,7 @@ extern "C" {
     #[doc = " If d is NULL, returns the first registered output audio/video device,"]
     #[doc = " if d is non-NULL, returns the next registered output audio/video device after d"]
     #[doc = " or NULL if d is the last one."]
-    pub fn av_output_video_device_next(d: *const AVOutputFormat) -> *const AVOutputFormat;
+    pub fn av_output_video_device_next(d: *mut AVOutputFormat) -> *mut AVOutputFormat;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -26895,7 +28703,7 @@ extern "C" {
     #[doc = " @return count of autodetected devices, negative on error."]
     #[doc = " @note device argument takes precedence over device_name when both are set."]
     pub fn avdevice_list_input_sources(
-        device: *const AVInputFormat,
+        device: *mut AVInputFormat,
         device_name: *const ::std::os::raw::c_char,
         device_options: *mut AVDictionary,
         device_list: *mut *mut AVDeviceInfoList,
@@ -26903,7 +28711,7 @@ extern "C" {
 }
 extern "C" {
     pub fn avdevice_list_output_sinks(
-        device: *const AVOutputFormat,
+        device: *mut AVOutputFormat,
         device_name: *const ::std::os::raw::c_char,
         device_options: *mut AVDictionary,
         device_list: *mut *mut AVDeviceInfoList,
@@ -27086,6 +28894,9 @@ pub struct AVFilter {
     pub priv_size: ::std::os::raw::c_int,
     #[doc = "< Additional flags for avfilter internal use only."]
     pub flags_internal: ::std::os::raw::c_int,
+    #[doc = " Used by the filter registration system. Must not be touched by any other"]
+    #[doc = " code."]
+    pub next: *mut AVFilter,
     #[doc = " Make the filter instance process a command."]
     #[doc = ""]
     #[doc = " @param cmd    the command to process, for handling simplicity all commands must be alphanumeric only"]
@@ -27133,7 +28944,7 @@ pub struct AVFilter {
 fn bindgen_test_layout_AVFilter() {
     assert_eq!(
         ::std::mem::size_of::<AVFilter>(),
-        120usize,
+        128usize,
         concat!("Size of: ", stringify!(AVFilter))
     );
     assert_eq!(
@@ -27272,8 +29083,18 @@ fn bindgen_test_layout_AVFilter() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVFilter>())).process_command as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<AVFilter>())).next as *const _ as usize },
         96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFilter),
+            "::",
+            stringify!(next)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFilter>())).process_command as *const _ as usize },
+        104usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilter),
@@ -27283,7 +29104,7 @@ fn bindgen_test_layout_AVFilter() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFilter>())).init_opaque as *const _ as usize },
-        104usize,
+        112usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilter),
@@ -27293,7 +29114,7 @@ fn bindgen_test_layout_AVFilter() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFilter>())).activate as *const _ as usize },
-        112usize,
+        120usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilter),
@@ -28138,6 +29959,17 @@ extern "C" {
     pub fn avfilter_link_free(link: *mut *mut AVFilterLink);
 }
 extern "C" {
+    #[doc = " Get the number of channels of a link."]
+    #[doc = " @deprecated Use av_buffersink_get_channels()"]
+    pub fn avfilter_link_get_channels(link: *mut AVFilterLink) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Set the closed field of a link."]
+    #[doc = " @deprecated applications are not supposed to mess with links, they should"]
+    #[doc = " close the sinks."]
+    pub fn avfilter_link_set_closed(link: *mut AVFilterLink, closed: ::std::os::raw::c_int);
+}
+extern "C" {
     #[doc = " Negotiate the media format, dimensions, etc of all inputs to a filter."]
     #[doc = ""]
     #[doc = " @param filter the filter to negotiate the properties for its inputs"]
@@ -28165,6 +29997,27 @@ extern "C" {
     #[doc = " @return the next registered filter or NULL when the iteration is"]
     #[doc = "         finished"]
     pub fn av_filter_iterate(opaque: *mut *mut ::std::os::raw::c_void) -> *const AVFilter;
+}
+extern "C" {
+    #[doc = " Initialize the filter system. Register all builtin filters."]
+    pub fn avfilter_register_all();
+}
+extern "C" {
+    #[doc = " Register a filter. This is only needed if you plan to use"]
+    #[doc = " avfilter_get_by_name later to lookup the AVFilter structure by name. A"]
+    #[doc = " filter can still by instantiated with avfilter_graph_alloc_filter even if it"]
+    #[doc = " is not registered."]
+    #[doc = ""]
+    #[doc = " @param filter the filter to register"]
+    #[doc = " @return 0 if the registration was successful, a negative value"]
+    #[doc = " otherwise"]
+    pub fn avfilter_register(filter: *mut AVFilter) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Iterate over all registered filters."]
+    #[doc = " @return If prev is non-NULL, next registered filter after prev or NULL if"]
+    #[doc = " prev is the last filter. If prev is NULL, return the first registered filter."]
+    pub fn avfilter_next(prev: *const AVFilter) -> *const AVFilter;
 }
 extern "C" {
     #[doc = " Get a filter definition matching the given name."]
@@ -28290,6 +30143,8 @@ pub struct AVFilterGraph {
     pub nb_filters: ::std::os::raw::c_uint,
     #[doc = "< sws options to use for the auto-inserted scale filters"]
     pub scale_sws_opts: *mut ::std::os::raw::c_char,
+    #[doc = "< libavresample options to use for the auto-inserted resample filters"]
+    pub resample_lavr_opts: *mut ::std::os::raw::c_char,
     #[doc = " Type of multithreading allowed for filters in this graph. A combination"]
     #[doc = " of AVFILTER_THREAD_* flags."]
     #[doc = ""]
@@ -28336,7 +30191,7 @@ pub struct AVFilterGraph {
 fn bindgen_test_layout_AVFilterGraph() {
     assert_eq!(
         ::std::mem::size_of::<AVFilterGraph>(),
-        88usize,
+        96usize,
         concat!("Size of: ", stringify!(AVFilterGraph))
     );
     assert_eq!(
@@ -28385,8 +30240,20 @@ fn bindgen_test_layout_AVFilterGraph() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<AVFilterGraph>())).thread_type as *const _ as usize },
+        unsafe {
+            &(*(::std::ptr::null::<AVFilterGraph>())).resample_lavr_opts as *const _ as usize
+        },
         32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVFilterGraph),
+            "::",
+            stringify!(resample_lavr_opts)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<AVFilterGraph>())).thread_type as *const _ as usize },
+        40usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -28396,7 +30263,7 @@ fn bindgen_test_layout_AVFilterGraph() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFilterGraph>())).nb_threads as *const _ as usize },
-        36usize,
+        44usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -28406,7 +30273,7 @@ fn bindgen_test_layout_AVFilterGraph() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFilterGraph>())).internal as *const _ as usize },
-        40usize,
+        48usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -28416,7 +30283,7 @@ fn bindgen_test_layout_AVFilterGraph() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFilterGraph>())).opaque as *const _ as usize },
-        48usize,
+        56usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -28426,7 +30293,7 @@ fn bindgen_test_layout_AVFilterGraph() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFilterGraph>())).execute as *const _ as usize },
-        56usize,
+        64usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -28438,7 +30305,7 @@ fn bindgen_test_layout_AVFilterGraph() {
         unsafe {
             &(*(::std::ptr::null::<AVFilterGraph>())).aresample_swr_opts as *const _ as usize
         },
-        64usize,
+        72usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -28448,7 +30315,7 @@ fn bindgen_test_layout_AVFilterGraph() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFilterGraph>())).sink_links as *const _ as usize },
-        72usize,
+        80usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -28458,7 +30325,7 @@ fn bindgen_test_layout_AVFilterGraph() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVFilterGraph>())).sink_links_count as *const _ as usize },
-        80usize,
+        88usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -28470,7 +30337,7 @@ fn bindgen_test_layout_AVFilterGraph() {
         unsafe {
             &(*(::std::ptr::null::<AVFilterGraph>())).disable_auto_convert as *const _ as usize
         },
-        84usize,
+        92usize,
         concat!(
             "Offset of field: ",
             stringify!(AVFilterGraph),
@@ -29299,12 +31166,7 @@ extern "C" {
         flags: ::std::os::raw::c_uint,
     ) -> ::std::os::raw::c_int;
 }
-#[doc = " @defgroup lavu_adler32 Adler-32"]
-#[doc = " @ingroup lavu_hash"]
-#[doc = " Adler-32 hash function implementation."]
-#[doc = ""]
-#[doc = " @{"]
-pub type AVAdler = u32;
+pub type AVAdler = ::std::os::raw::c_ulong;
 extern "C" {
     #[doc = " Calculate the Adler32 checksum of a buffer."]
     #[doc = ""]
@@ -29316,7 +31178,11 @@ extern "C" {
     #[doc = " @param buf   pointer to input buffer"]
     #[doc = " @param len   size of input buffer"]
     #[doc = " @return      updated checksum"]
-    pub fn av_adler32_update(adler: AVAdler, buf: *const u8, len: size_t) -> AVAdler;
+    pub fn av_adler32_update(
+        adler: AVAdler,
+        buf: *const u8,
+        len: ::std::os::raw::c_uint,
+    ) -> AVAdler;
 }
 extern "C" {
     pub static av_aes_size: ::std::os::raw::c_int;
@@ -31091,12 +32957,7 @@ extern "C" {
     pub fn av_hash_init(ctx: *mut AVHashContext);
 }
 extern "C" {
-    #[doc = " Update a hash context with additional data."]
-    #[doc = ""]
-    #[doc = " @param[in,out] ctx Hash context"]
-    #[doc = " @param[in]     src Data to be added to the hash context"]
-    #[doc = " @param[in]     len Size of the additional data"]
-    pub fn av_hash_update(ctx: *mut AVHashContext, src: *const u8, len: size_t);
+    pub fn av_hash_update(ctx: *mut AVHashContext, src: *const u8, len: ::std::os::raw::c_int);
 }
 extern "C" {
     #[doc = " Finalize a hash context and compute the actual hash value."]
@@ -31254,12 +33115,18 @@ pub struct AVComponentDescriptor {
     pub shift: ::std::os::raw::c_int,
     #[doc = " Number of bits in the component."]
     pub depth: ::std::os::raw::c_int,
+    #[doc = " deprecated, use step instead"]
+    pub step_minus1: ::std::os::raw::c_int,
+    #[doc = " deprecated, use depth instead"]
+    pub depth_minus1: ::std::os::raw::c_int,
+    #[doc = " deprecated, use offset instead"]
+    pub offset_plus1: ::std::os::raw::c_int,
 }
 #[test]
 fn bindgen_test_layout_AVComponentDescriptor() {
     assert_eq!(
         ::std::mem::size_of::<AVComponentDescriptor>(),
-        20usize,
+        32usize,
         concat!("Size of: ", stringify!(AVComponentDescriptor))
     );
     assert_eq!(
@@ -31317,6 +33184,42 @@ fn bindgen_test_layout_AVComponentDescriptor() {
             stringify!(depth)
         )
     );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVComponentDescriptor>())).step_minus1 as *const _ as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVComponentDescriptor),
+            "::",
+            stringify!(step_minus1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVComponentDescriptor>())).depth_minus1 as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVComponentDescriptor),
+            "::",
+            stringify!(depth_minus1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<AVComponentDescriptor>())).offset_plus1 as *const _ as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(AVComponentDescriptor),
+            "::",
+            stringify!(offset_plus1)
+        )
+    );
 }
 #[doc = " Descriptor that unambiguously describes how the bits of a pixel are"]
 #[doc = " stored in the up to 4 data planes of an image. It also stores the"]
@@ -31360,7 +33263,7 @@ pub struct AVPixFmtDescriptor {
 fn bindgen_test_layout_AVPixFmtDescriptor() {
     assert_eq!(
         ::std::mem::size_of::<AVPixFmtDescriptor>(),
-        112usize,
+        160usize,
         concat!("Size of: ", stringify!(AVPixFmtDescriptor))
     );
     assert_eq!(
@@ -31436,7 +33339,7 @@ fn bindgen_test_layout_AVPixFmtDescriptor() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<AVPixFmtDescriptor>())).alias as *const _ as usize },
-        104usize,
+        152usize,
         concat!(
             "Offset of field: ",
             stringify!(AVPixFmtDescriptor),
@@ -32119,12 +34022,7 @@ extern "C" {
     pub fn av_md5_init(ctx: *mut AVMD5);
 }
 extern "C" {
-    #[doc = " Update hash value."]
-    #[doc = ""]
-    #[doc = " @param ctx hash function context"]
-    #[doc = " @param src input data to update hash with"]
-    #[doc = " @param len input data length"]
-    pub fn av_md5_update(ctx: *mut AVMD5, src: *const u8, len: size_t);
+    pub fn av_md5_update(ctx: *mut AVMD5, src: *const u8, len: ::std::os::raw::c_int);
 }
 extern "C" {
     #[doc = " Finish hashing and output digest value."]
@@ -32134,12 +34032,7 @@ extern "C" {
     pub fn av_md5_final(ctx: *mut AVMD5, dst: *mut u8);
 }
 extern "C" {
-    #[doc = " Hash an array of data."]
-    #[doc = ""]
-    #[doc = " @param dst The output buffer to write the digest into"]
-    #[doc = " @param src The data to hash"]
-    #[doc = " @param len The length of the data, in bytes"]
-    pub fn av_md5_sum(dst: *mut u8, src: *const u8, len: size_t);
+    pub fn av_md5_sum(dst: *mut u8, src: *const u8, len: ::std::os::raw::c_int);
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -32331,12 +34224,7 @@ extern "C" {
     pub fn av_murmur3_init(c: *mut AVMurMur3);
 }
 extern "C" {
-    #[doc = " Update hash context with new data."]
-    #[doc = ""]
-    #[doc = " @param[out] c    Hash context"]
-    #[doc = " @param[in]  src  Input data to update hash with"]
-    #[doc = " @param[in]  len  Number of bytes to read from `src`"]
-    pub fn av_murmur3_update(c: *mut AVMurMur3, src: *const u8, len: size_t);
+    pub fn av_murmur3_update(c: *mut AVMurMur3, src: *const u8, len: ::std::os::raw::c_int);
 }
 extern "C" {
     #[doc = " Finish hashing and output digest value."]
@@ -32629,12 +34517,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Update hash value."]
-    #[doc = ""]
-    #[doc = " @param context hash function context"]
-    #[doc = " @param data    input data to update hash with"]
-    #[doc = " @param len     input data length"]
-    pub fn av_ripemd_update(context: *mut AVRIPEMD, data: *const u8, len: size_t);
+    pub fn av_ripemd_update(context: *mut AVRIPEMD, data: *const u8, len: ::std::os::raw::c_uint);
 }
 extern "C" {
     #[doc = " Finish hashing and output digest value."]
@@ -32664,12 +34547,7 @@ extern "C" {
     pub fn av_sha_init(context: *mut AVSHA, bits: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Update hash value."]
-    #[doc = ""]
-    #[doc = " @param ctx     hash function context"]
-    #[doc = " @param data    input data to update hash with"]
-    #[doc = " @param len     input data length"]
-    pub fn av_sha_update(ctx: *mut AVSHA, data: *const u8, len: size_t);
+    pub fn av_sha_update(ctx: *mut AVSHA, data: *const u8, len: ::std::os::raw::c_uint);
 }
 extern "C" {
     #[doc = " Finish hashing and output digest value."]
@@ -32702,12 +34580,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Update hash value."]
-    #[doc = ""]
-    #[doc = " @param context hash function context"]
-    #[doc = " @param data    input data to update hash with"]
-    #[doc = " @param len     input data length"]
-    pub fn av_sha512_update(context: *mut AVSHA512, data: *const u8, len: size_t);
+    pub fn av_sha512_update(context: *mut AVSHA512, data: *const u8, len: ::std::os::raw::c_uint);
 }
 extern "C" {
     #[doc = " Finish hashing and output digest value."]
@@ -34089,6 +35962,34 @@ extern "C" {
 extern "C" {
     #[doc = " Scale all the coefficients of a so that their sum equals height."]
     pub fn sws_normalizeVec(a: *mut SwsVector, height: f64);
+}
+extern "C" {
+    pub fn sws_getConstVec(c: f64, length: ::std::os::raw::c_int) -> *mut SwsVector;
+}
+extern "C" {
+    pub fn sws_getIdentityVec() -> *mut SwsVector;
+}
+extern "C" {
+    pub fn sws_convVec(a: *mut SwsVector, b: *mut SwsVector);
+}
+extern "C" {
+    pub fn sws_addVec(a: *mut SwsVector, b: *mut SwsVector);
+}
+extern "C" {
+    pub fn sws_subVec(a: *mut SwsVector, b: *mut SwsVector);
+}
+extern "C" {
+    pub fn sws_shiftVec(a: *mut SwsVector, shift: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn sws_cloneVec(a: *mut SwsVector) -> *mut SwsVector;
+}
+extern "C" {
+    pub fn sws_printVec2(
+        a: *mut SwsVector,
+        log_ctx: *mut AVClass,
+        log_level: ::std::os::raw::c_int,
+    );
 }
 extern "C" {
     pub fn sws_freeVec(a: *mut SwsVector);
