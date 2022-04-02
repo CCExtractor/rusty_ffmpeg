@@ -1,4 +1,4 @@
-use bindgen::{self, callbacks, Bindings, CargoCallbacks};
+use bindgen::{self, callbacks, Bindings};
 use once_cell::sync::Lazy;
 
 use std::{collections::HashSet, env, fs, path::PathBuf};
@@ -17,10 +17,11 @@ static LIBS: Lazy<[&str; 7]> = Lazy::new(|| {
 });
 
 /// Whitelist of the headers we want to generate bindings
-static HEADERS: Lazy<[&str; 62]> = Lazy::new(|| {
+static HEADERS: Lazy<[&str; 63]> = Lazy::new(|| {
     [
         "libavcodec/avcodec.h",
         "libavcodec/avfft.h",
+        "libavcodec/bsf.h",
         "libavcodec/dv_profile.h",
         "libavcodec/vorbis_parser.h",
         "libavdevice/avdevice.h",
@@ -88,16 +89,12 @@ static HEADERS: Lazy<[&str; 62]> = Lazy::new(|| {
 /// exactly the same as `CargoCallback`.
 #[derive(Debug)]
 struct FilterCargoCallbacks {
-    inner: CargoCallbacks,
     emitted_macro: HashSet<String>,
 }
 
 impl FilterCargoCallbacks {
     fn new(set: HashSet<String>) -> Self {
-        Self {
-            inner: CargoCallbacks,
-            emitted_macro: set,
-        }
+        Self { emitted_macro: set }
     }
 }
 
@@ -200,7 +197,7 @@ mod non_windows {
             pkg_config::Config::new()
                 // Remove side effect by disable metadata emitting
                 .cargo_metadata(false)
-                .probe(&libname)
+                .probe(libname)
                 .is_err()
         }) {
             Some(&libname) => Err(libname.to_string()),
@@ -282,7 +279,7 @@ fn dynamic_linking(env_vars: &EnvVars) {
     if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
         use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
     } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-        generate_bindings(Some(&ffmpeg_include_dir), HEADERS.iter().cloned())
+        generate_bindings(Some(ffmpeg_include_dir), HEADERS.iter().cloned())
             .expect("Binding generation failed.")
             // Is it correct to generate binding to one file? :-/
             .write_to_file(output_binding_path)
@@ -321,7 +318,7 @@ fn static_linking(env_vars: &EnvVars) {
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-                generate_bindings(Some(&ffmpeg_include_dir), HEADERS.iter().cloned())
+                generate_bindings(Some(ffmpeg_include_dir), HEADERS.iter().cloned())
                     .expect("Binding generation failed.")
                     .write_to_file(output_binding_path)
                     .expect("Cannot write binding to file.");
