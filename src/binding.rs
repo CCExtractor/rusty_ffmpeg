@@ -13980,7 +13980,10 @@ extern "C" {
     pub fn valloc(arg1: size_t) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    pub fn aligned_alloc(__alignment: size_t, __size: size_t) -> *mut ::std::os::raw::c_void;
+    pub fn aligned_alloc(
+        __alignment: ::std::os::raw::c_ulong,
+        __size: ::std::os::raw::c_ulong,
+    ) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
     pub fn posix_memalign(
