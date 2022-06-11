@@ -34,7 +34,7 @@ You need to set several environment variables for both linking and binding gener
 
 1. Dynamic linking with pre-built dylib: Set `FFMPEG_DLL_PATH` to the path of `dll` or `so`. (Windows: Put corresponding `.lib` file next to the `.dll` file.)
 
-2. Static linking with pre-built staticlib: Set `FFMPEG_LIB_DIR` to the path of the FFmpeg pre-built libs directory.
+2. Static linking with pre-built staticlib: Set `FFMPEG_LIBS_DIR` to the path of the FFmpeg pre-built libs directory.
 
 #### To generate bindings: 
 
