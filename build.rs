@@ -153,6 +153,13 @@ fn generate_bindings<T: Into<String>>(
         .generate()
 }
 
+fn static_linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &str) {
+    println!("cargo:rustc-link-search=native={}", ffmpeg_libs_dir);
+    for library_name in library_names {
+        println!("cargo:rustc-link-lib=static={}", library_name);
+    }
+}
+
 #[allow(dead_code)]
 pub struct EnvVars {
     docs_rs: Option<String>,
@@ -233,7 +240,7 @@ mod non_windows {
 #[cfg(target_os = "windows")]
 mod windows {
     use super::*;
-    pub fn static_linking_inner(_env_vars: &EnvVars, _library_names: &[&str]) -> Vec<String> {
+    pub fn static_linking_vcpkg(_env_vars: &EnvVars, _library_names: &[&str]) -> Vec<String> {
         vcpkg::Config::new()
             .find_package("ffmpeg")
             .unwrap()
@@ -282,67 +289,73 @@ fn dynamic_linking(env_vars: &EnvVars) {
     }
 }
 
-fn static_linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &str) {
-    println!("cargo:rustc-link-search=native={}", ffmpeg_libs_dir);
-    for library_name in library_names {
-        println!("cargo:rustc-link-lib=static={}", library_name);
-    }
-}
-
 fn static_linking(env_vars: &EnvVars) {
     let output_binding_path = &format!("{}/binding.rs", env_vars.out_dir.as_ref().unwrap());
 
-    // Hint: set PKG_CONFIG_PATH to some placeholder value will let pkg_config probing system library.
     #[cfg(not(target_os = "windows"))]
-    if let Some(ffmpeg_pkg_config_path) = env_vars.ffmpeg_pkg_config_path.as_ref() {
+    {
         use non_windows::*;
-        // Probe libraries(enable emitting cargo metadata)
-        let include_paths = static_linking_with_pkg_config(&*LIBS, ffmpeg_pkg_config_path);
-        if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
-            use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
-        } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-            // If use ffmpeg_pkg_config_path with ffmpeg_include_dir, prefer using the user given dir rather than pkg_config_path.
-            generate_bindings(Some(ffmpeg_include_dir), HEADERS.iter().cloned())
-                .expect("Binding generation failed.")
-                .write_to_file(output_binding_path)
-                .expect("Cannot write binding to file.");
+        // Hint: set PKG_CONFIG_PATH to some placeholder value will let pkg_config probing system library.
+        if let Some(ffmpeg_pkg_config_path) = env_vars.ffmpeg_pkg_config_path.as_ref() {
+            // Probe libraries(enable emitting cargo metadata)
+            let include_paths = static_linking_with_pkg_config(&*LIBS, ffmpeg_pkg_config_path);
+            if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
+                use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+            } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
+                // If use ffmpeg_pkg_config_path with ffmpeg_include_dir, prefer using the user given dir rather than pkg_config_path.
+                generate_bindings(Some(ffmpeg_include_dir), HEADERS.iter().cloned())
+                    .expect("Binding generation failed.")
+                    .write_to_file(output_binding_path)
+                    .expect("Cannot write binding to file.");
+            } else {
+                generate_bindings(Some(&include_paths[0]), HEADERS.iter().cloned())
+                    .expect("Binding generation failed.")
+                    .write_to_file(output_binding_path)
+                    .expect("Cannot write binding to file.");
+            }
+        } else if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
+            static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
+            if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
+                use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+            } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
+                generate_bindings(Some(ffmpeg_include_dir), HEADERS.iter().cloned())
+                    .expect("Binding generation failed.")
+                    .write_to_file(output_binding_path)
+                    .expect("Cannot write binding to file.");
+            } else {
+                panic!("No binding generation method is set!");
+            }
         } else {
-            generate_bindings(Some(&include_paths[0]), HEADERS.iter().cloned())
-                .expect("Binding generation failed.")
-                .write_to_file(output_binding_path)
-                .expect("Cannot write binding to file.");
-        }
-        return;
-    }
-    if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
-        static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
-        if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
-            use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
-        } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-            generate_bindings(Some(ffmpeg_include_dir), HEADERS.iter().cloned())
-                .expect("Binding generation failed.")
-                .write_to_file(output_binding_path)
-                .expect("Cannot write binding to file.");
-        } else {
-            panic!("No binding generation method is set!");
-        }
-        return;
+            panic!("No linking method set!");
+        };
     }
     #[cfg(target_os = "windows")]
     {
-        use windows::static_linking_inner;
-        let include_paths = static_linking_inner(env_vars, &*LIBS);
-        if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
-            use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+        use windows::*;
+        if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
+            static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
+            if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
+                use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+            } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
+                generate_bindings(Some(ffmpeg_include_dir), HEADERS.iter().cloned())
+                    .expect("Binding generation failed.")
+                    .write_to_file(output_binding_path)
+                    .expect("Cannot write binding to file.");
+            } else {
+                panic!("No binding generation method is set!");
+            }
         } else {
-            generate_bindings(Some(&include_paths[0]), HEADERS.iter().cloned())
-                .expect("Binding generation failed.")
-                .write_to_file(output_binding_path)
-                .expect("Cannot write binding to file.");
+            let include_paths = static_linking_vcpkg(env_vars, &*LIBS);
+            if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
+                use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+            } else {
+                generate_bindings(Some(&include_paths[0]), HEADERS.iter().cloned())
+                    .expect("Binding generation failed.")
+                    .write_to_file(output_binding_path)
+                    .expect("Cannot write binding to file.");
+            }
         }
     }
-    #[cfg(not(target_os = "windows"))]
-    panic!("No linking method set!");
 }
 
 fn docs_rs_linking(env_vars: &EnvVars) {
