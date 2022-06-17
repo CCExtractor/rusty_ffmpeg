@@ -1,6 +1,6 @@
 [package]
 name = "rusty_ffmpeg"
-version = "0.9.0"
+version = "0.9.5"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2021"
 
@@ -25,7 +25,8 @@ doctest = false
 libc = "0.2"
 
 [build-dependencies]
-bindgen = "0.59"
+bindgen = "0.60"
+camino = "1.0.9"
 once_cell = "1.12"
 
 [target.'cfg(not(windows))'.build-dependencies]
