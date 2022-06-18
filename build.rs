@@ -198,8 +198,8 @@ impl EnvVars {
 
 /// clang doens't support -I{verbatim path} on windows, so we need to remove it if possible.
 fn remove_verbatim(path: String) -> PathBuf {
-    let path = if path.starts_with(r#"\\?\"#) {
-        path[4..].to_string()
+    let path = if let Some(path) = path.strip_prefix(r#"\\?\"#) {
+        path.to_string()
     } else {
         path
     };
