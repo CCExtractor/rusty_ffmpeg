@@ -170,6 +170,7 @@ pub struct EnvVars {
     out_dir: Option<PathBuf>,
     ffmpeg_include_dir: Option<PathBuf>,
     ffmpeg_dll_path: Option<PathBuf>,
+    ffmpeg_multi_arch_build: Option<PathBuf>,
     ffmpeg_pkg_config_path: Option<PathBuf>,
     ffmpeg_libs_dir: Option<PathBuf>,
     ffmpeg_binding_path: Option<PathBuf>,
@@ -192,6 +193,9 @@ impl EnvVars {
             ffmpeg_pkg_config_path: env::var("FFMPEG_PKG_CONFIG_PATH").ok().map(remove_verbatim),
             ffmpeg_libs_dir: env::var("FFMPEG_LIBS_DIR").ok().map(remove_verbatim),
             ffmpeg_binding_path: env::var("FFMPEG_BINDING_PATH").ok().map(remove_verbatim),
+            ffmpeg_multi_arch_build: env::var("FFMPEG_MULTI_ARCH_BUILD")
+                .ok()
+                .map(remove_verbatim),
         }
     }
 }
@@ -287,21 +291,42 @@ fn dynamic_linking(env_vars: &EnvVars) {
         (ffmpeg_dll_name, ffmpeg_dll_path)
     };
 
-    println!("cargo:rustc-link-search=native={}", ffmpeg_dll_dir);
-    for file in std::fs::read_dir(ffmpeg_dll_path).unwrap() {
-        let mut file_name = file.unwrap().file_name().into_string().unwrap();
-        if file_name.contains(".so")
-            || file_name.contains(".dylib")
-            || file_name.contains(".dll")
-        {
+    let lib_name_filter = |mut file_name: String| -> Option<String> {
+        if file_name.contains(".so") || file_name.contains(".dylib") || file_name.contains(".dll") {
             file_name = file_name.replace("lib", "");
             file_name = file_name.replace(".so", "");
             file_name = file_name.replace(".dylib", "");
             file_name = file_name.replace(".dll", "");
-            println!(
-                "cargo:rustc-link-lib=dylib={}",
-                file_name
-            );
+            Some(file_name)
+        } else {
+            None
+        }
+    };
+    println!("cargo:rustc-link-search=native={}", ffmpeg_dll_dir);
+    if env_vars.ffmpeg_multi_arch_build.as_ref().is_none() {
+        for file in std::fs::read_dir(ffmpeg_dll_path).unwrap() {
+            let file_name = file.unwrap().file_name().into_string().unwrap();
+            let file_name = lib_name_filter(file_name);
+            if let Some(f) = file_name {
+                println!("cargo:rustc-link-lib=dylib={}", f);
+            }
+        }
+    } else {
+        let base_path = env::var("FFMPEG_LIBS_DIR").ok().unwrap();
+        let target_os = env::var("CARGO_CFG_TARGET_OS").ok().unwrap();
+        let target_arch = env::var("CARGO_CFG_TARGET_ARCH")
+            .ok()
+            .unwrap()
+            .replace("arm", "armeabi-v7a")
+            .replace("aarch64", "arm64-v8a");
+        let per_arch_path = format!("{}/{}/{}", base_path, target_os, target_arch);
+        println!("gonna try {}", per_arch_path);
+        for file in std::fs::read_dir(per_arch_path).unwrap() {
+            let file_name = file.unwrap().file_name().into_string().unwrap();
+            let file_name = lib_name_filter(file_name);
+            if let Some(f) = file_name {
+                println!("cargo:rustc-link-lib=dylib={}", f);
+            }
         }
     }
 
