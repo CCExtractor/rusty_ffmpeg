@@ -271,25 +271,8 @@ mod windows {
 
 fn dynamic_linking(env_vars: &EnvVars) {
     let ffmpeg_dll_path = env_vars.ffmpeg_dll_path.as_ref().unwrap();
-
+    let ffmpeg_libs_dir = env_vars.ffmpeg_libs_dir.as_ref().unwrap();
     let output_binding_path = &env_vars.out_dir.as_ref().unwrap().join("binding.rs");
-
-    // Extract dll name and the dir the dll is in.
-    let (ffmpeg_dll_name, ffmpeg_dll_dir) = {
-        let mut ffmpeg_dll_path = PathBuf::from(ffmpeg_dll_path);
-        // Without extension.
-        let ffmpeg_dll_filename = ffmpeg_dll_path.file_stem().unwrap();
-        let ffmpeg_dll_name = if cfg!(target_os = "windows") {
-            ffmpeg_dll_filename
-        } else {
-            ffmpeg_dll_filename.trim_start_matches("lib")
-        }
-        .to_string();
-        // Remove file name.
-        ffmpeg_dll_path.pop();
-        let ffmpeg_dll_path = ffmpeg_dll_path.to_string();
-        (ffmpeg_dll_name, ffmpeg_dll_path)
-    };
 
     let lib_name_filter = |mut file_name: String| -> Option<String> {
         if file_name.contains(".so") || file_name.contains(".dylib") || file_name.contains(".dll") {
@@ -302,7 +285,6 @@ fn dynamic_linking(env_vars: &EnvVars) {
             None
         }
     };
-    println!("cargo:rustc-link-search=native={}", ffmpeg_dll_dir);
     if env_vars.ffmpeg_multi_arch_build.as_ref().is_none() {
         for file in std::fs::read_dir(ffmpeg_dll_path).unwrap() {
             let file_name = file.unwrap().file_name().into_string().unwrap();
@@ -320,7 +302,9 @@ fn dynamic_linking(env_vars: &EnvVars) {
             .replace("arm", "armeabi-v7a")
             .replace("aarch64", "arm64-v8a");
         let per_arch_path = format!("{}/{}/{}", base_path, target_os, target_arch);
-        println!("gonna try {}", per_arch_path);
+
+        println!("cargo:rustc-link-search=native={}", per_arch_path);
+
         for file in std::fs::read_dir(per_arch_path).unwrap() {
             let file_name = file.unwrap().file_name().into_string().unwrap();
             let file_name = lib_name_filter(file_name);
