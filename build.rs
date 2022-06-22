@@ -287,8 +287,23 @@ fn dynamic_linking(env_vars: &EnvVars) {
         (ffmpeg_dll_name, ffmpeg_dll_path)
     };
 
-    println!("cargo:rustc-link-lib=dylib={}", ffmpeg_dll_name);
     println!("cargo:rustc-link-search=native={}", ffmpeg_dll_dir);
+    for file in std::fs::read_dir(ffmpeg_dll_path).unwrap() {
+        let mut file_name = file.unwrap().file_name().into_string().unwrap();
+        if file_name.contains(".so")
+            || file_name.contains(".dylib")
+            || file_name.contains(".dll")
+        {
+            file_name = file_name.replace("lib", "");
+            file_name = file_name.replace(".so", "");
+            file_name = file_name.replace(".dylib", "");
+            file_name = file_name.replace(".dll", "");
+            println!(
+                "cargo:rustc-link-lib=dylib={}",
+                file_name
+            );
+        }
+    }
 
     if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
         use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
