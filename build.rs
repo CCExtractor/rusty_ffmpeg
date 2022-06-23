@@ -271,7 +271,6 @@ mod windows {
 
 fn dynamic_linking(env_vars: &EnvVars) {
     let ffmpeg_dll_path = env_vars.ffmpeg_dll_path.as_ref().unwrap();
-    let ffmpeg_libs_dir = env_vars.ffmpeg_libs_dir.as_ref().unwrap();
     let output_binding_path = &env_vars.out_dir.as_ref().unwrap().join("binding.rs");
 
     let lib_name_filter = |mut file_name: String| -> Option<String> {
