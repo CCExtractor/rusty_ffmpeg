@@ -270,11 +270,12 @@ mod windows {
 }
 
 fn dynamic_linking(env_vars: &EnvVars) {
+    let re = regex::Regex::new(r"\w*.(so|dylib|dll)$").unwrap();
     let ffmpeg_dll_path = env_vars.ffmpeg_dll_path.as_ref().unwrap();
     let output_binding_path = &env_vars.out_dir.as_ref().unwrap().join("binding.rs");
 
     let lib_name_filter = |mut file_name: String| -> Option<String> {
-        if file_name.contains(".so") || file_name.contains(".dylib") || file_name.contains(".dll") {
+        if re.is_match(file_name.as_str()) {
             file_name = file_name.replace("lib", "");
             file_name = file_name.replace(".so", "");
             file_name = file_name.replace(".dylib", "");
@@ -300,10 +301,9 @@ fn dynamic_linking(env_vars: &EnvVars) {
             .unwrap()
             .replace("arm", "armeabi-v7a")
             .replace("aarch64", "arm64-v8a");
-        let per_arch_path = format!("{}/{}/{}", base_path, target_os, target_arch);
+        let per_arch_path = format!("{}/{}/{}/lib", base_path, target_os, target_arch);
 
         println!("cargo:rustc-link-search=native={}", per_arch_path);
-
         for file in std::fs::read_dir(per_arch_path).unwrap() {
             let file_name = file.unwrap().file_name().into_string().unwrap();
             let file_name = lib_name_filter(file_name);
