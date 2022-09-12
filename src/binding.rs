@@ -1034,7 +1034,7 @@ pub const __HAS_FIXED_CHK_PROTOTYPES: u32 = 1;
 pub const AV_HAVE_BIGENDIAN: u32 = 0;
 pub const AV_HAVE_FAST_UNALIGNED: u32 = 1;
 pub const LIBAVUTIL_VERSION_MAJOR: u32 = 57;
-pub const LIBAVUTIL_VERSION_MINOR: u32 = 17;
+pub const LIBAVUTIL_VERSION_MINOR: u32 = 28;
 pub const LIBAVUTIL_VERSION_MICRO: u32 = 100;
 pub const AVERROR_EXPERIMENTAL: i32 = -733130664;
 pub const AVERROR_INPUT_CHANGED: i32 = -1668179713;
@@ -1066,6 +1066,7 @@ pub const AV_DICT_DONT_STRDUP_VAL: u32 = 8;
 pub const AV_DICT_DONT_OVERWRITE: u32 = 16;
 pub const AV_DICT_APPEND: u32 = 32;
 pub const AV_DICT_MULTIKEY: u32 = 64;
+pub const AV_CH_LAYOUT_NATIVE: i64 = -9223372036854775808;
 pub const AV_NUM_DATA_POINTERS: u32 = 8;
 pub const AV_FRAME_FLAG_CORRUPT: u32 = 1;
 pub const AV_FRAME_FLAG_DISCARD: u32 = 4;
@@ -1074,8 +1075,6 @@ pub const FF_DECODE_ERROR_MISSING_REFERENCE: u32 = 2;
 pub const FF_DECODE_ERROR_CONCEALMENT_ACTIVE: u32 = 4;
 pub const FF_DECODE_ERROR_DECODE_SLICES: u32 = 8;
 pub const LIBAVCODEC_VERSION_MAJOR: u32 = 59;
-pub const LIBAVCODEC_VERSION_MINOR: u32 = 18;
-pub const LIBAVCODEC_VERSION_MICRO: u32 = 100;
 pub const AV_CODEC_CAP_DRAW_HORIZ_BAND: u32 = 1;
 pub const AV_CODEC_CAP_DR1: u32 = 2;
 pub const AV_CODEC_CAP_TRUNCATED: u32 = 8;
@@ -1109,6 +1108,8 @@ pub const AV_PKT_FLAG_CORRUPT: u32 = 2;
 pub const AV_PKT_FLAG_DISCARD: u32 = 4;
 pub const AV_PKT_FLAG_TRUSTED: u32 = 8;
 pub const AV_PKT_FLAG_DISPOSABLE: u32 = 16;
+pub const LIBAVCODEC_VERSION_MINOR: u32 = 37;
+pub const LIBAVCODEC_VERSION_MICRO: u32 = 100;
 pub const AV_INPUT_BUFFER_MIN_SIZE: u32 = 16384;
 pub const AV_CODEC_FLAG_UNALIGNED: u32 = 1;
 pub const AV_CODEC_FLAG_QSCALE: u32 = 2;
@@ -1365,7 +1366,7 @@ pub const VORBIS_FLAG_HEADER: u32 = 1;
 pub const VORBIS_FLAG_COMMENT: u32 = 2;
 pub const VORBIS_FLAG_SETUP: u32 = 4;
 pub const LIBAVDEVICE_VERSION_MAJOR: u32 = 59;
-pub const LIBAVDEVICE_VERSION_MINOR: u32 = 4;
+pub const LIBAVDEVICE_VERSION_MINOR: u32 = 7;
 pub const LIBAVDEVICE_VERSION_MICRO: u32 = 100;
 pub const AV_OPT_FLAG_ENCODING_PARAM: u32 = 1;
 pub const AV_OPT_FLAG_DECODING_PARAM: u32 = 2;
@@ -1387,8 +1388,6 @@ pub const AV_OPT_SERIALIZE_SKIP_DEFAULTS: u32 = 1;
 pub const AV_OPT_SERIALIZE_OPT_FLAGS_EXACT: u32 = 2;
 pub const TIME_UTC: u32 = 1;
 pub const LIBAVFORMAT_VERSION_MAJOR: u32 = 59;
-pub const LIBAVFORMAT_VERSION_MINOR: u32 = 16;
-pub const LIBAVFORMAT_VERSION_MICRO: u32 = 100;
 pub const FF_API_R_FRAME_RATE: u32 = 1;
 pub const AVIO_SEEKABLE_NORMAL: u32 = 1;
 pub const AVIO_SEEKABLE_TIME: u32 = 2;
@@ -1399,6 +1398,8 @@ pub const AVIO_FLAG_WRITE: u32 = 2;
 pub const AVIO_FLAG_READ_WRITE: u32 = 3;
 pub const AVIO_FLAG_NONBLOCK: u32 = 8;
 pub const AVIO_FLAG_DIRECT: u32 = 32768;
+pub const LIBAVFORMAT_VERSION_MINOR: u32 = 27;
+pub const LIBAVFORMAT_VERSION_MICRO: u32 = 100;
 pub const AVPROBE_SCORE_EXTENSION: u32 = 50;
 pub const AVPROBE_SCORE_MIME: u32 = 75;
 pub const AVPROBE_SCORE_MAX: u32 = 100;
@@ -1435,6 +1436,7 @@ pub const AV_DISPOSITION_VISUAL_IMPAIRED: u32 = 256;
 pub const AV_DISPOSITION_CLEAN_EFFECTS: u32 = 512;
 pub const AV_DISPOSITION_ATTACHED_PIC: u32 = 1024;
 pub const AV_DISPOSITION_TIMED_THUMBNAILS: u32 = 2048;
+pub const AV_DISPOSITION_NON_DIEGETIC: u32 = 4096;
 pub const AV_DISPOSITION_CAPTIONS: u32 = 65536;
 pub const AV_DISPOSITION_DESCRIPTIONS: u32 = 131072;
 pub const AV_DISPOSITION_METADATA: u32 = 262144;
@@ -1467,6 +1469,7 @@ pub const AVFMT_FLAG_AUTO_BSF: u32 = 2097152;
 pub const FF_FDEBUG_TS: u32 = 1;
 pub const AVFMT_EVENT_FLAG_METADATA_UPDATED: u32 = 1;
 pub const AVFMT_AVOID_NEG_TS_AUTO: i32 = -1;
+pub const AVFMT_AVOID_NEG_TS_DISABLED: u32 = 0;
 pub const AVFMT_AVOID_NEG_TS_MAKE_NON_NEGATIVE: u32 = 1;
 pub const AVFMT_AVOID_NEG_TS_MAKE_ZERO: u32 = 2;
 pub const AVSEEK_FLAG_BACKWARD: u32 = 1;
@@ -1477,7 +1480,7 @@ pub const AVSTREAM_INIT_IN_WRITE_HEADER: u32 = 0;
 pub const AVSTREAM_INIT_IN_INIT_OUTPUT: u32 = 1;
 pub const AV_FRAME_FILENAME_FLAGS_MULTIPLE: u32 = 1;
 pub const LIBAVFILTER_VERSION_MAJOR: u32 = 8;
-pub const LIBAVFILTER_VERSION_MINOR: u32 = 24;
+pub const LIBAVFILTER_VERSION_MINOR: u32 = 44;
 pub const LIBAVFILTER_VERSION_MICRO: u32 = 100;
 pub const AVFILTER_FLAG_DYNAMIC_INPUTS: u32 = 1;
 pub const AVFILTER_FLAG_DYNAMIC_OUTPUTS: u32 = 2;
@@ -1503,66 +1506,6 @@ pub const AV_UTF8_FLAG_ACCEPT_ALL: u32 = 7;
 pub const AV_BF_ROUNDS: u32 = 16;
 pub const AV_BPRINT_SIZE_AUTOMATIC: u32 = 1;
 pub const AV_BPRINT_SIZE_COUNT_ONLY: u32 = 0;
-pub const AV_CH_FRONT_LEFT: u32 = 1;
-pub const AV_CH_FRONT_RIGHT: u32 = 2;
-pub const AV_CH_FRONT_CENTER: u32 = 4;
-pub const AV_CH_LOW_FREQUENCY: u32 = 8;
-pub const AV_CH_BACK_LEFT: u32 = 16;
-pub const AV_CH_BACK_RIGHT: u32 = 32;
-pub const AV_CH_FRONT_LEFT_OF_CENTER: u32 = 64;
-pub const AV_CH_FRONT_RIGHT_OF_CENTER: u32 = 128;
-pub const AV_CH_BACK_CENTER: u32 = 256;
-pub const AV_CH_SIDE_LEFT: u32 = 512;
-pub const AV_CH_SIDE_RIGHT: u32 = 1024;
-pub const AV_CH_TOP_CENTER: u32 = 2048;
-pub const AV_CH_TOP_FRONT_LEFT: u32 = 4096;
-pub const AV_CH_TOP_FRONT_CENTER: u32 = 8192;
-pub const AV_CH_TOP_FRONT_RIGHT: u32 = 16384;
-pub const AV_CH_TOP_BACK_LEFT: u32 = 32768;
-pub const AV_CH_TOP_BACK_CENTER: u32 = 65536;
-pub const AV_CH_TOP_BACK_RIGHT: u32 = 131072;
-pub const AV_CH_STEREO_LEFT: u32 = 536870912;
-pub const AV_CH_STEREO_RIGHT: u32 = 1073741824;
-pub const AV_CH_WIDE_LEFT: u32 = 2147483648;
-pub const AV_CH_WIDE_RIGHT: u64 = 4294967296;
-pub const AV_CH_SURROUND_DIRECT_LEFT: u64 = 8589934592;
-pub const AV_CH_SURROUND_DIRECT_RIGHT: u64 = 17179869184;
-pub const AV_CH_LOW_FREQUENCY_2: u64 = 34359738368;
-pub const AV_CH_TOP_SIDE_LEFT: u64 = 68719476736;
-pub const AV_CH_TOP_SIDE_RIGHT: u64 = 137438953472;
-pub const AV_CH_BOTTOM_FRONT_CENTER: u64 = 274877906944;
-pub const AV_CH_BOTTOM_FRONT_LEFT: u64 = 549755813888;
-pub const AV_CH_BOTTOM_FRONT_RIGHT: u64 = 1099511627776;
-pub const AV_CH_LAYOUT_NATIVE: i64 = -9223372036854775808;
-pub const AV_CH_LAYOUT_MONO: u32 = 4;
-pub const AV_CH_LAYOUT_STEREO: u32 = 3;
-pub const AV_CH_LAYOUT_2POINT1: u32 = 11;
-pub const AV_CH_LAYOUT_2_1: u32 = 259;
-pub const AV_CH_LAYOUT_SURROUND: u32 = 7;
-pub const AV_CH_LAYOUT_3POINT1: u32 = 15;
-pub const AV_CH_LAYOUT_4POINT0: u32 = 263;
-pub const AV_CH_LAYOUT_4POINT1: u32 = 271;
-pub const AV_CH_LAYOUT_2_2: u32 = 1539;
-pub const AV_CH_LAYOUT_QUAD: u32 = 51;
-pub const AV_CH_LAYOUT_5POINT0: u32 = 1543;
-pub const AV_CH_LAYOUT_5POINT1: u32 = 1551;
-pub const AV_CH_LAYOUT_5POINT0_BACK: u32 = 55;
-pub const AV_CH_LAYOUT_5POINT1_BACK: u32 = 63;
-pub const AV_CH_LAYOUT_6POINT0: u32 = 1799;
-pub const AV_CH_LAYOUT_6POINT0_FRONT: u32 = 1731;
-pub const AV_CH_LAYOUT_HEXAGONAL: u32 = 311;
-pub const AV_CH_LAYOUT_6POINT1: u32 = 1807;
-pub const AV_CH_LAYOUT_6POINT1_BACK: u32 = 319;
-pub const AV_CH_LAYOUT_6POINT1_FRONT: u32 = 1739;
-pub const AV_CH_LAYOUT_7POINT0: u32 = 1591;
-pub const AV_CH_LAYOUT_7POINT0_FRONT: u32 = 1735;
-pub const AV_CH_LAYOUT_7POINT1: u32 = 1599;
-pub const AV_CH_LAYOUT_7POINT1_WIDE: u32 = 1743;
-pub const AV_CH_LAYOUT_7POINT1_WIDE_BACK: u32 = 255;
-pub const AV_CH_LAYOUT_OCTAGONAL: u32 = 1847;
-pub const AV_CH_LAYOUT_HEXADECAGONAL: u64 = 6442710839;
-pub const AV_CH_LAYOUT_STEREO_DOWNMIX: u32 = 1610612736;
-pub const AV_CH_LAYOUT_22POINT2: u64 = 2164663779327;
 pub const AV_CPU_FLAG_FORCE: u32 = 2147483648;
 pub const AV_CPU_FLAG_MMX: u32 = 1;
 pub const AV_CPU_FLAG_MMXEXT: u32 = 2;
@@ -1590,6 +1533,7 @@ pub const AV_CPU_FLAG_FMA3: u32 = 65536;
 pub const AV_CPU_FLAG_BMI1: u32 = 131072;
 pub const AV_CPU_FLAG_BMI2: u32 = 262144;
 pub const AV_CPU_FLAG_AVX512: u32 = 1048576;
+pub const AV_CPU_FLAG_AVX512ICL: u32 = 2097152;
 pub const AV_CPU_FLAG_SLOW_GATHER: u32 = 33554432;
 pub const AV_CPU_FLAG_ALTIVEC: u32 = 1;
 pub const AV_CPU_FLAG_VSX: u32 = 2;
@@ -1607,6 +1551,7 @@ pub const AV_CPU_FLAG_MMI: u32 = 1;
 pub const AV_CPU_FLAG_MSA: u32 = 2;
 pub const AV_CPU_FLAG_LSX: u32 = 1;
 pub const AV_CPU_FLAG_LASX: u32 = 2;
+pub const AV_FIFO_FLAG_AUTO_GROW: u32 = 1;
 pub const AV_HASH_MAX_SIZE: u32 = 64;
 pub const AV_PIX_FMT_FLAG_BE: u32 = 1;
 pub const AV_PIX_FMT_FLAG_PAL: u32 = 2;
@@ -1626,11 +1571,11 @@ pub const FF_LOSS_CHROMA: u32 = 32;
 pub const AV_STEREO3D_FLAG_INVERT: u32 = 1;
 pub const AV_TIMECODE_STR_SIZE: u32 = 23;
 pub const LIBSWRESAMPLE_VERSION_MAJOR: u32 = 4;
-pub const LIBSWRESAMPLE_VERSION_MINOR: u32 = 3;
+pub const LIBSWRESAMPLE_VERSION_MINOR: u32 = 7;
 pub const LIBSWRESAMPLE_VERSION_MICRO: u32 = 100;
 pub const SWR_FLAG_RESAMPLE: u32 = 1;
 pub const LIBSWSCALE_VERSION_MAJOR: u32 = 6;
-pub const LIBSWSCALE_VERSION_MINOR: u32 = 4;
+pub const LIBSWSCALE_VERSION_MINOR: u32 = 7;
 pub const LIBSWSCALE_VERSION_MICRO: u32 = 100;
 pub const SWS_FAST_BILINEAR: u32 = 1;
 pub const SWS_BILINEAR: u32 = 2;
@@ -1741,6 +1686,11 @@ fn bindgen_test_layout___mbstate_t() {
         );
     }
     test_field__mbstateL();
+}
+impl ::std::fmt::Debug for __mbstate_t {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "__mbstate_t {{ union }}")
+    }
 }
 pub type __darwin_mbstate_t = __mbstate_t;
 pub type __darwin_ptrdiff_t = ::std::os::raw::c_long;
@@ -2364,6 +2314,260 @@ pub type user_off_t = i64;
 pub type syscall_arg_t = u_int64_t;
 pub type intmax_t = ::std::os::raw::c_long;
 pub type uintmax_t = ::std::os::raw::c_ulong;
+pub const AVSampleFormat_AV_SAMPLE_FMT_NONE: AVSampleFormat = -1;
+#[doc = "< unsigned 8 bits"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_U8: AVSampleFormat = 0;
+#[doc = "< signed 16 bits"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_S16: AVSampleFormat = 1;
+#[doc = "< signed 32 bits"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_S32: AVSampleFormat = 2;
+#[doc = "< float"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_FLT: AVSampleFormat = 3;
+#[doc = "< double"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_DBL: AVSampleFormat = 4;
+#[doc = "< unsigned 8 bits, planar"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_U8P: AVSampleFormat = 5;
+#[doc = "< signed 16 bits, planar"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_S16P: AVSampleFormat = 6;
+#[doc = "< signed 32 bits, planar"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_S32P: AVSampleFormat = 7;
+#[doc = "< float, planar"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_FLTP: AVSampleFormat = 8;
+#[doc = "< double, planar"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_DBLP: AVSampleFormat = 9;
+#[doc = "< signed 64 bits"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_S64: AVSampleFormat = 10;
+#[doc = "< signed 64 bits, planar"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_S64P: AVSampleFormat = 11;
+#[doc = "< Number of sample formats. DO NOT USE if linking dynamically"]
+pub const AVSampleFormat_AV_SAMPLE_FMT_NB: AVSampleFormat = 12;
+#[doc = " Audio sample formats"]
+#[doc = ""]
+#[doc = " - The data described by the sample format is always in native-endian order."]
+#[doc = "   Sample values can be expressed by native C types, hence the lack of a signed"]
+#[doc = "   24-bit sample format even though it is a common raw audio data format."]
+#[doc = ""]
+#[doc = " - The floating-point formats are based on full volume being in the range"]
+#[doc = "   [-1.0, 1.0]. Any values outside this range are beyond full volume level."]
+#[doc = ""]
+#[doc = " - The data layout as used in av_samples_fill_arrays() and elsewhere in FFmpeg"]
+#[doc = "   (such as AVFrame in libavcodec) is as follows:"]
+#[doc = ""]
+#[doc = " @par"]
+#[doc = " For planar sample formats, each audio channel is in a separate data plane,"]
+#[doc = " and linesize is the buffer size, in bytes, for a single plane. All data"]
+#[doc = " planes must be the same size. For packed sample formats, only the first data"]
+#[doc = " plane is used, and samples for each channel are interleaved. In this case,"]
+#[doc = " linesize is the buffer size, in bytes, for the 1 plane."]
+#[doc = ""]
+pub type AVSampleFormat = ::std::os::raw::c_int;
+extern "C" {
+    #[doc = " Return the name of sample_fmt, or NULL if sample_fmt is not"]
+    #[doc = " recognized."]
+    pub fn av_get_sample_fmt_name(sample_fmt: AVSampleFormat) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    #[doc = " Return a sample format corresponding to name, or AV_SAMPLE_FMT_NONE"]
+    #[doc = " on error."]
+    pub fn av_get_sample_fmt(name: *const ::std::os::raw::c_char) -> AVSampleFormat;
+}
+extern "C" {
+    #[doc = " Return the planar<->packed alternative form of the given sample format, or"]
+    #[doc = " AV_SAMPLE_FMT_NONE on error. If the passed sample_fmt is already in the"]
+    #[doc = " requested planar/packed format, the format returned is the same as the"]
+    #[doc = " input."]
+    pub fn av_get_alt_sample_fmt(
+        sample_fmt: AVSampleFormat,
+        planar: ::std::os::raw::c_int,
+    ) -> AVSampleFormat;
+}
+extern "C" {
+    #[doc = " Get the packed alternative form of the given sample format."]
+    #[doc = ""]
+    #[doc = " If the passed sample_fmt is already in packed format, the format returned is"]
+    #[doc = " the same as the input."]
+    #[doc = ""]
+    #[doc = " @return  the packed alternative form of the given sample format or"]
+    #[doc = "AV_SAMPLE_FMT_NONE on error."]
+    pub fn av_get_packed_sample_fmt(sample_fmt: AVSampleFormat) -> AVSampleFormat;
+}
+extern "C" {
+    #[doc = " Get the planar alternative form of the given sample format."]
+    #[doc = ""]
+    #[doc = " If the passed sample_fmt is already in planar format, the format returned is"]
+    #[doc = " the same as the input."]
+    #[doc = ""]
+    #[doc = " @return  the planar alternative form of the given sample format or"]
+    #[doc = "AV_SAMPLE_FMT_NONE on error."]
+    pub fn av_get_planar_sample_fmt(sample_fmt: AVSampleFormat) -> AVSampleFormat;
+}
+extern "C" {
+    #[doc = " Generate a string corresponding to the sample format with"]
+    #[doc = " sample_fmt, or a header if sample_fmt is negative."]
+    #[doc = ""]
+    #[doc = " @param buf the buffer where to write the string"]
+    #[doc = " @param buf_size the size of buf"]
+    #[doc = " @param sample_fmt the number of the sample format to print the"]
+    #[doc = " corresponding info string, or a negative value to print the"]
+    #[doc = " corresponding header."]
+    #[doc = " @return the pointer to the filled buffer or NULL if sample_fmt is"]
+    #[doc = " unknown or in case of other errors"]
+    pub fn av_get_sample_fmt_string(
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: ::std::os::raw::c_int,
+        sample_fmt: AVSampleFormat,
+    ) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    #[doc = " Return number of bytes per sample."]
+    #[doc = ""]
+    #[doc = " @param sample_fmt the sample format"]
+    #[doc = " @return number of bytes per sample or zero if unknown for the given"]
+    #[doc = " sample format"]
+    pub fn av_get_bytes_per_sample(sample_fmt: AVSampleFormat) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Check if the sample format is planar."]
+    #[doc = ""]
+    #[doc = " @param sample_fmt the sample format to inspect"]
+    #[doc = " @return 1 if the sample format is planar, 0 if it is interleaved"]
+    pub fn av_sample_fmt_is_planar(sample_fmt: AVSampleFormat) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Get the required buffer size for the given audio parameters."]
+    #[doc = ""]
+    #[doc = " @param[out] linesize calculated linesize, may be NULL"]
+    #[doc = " @param nb_channels   the number of channels"]
+    #[doc = " @param nb_samples    the number of samples in a single channel"]
+    #[doc = " @param sample_fmt    the sample format"]
+    #[doc = " @param align         buffer size alignment (0 = default, 1 = no alignment)"]
+    #[doc = " @return              required buffer size, or negative error code on failure"]
+    pub fn av_samples_get_buffer_size(
+        linesize: *mut ::std::os::raw::c_int,
+        nb_channels: ::std::os::raw::c_int,
+        nb_samples: ::std::os::raw::c_int,
+        sample_fmt: AVSampleFormat,
+        align: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Fill plane data pointers and linesize for samples with sample"]
+    #[doc = " format sample_fmt."]
+    #[doc = ""]
+    #[doc = " The audio_data array is filled with the pointers to the samples data planes:"]
+    #[doc = " for planar, set the start point of each channel's data within the buffer,"]
+    #[doc = " for packed, set the start point of the entire buffer only."]
+    #[doc = ""]
+    #[doc = " The value pointed to by linesize is set to the aligned size of each"]
+    #[doc = " channel's data buffer for planar layout, or to the aligned size of the"]
+    #[doc = " buffer for all channels for packed layout."]
+    #[doc = ""]
+    #[doc = " The buffer in buf must be big enough to contain all the samples"]
+    #[doc = " (use av_samples_get_buffer_size() to compute its minimum size),"]
+    #[doc = " otherwise the audio_data pointers will point to invalid data."]
+    #[doc = ""]
+    #[doc = " @see enum AVSampleFormat"]
+    #[doc = " The documentation for AVSampleFormat describes the data layout."]
+    #[doc = ""]
+    #[doc = " @param[out] audio_data  array to be filled with the pointer for each channel"]
+    #[doc = " @param[out] linesize    calculated linesize, may be NULL"]
+    #[doc = " @param buf              the pointer to a buffer containing the samples"]
+    #[doc = " @param nb_channels      the number of channels"]
+    #[doc = " @param nb_samples       the number of samples in a single channel"]
+    #[doc = " @param sample_fmt       the sample format"]
+    #[doc = " @param align            buffer size alignment (0 = default, 1 = no alignment)"]
+    #[doc = " @return                 minimum size in bytes required for the buffer on success,"]
+    #[doc = "                         or a negative error code on failure"]
+    pub fn av_samples_fill_arrays(
+        audio_data: *mut *mut u8,
+        linesize: *mut ::std::os::raw::c_int,
+        buf: *const u8,
+        nb_channels: ::std::os::raw::c_int,
+        nb_samples: ::std::os::raw::c_int,
+        sample_fmt: AVSampleFormat,
+        align: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Allocate a samples buffer for nb_samples samples, and fill data pointers and"]
+    #[doc = " linesize accordingly."]
+    #[doc = " The allocated samples buffer can be freed by using av_freep(&audio_data[0])"]
+    #[doc = " Allocated data will be initialized to silence."]
+    #[doc = ""]
+    #[doc = " @see enum AVSampleFormat"]
+    #[doc = " The documentation for AVSampleFormat describes the data layout."]
+    #[doc = ""]
+    #[doc = " @param[out] audio_data  array to be filled with the pointer for each channel"]
+    #[doc = " @param[out] linesize    aligned size for audio buffer(s), may be NULL"]
+    #[doc = " @param nb_channels      number of audio channels"]
+    #[doc = " @param nb_samples       number of samples per channel"]
+    #[doc = " @param align            buffer size alignment (0 = default, 1 = no alignment)"]
+    #[doc = " @return                 >=0 on success or a negative error code on failure"]
+    #[doc = " @todo return the size of the allocated buffer in case of success at the next bump"]
+    #[doc = " @see av_samples_fill_arrays()"]
+    #[doc = " @see av_samples_alloc_array_and_samples()"]
+    pub fn av_samples_alloc(
+        audio_data: *mut *mut u8,
+        linesize: *mut ::std::os::raw::c_int,
+        nb_channels: ::std::os::raw::c_int,
+        nb_samples: ::std::os::raw::c_int,
+        sample_fmt: AVSampleFormat,
+        align: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Allocate a data pointers array, samples buffer for nb_samples"]
+    #[doc = " samples, and fill data pointers and linesize accordingly."]
+    #[doc = ""]
+    #[doc = " This is the same as av_samples_alloc(), but also allocates the data"]
+    #[doc = " pointers array."]
+    #[doc = ""]
+    #[doc = " @see av_samples_alloc()"]
+    pub fn av_samples_alloc_array_and_samples(
+        audio_data: *mut *mut *mut u8,
+        linesize: *mut ::std::os::raw::c_int,
+        nb_channels: ::std::os::raw::c_int,
+        nb_samples: ::std::os::raw::c_int,
+        sample_fmt: AVSampleFormat,
+        align: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Copy samples from src to dst."]
+    #[doc = ""]
+    #[doc = " @param dst destination array of pointers to data planes"]
+    #[doc = " @param src source array of pointers to data planes"]
+    #[doc = " @param dst_offset offset in samples at which the data will be written to dst"]
+    #[doc = " @param src_offset offset in samples at which the data will be read from src"]
+    #[doc = " @param nb_samples number of samples to be copied"]
+    #[doc = " @param nb_channels number of audio channels"]
+    #[doc = " @param sample_fmt audio sample format"]
+    pub fn av_samples_copy(
+        dst: *mut *mut u8,
+        src: *const *mut u8,
+        dst_offset: ::std::os::raw::c_int,
+        src_offset: ::std::os::raw::c_int,
+        nb_samples: ::std::os::raw::c_int,
+        nb_channels: ::std::os::raw::c_int,
+        sample_fmt: AVSampleFormat,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Fill an audio buffer with silence."]
+    #[doc = ""]
+    #[doc = " @param audio_data  array of pointers to data planes"]
+    #[doc = " @param offset      offset in samples at which to start filling"]
+    #[doc = " @param nb_samples  number of samples to fill"]
+    #[doc = " @param nb_channels number of audio channels"]
+    #[doc = " @param sample_fmt  audio sample format"]
+    pub fn av_samples_set_silence(
+        audio_data: *mut *mut u8,
+        offset: ::std::os::raw::c_int,
+        nb_samples: ::std::os::raw::c_int,
+        nb_channels: ::std::os::raw::c_int,
+        sample_fmt: AVSampleFormat,
+    ) -> ::std::os::raw::c_int;
+}
 extern "C" {
     #[doc = " Return the LIBAVUTIL_VERSION_INT constant."]
     pub fn avutil_version() -> ::std::os::raw::c_uint;
@@ -13482,6 +13686,11 @@ fn bindgen_test_layout_sigval() {
     }
     test_field_sival_ptr();
 }
+impl ::std::fmt::Debug for sigval {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "sigval {{ union }}")
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct sigevent {
@@ -13588,6 +13797,11 @@ fn bindgen_test_layout_sigevent() {
         );
     }
     test_field_sigev_notify_attributes();
+}
+impl ::std::fmt::Debug for sigevent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "sigevent {{ sigev_notify: {:?}, sigev_signo: {:?}, sigev_value: {:?}, sigev_notify_function: {:?}, sigev_notify_attributes: {:?} }}" , self . sigev_notify , self . sigev_signo , self . sigev_value , self . sigev_notify_function , self . sigev_notify_attributes)
+    }
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -13786,6 +14000,11 @@ fn bindgen_test_layout___siginfo() {
     }
     test_field___pad();
 }
+impl ::std::fmt::Debug for __siginfo {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "__siginfo {{ si_signo: {:?}, si_errno: {:?}, si_code: {:?}, si_pid: {:?}, si_uid: {:?}, si_status: {:?}, si_addr: {:?}, si_value: {:?}, si_band: {:?}, __pad: {:?} }}" , self . si_signo , self . si_errno , self . si_code , self . si_pid , self . si_uid , self . si_status , self . si_addr , self . si_value , self . si_band , self . __pad)
+    }
+}
 pub type siginfo_t = __siginfo;
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -13845,6 +14064,11 @@ fn bindgen_test_layout___sigaction_u() {
         );
     }
     test_field___sa_sigaction();
+}
+impl ::std::fmt::Debug for __sigaction_u {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "__sigaction_u {{ union }}")
+    }
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -13943,6 +14167,15 @@ fn bindgen_test_layout___sigaction() {
     }
     test_field_sa_flags();
 }
+impl ::std::fmt::Debug for __sigaction {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(
+            f,
+            "__sigaction {{ __sigaction_u: {:?}, sa_tramp: {:?}, sa_mask: {:?}, sa_flags: {:?} }}",
+            self.__sigaction_u, self.sa_tramp, self.sa_mask, self.sa_flags
+        )
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct sigaction {
@@ -14013,6 +14246,15 @@ fn bindgen_test_layout_sigaction() {
         );
     }
     test_field_sa_flags();
+}
+impl ::std::fmt::Debug for sigaction {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(
+            f,
+            "sigaction {{ __sigaction_u: {:?}, sa_mask: {:?}, sa_flags: {:?} }}",
+            self.__sigaction_u, self.sa_mask, self.sa_flags
+        )
+    }
 }
 pub type sig_t = ::std::option::Option<unsafe extern "C" fn(arg1: ::std::os::raw::c_int)>;
 #[repr(C)]
@@ -17647,6 +17889,11 @@ fn bindgen_test_layout_wait() {
     }
     test_field_w_S();
 }
+impl ::std::fmt::Debug for wait {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "wait {{ union }}")
+    }
+}
 extern "C" {
     pub fn wait(arg1: *mut ::std::os::raw::c_int) -> pid_t;
 }
@@ -18842,8 +19089,7 @@ extern "C" {
 extern "C" {
     #[doc = " Allocate, reallocate, or free a block of memory."]
     #[doc = ""]
-    #[doc = " If `ptr` is `NULL` and `size` > 0, allocate a new block. If `size` is"]
-    #[doc = " zero, free the memory block pointed to by `ptr`. Otherwise, expand or"]
+    #[doc = " If `ptr` is `NULL` and `size` > 0, allocate a new block. Otherwise, expand or"]
     #[doc = " shrink that block of memory according to `size`."]
     #[doc = ""]
     #[doc = " @param ptr  Pointer to a memory block already allocated with"]
@@ -18852,10 +19098,11 @@ extern "C" {
     #[doc = "             reallocated"]
     #[doc = ""]
     #[doc = " @return Pointer to a newly-reallocated block or `NULL` if the block"]
-    #[doc = "         cannot be reallocated or the function is used to free the memory block"]
+    #[doc = "         cannot be reallocated"]
     #[doc = ""]
     #[doc = " @warning Unlike av_malloc(), the returned pointer is not guaranteed to be"]
-    #[doc = "          correctly aligned."]
+    #[doc = "          correctly aligned. The returned pointer must be freed after even"]
+    #[doc = "          if size is zero."]
     #[doc = " @see av_fast_realloc()"]
     #[doc = " @see av_reallocp()"]
     pub fn av_realloc(
@@ -18906,8 +19153,7 @@ extern "C" {
 extern "C" {
     #[doc = " Allocate, reallocate, or free an array."]
     #[doc = ""]
-    #[doc = " If `ptr` is `NULL` and `nmemb` > 0, allocate a new block. If"]
-    #[doc = " `nmemb` is zero, free the memory block pointed to by `ptr`."]
+    #[doc = " If `ptr` is `NULL` and `nmemb` > 0, allocate a new block."]
     #[doc = ""]
     #[doc = " @param ptr   Pointer to a memory block already allocated with"]
     #[doc = "              av_realloc() or `NULL`"]
@@ -18915,10 +19161,11 @@ extern "C" {
     #[doc = " @param size  Size of the single element of the array"]
     #[doc = ""]
     #[doc = " @return Pointer to a newly-reallocated block or NULL if the block"]
-    #[doc = "         cannot be reallocated or the function is used to free the memory block"]
+    #[doc = "         cannot be reallocated"]
     #[doc = ""]
     #[doc = " @warning Unlike av_malloc(), the allocated memory is not guaranteed to be"]
-    #[doc = "          correctly aligned."]
+    #[doc = "          correctly aligned. The returned pointer must be freed after even if"]
+    #[doc = "          nmemb is zero."]
     #[doc = " @see av_reallocp_array()"]
     pub fn av_realloc_array(
         ptr: *mut ::std::os::raw::c_void,
@@ -18927,10 +19174,9 @@ extern "C" {
     ) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    #[doc = " Allocate, reallocate, or free an array through a pointer to a pointer."]
+    #[doc = " Allocate, reallocate an array through a pointer to a pointer."]
     #[doc = ""]
-    #[doc = " If `*ptr` is `NULL` and `nmemb` > 0, allocate a new block. If `nmemb` is"]
-    #[doc = " zero, free the memory block pointed to by `*ptr`."]
+    #[doc = " If `*ptr` is `NULL` and `nmemb` > 0, allocate a new block."]
     #[doc = ""]
     #[doc = " @param[in,out] ptr   Pointer to a pointer to a memory block already"]
     #[doc = "                      allocated with av_realloc(), or a pointer to `NULL`."]
@@ -18941,7 +19187,7 @@ extern "C" {
     #[doc = " @return Zero on success, an AVERROR error code on failure"]
     #[doc = ""]
     #[doc = " @warning Unlike av_malloc(), the allocated memory is not guaranteed to be"]
-    #[doc = "          correctly aligned."]
+    #[doc = "          correctly aligned. *ptr must be freed after even if nmemb is zero."]
     pub fn av_reallocp_array(
         ptr: *mut ::std::os::raw::c_void,
         nmemb: size_t,
@@ -19436,6 +19682,11 @@ fn bindgen_test_layout_av_intfloat32() {
     }
     test_field_f();
 }
+impl ::std::fmt::Debug for av_intfloat32 {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "av_intfloat32 {{ union }}")
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union av_intfloat64 {
@@ -19488,6 +19739,11 @@ fn bindgen_test_layout_av_intfloat64() {
         );
     }
     test_field_f();
+}
+impl ::std::fmt::Debug for av_intfloat64 {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "av_intfloat64 {{ union }}")
+    }
 }
 #[doc = "< Round toward zero."]
 pub const AVRounding_AV_ROUND_ZERO: AVRounding = 0;
@@ -20554,7 +20810,7 @@ pub const AVPixelFormat_AV_PIX_FMT_P410BE: AVPixelFormat = 200;
 pub const AVPixelFormat_AV_PIX_FMT_P410LE: AVPixelFormat = 201;
 #[doc = "< interleaved chroma YUV 4:2:2, 32bpp, big-endian"]
 pub const AVPixelFormat_AV_PIX_FMT_P216BE: AVPixelFormat = 202;
-#[doc = "< interleaved chroma YUV 4:2:2, 32bpp, liddle-endian"]
+#[doc = "< interleaved chroma YUV 4:2:2, 32bpp, little-endian"]
 pub const AVPixelFormat_AV_PIX_FMT_P216LE: AVPixelFormat = 203;
 #[doc = "< interleaved chroma YUV 4:4:4, 48bpp, big-endian"]
 pub const AVPixelFormat_AV_PIX_FMT_P416BE: AVPixelFormat = 204;
@@ -20790,6 +21046,9 @@ extern "C" {
     #[doc = " Open a file using a UTF-8 filename."]
     #[doc = " The API of this function matches POSIX fopen(), errors are returned through"]
     #[doc = " errno."]
+    #[doc = " @deprecated Avoid using it, as on Windows, the FILE* allocated by this"]
+    #[doc = "             function may be allocated with a different CRT than the caller"]
+    #[doc = "             who uses the FILE*. No replacement provided in public API."]
     pub fn av_fopen_utf8(
         path: *const ::std::os::raw::c_char,
         mode: *const ::std::os::raw::c_char,
@@ -20810,260 +21069,6 @@ extern "C" {
         buf: *mut ::std::os::raw::c_char,
         fourcc: u32,
     ) -> *mut ::std::os::raw::c_char;
-}
-pub const AVSampleFormat_AV_SAMPLE_FMT_NONE: AVSampleFormat = -1;
-#[doc = "< unsigned 8 bits"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_U8: AVSampleFormat = 0;
-#[doc = "< signed 16 bits"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_S16: AVSampleFormat = 1;
-#[doc = "< signed 32 bits"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_S32: AVSampleFormat = 2;
-#[doc = "< float"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_FLT: AVSampleFormat = 3;
-#[doc = "< double"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_DBL: AVSampleFormat = 4;
-#[doc = "< unsigned 8 bits, planar"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_U8P: AVSampleFormat = 5;
-#[doc = "< signed 16 bits, planar"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_S16P: AVSampleFormat = 6;
-#[doc = "< signed 32 bits, planar"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_S32P: AVSampleFormat = 7;
-#[doc = "< float, planar"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_FLTP: AVSampleFormat = 8;
-#[doc = "< double, planar"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_DBLP: AVSampleFormat = 9;
-#[doc = "< signed 64 bits"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_S64: AVSampleFormat = 10;
-#[doc = "< signed 64 bits, planar"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_S64P: AVSampleFormat = 11;
-#[doc = "< Number of sample formats. DO NOT USE if linking dynamically"]
-pub const AVSampleFormat_AV_SAMPLE_FMT_NB: AVSampleFormat = 12;
-#[doc = " Audio sample formats"]
-#[doc = ""]
-#[doc = " - The data described by the sample format is always in native-endian order."]
-#[doc = "   Sample values can be expressed by native C types, hence the lack of a signed"]
-#[doc = "   24-bit sample format even though it is a common raw audio data format."]
-#[doc = ""]
-#[doc = " - The floating-point formats are based on full volume being in the range"]
-#[doc = "   [-1.0, 1.0]. Any values outside this range are beyond full volume level."]
-#[doc = ""]
-#[doc = " - The data layout as used in av_samples_fill_arrays() and elsewhere in FFmpeg"]
-#[doc = "   (such as AVFrame in libavcodec) is as follows:"]
-#[doc = ""]
-#[doc = " @par"]
-#[doc = " For planar sample formats, each audio channel is in a separate data plane,"]
-#[doc = " and linesize is the buffer size, in bytes, for a single plane. All data"]
-#[doc = " planes must be the same size. For packed sample formats, only the first data"]
-#[doc = " plane is used, and samples for each channel are interleaved. In this case,"]
-#[doc = " linesize is the buffer size, in bytes, for the 1 plane."]
-#[doc = ""]
-pub type AVSampleFormat = ::std::os::raw::c_int;
-extern "C" {
-    #[doc = " Return the name of sample_fmt, or NULL if sample_fmt is not"]
-    #[doc = " recognized."]
-    pub fn av_get_sample_fmt_name(sample_fmt: AVSampleFormat) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    #[doc = " Return a sample format corresponding to name, or AV_SAMPLE_FMT_NONE"]
-    #[doc = " on error."]
-    pub fn av_get_sample_fmt(name: *const ::std::os::raw::c_char) -> AVSampleFormat;
-}
-extern "C" {
-    #[doc = " Return the planar<->packed alternative form of the given sample format, or"]
-    #[doc = " AV_SAMPLE_FMT_NONE on error. If the passed sample_fmt is already in the"]
-    #[doc = " requested planar/packed format, the format returned is the same as the"]
-    #[doc = " input."]
-    pub fn av_get_alt_sample_fmt(
-        sample_fmt: AVSampleFormat,
-        planar: ::std::os::raw::c_int,
-    ) -> AVSampleFormat;
-}
-extern "C" {
-    #[doc = " Get the packed alternative form of the given sample format."]
-    #[doc = ""]
-    #[doc = " If the passed sample_fmt is already in packed format, the format returned is"]
-    #[doc = " the same as the input."]
-    #[doc = ""]
-    #[doc = " @return  the packed alternative form of the given sample format or"]
-    #[doc = "AV_SAMPLE_FMT_NONE on error."]
-    pub fn av_get_packed_sample_fmt(sample_fmt: AVSampleFormat) -> AVSampleFormat;
-}
-extern "C" {
-    #[doc = " Get the planar alternative form of the given sample format."]
-    #[doc = ""]
-    #[doc = " If the passed sample_fmt is already in planar format, the format returned is"]
-    #[doc = " the same as the input."]
-    #[doc = ""]
-    #[doc = " @return  the planar alternative form of the given sample format or"]
-    #[doc = "AV_SAMPLE_FMT_NONE on error."]
-    pub fn av_get_planar_sample_fmt(sample_fmt: AVSampleFormat) -> AVSampleFormat;
-}
-extern "C" {
-    #[doc = " Generate a string corresponding to the sample format with"]
-    #[doc = " sample_fmt, or a header if sample_fmt is negative."]
-    #[doc = ""]
-    #[doc = " @param buf the buffer where to write the string"]
-    #[doc = " @param buf_size the size of buf"]
-    #[doc = " @param sample_fmt the number of the sample format to print the"]
-    #[doc = " corresponding info string, or a negative value to print the"]
-    #[doc = " corresponding header."]
-    #[doc = " @return the pointer to the filled buffer or NULL if sample_fmt is"]
-    #[doc = " unknown or in case of other errors"]
-    pub fn av_get_sample_fmt_string(
-        buf: *mut ::std::os::raw::c_char,
-        buf_size: ::std::os::raw::c_int,
-        sample_fmt: AVSampleFormat,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    #[doc = " Return number of bytes per sample."]
-    #[doc = ""]
-    #[doc = " @param sample_fmt the sample format"]
-    #[doc = " @return number of bytes per sample or zero if unknown for the given"]
-    #[doc = " sample format"]
-    pub fn av_get_bytes_per_sample(sample_fmt: AVSampleFormat) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Check if the sample format is planar."]
-    #[doc = ""]
-    #[doc = " @param sample_fmt the sample format to inspect"]
-    #[doc = " @return 1 if the sample format is planar, 0 if it is interleaved"]
-    pub fn av_sample_fmt_is_planar(sample_fmt: AVSampleFormat) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Get the required buffer size for the given audio parameters."]
-    #[doc = ""]
-    #[doc = " @param[out] linesize calculated linesize, may be NULL"]
-    #[doc = " @param nb_channels   the number of channels"]
-    #[doc = " @param nb_samples    the number of samples in a single channel"]
-    #[doc = " @param sample_fmt    the sample format"]
-    #[doc = " @param align         buffer size alignment (0 = default, 1 = no alignment)"]
-    #[doc = " @return              required buffer size, or negative error code on failure"]
-    pub fn av_samples_get_buffer_size(
-        linesize: *mut ::std::os::raw::c_int,
-        nb_channels: ::std::os::raw::c_int,
-        nb_samples: ::std::os::raw::c_int,
-        sample_fmt: AVSampleFormat,
-        align: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Fill plane data pointers and linesize for samples with sample"]
-    #[doc = " format sample_fmt."]
-    #[doc = ""]
-    #[doc = " The audio_data array is filled with the pointers to the samples data planes:"]
-    #[doc = " for planar, set the start point of each channel's data within the buffer,"]
-    #[doc = " for packed, set the start point of the entire buffer only."]
-    #[doc = ""]
-    #[doc = " The value pointed to by linesize is set to the aligned size of each"]
-    #[doc = " channel's data buffer for planar layout, or to the aligned size of the"]
-    #[doc = " buffer for all channels for packed layout."]
-    #[doc = ""]
-    #[doc = " The buffer in buf must be big enough to contain all the samples"]
-    #[doc = " (use av_samples_get_buffer_size() to compute its minimum size),"]
-    #[doc = " otherwise the audio_data pointers will point to invalid data."]
-    #[doc = ""]
-    #[doc = " @see enum AVSampleFormat"]
-    #[doc = " The documentation for AVSampleFormat describes the data layout."]
-    #[doc = ""]
-    #[doc = " @param[out] audio_data  array to be filled with the pointer for each channel"]
-    #[doc = " @param[out] linesize    calculated linesize, may be NULL"]
-    #[doc = " @param buf              the pointer to a buffer containing the samples"]
-    #[doc = " @param nb_channels      the number of channels"]
-    #[doc = " @param nb_samples       the number of samples in a single channel"]
-    #[doc = " @param sample_fmt       the sample format"]
-    #[doc = " @param align            buffer size alignment (0 = default, 1 = no alignment)"]
-    #[doc = " @return                 minimum size in bytes required for the buffer on success,"]
-    #[doc = "                         or a negative error code on failure"]
-    pub fn av_samples_fill_arrays(
-        audio_data: *mut *mut u8,
-        linesize: *mut ::std::os::raw::c_int,
-        buf: *const u8,
-        nb_channels: ::std::os::raw::c_int,
-        nb_samples: ::std::os::raw::c_int,
-        sample_fmt: AVSampleFormat,
-        align: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Allocate a samples buffer for nb_samples samples, and fill data pointers and"]
-    #[doc = " linesize accordingly."]
-    #[doc = " The allocated samples buffer can be freed by using av_freep(&audio_data[0])"]
-    #[doc = " Allocated data will be initialized to silence."]
-    #[doc = ""]
-    #[doc = " @see enum AVSampleFormat"]
-    #[doc = " The documentation for AVSampleFormat describes the data layout."]
-    #[doc = ""]
-    #[doc = " @param[out] audio_data  array to be filled with the pointer for each channel"]
-    #[doc = " @param[out] linesize    aligned size for audio buffer(s), may be NULL"]
-    #[doc = " @param nb_channels      number of audio channels"]
-    #[doc = " @param nb_samples       number of samples per channel"]
-    #[doc = " @param align            buffer size alignment (0 = default, 1 = no alignment)"]
-    #[doc = " @return                 >=0 on success or a negative error code on failure"]
-    #[doc = " @todo return the size of the allocated buffer in case of success at the next bump"]
-    #[doc = " @see av_samples_fill_arrays()"]
-    #[doc = " @see av_samples_alloc_array_and_samples()"]
-    pub fn av_samples_alloc(
-        audio_data: *mut *mut u8,
-        linesize: *mut ::std::os::raw::c_int,
-        nb_channels: ::std::os::raw::c_int,
-        nb_samples: ::std::os::raw::c_int,
-        sample_fmt: AVSampleFormat,
-        align: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Allocate a data pointers array, samples buffer for nb_samples"]
-    #[doc = " samples, and fill data pointers and linesize accordingly."]
-    #[doc = ""]
-    #[doc = " This is the same as av_samples_alloc(), but also allocates the data"]
-    #[doc = " pointers array."]
-    #[doc = ""]
-    #[doc = " @see av_samples_alloc()"]
-    pub fn av_samples_alloc_array_and_samples(
-        audio_data: *mut *mut *mut u8,
-        linesize: *mut ::std::os::raw::c_int,
-        nb_channels: ::std::os::raw::c_int,
-        nb_samples: ::std::os::raw::c_int,
-        sample_fmt: AVSampleFormat,
-        align: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Copy samples from src to dst."]
-    #[doc = ""]
-    #[doc = " @param dst destination array of pointers to data planes"]
-    #[doc = " @param src source array of pointers to data planes"]
-    #[doc = " @param dst_offset offset in samples at which the data will be written to dst"]
-    #[doc = " @param src_offset offset in samples at which the data will be read from src"]
-    #[doc = " @param nb_samples number of samples to be copied"]
-    #[doc = " @param nb_channels number of audio channels"]
-    #[doc = " @param sample_fmt audio sample format"]
-    pub fn av_samples_copy(
-        dst: *mut *mut u8,
-        src: *const *mut u8,
-        dst_offset: ::std::os::raw::c_int,
-        src_offset: ::std::os::raw::c_int,
-        nb_samples: ::std::os::raw::c_int,
-        nb_channels: ::std::os::raw::c_int,
-        sample_fmt: AVSampleFormat,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Fill an audio buffer with silence."]
-    #[doc = ""]
-    #[doc = " @param audio_data  array of pointers to data planes"]
-    #[doc = " @param offset      offset in samples at which to start filling"]
-    #[doc = " @param nb_samples  number of samples to fill"]
-    #[doc = " @param nb_channels number of audio channels"]
-    #[doc = " @param sample_fmt  audio sample format"]
-    pub fn av_samples_set_silence(
-        audio_data: *mut *mut u8,
-        offset: ::std::os::raw::c_int,
-        nb_samples: ::std::os::raw::c_int,
-        nb_channels: ::std::os::raw::c_int,
-        sample_fmt: AVSampleFormat,
-    ) -> ::std::os::raw::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -21520,6 +21525,784 @@ extern "C" {
         pairs_sep: ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
+pub const AVChannel_AV_CHAN_NONE: AVChannel = -1;
+pub const AVChannel_AV_CHAN_FRONT_LEFT: AVChannel = 0;
+pub const AVChannel_AV_CHAN_FRONT_RIGHT: AVChannel = 1;
+pub const AVChannel_AV_CHAN_FRONT_CENTER: AVChannel = 2;
+pub const AVChannel_AV_CHAN_LOW_FREQUENCY: AVChannel = 3;
+pub const AVChannel_AV_CHAN_BACK_LEFT: AVChannel = 4;
+pub const AVChannel_AV_CHAN_BACK_RIGHT: AVChannel = 5;
+pub const AVChannel_AV_CHAN_FRONT_LEFT_OF_CENTER: AVChannel = 6;
+pub const AVChannel_AV_CHAN_FRONT_RIGHT_OF_CENTER: AVChannel = 7;
+pub const AVChannel_AV_CHAN_BACK_CENTER: AVChannel = 8;
+pub const AVChannel_AV_CHAN_SIDE_LEFT: AVChannel = 9;
+pub const AVChannel_AV_CHAN_SIDE_RIGHT: AVChannel = 10;
+pub const AVChannel_AV_CHAN_TOP_CENTER: AVChannel = 11;
+pub const AVChannel_AV_CHAN_TOP_FRONT_LEFT: AVChannel = 12;
+pub const AVChannel_AV_CHAN_TOP_FRONT_CENTER: AVChannel = 13;
+pub const AVChannel_AV_CHAN_TOP_FRONT_RIGHT: AVChannel = 14;
+pub const AVChannel_AV_CHAN_TOP_BACK_LEFT: AVChannel = 15;
+pub const AVChannel_AV_CHAN_TOP_BACK_CENTER: AVChannel = 16;
+pub const AVChannel_AV_CHAN_TOP_BACK_RIGHT: AVChannel = 17;
+#[doc = " Stereo downmix."]
+pub const AVChannel_AV_CHAN_STEREO_LEFT: AVChannel = 29;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_STEREO_RIGHT: AVChannel = 30;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_WIDE_LEFT: AVChannel = 31;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_WIDE_RIGHT: AVChannel = 32;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_SURROUND_DIRECT_LEFT: AVChannel = 33;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_SURROUND_DIRECT_RIGHT: AVChannel = 34;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_LOW_FREQUENCY_2: AVChannel = 35;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_TOP_SIDE_LEFT: AVChannel = 36;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_TOP_SIDE_RIGHT: AVChannel = 37;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_BOTTOM_FRONT_CENTER: AVChannel = 38;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_BOTTOM_FRONT_LEFT: AVChannel = 39;
+#[doc = " See above."]
+pub const AVChannel_AV_CHAN_BOTTOM_FRONT_RIGHT: AVChannel = 40;
+#[doc = " Channel is empty can be safely skipped."]
+pub const AVChannel_AV_CHAN_UNUSED: AVChannel = 512;
+#[doc = " Channel contains data, but its position is unknown."]
+pub const AVChannel_AV_CHAN_UNKNOWN: AVChannel = 768;
+#[doc = " Range of channels between AV_CHAN_AMBISONIC_BASE and"]
+#[doc = " AV_CHAN_AMBISONIC_END represent Ambisonic components using the ACN system."]
+#[doc = ""]
+#[doc = " Given a channel id <i> between AV_CHAN_AMBISONIC_BASE and"]
+#[doc = " AV_CHAN_AMBISONIC_END (inclusive), the ACN index of the channel <n> is"]
+#[doc = " <n> = <i> - AV_CHAN_AMBISONIC_BASE."]
+#[doc = ""]
+#[doc = " @note these values are only used for AV_CHANNEL_ORDER_CUSTOM channel"]
+#[doc = " orderings, the AV_CHANNEL_ORDER_AMBISONIC ordering orders the channels"]
+#[doc = " implicitly by their position in the stream."]
+pub const AVChannel_AV_CHAN_AMBISONIC_BASE: AVChannel = 1024;
+#[doc = " Range of channels between AV_CHAN_AMBISONIC_BASE and"]
+#[doc = " AV_CHAN_AMBISONIC_END represent Ambisonic components using the ACN system."]
+#[doc = ""]
+#[doc = " Given a channel id <i> between AV_CHAN_AMBISONIC_BASE and"]
+#[doc = " AV_CHAN_AMBISONIC_END (inclusive), the ACN index of the channel <n> is"]
+#[doc = " <n> = <i> - AV_CHAN_AMBISONIC_BASE."]
+#[doc = ""]
+#[doc = " @note these values are only used for AV_CHANNEL_ORDER_CUSTOM channel"]
+#[doc = " orderings, the AV_CHANNEL_ORDER_AMBISONIC ordering orders the channels"]
+#[doc = " implicitly by their position in the stream."]
+pub const AVChannel_AV_CHAN_AMBISONIC_END: AVChannel = 2047;
+#[doc = " @addtogroup lavu_audio"]
+#[doc = " @{"]
+pub type AVChannel = ::std::os::raw::c_int;
+#[doc = " Only the channel count is specified, without any further information"]
+#[doc = " about the channel order."]
+pub const AVChannelOrder_AV_CHANNEL_ORDER_UNSPEC: AVChannelOrder = 0;
+#[doc = " The native channel order, i.e. the channels are in the same order in"]
+#[doc = " which they are defined in the AVChannel enum. This supports up to 63"]
+#[doc = " different channels."]
+pub const AVChannelOrder_AV_CHANNEL_ORDER_NATIVE: AVChannelOrder = 1;
+#[doc = " The channel order does not correspond to any other predefined order and"]
+#[doc = " is stored as an explicit map. For example, this could be used to support"]
+#[doc = " layouts with 64 or more channels, or with empty/skipped (AV_CHAN_SILENCE)"]
+#[doc = " channels at arbitrary positions."]
+pub const AVChannelOrder_AV_CHANNEL_ORDER_CUSTOM: AVChannelOrder = 2;
+#[doc = " The audio is represented as the decomposition of the sound field into"]
+#[doc = " spherical harmonics. Each channel corresponds to a single expansion"]
+#[doc = " component. Channels are ordered according to ACN (Ambisonic Channel"]
+#[doc = " Number)."]
+#[doc = ""]
+#[doc = " The channel with the index n in the stream contains the spherical"]
+#[doc = " harmonic of degree l and order m given by"]
+#[doc = " @code{.unparsed}"]
+#[doc = "   l   = floor(sqrt(n)),"]
+#[doc = "   m   = n - l * (l + 1)."]
+#[doc = " @endcode"]
+#[doc = ""]
+#[doc = " Conversely given a spherical harmonic of degree l and order m, the"]
+#[doc = " corresponding channel index n is given by"]
+#[doc = " @code{.unparsed}"]
+#[doc = "   n = l * (l + 1) + m."]
+#[doc = " @endcode"]
+#[doc = ""]
+#[doc = " Normalization is assumed to be SN3D (Schmidt Semi-Normalization)"]
+#[doc = " as defined in AmbiX format $ 2.1."]
+pub const AVChannelOrder_AV_CHANNEL_ORDER_AMBISONIC: AVChannelOrder = 3;
+pub type AVChannelOrder = ::std::os::raw::c_uint;
+pub const AVMatrixEncoding_AV_MATRIX_ENCODING_NONE: AVMatrixEncoding = 0;
+pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DOLBY: AVMatrixEncoding = 1;
+pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DPLII: AVMatrixEncoding = 2;
+pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DPLIIX: AVMatrixEncoding = 3;
+pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DPLIIZ: AVMatrixEncoding = 4;
+pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DOLBYEX: AVMatrixEncoding = 5;
+pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DOLBYHEADPHONE: AVMatrixEncoding = 6;
+pub const AVMatrixEncoding_AV_MATRIX_ENCODING_NB: AVMatrixEncoding = 7;
+pub type AVMatrixEncoding = ::std::os::raw::c_uint;
+#[doc = " An AVChannelCustom defines a single channel within a custom order layout"]
+#[doc = ""]
+#[doc = " Unlike most structures in FFmpeg, sizeof(AVChannelCustom) is a part of the"]
+#[doc = " public ABI."]
+#[doc = ""]
+#[doc = " No new fields may be added to it without a major version bump."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct AVChannelCustom {
+    pub id: AVChannel,
+    pub name: [::std::os::raw::c_char; 16usize],
+    pub opaque: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_AVChannelCustom() {
+    assert_eq!(
+        ::std::mem::size_of::<AVChannelCustom>(),
+        32usize,
+        concat!("Size of: ", stringify!(AVChannelCustom))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVChannelCustom>(),
+        8usize,
+        concat!("Alignment of ", stringify!(AVChannelCustom))
+    );
+    fn test_field_id() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelCustom>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelCustom),
+                "::",
+                stringify!(id)
+            )
+        );
+    }
+    test_field_id();
+    fn test_field_name() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelCustom>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize
+            },
+            4usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelCustom),
+                "::",
+                stringify!(name)
+            )
+        );
+    }
+    test_field_name();
+    fn test_field_opaque() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelCustom>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelCustom),
+                "::",
+                stringify!(opaque)
+            )
+        );
+    }
+    test_field_opaque();
+}
+#[doc = " An AVChannelLayout holds information about the channel layout of audio data."]
+#[doc = ""]
+#[doc = " A channel layout here is defined as a set of channels ordered in a specific"]
+#[doc = " way (unless the channel order is AV_CHANNEL_ORDER_UNSPEC, in which case an"]
+#[doc = " AVChannelLayout carries only the channel count)."]
+#[doc = ""]
+#[doc = " Unlike most structures in Libav, sizeof(AVChannelLayout) is a part of the"]
+#[doc = " public ABI and may be used by the caller. E.g. it may be allocated on stack"]
+#[doc = " or embedded in caller-defined structs."]
+#[doc = ""]
+#[doc = " AVChannelLayout can be initialized as follows:"]
+#[doc = " - default initialization with {0}, followed by setting all used fields"]
+#[doc = "   correctly;"]
+#[doc = " - by assigning one of the predefined AV_CHANNEL_LAYOUT_* initializers;"]
+#[doc = " - with a constructor function, such as av_channel_layout_default(),"]
+#[doc = "   av_channel_layout_from_mask() or av_channel_layout_from_string()."]
+#[doc = ""]
+#[doc = " The channel layout must be unitialized with av_channel_layout_uninit()"]
+#[doc = ""]
+#[doc = " Copying an AVChannelLayout via assigning is forbidden,"]
+#[doc = " av_channel_layout_copy() must be used instead (and its return value should"]
+#[doc = " be checked)"]
+#[doc = ""]
+#[doc = " No new fields may be added to it without a major version bump, except for"]
+#[doc = " new elements of the union fitting in sizeof(uint64_t)."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct AVChannelLayout {
+    #[doc = " Channel order used in this layout."]
+    #[doc = " This is a mandatory field."]
+    pub order: AVChannelOrder,
+    #[doc = " Number of channels in this layout. Mandatory field."]
+    pub nb_channels: ::std::os::raw::c_int,
+    pub u: AVChannelLayout__bindgen_ty_1,
+    #[doc = " For some private data of the user."]
+    pub opaque: *mut ::std::os::raw::c_void,
+}
+#[doc = " Details about which channels are present in this layout."]
+#[doc = " For AV_CHANNEL_ORDER_UNSPEC, this field is undefined and must not be"]
+#[doc = " used."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union AVChannelLayout__bindgen_ty_1 {
+    #[doc = " This member must be used for AV_CHANNEL_ORDER_NATIVE, and may be used"]
+    #[doc = " for AV_CHANNEL_ORDER_AMBISONIC to signal non-diegetic channels."]
+    #[doc = " It is a bitmask, where the position of each set bit means that the"]
+    #[doc = " AVChannel with the corresponding value is present."]
+    #[doc = ""]
+    #[doc = " I.e. when (mask & (1 << AV_CHAN_FOO)) is non-zero, then AV_CHAN_FOO"]
+    #[doc = " is present in the layout. Otherwise it is not present."]
+    #[doc = ""]
+    #[doc = " @note when a channel layout using a bitmask is constructed or"]
+    #[doc = " modified manually (i.e.  not using any of the av_channel_layout_*"]
+    #[doc = " functions), the code doing it must ensure that the number of set bits"]
+    #[doc = " is equal to nb_channels."]
+    pub mask: u64,
+    #[doc = " This member must be used when the channel order is"]
+    #[doc = " AV_CHANNEL_ORDER_CUSTOM. It is a nb_channels-sized array, with each"]
+    #[doc = " element signalling the presence of the AVChannel with the"]
+    #[doc = " corresponding value in map[i].id."]
+    #[doc = ""]
+    #[doc = " I.e. when map[i].id is equal to AV_CHAN_FOO, then AV_CH_FOO is the"]
+    #[doc = " i-th channel in the audio data."]
+    #[doc = ""]
+    #[doc = " When map[i].id is in the range between AV_CHAN_AMBISONIC_BASE and"]
+    #[doc = " AV_CHAN_AMBISONIC_END (inclusive), the channel contains an ambisonic"]
+    #[doc = " component with ACN index (as defined above)"]
+    #[doc = " n = map[i].id - AV_CHAN_AMBISONIC_BASE."]
+    #[doc = ""]
+    #[doc = " map[i].name may be filled with a 0-terminated string, in which case"]
+    #[doc = " it will be used for the purpose of identifying the channel with the"]
+    #[doc = " convenience functions below. Otherise it must be zeroed."]
+    pub map: *mut AVChannelCustom,
+}
+#[test]
+fn bindgen_test_layout_AVChannelLayout__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<AVChannelLayout__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(AVChannelLayout__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVChannelLayout__bindgen_ty_1>(),
+        8usize,
+        concat!("Alignment of ", stringify!(AVChannelLayout__bindgen_ty_1))
+    );
+    fn test_field_mask() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelLayout__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).mask) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelLayout__bindgen_ty_1),
+                "::",
+                stringify!(mask)
+            )
+        );
+    }
+    test_field_mask();
+    fn test_field_map() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelLayout__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).map) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelLayout__bindgen_ty_1),
+                "::",
+                stringify!(map)
+            )
+        );
+    }
+    test_field_map();
+}
+impl ::std::fmt::Debug for AVChannelLayout__bindgen_ty_1 {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "AVChannelLayout__bindgen_ty_1 {{ union }}")
+    }
+}
+#[test]
+fn bindgen_test_layout_AVChannelLayout() {
+    assert_eq!(
+        ::std::mem::size_of::<AVChannelLayout>(),
+        24usize,
+        concat!("Size of: ", stringify!(AVChannelLayout))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVChannelLayout>(),
+        8usize,
+        concat!("Alignment of ", stringify!(AVChannelLayout))
+    );
+    fn test_field_order() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelLayout>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).order) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelLayout),
+                "::",
+                stringify!(order)
+            )
+        );
+    }
+    test_field_order();
+    fn test_field_nb_channels() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelLayout>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).nb_channels) as usize - ptr as usize
+            },
+            4usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelLayout),
+                "::",
+                stringify!(nb_channels)
+            )
+        );
+    }
+    test_field_nb_channels();
+    fn test_field_u() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelLayout>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).u) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelLayout),
+                "::",
+                stringify!(u)
+            )
+        );
+    }
+    test_field_u();
+    fn test_field_opaque() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVChannelLayout>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVChannelLayout),
+                "::",
+                stringify!(opaque)
+            )
+        );
+    }
+    test_field_opaque();
+}
+impl ::std::fmt::Debug for AVChannelLayout {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(
+            f,
+            "AVChannelLayout {{ order: {:?}, nb_channels: {:?}, u: {:?}, opaque: {:?} }}",
+            self.order, self.nb_channels, self.u, self.opaque
+        )
+    }
+}
+extern "C" {
+    #[doc = " Return a channel layout id that matches name, or 0 if no match is found."]
+    #[doc = ""]
+    #[doc = " name can be one or several of the following notations,"]
+    #[doc = " separated by '+' or '|':"]
+    #[doc = " - the name of an usual channel layout (mono, stereo, 4.0, quad, 5.0,"]
+    #[doc = "   5.0(side), 5.1, 5.1(side), 7.1, 7.1(wide), downmix);"]
+    #[doc = " - the name of a single channel (FL, FR, FC, LFE, BL, BR, FLC, FRC, BC,"]
+    #[doc = "   SL, SR, TC, TFL, TFC, TFR, TBL, TBC, TBR, DL, DR);"]
+    #[doc = " - a number of channels, in decimal, followed by 'c', yielding"]
+    #[doc = "   the default channel layout for that number of channels (@see"]
+    #[doc = "   av_get_default_channel_layout);"]
+    #[doc = " - a channel layout mask, in hexadecimal starting with \"0x\" (see the"]
+    #[doc = "   AV_CH_* macros)."]
+    #[doc = ""]
+    #[doc = " Example: \"stereo+FC\" = \"2c+FC\" = \"2c+1c\" = \"0x7\""]
+    #[doc = ""]
+    #[doc = " @deprecated use av_channel_layout_from_string()"]
+    pub fn av_get_channel_layout(name: *const ::std::os::raw::c_char) -> u64;
+}
+extern "C" {
+    #[doc = " Return a channel layout and the number of channels based on the specified name."]
+    #[doc = ""]
+    #[doc = " This function is similar to (@see av_get_channel_layout), but can also parse"]
+    #[doc = " unknown channel layout specifications."]
+    #[doc = ""]
+    #[doc = " @param[in]  name             channel layout specification string"]
+    #[doc = " @param[out] channel_layout   parsed channel layout (0 if unknown)"]
+    #[doc = " @param[out] nb_channels      number of channels"]
+    #[doc = ""]
+    #[doc = " @return 0 on success, AVERROR(EINVAL) if the parsing fails."]
+    #[doc = " @deprecated use av_channel_layout_from_string()"]
+    pub fn av_get_extended_channel_layout(
+        name: *const ::std::os::raw::c_char,
+        channel_layout: *mut u64,
+        nb_channels: *mut ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Return a description of a channel layout."]
+    #[doc = " If nb_channels is <= 0, it is guessed from the channel_layout."]
+    #[doc = ""]
+    #[doc = " @param buf put here the string containing the channel layout"]
+    #[doc = " @param buf_size size in bytes of the buffer"]
+    #[doc = " @deprecated use av_channel_layout_describe()"]
+    pub fn av_get_channel_layout_string(
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: ::std::os::raw::c_int,
+        nb_channels: ::std::os::raw::c_int,
+        channel_layout: u64,
+    );
+}
+extern "C" {
+    #[doc = " Append a description of a channel layout to a bprint buffer."]
+    #[doc = " @deprecated use av_channel_layout_describe()"]
+    pub fn av_bprint_channel_layout(
+        bp: *mut AVBPrint,
+        nb_channels: ::std::os::raw::c_int,
+        channel_layout: u64,
+    );
+}
+extern "C" {
+    #[doc = " Return the number of channels in the channel layout."]
+    #[doc = " @deprecated use AVChannelLayout.nb_channels"]
+    pub fn av_get_channel_layout_nb_channels(channel_layout: u64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Return default channel layout for a given number of channels."]
+    #[doc = ""]
+    #[doc = " @deprecated use av_channel_layout_default()"]
+    pub fn av_get_default_channel_layout(nb_channels: ::std::os::raw::c_int) -> i64;
+}
+extern "C" {
+    #[doc = " Get the index of a channel in channel_layout."]
+    #[doc = ""]
+    #[doc = " @param channel a channel layout describing exactly one channel which must be"]
+    #[doc = "                present in channel_layout."]
+    #[doc = ""]
+    #[doc = " @return index of channel in channel_layout on success, a negative AVERROR"]
+    #[doc = "         on error."]
+    #[doc = ""]
+    #[doc = " @deprecated use av_channel_layout_index_from_channel()"]
+    pub fn av_get_channel_layout_channel_index(
+        channel_layout: u64,
+        channel: u64,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Get the channel with the given index in channel_layout."]
+    #[doc = " @deprecated use av_channel_layout_channel_from_index()"]
+    pub fn av_channel_layout_extract_channel(
+        channel_layout: u64,
+        index: ::std::os::raw::c_int,
+    ) -> u64;
+}
+extern "C" {
+    #[doc = " Get the name of a given channel."]
+    #[doc = ""]
+    #[doc = " @return channel name on success, NULL on error."]
+    #[doc = ""]
+    #[doc = " @deprecated use av_channel_name()"]
+    pub fn av_get_channel_name(channel: u64) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    #[doc = " Get the description of a given channel."]
+    #[doc = ""]
+    #[doc = " @param channel  a channel layout with a single channel"]
+    #[doc = " @return  channel description on success, NULL on error"]
+    #[doc = " @deprecated use av_channel_description()"]
+    pub fn av_get_channel_description(channel: u64) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    #[doc = " Get the value and name of a standard channel layout."]
+    #[doc = ""]
+    #[doc = " @param[in]  index   index in an internal list, starting at 0"]
+    #[doc = " @param[out] layout  channel layout mask"]
+    #[doc = " @param[out] name    name of the layout"]
+    #[doc = " @return  0  if the layout exists,"]
+    #[doc = "          <0 if index is beyond the limits"]
+    #[doc = " @deprecated use av_channel_layout_standard()"]
+    pub fn av_get_standard_channel_layout(
+        index: ::std::os::raw::c_uint,
+        layout: *mut u64,
+        name: *mut *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Get a human readable string in an abbreviated form describing a given channel."]
+    #[doc = " This is the inverse function of @ref av_channel_from_string()."]
+    #[doc = ""]
+    #[doc = " @param buf pre-allocated buffer where to put the generated string"]
+    #[doc = " @param buf_size size in bytes of the buffer."]
+    #[doc = " @return amount of bytes needed to hold the output string, or a negative AVERROR"]
+    #[doc = "         on failure. If the returned value is bigger than buf_size, then the"]
+    #[doc = "         string was truncated."]
+    pub fn av_channel_name(
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: size_t,
+        channel: AVChannel,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " bprint variant of av_channel_name()."]
+    #[doc = ""]
+    #[doc = " @note the string will be appended to the bprint buffer."]
+    pub fn av_channel_name_bprint(bp: *mut AVBPrint, channel_id: AVChannel);
+}
+extern "C" {
+    #[doc = " Get a human readable string describing a given channel."]
+    #[doc = ""]
+    #[doc = " @param buf pre-allocated buffer where to put the generated string"]
+    #[doc = " @param buf_size size in bytes of the buffer."]
+    #[doc = " @return amount of bytes needed to hold the output string, or a negative AVERROR"]
+    #[doc = "         on failure. If the returned value is bigger than buf_size, then the"]
+    #[doc = "         string was truncated."]
+    pub fn av_channel_description(
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: size_t,
+        channel: AVChannel,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " bprint variant of av_channel_description()."]
+    #[doc = ""]
+    #[doc = " @note the string will be appended to the bprint buffer."]
+    pub fn av_channel_description_bprint(bp: *mut AVBPrint, channel_id: AVChannel);
+}
+extern "C" {
+    #[doc = " This is the inverse function of @ref av_channel_name()."]
+    #[doc = ""]
+    #[doc = " @return the channel with the given name"]
+    #[doc = "         AV_CHAN_NONE when name does not identify a known channel"]
+    pub fn av_channel_from_string(name: *const ::std::os::raw::c_char) -> AVChannel;
+}
+extern "C" {
+    #[doc = " Initialize a native channel layout from a bitmask indicating which channels"]
+    #[doc = " are present."]
+    #[doc = ""]
+    #[doc = " @param channel_layout the layout structure to be initialized"]
+    #[doc = " @param mask bitmask describing the channel layout"]
+    #[doc = ""]
+    #[doc = " @return 0 on success"]
+    #[doc = "         AVERROR(EINVAL) for invalid mask values"]
+    pub fn av_channel_layout_from_mask(
+        channel_layout: *mut AVChannelLayout,
+        mask: u64,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Initialize a channel layout from a given string description."]
+    #[doc = " The input string can be represented by:"]
+    #[doc = "  - the formal channel layout name (returned by av_channel_layout_describe())"]
+    #[doc = "  - single or multiple channel names (returned by av_channel_name(), eg. \"FL\","]
+    #[doc = "    or concatenated with \"+\", each optionally containing a custom name after"]
+    #[doc = "    a \"@\", eg. \"FL@Left+FR@Right+LFE\")"]
+    #[doc = "  - a decimal or hexadecimal value of a native channel layout (eg. \"4\" or \"0x4\")"]
+    #[doc = "  - the number of channels with default layout (eg. \"4c\")"]
+    #[doc = "  - the number of unordered channels (eg. \"4C\" or \"4 channels\")"]
+    #[doc = "  - the ambisonic order followed by optional non-diegetic channels (eg."]
+    #[doc = "    \"ambisonic 2+stereo\")"]
+    #[doc = ""]
+    #[doc = " @param channel_layout input channel layout"]
+    #[doc = " @param str string describing the channel layout"]
+    #[doc = " @return 0 channel layout was detected, AVERROR_INVALIDATATA otherwise"]
+    pub fn av_channel_layout_from_string(
+        channel_layout: *mut AVChannelLayout,
+        str_: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Get the default channel layout for a given number of channels."]
+    #[doc = ""]
+    #[doc = " @param channel_layout the layout structure to be initialized"]
+    #[doc = " @param nb_channels number of channels"]
+    pub fn av_channel_layout_default(
+        ch_layout: *mut AVChannelLayout,
+        nb_channels: ::std::os::raw::c_int,
+    );
+}
+extern "C" {
+    #[doc = " Iterate over all standard channel layouts."]
+    #[doc = ""]
+    #[doc = " @param opaque a pointer where libavutil will store the iteration state. Must"]
+    #[doc = "               point to NULL to start the iteration."]
+    #[doc = ""]
+    #[doc = " @return the standard channel layout or NULL when the iteration is"]
+    #[doc = "         finished"]
+    pub fn av_channel_layout_standard(
+        opaque: *mut *mut ::std::os::raw::c_void,
+    ) -> *const AVChannelLayout;
+}
+extern "C" {
+    #[doc = " Free any allocated data in the channel layout and reset the channel"]
+    #[doc = " count to 0."]
+    #[doc = ""]
+    #[doc = " @param channel_layout the layout structure to be uninitialized"]
+    pub fn av_channel_layout_uninit(channel_layout: *mut AVChannelLayout);
+}
+extern "C" {
+    #[doc = " Make a copy of a channel layout. This differs from just assigning src to dst"]
+    #[doc = " in that it allocates and copies the map for AV_CHANNEL_ORDER_CUSTOM."]
+    #[doc = ""]
+    #[doc = " @note the destination channel_layout will be always uninitialized before copy."]
+    #[doc = ""]
+    #[doc = " @param dst destination channel layout"]
+    #[doc = " @param src source channel layout"]
+    #[doc = " @return 0 on success, a negative AVERROR on error."]
+    pub fn av_channel_layout_copy(
+        dst: *mut AVChannelLayout,
+        src: *const AVChannelLayout,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Get a human-readable string describing the channel layout properties."]
+    #[doc = " The string will be in the same format that is accepted by"]
+    #[doc = " @ref av_channel_layout_from_string(), allowing to rebuild the same"]
+    #[doc = " channel layout, except for opaque pointers."]
+    #[doc = ""]
+    #[doc = " @param channel_layout channel layout to be described"]
+    #[doc = " @param buf pre-allocated buffer where to put the generated string"]
+    #[doc = " @param buf_size size in bytes of the buffer."]
+    #[doc = " @return amount of bytes needed to hold the output string, or a negative AVERROR"]
+    #[doc = "         on failure. If the returned value is bigger than buf_size, then the"]
+    #[doc = "         string was truncated."]
+    pub fn av_channel_layout_describe(
+        channel_layout: *const AVChannelLayout,
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: size_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " bprint variant of av_channel_layout_describe()."]
+    #[doc = ""]
+    #[doc = " @note the string will be appended to the bprint buffer."]
+    #[doc = " @return 0 on success, or a negative AVERROR value on failure."]
+    pub fn av_channel_layout_describe_bprint(
+        channel_layout: *const AVChannelLayout,
+        bp: *mut AVBPrint,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Get the channel with the given index in a channel layout."]
+    #[doc = ""]
+    #[doc = " @param channel_layout input channel layout"]
+    #[doc = " @return channel with the index idx in channel_layout on success or"]
+    #[doc = "         AV_CHAN_NONE on failure (if idx is not valid or the channel order is"]
+    #[doc = "         unspecified)"]
+    pub fn av_channel_layout_channel_from_index(
+        channel_layout: *const AVChannelLayout,
+        idx: ::std::os::raw::c_uint,
+    ) -> AVChannel;
+}
+extern "C" {
+    #[doc = " Get the index of a given channel in a channel layout. In case multiple"]
+    #[doc = " channels are found, only the first match will be returned."]
+    #[doc = ""]
+    #[doc = " @param channel_layout input channel layout"]
+    #[doc = " @return index of channel in channel_layout on success or a negative number if"]
+    #[doc = "         channel is not present in channel_layout."]
+    pub fn av_channel_layout_index_from_channel(
+        channel_layout: *const AVChannelLayout,
+        channel: AVChannel,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Get the index in a channel layout of a channel described by the given string."]
+    #[doc = " In case multiple channels are found, only the first match will be returned."]
+    #[doc = ""]
+    #[doc = " This function accepts channel names in the same format as"]
+    #[doc = " @ref av_channel_from_string()."]
+    #[doc = ""]
+    #[doc = " @param channel_layout input channel layout"]
+    #[doc = " @return a channel index described by the given string, or a negative AVERROR"]
+    #[doc = "         value."]
+    pub fn av_channel_layout_index_from_string(
+        channel_layout: *const AVChannelLayout,
+        name: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Get a channel described by the given string."]
+    #[doc = ""]
+    #[doc = " This function accepts channel names in the same format as"]
+    #[doc = " @ref av_channel_from_string()."]
+    #[doc = ""]
+    #[doc = " @param channel_layout input channel layout"]
+    #[doc = " @return a channel described by the given string in channel_layout on success"]
+    #[doc = "         or AV_CHAN_NONE on failure (if the string is not valid or the channel"]
+    #[doc = "         order is unspecified)"]
+    pub fn av_channel_layout_channel_from_string(
+        channel_layout: *const AVChannelLayout,
+        name: *const ::std::os::raw::c_char,
+    ) -> AVChannel;
+}
+extern "C" {
+    #[doc = " Find out what channels from a given set are present in a channel layout,"]
+    #[doc = " without regard for their positions."]
+    #[doc = ""]
+    #[doc = " @param channel_layout input channel layout"]
+    #[doc = " @param mask a combination of AV_CH_* representing a set of channels"]
+    #[doc = " @return a bitfield representing all the channels from mask that are present"]
+    #[doc = "         in channel_layout"]
+    pub fn av_channel_layout_subset(channel_layout: *const AVChannelLayout, mask: u64) -> u64;
+}
+extern "C" {
+    #[doc = " Check whether a channel layout is valid, i.e. can possibly describe audio"]
+    #[doc = " data."]
+    #[doc = ""]
+    #[doc = " @param channel_layout input channel layout"]
+    #[doc = " @return 1 if channel_layout is valid, 0 otherwise."]
+    pub fn av_channel_layout_check(channel_layout: *const AVChannelLayout)
+        -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Check whether two channel layouts are semantically the same, i.e. the same"]
+    #[doc = " channels are present on the same positions in both."]
+    #[doc = ""]
+    #[doc = " If one of the channel layouts is AV_CHANNEL_ORDER_UNSPEC, while the other is"]
+    #[doc = " not, they are considered to be unequal. If both are AV_CHANNEL_ORDER_UNSPEC,"]
+    #[doc = " they are considered equal iff the channel counts are the same in both."]
+    #[doc = ""]
+    #[doc = " @param chl input channel layout"]
+    #[doc = " @param chl1 input channel layout"]
+    #[doc = " @return 0 if chl and chl1 are equal, 1 if they are not equal. A negative"]
+    #[doc = "         AVERROR code if one or both are invalid."]
+    pub fn av_channel_layout_compare(
+        chl: *const AVChannelLayout,
+        chl1: *const AVChannelLayout,
+    ) -> ::std::os::raw::c_int;
+}
 #[doc = " The data is the AVPanScan struct defined in libavcodec."]
 pub const AVFrameSideDataType_AV_FRAME_DATA_PANSCAN: AVFrameSideDataType = 0;
 #[doc = " ATSC A53 Part 4 Closed Captions."]
@@ -21613,6 +22396,10 @@ pub const AVFrameSideDataType_AV_FRAME_DATA_DOVI_RPU_BUFFER: AVFrameSideDataType
 #[doc = " implementation. The payload is the AVDOVIMetadata struct defined in"]
 #[doc = " libavutil/dovi_meta.h."]
 pub const AVFrameSideDataType_AV_FRAME_DATA_DOVI_METADATA: AVFrameSideDataType = 24;
+#[doc = " HDR Vivid dynamic metadata associated with a video frame. The payload is"]
+#[doc = " an AVDynamicHDRVivid type and contains information for color"]
+#[doc = " volume transform - CUVA 005.1-2021."]
+pub const AVFrameSideDataType_AV_FRAME_DATA_DYNAMIC_HDR_VIVID: AVFrameSideDataType = 25;
 #[doc = " @defgroup lavu_frame AVFrame"]
 #[doc = " @ingroup lavu_data"]
 #[doc = ""]
@@ -21931,7 +22718,7 @@ fn bindgen_test_layout_AVRegionOfInterest() {
 #[doc = " C structure field name for fields accessible through AVOptions. The AVClass"]
 #[doc = " for AVFrame can be obtained from avcodec_get_frame_class()"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct AVFrame {
     #[doc = " pointer to the picture/channel planes."]
     #[doc = " This might be different from the first allocated byte. For video,"]
@@ -22051,6 +22838,7 @@ pub struct AVFrame {
     #[doc = " Sample rate of the audio data."]
     pub sample_rate: ::std::os::raw::c_int,
     #[doc = " Channel layout of the audio data."]
+    #[doc = " @deprecated use ch_layout instead"]
     pub channel_layout: u64,
     #[doc = " AVBuffer references backing the data for this frame. All the pointers in"]
     #[doc = " data and extended_data must point inside one of the buffers in buf or"]
@@ -22117,6 +22905,7 @@ pub struct AVFrame {
     #[doc = " number of audio channels, only used for audio."]
     #[doc = " - encoding: unused"]
     #[doc = " - decoding: Read by user."]
+    #[doc = " @deprecated use ch_layout instead"]
     pub channels: ::std::os::raw::c_int,
     #[doc = " size of the corresponding packet containing the compressed"]
     #[doc = " frame."]
@@ -22155,12 +22944,14 @@ pub struct AVFrame {
     #[doc = " av_frame_copy_props() calls create a new reference with av_buffer_ref()"]
     #[doc = " for the target frame's private_ref field."]
     pub private_ref: *mut AVBufferRef,
+    #[doc = " Channel layout of the audio data."]
+    pub ch_layout: AVChannelLayout,
 }
 #[test]
 fn bindgen_test_layout_AVFrame() {
     assert_eq!(
         ::std::mem::size_of::<AVFrame>(),
-        448usize,
+        472usize,
         concat!("Size of: ", stringify!(AVFrame))
     );
     assert_eq!(
@@ -23001,6 +23792,28 @@ fn bindgen_test_layout_AVFrame() {
         );
     }
     test_field_private_ref();
+    fn test_field_ch_layout() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVFrame>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize
+            },
+            448usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVFrame),
+                "::",
+                stringify!(ch_layout)
+            )
+        );
+    }
+    test_field_ch_layout();
+}
+impl ::std::fmt::Debug for AVFrame {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "AVFrame {{ data: {:?}, linesize: {:?}, extended_data: {:?}, width: {:?}, height: {:?}, nb_samples: {:?}, format: {:?}, key_frame: {:?}, pict_type: {:?}, sample_aspect_ratio: {:?}, pts: {:?}, pkt_dts: {:?}, time_base: {:?}, coded_picture_number: {:?}, display_picture_number: {:?}, quality: {:?}, opaque: {:?}, repeat_pict: {:?}, interlaced_frame: {:?}, top_field_first: {:?}, palette_has_changed: {:?}, reordered_opaque: {:?}, sample_rate: {:?}, channel_layout: {:?}, buf: {:?}, extended_buf: {:?}, nb_extended_buf: {:?}, side_data: {:?}, nb_side_data: {:?}, flags: {:?}, color_range: {:?}, color_primaries: {:?}, color_trc: {:?}, colorspace: {:?}, chroma_location: {:?}, best_effort_timestamp: {:?}, pkt_pos: {:?}, pkt_duration: {:?}, metadata: {:?}, decode_error_flags: {:?}, channels: {:?}, pkt_size: {:?}, hw_frames_ctx: {:?}, opaque_ref: {:?}, crop_top: {:?}, crop_bottom: {:?}, crop_left: {:?}, crop_right: {:?}, private_ref: {:?}, ch_layout: {:?} }}" , self . data , self . linesize , self . extended_data , self . width , self . height , self . nb_samples , self . format , self . key_frame , self . pict_type , self . sample_aspect_ratio , self . pts , self . pkt_dts , self . time_base , self . coded_picture_number , self . display_picture_number , self . quality , self . opaque , self . repeat_pict , self . interlaced_frame , self . top_field_first , self . palette_has_changed , self . reordered_opaque , self . sample_rate , self . channel_layout , self . buf , self . extended_buf , self . nb_extended_buf , self . side_data , self . nb_side_data , self . flags , self . color_range , self . color_primaries , self . color_trc , self . colorspace , self . chroma_location , self . best_effort_timestamp , self . pkt_pos , self . pkt_duration , self . metadata , self . decode_error_flags , self . channels , self . pkt_size , self . hw_frames_ctx , self . opaque_ref , self . crop_top , self . crop_bottom , self . crop_left , self . crop_right , self . private_ref , self . ch_layout)
+    }
 }
 extern "C" {
     #[doc = " Get the name of a colorspace."]
@@ -23069,7 +23882,7 @@ extern "C" {
     #[doc = " The following fields must be set on frame before calling this function:"]
     #[doc = " - format (pixel format for video, sample format for audio)"]
     #[doc = " - width and height for video"]
-    #[doc = " - nb_samples and channel_layout for audio"]
+    #[doc = " - nb_samples and ch_layout for audio"]
     #[doc = ""]
     #[doc = " This function will fill AVFrame.data and AVFrame.buf arrays and, if"]
     #[doc = " necessary, allocate and fill AVFrame.extended_data and AVFrame.extended_buf."]
@@ -24167,6 +24980,10 @@ extern "C" {
     #[doc = " possible with the given arguments and hwframe setup, while other return"]
     #[doc = " values indicate that it failed somehow."]
     #[doc = ""]
+    #[doc = " On failure, the destination frame will be left blank, except for the"]
+    #[doc = " hw_frames_ctx/format fields thay may have been set by the caller - those will"]
+    #[doc = " be preserved as they were."]
+    #[doc = ""]
     #[doc = " @param dst Destination frame, to contain the mapping."]
     #[doc = " @param src Source frame, to be mapped."]
     #[doc = " @param flags Some combination of AV_HWFRAME_MAP_* flags."]
@@ -24460,6 +25277,10 @@ pub const AVCodecID_AV_CODEC_ID_CRI: AVCodecID = 254;
 pub const AVCodecID_AV_CODEC_ID_SIMBIOSIS_IMX: AVCodecID = 255;
 pub const AVCodecID_AV_CODEC_ID_SGA_VIDEO: AVCodecID = 256;
 pub const AVCodecID_AV_CODEC_ID_GEM: AVCodecID = 257;
+pub const AVCodecID_AV_CODEC_ID_VBN: AVCodecID = 258;
+pub const AVCodecID_AV_CODEC_ID_JPEGXL: AVCodecID = 259;
+pub const AVCodecID_AV_CODEC_ID_QOI: AVCodecID = 260;
+pub const AVCodecID_AV_CODEC_ID_PHM: AVCodecID = 261;
 #[doc = "< A dummy id pointing at the start of audio codecs"]
 pub const AVCodecID_AV_CODEC_ID_FIRST_AUDIO: AVCodecID = 65536;
 pub const AVCodecID_AV_CODEC_ID_PCM_S16LE: AVCodecID = 65536;
@@ -24659,6 +25480,7 @@ pub const AVCodecID_AV_CODEC_ID_SIREN: AVCodecID = 86108;
 pub const AVCodecID_AV_CODEC_ID_HCA: AVCodecID = 86109;
 pub const AVCodecID_AV_CODEC_ID_FASTAUDIO: AVCodecID = 86110;
 pub const AVCodecID_AV_CODEC_ID_MSNSIREN: AVCodecID = 86111;
+pub const AVCodecID_AV_CODEC_ID_DFPWM: AVCodecID = 86112;
 #[doc = "< A dummy ID pointing at the start of subtitle codecs."]
 pub const AVCodecID_AV_CODEC_ID_FIRST_SUBTITLE: AVCodecID = 94208;
 pub const AVCodecID_AV_CODEC_ID_DVD_SUBTITLE: AVCodecID = 94208;
@@ -24830,11 +25652,6 @@ fn bindgen_test_layout_AVProfile() {
     }
     test_field_name();
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct AVCodecDefault {
-    _unused: [u8; 0],
-}
 #[doc = " AVCodec."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -24877,128 +25694,14 @@ pub struct AVCodec {
     #[doc = " If non-NULL, this will be the suffix in AVCodec.name in most cases"]
     #[doc = " (usually AVCodec.name will be of the form \"<codec_name>_<wrapper_name>\")."]
     pub wrapper_name: *const ::std::os::raw::c_char,
-    #[doc = " No fields below this line are part of the public API. They"]
-    #[doc = " may not be used outside of libavcodec and can be changed and"]
-    #[doc = " removed at will."]
-    #[doc = " New public fields should be added right above."]
-    #[doc = ""]
-    #[doc = " Internal codec capabilities."]
-    #[doc = " See FF_CODEC_CAP_* in internal.h"]
-    pub caps_internal: ::std::os::raw::c_int,
-    pub priv_data_size: ::std::os::raw::c_int,
-    #[doc = " @name Frame-level threading support functions"]
-    #[doc = " @{"]
-    #[doc = " Copy necessary context variables from a previous thread context to the current one."]
-    #[doc = " If not defined, the next thread will start automatically; otherwise, the codec"]
-    #[doc = " must call ff_thread_finish_setup()."]
-    #[doc = ""]
-    #[doc = " dst and src will (rarely) point to the same context, in which case memcpy should be skipped."]
-    pub update_thread_context: ::std::option::Option<
-        unsafe extern "C" fn(
-            dst: *mut AVCodecContext,
-            src: *const AVCodecContext,
-        ) -> ::std::os::raw::c_int,
-    >,
-    #[doc = " Copy variables back to the user-facing context"]
-    pub update_thread_context_for_user: ::std::option::Option<
-        unsafe extern "C" fn(
-            dst: *mut AVCodecContext,
-            src: *const AVCodecContext,
-        ) -> ::std::os::raw::c_int,
-    >,
-    #[doc = " Private codec-specific defaults."]
-    pub defaults: *const AVCodecDefault,
-    #[doc = " Initialize codec static data, called from av_codec_iterate()."]
-    #[doc = ""]
-    #[doc = " This is not intended for time consuming operations as it is"]
-    #[doc = " run for every codec regardless of that codec being used."]
-    pub init_static_data: ::std::option::Option<unsafe extern "C" fn(codec: *mut AVCodec)>,
-    pub init: ::std::option::Option<
-        unsafe extern "C" fn(arg1: *mut AVCodecContext) -> ::std::os::raw::c_int,
-    >,
-    pub encode_sub: ::std::option::Option<
-        unsafe extern "C" fn(
-            arg1: *mut AVCodecContext,
-            buf: *mut u8,
-            buf_size: ::std::os::raw::c_int,
-            sub: *const AVSubtitle,
-        ) -> ::std::os::raw::c_int,
-    >,
-    #[doc = " Encode data to an AVPacket."]
-    #[doc = ""]
-    #[doc = " @param      avctx          codec context"]
-    #[doc = " @param      avpkt          output AVPacket"]
-    #[doc = " @param[in]  frame          AVFrame containing the raw data to be encoded"]
-    #[doc = " @param[out] got_packet_ptr encoder sets to 0 or 1 to indicate that a"]
-    #[doc = "                            non-empty packet was returned in avpkt."]
-    #[doc = " @return 0 on success, negative error code on failure"]
-    pub encode2: ::std::option::Option<
-        unsafe extern "C" fn(
-            avctx: *mut AVCodecContext,
-            avpkt: *mut AVPacket,
-            frame: *const AVFrame,
-            got_packet_ptr: *mut ::std::os::raw::c_int,
-        ) -> ::std::os::raw::c_int,
-    >,
-    #[doc = " Decode picture or subtitle data."]
-    #[doc = ""]
-    #[doc = " @param      avctx          codec context"]
-    #[doc = " @param      outdata        codec type dependent output struct"]
-    #[doc = " @param[out] got_frame_ptr  decoder sets to 0 or 1 to indicate that a"]
-    #[doc = "                            non-empty frame or subtitle was returned in"]
-    #[doc = "                            outdata."]
-    #[doc = " @param[in]  avpkt          AVPacket containing the data to be decoded"]
-    #[doc = " @return amount of bytes read from the packet on success, negative error"]
-    #[doc = "         code on failure"]
-    pub decode: ::std::option::Option<
-        unsafe extern "C" fn(
-            avctx: *mut AVCodecContext,
-            outdata: *mut ::std::os::raw::c_void,
-            got_frame_ptr: *mut ::std::os::raw::c_int,
-            avpkt: *mut AVPacket,
-        ) -> ::std::os::raw::c_int,
-    >,
-    pub close: ::std::option::Option<
-        unsafe extern "C" fn(arg1: *mut AVCodecContext) -> ::std::os::raw::c_int,
-    >,
-    #[doc = " Encode API with decoupled frame/packet dataflow. This function is called"]
-    #[doc = " to get one output packet. It should call ff_encode_get_frame() to obtain"]
-    #[doc = " input data."]
-    pub receive_packet: ::std::option::Option<
-        unsafe extern "C" fn(
-            avctx: *mut AVCodecContext,
-            avpkt: *mut AVPacket,
-        ) -> ::std::os::raw::c_int,
-    >,
-    #[doc = " Decode API with decoupled packet/frame dataflow. This function is called"]
-    #[doc = " to get one output frame. It should call ff_decode_get_packet() to obtain"]
-    #[doc = " input data."]
-    pub receive_frame: ::std::option::Option<
-        unsafe extern "C" fn(
-            avctx: *mut AVCodecContext,
-            frame: *mut AVFrame,
-        ) -> ::std::os::raw::c_int,
-    >,
-    #[doc = " Flush buffers."]
-    #[doc = " Will be called when seeking"]
-    pub flush: ::std::option::Option<unsafe extern "C" fn(arg1: *mut AVCodecContext)>,
-    #[doc = " Decoding only, a comma-separated list of bitstream filters to apply to"]
-    #[doc = " packets before decoding."]
-    pub bsfs: *const ::std::os::raw::c_char,
-    #[doc = " Array of pointers to hardware configurations supported by the codec,"]
-    #[doc = " or NULL if no hardware supported.  The array is terminated by a NULL"]
-    #[doc = " pointer."]
-    #[doc = ""]
-    #[doc = " The user can only access this field via avcodec_get_hw_config()."]
-    pub hw_configs: *const *mut AVCodecHWConfigInternal,
-    #[doc = " List of supported codec_tags, terminated by FF_CODEC_TAGS_END."]
-    pub codec_tags: *const u32,
+    #[doc = " Array of supported channel layouts, terminated with a zeroed layout."]
+    pub ch_layouts: *const AVChannelLayout,
 }
 #[test]
 fn bindgen_test_layout_AVCodec() {
     assert_eq!(
         ::std::mem::size_of::<AVCodec>(),
-        224usize,
+        104usize,
         concat!("Size of: ", stringify!(AVCodec))
     );
     assert_eq!(
@@ -25244,295 +25947,23 @@ fn bindgen_test_layout_AVCodec() {
         );
     }
     test_field_wrapper_name();
-    fn test_field_caps_internal() {
+    fn test_field_ch_layouts() {
         assert_eq!(
             unsafe {
                 let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).caps_internal) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).ch_layouts) as usize - ptr as usize
             },
             96usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVCodec),
                 "::",
-                stringify!(caps_internal)
+                stringify!(ch_layouts)
             )
         );
     }
-    test_field_caps_internal();
-    fn test_field_priv_data_size() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).priv_data_size) as usize - ptr as usize
-            },
-            100usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(priv_data_size)
-            )
-        );
-    }
-    test_field_priv_data_size();
-    fn test_field_update_thread_context() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).update_thread_context) as usize - ptr as usize
-            },
-            104usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(update_thread_context)
-            )
-        );
-    }
-    test_field_update_thread_context();
-    fn test_field_update_thread_context_for_user() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).update_thread_context_for_user) as usize - ptr as usize
-            },
-            112usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(update_thread_context_for_user)
-            )
-        );
-    }
-    test_field_update_thread_context_for_user();
-    fn test_field_defaults() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).defaults) as usize - ptr as usize
-            },
-            120usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(defaults)
-            )
-        );
-    }
-    test_field_defaults();
-    fn test_field_init_static_data() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).init_static_data) as usize - ptr as usize
-            },
-            128usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(init_static_data)
-            )
-        );
-    }
-    test_field_init_static_data();
-    fn test_field_init() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).init) as usize - ptr as usize
-            },
-            136usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(init)
-            )
-        );
-    }
-    test_field_init();
-    fn test_field_encode_sub() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).encode_sub) as usize - ptr as usize
-            },
-            144usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(encode_sub)
-            )
-        );
-    }
-    test_field_encode_sub();
-    fn test_field_encode2() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).encode2) as usize - ptr as usize
-            },
-            152usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(encode2)
-            )
-        );
-    }
-    test_field_encode2();
-    fn test_field_decode() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).decode) as usize - ptr as usize
-            },
-            160usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(decode)
-            )
-        );
-    }
-    test_field_decode();
-    fn test_field_close() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).close) as usize - ptr as usize
-            },
-            168usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(close)
-            )
-        );
-    }
-    test_field_close();
-    fn test_field_receive_packet() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).receive_packet) as usize - ptr as usize
-            },
-            176usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(receive_packet)
-            )
-        );
-    }
-    test_field_receive_packet();
-    fn test_field_receive_frame() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).receive_frame) as usize - ptr as usize
-            },
-            184usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(receive_frame)
-            )
-        );
-    }
-    test_field_receive_frame();
-    fn test_field_flush() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).flush) as usize - ptr as usize
-            },
-            192usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(flush)
-            )
-        );
-    }
-    test_field_flush();
-    fn test_field_bsfs() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).bsfs) as usize - ptr as usize
-            },
-            200usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(bsfs)
-            )
-        );
-    }
-    test_field_bsfs();
-    fn test_field_hw_configs() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).hw_configs) as usize - ptr as usize
-            },
-            208usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(hw_configs)
-            )
-        );
-    }
-    test_field_hw_configs();
-    fn test_field_codec_tags() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVCodec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).codec_tags) as usize - ptr as usize
-            },
-            216usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVCodec),
-                "::",
-                stringify!(codec_tags)
-            )
-        );
-    }
-    test_field_codec_tags();
+    test_field_ch_layouts();
 }
 extern "C" {
     #[doc = " Iterate over all registered codecs."]
@@ -25904,7 +26335,7 @@ pub type AVFieldOrder = ::std::os::raw::c_uint;
 #[doc = " be allocated with avcodec_parameters_alloc() and freed with"]
 #[doc = " avcodec_parameters_free()."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct AVCodecParameters {
     #[doc = " General type of the encoded data."]
     pub codec_type: AVMediaType,
@@ -25971,8 +26402,10 @@ pub struct AVCodecParameters {
     #[doc = " Audio only. The channel layout bitmask. May be 0 if the channel layout is"]
     #[doc = " unknown or unspecified, otherwise the number of bits set must be equal to"]
     #[doc = " the channels field."]
+    #[doc = " @deprecated use ch_layout"]
     pub channel_layout: u64,
     #[doc = " Audio only. The number of audio channels."]
+    #[doc = " @deprecated use ch_layout.nb_channels"]
     pub channels: ::std::os::raw::c_int,
     #[doc = " Audio only. The number of audio samples per second."]
     pub sample_rate: ::std::os::raw::c_int,
@@ -25995,12 +26428,14 @@ pub struct AVCodecParameters {
     pub trailing_padding: ::std::os::raw::c_int,
     #[doc = " Audio only. Number of samples to skip after a discontinuity."]
     pub seek_preroll: ::std::os::raw::c_int,
+    #[doc = " Audio only. The channel layout and number of channels."]
+    pub ch_layout: AVChannelLayout,
 }
 #[test]
 fn bindgen_test_layout_AVCodecParameters() {
     assert_eq!(
         ::std::mem::size_of::<AVCodecParameters>(),
-        144usize,
+        168usize,
         concat!("Size of: ", stringify!(AVCodecParameters))
     );
     assert_eq!(
@@ -26501,6 +26936,28 @@ fn bindgen_test_layout_AVCodecParameters() {
         );
     }
     test_field_seek_preroll();
+    fn test_field_ch_layout() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVCodecParameters>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize
+            },
+            144usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVCodecParameters),
+                "::",
+                stringify!(ch_layout)
+            )
+        );
+    }
+    test_field_ch_layout();
+}
+impl ::std::fmt::Debug for AVCodecParameters {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "AVCodecParameters {{ codec_type: {:?}, codec_id: {:?}, codec_tag: {:?}, extradata: {:?}, extradata_size: {:?}, format: {:?}, bit_rate: {:?}, bits_per_coded_sample: {:?}, bits_per_raw_sample: {:?}, profile: {:?}, level: {:?}, width: {:?}, height: {:?}, sample_aspect_ratio: {:?}, field_order: {:?}, color_range: {:?}, color_primaries: {:?}, color_trc: {:?}, color_space: {:?}, chroma_location: {:?}, video_delay: {:?}, channel_layout: {:?}, channels: {:?}, sample_rate: {:?}, block_align: {:?}, frame_size: {:?}, initial_padding: {:?}, trailing_padding: {:?}, seek_preroll: {:?}, ch_layout: {:?} }}" , self . codec_type , self . codec_id , self . codec_tag , self . extradata , self . extradata_size , self . format , self . bit_rate , self . bits_per_coded_sample , self . bits_per_raw_sample , self . profile , self . level , self . width , self . height , self . sample_aspect_ratio , self . field_order , self . color_range , self . color_primaries , self . color_trc , self . color_space , self . chroma_location , self . video_delay , self . channel_layout , self . channels , self . sample_rate , self . block_align , self . frame_size , self . initial_padding , self . trailing_padding , self . seek_preroll , self . ch_layout)
+    }
 }
 extern "C" {
     #[doc = " Allocate a new AVCodecParameters and set its fields to default values"]
@@ -27489,8 +27946,10 @@ fn bindgen_test_layout_AVPacketList() {
     }
     test_field_next();
 }
+#[doc = " @deprecated those are not used by any decoder"]
 pub const AVSideDataParamChangeFlags_AV_SIDE_DATA_PARAM_CHANGE_CHANNEL_COUNT:
     AVSideDataParamChangeFlags = 1;
+#[doc = " @deprecated those are not used by any decoder"]
 pub const AVSideDataParamChangeFlags_AV_SIDE_DATA_PARAM_CHANGE_CHANNEL_LAYOUT:
     AVSideDataParamChangeFlags = 2;
 pub const AVSideDataParamChangeFlags_AV_SIDE_DATA_PARAM_CHANGE_SAMPLE_RATE:
@@ -27870,7 +28329,7 @@ pub struct AVCodecInternal {
 #[doc = " structure field names for historic reasons or brevity."]
 #[doc = " sizeof(AVCodecContext) must not be used outside libav*."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct AVCodecContext {
     #[doc = " information on struct for av_log"]
     #[doc = " - set by avcodec_alloc_context3"]
@@ -28298,7 +28757,8 @@ pub struct AVCodecContext {
     pub field_order: AVFieldOrder,
     #[doc = "< samples per second"]
     pub sample_rate: ::std::os::raw::c_int,
-    #[doc = "< number of audio channels"]
+    #[doc = " number of audio channels"]
+    #[doc = " @deprecated use ch_layout.nb_channels"]
     pub channels: ::std::os::raw::c_int,
     #[doc = "< sample format"]
     pub sample_fmt: AVSampleFormat,
@@ -28328,10 +28788,12 @@ pub struct AVCodecContext {
     #[doc = " Audio channel layout."]
     #[doc = " - encoding: set by user."]
     #[doc = " - decoding: set by user, may be overwritten by libavcodec."]
+    #[doc = " @deprecated use ch_layout"]
     pub channel_layout: u64,
     #[doc = " Request decoder to use this channel layout if it can (0 for default)"]
     #[doc = " - encoding: unused"]
     #[doc = " - decoding: Set by user."]
+    #[doc = " @deprecated use \"downmix\" codec private option"]
     pub request_channel_layout: u64,
     #[doc = " Type of service that the audio stream conveys."]
     #[doc = " - encoding: Set by user."]
@@ -28613,7 +29075,6 @@ pub struct AVCodecContext {
     #[doc = " It will return only after finishing all tasks."]
     #[doc = " The user may replace this with some multithreaded implementation,"]
     #[doc = " the default implementation will execute the parts serially."]
-    #[doc = " Also see avcodec_thread_init and e.g. the --enable-pthread configure option."]
     #[doc = " @param c context passed also to func"]
     #[doc = " @param count the number of things to execute"]
     #[doc = " @param arg2 argument passed unchanged to func"]
@@ -28913,12 +29374,17 @@ pub struct AVCodecContext {
             flags: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_int,
     >,
+    #[doc = " Audio channel layout."]
+    #[doc = " - encoding: must be set by the caller, to one of AVCodec.ch_layouts."]
+    #[doc = " - decoding: may be set by the caller if known e.g. from the container."]
+    #[doc = "             The decoder can then override during decoding as needed."]
+    pub ch_layout: AVChannelLayout,
 }
 #[test]
 fn bindgen_test_layout_AVCodecContext() {
     assert_eq!(
         ::std::mem::size_of::<AVCodecContext>(),
-        920usize,
+        944usize,
         concat!("Size of: ", stringify!(AVCodecContext))
     );
     assert_eq!(
@@ -31646,11 +32112,28 @@ fn bindgen_test_layout_AVCodecContext() {
         );
     }
     test_field_get_encode_buffer();
+    fn test_field_ch_layout() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVCodecContext>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize
+            },
+            920usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVCodecContext),
+                "::",
+                stringify!(ch_layout)
+            )
+        );
+    }
+    test_field_ch_layout();
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct MpegEncContext {
-    _unused: [u8; 0],
+impl ::std::fmt::Debug for AVCodecContext {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "AVCodecContext {{ av_class: {:?}, log_level_offset: {:?}, codec_type: {:?}, codec: {:?}, codec_id: {:?}, codec_tag: {:?}, priv_data: {:?}, internal: {:?}, opaque: {:?}, bit_rate: {:?}, bit_rate_tolerance: {:?}, global_quality: {:?}, compression_level: {:?}, flags: {:?}, flags2: {:?}, extradata: {:?}, extradata_size: {:?}, time_base: {:?}, ticks_per_frame: {:?}, delay: {:?}, width: {:?}, height: {:?}, coded_width: {:?}, coded_height: {:?}, gop_size: {:?}, pix_fmt: {:?}, draw_horiz_band: {:?}, get_format: {:?}, max_b_frames: {:?}, b_quant_factor: {:?}, b_quant_offset: {:?}, has_b_frames: {:?}, i_quant_factor: {:?}, i_quant_offset: {:?}, lumi_masking: {:?}, temporal_cplx_masking: {:?}, spatial_cplx_masking: {:?}, p_masking: {:?}, dark_masking: {:?}, slice_count: {:?}, slice_offset: {:?}, sample_aspect_ratio: {:?}, me_cmp: {:?}, me_sub_cmp: {:?}, mb_cmp: {:?}, ildct_cmp: {:?}, dia_size: {:?}, last_predictor_count: {:?}, me_pre_cmp: {:?}, pre_dia_size: {:?}, me_subpel_quality: {:?}, me_range: {:?}, slice_flags: {:?}, mb_decision: {:?}, intra_matrix: {:?}, inter_matrix: {:?}, intra_dc_precision: {:?}, skip_top: {:?}, skip_bottom: {:?}, mb_lmin: {:?}, mb_lmax: {:?}, bidir_refine: {:?}, keyint_min: {:?}, refs: {:?}, mv0_threshold: {:?}, color_primaries: {:?}, color_trc: {:?}, colorspace: {:?}, color_range: {:?}, chroma_sample_location: {:?}, slices: {:?}, field_order: {:?}, sample_rate: {:?}, channels: {:?}, sample_fmt: {:?}, frame_size: {:?}, frame_number: {:?}, block_align: {:?}, cutoff: {:?}, channel_layout: {:?}, request_channel_layout: {:?}, audio_service_type: {:?}, request_sample_fmt: {:?}, get_buffer2: {:?}, qcompress: {:?}, qblur: {:?}, qmin: {:?}, qmax: {:?}, max_qdiff: {:?}, rc_buffer_size: {:?}, rc_override_count: {:?}, rc_override: {:?}, rc_max_rate: {:?}, rc_min_rate: {:?}, rc_max_available_vbv_use: {:?}, rc_min_vbv_overflow_use: {:?}, rc_initial_buffer_occupancy: {:?}, trellis: {:?}, stats_out: {:?}, stats_in: {:?}, workaround_bugs: {:?}, strict_std_compliance: {:?}, error_concealment: {:?}, debug: {:?}, err_recognition: {:?}, reordered_opaque: {:?}, hwaccel: {:?}, hwaccel_context: {:?}, error: {:?}, dct_algo: {:?}, idct_algo: {:?}, bits_per_coded_sample: {:?}, bits_per_raw_sample: {:?}, lowres: {:?}, thread_count: {:?}, thread_type: {:?}, active_thread_type: {:?}, thread_safe_callbacks: {:?}, execute: {:?}, execute2: {:?}, nsse_weight: {:?}, profile: {:?}, level: {:?}, skip_loop_filter: {:?}, skip_idct: {:?}, skip_frame: {:?}, subtitle_header: {:?}, subtitle_header_size: {:?}, initial_padding: {:?}, framerate: {:?}, sw_pix_fmt: {:?}, pkt_timebase: {:?}, codec_descriptor: {:?}, pts_correction_num_faulty_pts: {:?}, pts_correction_num_faulty_dts: {:?}, pts_correction_last_pts: {:?}, pts_correction_last_dts: {:?}, sub_charenc: {:?}, sub_charenc_mode: {:?}, skip_alpha: {:?}, seek_preroll: {:?}, debug_mv: {:?}, chroma_intra_matrix: {:?}, dump_separator: {:?}, codec_whitelist: {:?}, properties: {:?}, coded_side_data: {:?}, nb_coded_side_data: {:?}, hw_frames_ctx: {:?}, sub_text_format: {:?}, trailing_padding: {:?}, max_pixels: {:?}, hw_device_ctx: {:?}, hwaccel_flags: {:?}, apply_cropping: {:?}, extra_hw_frames: {:?}, discard_damaged_percentage: {:?}, max_samples: {:?}, export_side_data: {:?}, get_encode_buffer: {:?}, ch_layout: {:?} }}" , self . av_class , self . log_level_offset , self . codec_type , self . codec , self . codec_id , self . codec_tag , self . priv_data , self . internal , self . opaque , self . bit_rate , self . bit_rate_tolerance , self . global_quality , self . compression_level , self . flags , self . flags2 , self . extradata , self . extradata_size , self . time_base , self . ticks_per_frame , self . delay , self . width , self . height , self . coded_width , self . coded_height , self . gop_size , self . pix_fmt , self . draw_horiz_band , self . get_format , self . max_b_frames , self . b_quant_factor , self . b_quant_offset , self . has_b_frames , self . i_quant_factor , self . i_quant_offset , self . lumi_masking , self . temporal_cplx_masking , self . spatial_cplx_masking , self . p_masking , self . dark_masking , self . slice_count , self . slice_offset , self . sample_aspect_ratio , self . me_cmp , self . me_sub_cmp , self . mb_cmp , self . ildct_cmp , self . dia_size , self . last_predictor_count , self . me_pre_cmp , self . pre_dia_size , self . me_subpel_quality , self . me_range , self . slice_flags , self . mb_decision , self . intra_matrix , self . inter_matrix , self . intra_dc_precision , self . skip_top , self . skip_bottom , self . mb_lmin , self . mb_lmax , self . bidir_refine , self . keyint_min , self . refs , self . mv0_threshold , self . color_primaries , self . color_trc , self . colorspace , self . color_range , self . chroma_sample_location , self . slices , self . field_order , self . sample_rate , self . channels , self . sample_fmt , self . frame_size , self . frame_number , self . block_align , self . cutoff , self . channel_layout , self . request_channel_layout , self . audio_service_type , self . request_sample_fmt , self . get_buffer2 , self . qcompress , self . qblur , self . qmin , self . qmax , self . max_qdiff , self . rc_buffer_size , self . rc_override_count , self . rc_override , self . rc_max_rate , self . rc_min_rate , self . rc_max_available_vbv_use , self . rc_min_vbv_overflow_use , self . rc_initial_buffer_occupancy , self . trellis , self . stats_out , self . stats_in , self . workaround_bugs , self . strict_std_compliance , self . error_concealment , self . debug , self . err_recognition , self . reordered_opaque , self . hwaccel , self . hwaccel_context , self . error , self . dct_algo , self . idct_algo , self . bits_per_coded_sample , self . bits_per_raw_sample , self . lowres , self . thread_count , self . thread_type , self . active_thread_type , self . thread_safe_callbacks , self . execute , self . execute2 , self . nsse_weight , self . profile , self . level , self . skip_loop_filter , self . skip_idct , self . skip_frame , self . subtitle_header , self . subtitle_header_size , self . initial_padding , self . framerate , self . sw_pix_fmt , self . pkt_timebase , self . codec_descriptor , self . pts_correction_num_faulty_pts , self . pts_correction_num_faulty_dts , self . pts_correction_last_pts , self . pts_correction_last_dts , self . sub_charenc , self . sub_charenc_mode , self . skip_alpha , self . seek_preroll , self . debug_mv , self . chroma_intra_matrix , self . dump_separator , self . codec_whitelist , self . properties , self . coded_side_data , self . nb_coded_side_data , self . hw_frames_ctx , self . sub_text_format , self . trailing_padding , self . max_pixels , self . hw_device_ctx , self . hwaccel_flags , self . apply_cropping , self . extra_hw_frames , self . discard_damaged_percentage , self . max_samples , self . export_side_data , self . get_encode_buffer , self . ch_layout)
+    }
 }
 #[doc = " @defgroup lavc_hwaccel AVHWAccel"]
 #[doc = ""]
@@ -31728,7 +32211,6 @@ pub struct AVHWAccel {
     #[doc = ""]
     #[doc = " Meaningful slice information (codec specific) is guaranteed to"]
     #[doc = " be parsed at this point. This function is mandatory."]
-    #[doc = " The only exception is XvMC, that works on MB level."]
     #[doc = ""]
     #[doc = " @param avctx the codec context"]
     #[doc = " @param buf the slice data buffer base"]
@@ -31757,14 +32239,6 @@ pub struct AVHWAccel {
     #[doc = " AVCodecContext.get_buffer() and deallocated after"]
     #[doc = " AVCodecContext.release_buffer()."]
     pub frame_priv_data_size: ::std::os::raw::c_int,
-    #[doc = " Called for every Macroblock in a slice."]
-    #[doc = ""]
-    #[doc = " XvMC uses it to replace the ff_mpv_reconstruct_mb()."]
-    #[doc = " Instead of decoding to raw picture, MB parameters are"]
-    #[doc = " stored in an array provided by the video driver."]
-    #[doc = ""]
-    #[doc = " @param s the mpeg context"]
-    pub decode_mb: ::std::option::Option<unsafe extern "C" fn(s: *mut MpegEncContext)>,
     #[doc = " Initialize the hwaccel private data."]
     #[doc = ""]
     #[doc = " This will be called from ff_get_format(), after hwaccel and"]
@@ -31802,7 +32276,7 @@ pub struct AVHWAccel {
 fn bindgen_test_layout_AVHWAccel() {
     assert_eq!(
         ::std::mem::size_of::<AVHWAccel>(),
-        112usize,
+        104usize,
         concat!("Size of: ", stringify!(AVHWAccel))
     );
     assert_eq!(
@@ -31997,23 +32471,6 @@ fn bindgen_test_layout_AVHWAccel() {
         );
     }
     test_field_frame_priv_data_size();
-    fn test_field_decode_mb() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVHWAccel>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).decode_mb) as usize - ptr as usize
-            },
-            72usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVHWAccel),
-                "::",
-                stringify!(decode_mb)
-            )
-        );
-    }
-    test_field_decode_mb();
     fn test_field_init() {
         assert_eq!(
             unsafe {
@@ -32021,7 +32478,7 @@ fn bindgen_test_layout_AVHWAccel() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).init) as usize - ptr as usize
             },
-            80usize,
+            72usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVHWAccel),
@@ -32038,7 +32495,7 @@ fn bindgen_test_layout_AVHWAccel() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).uninit) as usize - ptr as usize
             },
-            88usize,
+            80usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVHWAccel),
@@ -32055,7 +32512,7 @@ fn bindgen_test_layout_AVHWAccel() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).priv_data_size) as usize - ptr as usize
             },
-            96usize,
+            88usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVHWAccel),
@@ -32072,7 +32529,7 @@ fn bindgen_test_layout_AVHWAccel() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).caps_internal) as usize - ptr as usize
             },
-            100usize,
+            92usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVHWAccel),
@@ -32089,7 +32546,7 @@ fn bindgen_test_layout_AVHWAccel() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).frame_params) as usize - ptr as usize
             },
-            104usize,
+            96usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVHWAccel),
@@ -32542,8 +32999,6 @@ extern "C" {
     #[doc = " The functions avcodec_find_decoder_by_name(), avcodec_find_encoder_by_name(),"]
     #[doc = " avcodec_find_decoder() and avcodec_find_encoder() provide an easy way for"]
     #[doc = " retrieving a codec."]
-    #[doc = ""]
-    #[doc = " @warning This function is not thread safe!"]
     #[doc = ""]
     #[doc = " @note Always call this function before using decoding routines (such as"]
     #[doc = " @ref avcodec_receive_frame())."]
@@ -34358,26 +34813,12 @@ pub struct AVBitStreamFilter {
     #[doc = " must be a pointer to AVClass, which will be set by libavcodec generic"]
     #[doc = " code to this class."]
     pub priv_class: *const AVClass,
-    #[doc = " No fields below this line are part of the public API. They"]
-    #[doc = " may not be used outside of libavcodec and can be changed and"]
-    #[doc = " removed at will."]
-    #[doc = " New public fields should be added right above."]
-    #[doc = ""]
-    pub priv_data_size: ::std::os::raw::c_int,
-    pub init: ::std::option::Option<
-        unsafe extern "C" fn(ctx: *mut AVBSFContext) -> ::std::os::raw::c_int,
-    >,
-    pub filter: ::std::option::Option<
-        unsafe extern "C" fn(ctx: *mut AVBSFContext, pkt: *mut AVPacket) -> ::std::os::raw::c_int,
-    >,
-    pub close: ::std::option::Option<unsafe extern "C" fn(ctx: *mut AVBSFContext)>,
-    pub flush: ::std::option::Option<unsafe extern "C" fn(ctx: *mut AVBSFContext)>,
 }
 #[test]
 fn bindgen_test_layout_AVBitStreamFilter() {
     assert_eq!(
         ::std::mem::size_of::<AVBitStreamFilter>(),
-        64usize,
+        24usize,
         concat!("Size of: ", stringify!(AVBitStreamFilter))
     );
     assert_eq!(
@@ -34436,91 +34877,6 @@ fn bindgen_test_layout_AVBitStreamFilter() {
         );
     }
     test_field_priv_class();
-    fn test_field_priv_data_size() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVBitStreamFilter>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).priv_data_size) as usize - ptr as usize
-            },
-            24usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVBitStreamFilter),
-                "::",
-                stringify!(priv_data_size)
-            )
-        );
-    }
-    test_field_priv_data_size();
-    fn test_field_init() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVBitStreamFilter>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).init) as usize - ptr as usize
-            },
-            32usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVBitStreamFilter),
-                "::",
-                stringify!(init)
-            )
-        );
-    }
-    test_field_init();
-    fn test_field_filter() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVBitStreamFilter>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).filter) as usize - ptr as usize
-            },
-            40usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVBitStreamFilter),
-                "::",
-                stringify!(filter)
-            )
-        );
-    }
-    test_field_filter();
-    fn test_field_close() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVBitStreamFilter>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).close) as usize - ptr as usize
-            },
-            48usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVBitStreamFilter),
-                "::",
-                stringify!(close)
-            )
-        );
-    }
-    test_field_close();
-    fn test_field_flush() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVBitStreamFilter>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).flush) as usize - ptr as usize
-            },
-            56usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVBitStreamFilter),
-                "::",
-                stringify!(flush)
-            )
-        );
-    }
-    test_field_flush();
 }
 extern "C" {
     #[doc = " @return a bitstream filter with the specified name or NULL if no such"]
@@ -34543,9 +34899,9 @@ extern "C" {
     #[doc = " av_bsf_init() before sending any data to the filter."]
     #[doc = ""]
     #[doc = " @param filter the filter for which to allocate an instance."]
-    #[doc = " @param ctx a pointer into which the pointer to the newly-allocated context"]
-    #[doc = "            will be written. It must be freed with av_bsf_free() after the"]
-    #[doc = "            filtering is done."]
+    #[doc = " @param[out] ctx a pointer into which the pointer to the newly-allocated context"]
+    #[doc = "                 will be written. It must be freed with av_bsf_free() after the"]
+    #[doc = "                 filtering is done."]
     #[doc = ""]
     #[doc = " @return 0 on success, a negative AVERROR code on failure"]
     pub fn av_bsf_alloc(
@@ -34572,9 +34928,11 @@ extern "C" {
     #[doc = " sending more empty packets does nothing) and will cause the filter to output"]
     #[doc = " any packets it may have buffered internally."]
     #[doc = ""]
-    #[doc = " @return 0 on success. AVERROR(EAGAIN) if packets need to be retrieved from the"]
-    #[doc = " filter (using av_bsf_receive_packet()) before new input can be consumed. Another"]
-    #[doc = " negative AVERROR value if an error occurs."]
+    #[doc = " @return"]
+    #[doc = "  - 0 on success."]
+    #[doc = "  - AVERROR(EAGAIN) if packets need to be retrieved from the filter (using"]
+    #[doc = "    av_bsf_receive_packet()) before new input can be consumed."]
+    #[doc = "  - Another negative AVERROR value if an error occurs."]
     pub fn av_bsf_send_packet(ctx: *mut AVBSFContext, pkt: *mut AVPacket) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -34590,10 +34948,12 @@ extern "C" {
     #[doc = "                 overwritten by the returned data. On failure, pkt is not"]
     #[doc = "                 touched."]
     #[doc = ""]
-    #[doc = " @return 0 on success. AVERROR(EAGAIN) if more packets need to be sent to the"]
-    #[doc = " filter (using av_bsf_send_packet()) to get more output. AVERROR_EOF if there"]
-    #[doc = " will be no further output from the filter. Another negative AVERROR value if"]
-    #[doc = " an error occurs."]
+    #[doc = " @return"]
+    #[doc = "  - 0 on success."]
+    #[doc = "  - AVERROR(EAGAIN) if more packets need to be sent to the filter (using"]
+    #[doc = "    av_bsf_send_packet()) to get more output."]
+    #[doc = "  - AVERROR_EOF if there will be no further output from the filter."]
+    #[doc = "  - Another negative AVERROR value if an error occurs."]
     #[doc = ""]
     #[doc = " @note one input packet may result in several output packets, so after sending"]
     #[doc = " a packet with av_bsf_send_packet(), this function needs to be called"]
@@ -35134,6 +35494,7 @@ pub const AVOptionType_AV_OPT_TYPE_DURATION: AVOptionType = 15;
 pub const AVOptionType_AV_OPT_TYPE_COLOR: AVOptionType = 16;
 pub const AVOptionType_AV_OPT_TYPE_CHANNEL_LAYOUT: AVOptionType = 17;
 pub const AVOptionType_AV_OPT_TYPE_BOOL: AVOptionType = 18;
+pub const AVOptionType_AV_OPT_TYPE_CHLAYOUT: AVOptionType = 19;
 #[doc = " @defgroup avoptions AVOptions"]
 #[doc = " @ingroup lavu_data"]
 #[doc = " @{"]
@@ -35430,6 +35791,11 @@ fn bindgen_test_layout_AVOption__bindgen_ty_1() {
     }
     test_field_q();
 }
+impl ::std::fmt::Debug for AVOption__bindgen_ty_1 {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "AVOption__bindgen_ty_1 {{ union }}")
+    }
+}
 #[test]
 fn bindgen_test_layout_AVOption() {
     assert_eq!(
@@ -35595,6 +35961,11 @@ fn bindgen_test_layout_AVOption() {
         );
     }
     test_field_unit();
+}
+impl ::std::fmt::Debug for AVOption {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "AVOption {{ name: {:?}, help: {:?}, offset: {:?}, type: {:?}, default_val: {:?}, min: {:?}, max: {:?}, flags: {:?}, unit: {:?} }}" , self . name , self . help , self . offset , self . type_ , self . default_val , self . min , self . max , self . flags , self . unit)
+    }
 }
 #[doc = " A single allowed range of values, or a single allowed value."]
 #[repr(C)]
@@ -36275,6 +36646,14 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    pub fn av_opt_set_chlayout(
+        obj: *mut ::std::os::raw::c_void,
+        name: *const ::std::os::raw::c_char,
+        layout: *const AVChannelLayout,
+        search_flags: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     #[doc = " @note Any old dictionary present is discarded and replaced with a copy of the new one. The"]
     #[doc = " caller still owns val is and responsible for freeing it."]
     pub fn av_opt_set_dict_val(
@@ -36371,6 +36750,14 @@ extern "C" {
         name: *const ::std::os::raw::c_char,
         search_flags: ::std::os::raw::c_int,
         ch_layout: *mut i64,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn av_opt_get_chlayout(
+        obj: *mut ::std::os::raw::c_void,
+        name: *const ::std::os::raw::c_char,
+        search_flags: ::std::os::raw::c_int,
+        layout: *mut AVChannelLayout,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -38138,6 +38525,15 @@ extern "C" {
     #[doc = " Similar to feof() but also returns nonzero on read errors."]
     #[doc = " @return non zero if and only if at end of file or a read error happened when reading."]
     pub fn avio_feof(s: *mut AVIOContext) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Writes a formatted string to the context taking a va_list."]
+    #[doc = " @return number of bytes written, < 0 on error."]
+    pub fn avio_vprintf(
+        s: *mut AVIOContext,
+        fmt: *const ::std::os::raw::c_char,
+        ap: *mut __va_list_tag,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Writes a formatted string to the context."]
@@ -40897,7 +41293,7 @@ pub struct AVFormatContext {
     pub max_ts_probe: ::std::os::raw::c_int,
     #[doc = " Avoid negative timestamps during muxing."]
     #[doc = " Any value of the AVFMT_AVOID_NEG_TS_* constants."]
-    #[doc = " Note, this only works when using av_interleaved_write_frame. (interleave_packet_per_dts is in use)"]
+    #[doc = " Note, this works better when using av_interleaved_write_frame()."]
     #[doc = " - muxing: Set by user"]
     #[doc = " - demuxing: unused"]
     pub avoid_negative_ts: ::std::os::raw::c_int,
@@ -44669,6 +45065,11 @@ fn bindgen_test_layout_AVFilter__bindgen_ty_1() {
     }
     test_field_sample_fmt();
 }
+impl ::std::fmt::Debug for AVFilter__bindgen_ty_1 {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "AVFilter__bindgen_ty_1 {{ union }}")
+    }
+}
 #[test]
 fn bindgen_test_layout_AVFilter() {
     assert_eq!(
@@ -44987,6 +45388,11 @@ fn bindgen_test_layout_AVFilter() {
         );
     }
     test_field_activate();
+}
+impl ::std::fmt::Debug for AVFilter {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "AVFilter {{ name: {:?}, description: {:?}, inputs: {:?}, outputs: {:?}, priv_class: {:?}, flags: {:?}, nb_inputs: {:?}, nb_outputs: {:?}, formats_state: {:?}, preinit: {:?}, init: {:?}, init_dict: {:?}, uninit: {:?}, formats: {:?}, priv_size: {:?}, flags_internal: {:?}, process_command: {:?}, activate: {:?} }}" , self . name , self . description , self . inputs , self . outputs , self . priv_class , self . flags , self . nb_inputs , self . nb_outputs , self . formats_state , self . preinit , self . init , self . init_dict , self . uninit , self . formats , self . priv_size , self . flags_internal , self . process_command , self . activate)
+    }
 }
 extern "C" {
     #[doc = " Get the number of elements in an AVFilter's inputs or outputs array."]
@@ -45560,7 +45966,7 @@ fn bindgen_test_layout_AVFilterFormatsConfig() {
 #[doc = " In the future, access to the header may be reserved for filters"]
 #[doc = " implementation."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct AVFilterLink {
     #[doc = "< source filter"]
     pub src: *mut AVFilterContext,
@@ -45578,7 +45984,8 @@ pub struct AVFilterLink {
     pub h: ::std::os::raw::c_int,
     #[doc = "< agreed upon sample aspect ratio"]
     pub sample_aspect_ratio: AVRational,
-    #[doc = "< channel layout of current buffer (see libavutil/channel_layout.h)"]
+    #[doc = " channel layout of current buffer (see libavutil/channel_layout.h)"]
+    #[doc = " @deprecated use ch_layout"]
     pub channel_layout: u64,
     #[doc = "< samples per second"]
     pub sample_rate: ::std::os::raw::c_int,
@@ -45590,6 +45997,8 @@ pub struct AVFilterLink {
     #[doc = " change only the output timebase, while the timebase of the"]
     #[doc = " input link is assumed to be an unchangeable property."]
     pub time_base: AVRational,
+    #[doc = "< channel layout of current buffer (see libavutil/channel_layout.h)"]
+    pub ch_layout: AVChannelLayout,
     #[doc = " Lists of supported formats / etc. supported by the input filter."]
     pub incfg: AVFilterFormatsConfig,
     #[doc = " Lists of supported formats / etc. supported by the output filter."]
@@ -45624,8 +46033,6 @@ pub struct AVFilterLink {
     #[doc = " Maximum number of samples to filter at once. If filter_frame() is"]
     #[doc = " called with more samples, it will split them."]
     pub max_samples: ::std::os::raw::c_int,
-    #[doc = " Number of channels."]
-    pub channels: ::std::os::raw::c_int,
     #[doc = " Number of past frames sent through the link."]
     pub frame_count_in: i64,
     #[doc = " Number of past frames sent through the link."]
@@ -45660,7 +46067,7 @@ pub type AVFilterLink__bindgen_ty_1 = ::std::os::raw::c_uint;
 fn bindgen_test_layout_AVFilterLink() {
     assert_eq!(
         ::std::mem::size_of::<AVFilterLink>(),
-        61680usize,
+        61704usize,
         concat!("Size of: ", stringify!(AVFilterLink))
     );
     assert_eq!(
@@ -45872,6 +46279,23 @@ fn bindgen_test_layout_AVFilterLink() {
         );
     }
     test_field_time_base();
+    fn test_field_ch_layout() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVFilterLink>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize
+            },
+            80usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVFilterLink),
+                "::",
+                stringify!(ch_layout)
+            )
+        );
+    }
+    test_field_ch_layout();
     fn test_field_incfg() {
         assert_eq!(
             unsafe {
@@ -45879,7 +46303,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).incfg) as usize - ptr as usize
             },
-            80usize,
+            104usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -45896,7 +46320,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).outcfg) as usize - ptr as usize
             },
-            104usize,
+            128usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -45913,7 +46337,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).init_state) as usize - ptr as usize
             },
-            128usize,
+            152usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -45930,7 +46354,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).graph) as usize - ptr as usize
             },
-            136usize,
+            160usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -45947,7 +46371,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).current_pts) as usize - ptr as usize
             },
-            144usize,
+            168usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -45964,7 +46388,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).current_pts_us) as usize - ptr as usize
             },
-            152usize,
+            176usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -45981,7 +46405,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).age_index) as usize - ptr as usize
             },
-            160usize,
+            184usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -45998,7 +46422,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).frame_rate) as usize - ptr as usize
             },
-            164usize,
+            188usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46015,7 +46439,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).min_samples) as usize - ptr as usize
             },
-            172usize,
+            196usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46032,7 +46456,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).max_samples) as usize - ptr as usize
             },
-            176usize,
+            200usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46042,23 +46466,6 @@ fn bindgen_test_layout_AVFilterLink() {
         );
     }
     test_field_max_samples();
-    fn test_field_channels() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVFilterLink>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).channels) as usize - ptr as usize
-            },
-            180usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVFilterLink),
-                "::",
-                stringify!(channels)
-            )
-        );
-    }
-    test_field_channels();
     fn test_field_frame_count_in() {
         assert_eq!(
             unsafe {
@@ -46066,7 +46473,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).frame_count_in) as usize - ptr as usize
             },
-            184usize,
+            208usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46083,7 +46490,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).frame_count_out) as usize - ptr as usize
             },
-            192usize,
+            216usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46100,7 +46507,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).sample_count_in) as usize - ptr as usize
             },
-            200usize,
+            224usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46117,7 +46524,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).sample_count_out) as usize - ptr as usize
             },
-            208usize,
+            232usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46134,7 +46541,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).frame_pool) as usize - ptr as usize
             },
-            216usize,
+            240usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46151,7 +46558,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).frame_wanted_out) as usize - ptr as usize
             },
-            224usize,
+            248usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46168,7 +46575,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).hw_frames_ctx) as usize - ptr as usize
             },
-            232usize,
+            256usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46185,7 +46592,7 @@ fn bindgen_test_layout_AVFilterLink() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize
             },
-            240usize,
+            264usize,
             concat!(
                 "Offset of field: ",
                 stringify!(AVFilterLink),
@@ -46195,6 +46602,11 @@ fn bindgen_test_layout_AVFilterLink() {
         );
     }
     test_field_reserved();
+}
+impl ::std::fmt::Debug for AVFilterLink {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "AVFilterLink {{ src: {:?}, srcpad: {:?}, dst: {:?}, dstpad: {:?}, type: {:?}, w: {:?}, h: {:?}, sample_aspect_ratio: {:?}, channel_layout: {:?}, sample_rate: {:?}, format: {:?}, time_base: {:?}, ch_layout: {:?}, incfg: {:?}, outcfg: {:?}, init_state: {:?}, graph: {:?}, current_pts: {:?}, current_pts_us: {:?}, age_index: {:?}, frame_rate: {:?}, min_samples: {:?}, max_samples: {:?}, frame_count_in: {:?}, frame_count_out: {:?}, sample_count_in: {:?}, sample_count_out: {:?}, frame_pool: {:?}, frame_wanted_out: {:?}, hw_frames_ctx: {:?}, reserved: {:?} }}" , self . src , self . srcpad , self . dst , self . dstpad , self . type_ , self . w , self . h , self . sample_aspect_ratio , self . channel_layout , self . sample_rate , self . format , self . time_base , self . ch_layout , self . incfg , self . outcfg , self . init_state , self . graph , self . current_pts , self . current_pts_us , self . age_index , self . frame_rate , self . min_samples , self . max_samples , self . frame_count_in , self . frame_count_out , self . sample_count_in , self . sample_count_out , self . frame_pool , self . frame_wanted_out , self . hw_frames_ctx , self . reserved)
+    }
 }
 extern "C" {
     #[doc = " Link two filters together."]
@@ -47220,6 +47632,12 @@ extern "C" {
     pub fn av_buffersink_get_channel_layout(ctx: *const AVFilterContext) -> u64;
 }
 extern "C" {
+    pub fn av_buffersink_get_ch_layout(
+        ctx: *const AVFilterContext,
+        ch_layout: *mut AVChannelLayout,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     pub fn av_buffersink_get_sample_rate(ctx: *const AVFilterContext) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -47293,7 +47711,7 @@ extern "C" {
 #[doc = " It should be allocated with av_buffersrc_parameters_alloc() and freed with"]
 #[doc = " av_free(). All the allocated fields in it remain owned by the caller."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct AVBufferSrcParameters {
     #[doc = " video: the pixel format, value corresponds to enum AVPixelFormat"]
     #[doc = " audio: the sample format, value corresponds to enum AVSampleFormat"]
@@ -47317,13 +47735,16 @@ pub struct AVBufferSrcParameters {
     #[doc = " Audio only, the audio sampling rate in samples per second."]
     pub sample_rate: ::std::os::raw::c_int,
     #[doc = " Audio only, the audio channel layout"]
+    #[doc = " @deprecated use ch_layout"]
     pub channel_layout: u64,
+    #[doc = " Audio only, the audio channel layout"]
+    pub ch_layout: AVChannelLayout,
 }
 #[test]
 fn bindgen_test_layout_AVBufferSrcParameters() {
     assert_eq!(
         ::std::mem::size_of::<AVBufferSrcParameters>(),
-        64usize,
+        88usize,
         concat!("Size of: ", stringify!(AVBufferSrcParameters))
     );
     assert_eq!(
@@ -47484,6 +47905,28 @@ fn bindgen_test_layout_AVBufferSrcParameters() {
         );
     }
     test_field_channel_layout();
+    fn test_field_ch_layout() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVBufferSrcParameters>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize
+            },
+            64usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVBufferSrcParameters),
+                "::",
+                stringify!(ch_layout)
+            )
+        );
+    }
+    test_field_ch_layout();
+}
+impl ::std::fmt::Debug for AVBufferSrcParameters {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "AVBufferSrcParameters {{ format: {:?}, time_base: {:?}, width: {:?}, height: {:?}, sample_aspect_ratio: {:?}, frame_rate: {:?}, hw_frames_ctx: {:?}, sample_rate: {:?}, channel_layout: {:?}, ch_layout: {:?} }}" , self . format , self . time_base , self . width , self . height , self . sample_aspect_ratio , self . frame_rate , self . hw_frames_ctx , self . sample_rate , self . channel_layout , self . ch_layout)
+    }
 }
 extern "C" {
     #[doc = " Allocate a new AVBufferSrcParameters instance. It should be freed by the"]
@@ -47638,290 +48081,6 @@ extern "C" {
         iv: *mut u8,
         decrypt: ::std::os::raw::c_int,
     );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct AVFifoBuffer {
-    pub buffer: *mut u8,
-    pub rptr: *mut u8,
-    pub wptr: *mut u8,
-    pub end: *mut u8,
-    pub rndx: u32,
-    pub wndx: u32,
-}
-#[test]
-fn bindgen_test_layout_AVFifoBuffer() {
-    assert_eq!(
-        ::std::mem::size_of::<AVFifoBuffer>(),
-        40usize,
-        concat!("Size of: ", stringify!(AVFifoBuffer))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<AVFifoBuffer>(),
-        8usize,
-        concat!("Alignment of ", stringify!(AVFifoBuffer))
-    );
-    fn test_field_buffer() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).buffer) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVFifoBuffer),
-                "::",
-                stringify!(buffer)
-            )
-        );
-    }
-    test_field_buffer();
-    fn test_field_rptr() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).rptr) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVFifoBuffer),
-                "::",
-                stringify!(rptr)
-            )
-        );
-    }
-    test_field_rptr();
-    fn test_field_wptr() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).wptr) as usize - ptr as usize
-            },
-            16usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVFifoBuffer),
-                "::",
-                stringify!(wptr)
-            )
-        );
-    }
-    test_field_wptr();
-    fn test_field_end() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).end) as usize - ptr as usize
-            },
-            24usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVFifoBuffer),
-                "::",
-                stringify!(end)
-            )
-        );
-    }
-    test_field_end();
-    fn test_field_rndx() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).rndx) as usize - ptr as usize
-            },
-            32usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVFifoBuffer),
-                "::",
-                stringify!(rndx)
-            )
-        );
-    }
-    test_field_rndx();
-    fn test_field_wndx() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).wndx) as usize - ptr as usize
-            },
-            36usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(AVFifoBuffer),
-                "::",
-                stringify!(wndx)
-            )
-        );
-    }
-    test_field_wndx();
-}
-extern "C" {
-    #[doc = " Initialize an AVFifoBuffer."]
-    #[doc = " @param size of FIFO"]
-    #[doc = " @return AVFifoBuffer or NULL in case of memory allocation failure"]
-    pub fn av_fifo_alloc(size: ::std::os::raw::c_uint) -> *mut AVFifoBuffer;
-}
-extern "C" {
-    #[doc = " Initialize an AVFifoBuffer."]
-    #[doc = " @param nmemb number of elements"]
-    #[doc = " @param size  size of the single element"]
-    #[doc = " @return AVFifoBuffer or NULL in case of memory allocation failure"]
-    pub fn av_fifo_alloc_array(nmemb: size_t, size: size_t) -> *mut AVFifoBuffer;
-}
-extern "C" {
-    #[doc = " Free an AVFifoBuffer."]
-    #[doc = " @param f AVFifoBuffer to free"]
-    pub fn av_fifo_free(f: *mut AVFifoBuffer);
-}
-extern "C" {
-    #[doc = " Free an AVFifoBuffer and reset pointer to NULL."]
-    #[doc = " @param f AVFifoBuffer to free"]
-    pub fn av_fifo_freep(f: *mut *mut AVFifoBuffer);
-}
-extern "C" {
-    #[doc = " Reset the AVFifoBuffer to the state right after av_fifo_alloc, in particular it is emptied."]
-    #[doc = " @param f AVFifoBuffer to reset"]
-    pub fn av_fifo_reset(f: *mut AVFifoBuffer);
-}
-extern "C" {
-    #[doc = " Return the amount of data in bytes in the AVFifoBuffer, that is the"]
-    #[doc = " amount of data you can read from it."]
-    #[doc = " @param f AVFifoBuffer to read from"]
-    #[doc = " @return size"]
-    pub fn av_fifo_size(f: *const AVFifoBuffer) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Return the amount of space in bytes in the AVFifoBuffer, that is the"]
-    #[doc = " amount of data you can write into it."]
-    #[doc = " @param f AVFifoBuffer to write into"]
-    #[doc = " @return size"]
-    pub fn av_fifo_space(f: *const AVFifoBuffer) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Feed data at specific position from an AVFifoBuffer to a user-supplied callback."]
-    #[doc = " Similar as av_fifo_gereric_read but without discarding data."]
-    #[doc = " @param f AVFifoBuffer to read from"]
-    #[doc = " @param offset offset from current read position"]
-    #[doc = " @param buf_size number of bytes to read"]
-    #[doc = " @param func generic read function"]
-    #[doc = " @param dest data destination"]
-    pub fn av_fifo_generic_peek_at(
-        f: *mut AVFifoBuffer,
-        dest: *mut ::std::os::raw::c_void,
-        offset: ::std::os::raw::c_int,
-        buf_size: ::std::os::raw::c_int,
-        func: ::std::option::Option<
-            unsafe extern "C" fn(
-                arg1: *mut ::std::os::raw::c_void,
-                arg2: *mut ::std::os::raw::c_void,
-                arg3: ::std::os::raw::c_int,
-            ),
-        >,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Feed data from an AVFifoBuffer to a user-supplied callback."]
-    #[doc = " Similar as av_fifo_gereric_read but without discarding data."]
-    #[doc = " @param f AVFifoBuffer to read from"]
-    #[doc = " @param buf_size number of bytes to read"]
-    #[doc = " @param func generic read function"]
-    #[doc = " @param dest data destination"]
-    pub fn av_fifo_generic_peek(
-        f: *mut AVFifoBuffer,
-        dest: *mut ::std::os::raw::c_void,
-        buf_size: ::std::os::raw::c_int,
-        func: ::std::option::Option<
-            unsafe extern "C" fn(
-                arg1: *mut ::std::os::raw::c_void,
-                arg2: *mut ::std::os::raw::c_void,
-                arg3: ::std::os::raw::c_int,
-            ),
-        >,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Feed data from an AVFifoBuffer to a user-supplied callback."]
-    #[doc = " @param f AVFifoBuffer to read from"]
-    #[doc = " @param buf_size number of bytes to read"]
-    #[doc = " @param func generic read function"]
-    #[doc = " @param dest data destination"]
-    pub fn av_fifo_generic_read(
-        f: *mut AVFifoBuffer,
-        dest: *mut ::std::os::raw::c_void,
-        buf_size: ::std::os::raw::c_int,
-        func: ::std::option::Option<
-            unsafe extern "C" fn(
-                arg1: *mut ::std::os::raw::c_void,
-                arg2: *mut ::std::os::raw::c_void,
-                arg3: ::std::os::raw::c_int,
-            ),
-        >,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Feed data from a user-supplied callback to an AVFifoBuffer."]
-    #[doc = " @param f AVFifoBuffer to write to"]
-    #[doc = " @param src data source; non-const since it may be used as a"]
-    #[doc = " modifiable context by the function defined in func"]
-    #[doc = " @param size number of bytes to write"]
-    #[doc = " @param func generic write function; the first parameter is src,"]
-    #[doc = " the second is dest_buf, the third is dest_buf_size."]
-    #[doc = " func must return the number of bytes written to dest_buf, or <= 0 to"]
-    #[doc = " indicate no more data available to write."]
-    #[doc = " If func is NULL, src is interpreted as a simple byte array for source data."]
-    #[doc = " @return the number of bytes written to the FIFO"]
-    pub fn av_fifo_generic_write(
-        f: *mut AVFifoBuffer,
-        src: *mut ::std::os::raw::c_void,
-        size: ::std::os::raw::c_int,
-        func: ::std::option::Option<
-            unsafe extern "C" fn(
-                arg1: *mut ::std::os::raw::c_void,
-                arg2: *mut ::std::os::raw::c_void,
-                arg3: ::std::os::raw::c_int,
-            ) -> ::std::os::raw::c_int,
-        >,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Resize an AVFifoBuffer."]
-    #[doc = " In case of reallocation failure, the old FIFO is kept unchanged."]
-    #[doc = ""]
-    #[doc = " @param f AVFifoBuffer to resize"]
-    #[doc = " @param size new AVFifoBuffer size in bytes"]
-    #[doc = " @return <0 for failure, >=0 otherwise"]
-    pub fn av_fifo_realloc2(
-        f: *mut AVFifoBuffer,
-        size: ::std::os::raw::c_uint,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Enlarge an AVFifoBuffer."]
-    #[doc = " In case of reallocation failure, the old FIFO is kept unchanged."]
-    #[doc = " The new fifo size may be larger than the requested size."]
-    #[doc = ""]
-    #[doc = " @param f AVFifoBuffer to resize"]
-    #[doc = " @param additional_space the amount of space in bytes to allocate in addition to av_fifo_size()"]
-    #[doc = " @return <0 for failure, >=0 otherwise"]
-    pub fn av_fifo_grow(
-        f: *mut AVFifoBuffer,
-        additional_space: ::std::os::raw::c_uint,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Read and discard the specified amount of data from an AVFifoBuffer."]
-    #[doc = " @param f AVFifoBuffer to read from"]
-    #[doc = " @param size amount of data to read in bytes"]
-    pub fn av_fifo_drain(f: *mut AVFifoBuffer, size: ::std::os::raw::c_int);
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -49055,126 +49214,6 @@ extern "C" {
         decrypt: ::std::os::raw::c_int,
     );
 }
-pub const AVMatrixEncoding_AV_MATRIX_ENCODING_NONE: AVMatrixEncoding = 0;
-pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DOLBY: AVMatrixEncoding = 1;
-pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DPLII: AVMatrixEncoding = 2;
-pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DPLIIX: AVMatrixEncoding = 3;
-pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DPLIIZ: AVMatrixEncoding = 4;
-pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DOLBYEX: AVMatrixEncoding = 5;
-pub const AVMatrixEncoding_AV_MATRIX_ENCODING_DOLBYHEADPHONE: AVMatrixEncoding = 6;
-pub const AVMatrixEncoding_AV_MATRIX_ENCODING_NB: AVMatrixEncoding = 7;
-pub type AVMatrixEncoding = ::std::os::raw::c_uint;
-extern "C" {
-    #[doc = " Return a channel layout id that matches name, or 0 if no match is found."]
-    #[doc = ""]
-    #[doc = " name can be one or several of the following notations,"]
-    #[doc = " separated by '+' or '|':"]
-    #[doc = " - the name of an usual channel layout (mono, stereo, 4.0, quad, 5.0,"]
-    #[doc = "   5.0(side), 5.1, 5.1(side), 7.1, 7.1(wide), downmix);"]
-    #[doc = " - the name of a single channel (FL, FR, FC, LFE, BL, BR, FLC, FRC, BC,"]
-    #[doc = "   SL, SR, TC, TFL, TFC, TFR, TBL, TBC, TBR, DL, DR);"]
-    #[doc = " - a number of channels, in decimal, followed by 'c', yielding"]
-    #[doc = "   the default channel layout for that number of channels (@see"]
-    #[doc = "   av_get_default_channel_layout);"]
-    #[doc = " - a channel layout mask, in hexadecimal starting with \"0x\" (see the"]
-    #[doc = "   AV_CH_* macros)."]
-    #[doc = ""]
-    #[doc = " Example: \"stereo+FC\" = \"2c+FC\" = \"2c+1c\" = \"0x7\""]
-    pub fn av_get_channel_layout(name: *const ::std::os::raw::c_char) -> u64;
-}
-extern "C" {
-    #[doc = " Return a channel layout and the number of channels based on the specified name."]
-    #[doc = ""]
-    #[doc = " This function is similar to (@see av_get_channel_layout), but can also parse"]
-    #[doc = " unknown channel layout specifications."]
-    #[doc = ""]
-    #[doc = " @param[in]  name             channel layout specification string"]
-    #[doc = " @param[out] channel_layout   parsed channel layout (0 if unknown)"]
-    #[doc = " @param[out] nb_channels      number of channels"]
-    #[doc = ""]
-    #[doc = " @return 0 on success, AVERROR(EINVAL) if the parsing fails."]
-    pub fn av_get_extended_channel_layout(
-        name: *const ::std::os::raw::c_char,
-        channel_layout: *mut u64,
-        nb_channels: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Return a description of a channel layout."]
-    #[doc = " If nb_channels is <= 0, it is guessed from the channel_layout."]
-    #[doc = ""]
-    #[doc = " @param buf put here the string containing the channel layout"]
-    #[doc = " @param buf_size size in bytes of the buffer"]
-    pub fn av_get_channel_layout_string(
-        buf: *mut ::std::os::raw::c_char,
-        buf_size: ::std::os::raw::c_int,
-        nb_channels: ::std::os::raw::c_int,
-        channel_layout: u64,
-    );
-}
-extern "C" {
-    #[doc = " Append a description of a channel layout to a bprint buffer."]
-    pub fn av_bprint_channel_layout(
-        bp: *mut AVBPrint,
-        nb_channels: ::std::os::raw::c_int,
-        channel_layout: u64,
-    );
-}
-extern "C" {
-    #[doc = " Return the number of channels in the channel layout."]
-    pub fn av_get_channel_layout_nb_channels(channel_layout: u64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Return default channel layout for a given number of channels."]
-    pub fn av_get_default_channel_layout(nb_channels: ::std::os::raw::c_int) -> i64;
-}
-extern "C" {
-    #[doc = " Get the index of a channel in channel_layout."]
-    #[doc = ""]
-    #[doc = " @param channel a channel layout describing exactly one channel which must be"]
-    #[doc = "                present in channel_layout."]
-    #[doc = ""]
-    #[doc = " @return index of channel in channel_layout on success, a negative AVERROR"]
-    #[doc = "         on error."]
-    pub fn av_get_channel_layout_channel_index(
-        channel_layout: u64,
-        channel: u64,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    #[doc = " Get the channel with the given index in channel_layout."]
-    pub fn av_channel_layout_extract_channel(
-        channel_layout: u64,
-        index: ::std::os::raw::c_int,
-    ) -> u64;
-}
-extern "C" {
-    #[doc = " Get the name of a given channel."]
-    #[doc = ""]
-    #[doc = " @return channel name on success, NULL on error."]
-    pub fn av_get_channel_name(channel: u64) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    #[doc = " Get the description of a given channel."]
-    #[doc = ""]
-    #[doc = " @param channel  a channel layout with a single channel"]
-    #[doc = " @return  channel description on success, NULL on error"]
-    pub fn av_get_channel_description(channel: u64) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    #[doc = " Get the value and name of a standard channel layout."]
-    #[doc = ""]
-    #[doc = " @param[in]  index   index in an internal list, starting at 0"]
-    #[doc = " @param[out] layout  channel layout mask"]
-    #[doc = " @param[out] name    name of the layout"]
-    #[doc = " @return  0  if the layout exists,"]
-    #[doc = "          <0 if index is beyond the limits"]
-    pub fn av_get_standard_channel_layout(
-        index: ::std::os::raw::c_uint,
-        layout: *mut u64,
-        name: *mut *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
 extern "C" {
     #[doc = " Return the flags which specify extensions supported by the CPU."]
     #[doc = " The returned value is affected by av_force_cpu_flags() if that was used"]
@@ -49607,6 +49646,525 @@ extern "C" {
         numstr: *const ::std::os::raw::c_char,
         tail: *mut *mut ::std::os::raw::c_char,
     ) -> f64;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct AVFifo {
+    _unused: [u8; 0],
+}
+#[doc = " Callback for writing or reading from a FIFO, passed to (and invoked from) the"]
+#[doc = " av_fifo_*_cb() functions. It may be invoked multiple times from a single"]
+#[doc = " av_fifo_*_cb() call and may process less data than the maximum size indicated"]
+#[doc = " by nb_elems."]
+#[doc = ""]
+#[doc = " @param opaque the opaque pointer provided to the av_fifo_*_cb() function"]
+#[doc = " @param buf the buffer for reading or writing the data, depending on which"]
+#[doc = "            av_fifo_*_cb function is called"]
+#[doc = " @param nb_elems On entry contains the maximum number of elements that can be"]
+#[doc = "                 read from / written into buf. On success, the callback should"]
+#[doc = "                 update it to contain the number of elements actually written."]
+#[doc = ""]
+#[doc = " @return 0 on success, a negative error code on failure (will be returned from"]
+#[doc = "         the invoking av_fifo_*_cb() function)"]
+pub type AVFifoCB = ::std::option::Option<
+    unsafe extern "C" fn(
+        opaque: *mut ::std::os::raw::c_void,
+        buf: *mut ::std::os::raw::c_void,
+        nb_elems: *mut size_t,
+    ) -> ::std::os::raw::c_int,
+>;
+extern "C" {
+    #[doc = " Allocate and initialize an AVFifo with a given element size."]
+    #[doc = ""]
+    #[doc = " @param elems     initial number of elements that can be stored in the FIFO"]
+    #[doc = " @param elem_size Size in bytes of a single element. Further operations on"]
+    #[doc = "                  the returned FIFO will implicitly use this element size."]
+    #[doc = " @param flags a combination of AV_FIFO_FLAG_*"]
+    #[doc = ""]
+    #[doc = " @return newly-allocated AVFifo on success, a negative error code on failure"]
+    pub fn av_fifo_alloc2(
+        elems: size_t,
+        elem_size: size_t,
+        flags: ::std::os::raw::c_uint,
+    ) -> *mut AVFifo;
+}
+extern "C" {
+    #[doc = " @return Element size for FIFO operations. This element size is set at"]
+    #[doc = "         FIFO allocation and remains constant during its lifetime"]
+    pub fn av_fifo_elem_size(f: *const AVFifo) -> size_t;
+}
+extern "C" {
+    #[doc = " Set the maximum size (in elements) to which the FIFO can be resized"]
+    #[doc = " automatically. Has no effect unless AV_FIFO_FLAG_AUTO_GROW is used."]
+    pub fn av_fifo_auto_grow_limit(f: *mut AVFifo, max_elems: size_t);
+}
+extern "C" {
+    #[doc = " @return number of elements available for reading from the given FIFO."]
+    pub fn av_fifo_can_read(f: *const AVFifo) -> size_t;
+}
+extern "C" {
+    #[doc = " @return number of elements that can be written into the given FIFO."]
+    pub fn av_fifo_can_write(f: *const AVFifo) -> size_t;
+}
+extern "C" {
+    #[doc = " Enlarge an AVFifo."]
+    #[doc = ""]
+    #[doc = " On success, the FIFO will be large enough to hold exactly"]
+    #[doc = " inc + av_fifo_can_read() + av_fifo_can_write()"]
+    #[doc = " elements. In case of failure, the old FIFO is kept unchanged."]
+    #[doc = ""]
+    #[doc = " @param f AVFifo to resize"]
+    #[doc = " @param inc number of elements to allocate for, in addition to the current"]
+    #[doc = "            allocated size"]
+    #[doc = " @return a non-negative number on success, a negative error code on failure"]
+    pub fn av_fifo_grow2(f: *mut AVFifo, inc: size_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Write data into a FIFO."]
+    #[doc = ""]
+    #[doc = " In case nb_elems > av_fifo_can_write(f), nothing is written and an error"]
+    #[doc = " is returned."]
+    #[doc = ""]
+    #[doc = " @param f the FIFO buffer"]
+    #[doc = " @param buf Data to be written. nb_elems * av_fifo_elem_size(f) bytes will be"]
+    #[doc = "            read from buf on success."]
+    #[doc = " @param nb_elems number of elements to write into FIFO"]
+    #[doc = ""]
+    #[doc = " @return a non-negative number on success, a negative error code on failure"]
+    pub fn av_fifo_write(
+        f: *mut AVFifo,
+        buf: *const ::std::os::raw::c_void,
+        nb_elems: size_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Write data from a user-provided callback into a FIFO."]
+    #[doc = ""]
+    #[doc = " @param f the FIFO buffer"]
+    #[doc = " @param read_cb Callback supplying the data to the FIFO. May be called"]
+    #[doc = "                multiple times."]
+    #[doc = " @param opaque opaque user data to be provided to read_cb"]
+    #[doc = " @param nb_elems Should point to the maximum number of elements that can be"]
+    #[doc = "                 written. Will be updated to contain the number of elements"]
+    #[doc = "                 actually written."]
+    #[doc = ""]
+    #[doc = " @return non-negative number on success, a negative error code on failure"]
+    pub fn av_fifo_write_from_cb(
+        f: *mut AVFifo,
+        read_cb: AVFifoCB,
+        opaque: *mut ::std::os::raw::c_void,
+        nb_elems: *mut size_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Read data from a FIFO."]
+    #[doc = ""]
+    #[doc = " In case nb_elems > av_fifo_can_read(f), nothing is read and an error"]
+    #[doc = " is returned."]
+    #[doc = ""]
+    #[doc = " @param f the FIFO buffer"]
+    #[doc = " @param buf Buffer to store the data. nb_elems * av_fifo_elem_size(f) bytes"]
+    #[doc = "            will be written into buf on success."]
+    #[doc = " @param nb_elems number of elements to read from FIFO"]
+    #[doc = ""]
+    #[doc = " @return a non-negative number on success, a negative error code on failure"]
+    pub fn av_fifo_read(
+        f: *mut AVFifo,
+        buf: *mut ::std::os::raw::c_void,
+        nb_elems: size_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Feed data from a FIFO into a user-provided callback."]
+    #[doc = ""]
+    #[doc = " @param f the FIFO buffer"]
+    #[doc = " @param write_cb Callback the data will be supplied to. May be called"]
+    #[doc = "                 multiple times."]
+    #[doc = " @param opaque opaque user data to be provided to write_cb"]
+    #[doc = " @param nb_elems Should point to the maximum number of elements that can be"]
+    #[doc = "                 read. Will be updated to contain the total number of elements"]
+    #[doc = "                 actually sent to the callback."]
+    #[doc = ""]
+    #[doc = " @return non-negative number on success, a negative error code on failure"]
+    pub fn av_fifo_read_to_cb(
+        f: *mut AVFifo,
+        write_cb: AVFifoCB,
+        opaque: *mut ::std::os::raw::c_void,
+        nb_elems: *mut size_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Read data from a FIFO without modifying FIFO state."]
+    #[doc = ""]
+    #[doc = " Returns an error if an attempt is made to peek to nonexistent elements"]
+    #[doc = " (i.e. if offset + nb_elems is larger than av_fifo_can_read(f))."]
+    #[doc = ""]
+    #[doc = " @param f the FIFO buffer"]
+    #[doc = " @param buf Buffer to store the data. nb_elems * av_fifo_elem_size(f) bytes"]
+    #[doc = "            will be written into buf."]
+    #[doc = " @param nb_elems number of elements to read from FIFO"]
+    #[doc = " @param offset number of initial elements to skip."]
+    #[doc = ""]
+    #[doc = " @return a non-negative number on success, a negative error code on failure"]
+    pub fn av_fifo_peek(
+        f: *mut AVFifo,
+        buf: *mut ::std::os::raw::c_void,
+        nb_elems: size_t,
+        offset: size_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Feed data from a FIFO into a user-provided callback."]
+    #[doc = ""]
+    #[doc = " @param f the FIFO buffer"]
+    #[doc = " @param write_cb Callback the data will be supplied to. May be called"]
+    #[doc = "                 multiple times."]
+    #[doc = " @param opaque opaque user data to be provided to write_cb"]
+    #[doc = " @param nb_elems Should point to the maximum number of elements that can be"]
+    #[doc = "                 read. Will be updated to contain the total number of elements"]
+    #[doc = "                 actually sent to the callback."]
+    #[doc = " @param offset number of initial elements to skip; offset + *nb_elems must not"]
+    #[doc = "               be larger than av_fifo_can_read(f)."]
+    #[doc = ""]
+    #[doc = " @return a non-negative number on success, a negative error code on failure"]
+    pub fn av_fifo_peek_to_cb(
+        f: *mut AVFifo,
+        write_cb: AVFifoCB,
+        opaque: *mut ::std::os::raw::c_void,
+        nb_elems: *mut size_t,
+        offset: size_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Discard the specified amount of data from an AVFifo."]
+    #[doc = " @param size number of elements to discard, MUST NOT be larger than"]
+    #[doc = "             av_fifo_can_read(f)"]
+    pub fn av_fifo_drain2(f: *mut AVFifo, size: size_t);
+}
+extern "C" {
+    pub fn av_fifo_reset2(f: *mut AVFifo);
+}
+extern "C" {
+    #[doc = " Free an AVFifo and reset pointer to NULL."]
+    #[doc = " @param f Pointer to an AVFifo to free. *f == NULL is allowed."]
+    pub fn av_fifo_freep2(f: *mut *mut AVFifo);
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct AVFifoBuffer {
+    pub buffer: *mut u8,
+    pub rptr: *mut u8,
+    pub wptr: *mut u8,
+    pub end: *mut u8,
+    pub rndx: u32,
+    pub wndx: u32,
+}
+#[test]
+fn bindgen_test_layout_AVFifoBuffer() {
+    assert_eq!(
+        ::std::mem::size_of::<AVFifoBuffer>(),
+        40usize,
+        concat!("Size of: ", stringify!(AVFifoBuffer))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFifoBuffer>(),
+        8usize,
+        concat!("Alignment of ", stringify!(AVFifoBuffer))
+    );
+    fn test_field_buffer() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).buffer) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVFifoBuffer),
+                "::",
+                stringify!(buffer)
+            )
+        );
+    }
+    test_field_buffer();
+    fn test_field_rptr() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).rptr) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVFifoBuffer),
+                "::",
+                stringify!(rptr)
+            )
+        );
+    }
+    test_field_rptr();
+    fn test_field_wptr() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).wptr) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVFifoBuffer),
+                "::",
+                stringify!(wptr)
+            )
+        );
+    }
+    test_field_wptr();
+    fn test_field_end() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).end) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVFifoBuffer),
+                "::",
+                stringify!(end)
+            )
+        );
+    }
+    test_field_end();
+    fn test_field_rndx() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).rndx) as usize - ptr as usize
+            },
+            32usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVFifoBuffer),
+                "::",
+                stringify!(rndx)
+            )
+        );
+    }
+    test_field_rndx();
+    fn test_field_wndx() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<AVFifoBuffer>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).wndx) as usize - ptr as usize
+            },
+            36usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(AVFifoBuffer),
+                "::",
+                stringify!(wndx)
+            )
+        );
+    }
+    test_field_wndx();
+}
+extern "C" {
+    #[doc = " Initialize an AVFifoBuffer."]
+    #[doc = " @param size of FIFO"]
+    #[doc = " @return AVFifoBuffer or NULL in case of memory allocation failure"]
+    #[doc = " @deprecated use av_fifo_alloc2()"]
+    pub fn av_fifo_alloc(size: ::std::os::raw::c_uint) -> *mut AVFifoBuffer;
+}
+extern "C" {
+    #[doc = " Initialize an AVFifoBuffer."]
+    #[doc = " @param nmemb number of elements"]
+    #[doc = " @param size  size of the single element"]
+    #[doc = " @return AVFifoBuffer or NULL in case of memory allocation failure"]
+    #[doc = " @deprecated use av_fifo_alloc2()"]
+    pub fn av_fifo_alloc_array(nmemb: size_t, size: size_t) -> *mut AVFifoBuffer;
+}
+extern "C" {
+    #[doc = " Free an AVFifoBuffer."]
+    #[doc = " @param f AVFifoBuffer to free"]
+    #[doc = " @deprecated use the AVFifo API with av_fifo_freep2()"]
+    pub fn av_fifo_free(f: *mut AVFifoBuffer);
+}
+extern "C" {
+    #[doc = " Free an AVFifoBuffer and reset pointer to NULL."]
+    #[doc = " @param f AVFifoBuffer to free"]
+    #[doc = " @deprecated use the AVFifo API with av_fifo_freep2()"]
+    pub fn av_fifo_freep(f: *mut *mut AVFifoBuffer);
+}
+extern "C" {
+    #[doc = " Reset the AVFifoBuffer to the state right after av_fifo_alloc, in particular it is emptied."]
+    #[doc = " @param f AVFifoBuffer to reset"]
+    #[doc = " @deprecated use av_fifo_reset2() with the new AVFifo-API"]
+    pub fn av_fifo_reset(f: *mut AVFifoBuffer);
+}
+extern "C" {
+    #[doc = " Return the amount of data in bytes in the AVFifoBuffer, that is the"]
+    #[doc = " amount of data you can read from it."]
+    #[doc = " @param f AVFifoBuffer to read from"]
+    #[doc = " @return size"]
+    #[doc = " @deprecated use av_fifo_can_read() with the new AVFifo-API"]
+    pub fn av_fifo_size(f: *const AVFifoBuffer) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Return the amount of space in bytes in the AVFifoBuffer, that is the"]
+    #[doc = " amount of data you can write into it."]
+    #[doc = " @param f AVFifoBuffer to write into"]
+    #[doc = " @return size"]
+    #[doc = " @deprecated use av_fifo_can_write() with the new AVFifo-API"]
+    pub fn av_fifo_space(f: *const AVFifoBuffer) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Feed data at specific position from an AVFifoBuffer to a user-supplied callback."]
+    #[doc = " Similar as av_fifo_gereric_read but without discarding data."]
+    #[doc = " @param f AVFifoBuffer to read from"]
+    #[doc = " @param offset offset from current read position"]
+    #[doc = " @param buf_size number of bytes to read"]
+    #[doc = " @param func generic read function"]
+    #[doc = " @param dest data destination"]
+    #[doc = ""]
+    #[doc = " @return a non-negative number on success, a negative error code on failure"]
+    #[doc = ""]
+    #[doc = " @deprecated use the new AVFifo-API with av_fifo_peek() when func == NULL,"]
+    #[doc = "             av_fifo_peek_to_cb() otherwise"]
+    pub fn av_fifo_generic_peek_at(
+        f: *mut AVFifoBuffer,
+        dest: *mut ::std::os::raw::c_void,
+        offset: ::std::os::raw::c_int,
+        buf_size: ::std::os::raw::c_int,
+        func: ::std::option::Option<
+            unsafe extern "C" fn(
+                arg1: *mut ::std::os::raw::c_void,
+                arg2: *mut ::std::os::raw::c_void,
+                arg3: ::std::os::raw::c_int,
+            ),
+        >,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Feed data from an AVFifoBuffer to a user-supplied callback."]
+    #[doc = " Similar as av_fifo_gereric_read but without discarding data."]
+    #[doc = " @param f AVFifoBuffer to read from"]
+    #[doc = " @param buf_size number of bytes to read"]
+    #[doc = " @param func generic read function"]
+    #[doc = " @param dest data destination"]
+    #[doc = ""]
+    #[doc = " @return a non-negative number on success, a negative error code on failure"]
+    #[doc = ""]
+    #[doc = " @deprecated use the new AVFifo-API with av_fifo_peek() when func == NULL,"]
+    #[doc = "             av_fifo_peek_to_cb() otherwise"]
+    pub fn av_fifo_generic_peek(
+        f: *mut AVFifoBuffer,
+        dest: *mut ::std::os::raw::c_void,
+        buf_size: ::std::os::raw::c_int,
+        func: ::std::option::Option<
+            unsafe extern "C" fn(
+                arg1: *mut ::std::os::raw::c_void,
+                arg2: *mut ::std::os::raw::c_void,
+                arg3: ::std::os::raw::c_int,
+            ),
+        >,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Feed data from an AVFifoBuffer to a user-supplied callback."]
+    #[doc = " @param f AVFifoBuffer to read from"]
+    #[doc = " @param buf_size number of bytes to read"]
+    #[doc = " @param func generic read function"]
+    #[doc = " @param dest data destination"]
+    #[doc = ""]
+    #[doc = " @return a non-negative number on success, a negative error code on failure"]
+    #[doc = ""]
+    #[doc = " @deprecated use the new AVFifo-API with av_fifo_read() when func == NULL,"]
+    #[doc = "             av_fifo_read_to_cb() otherwise"]
+    pub fn av_fifo_generic_read(
+        f: *mut AVFifoBuffer,
+        dest: *mut ::std::os::raw::c_void,
+        buf_size: ::std::os::raw::c_int,
+        func: ::std::option::Option<
+            unsafe extern "C" fn(
+                arg1: *mut ::std::os::raw::c_void,
+                arg2: *mut ::std::os::raw::c_void,
+                arg3: ::std::os::raw::c_int,
+            ),
+        >,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Feed data from a user-supplied callback to an AVFifoBuffer."]
+    #[doc = " @param f AVFifoBuffer to write to"]
+    #[doc = " @param src data source; non-const since it may be used as a"]
+    #[doc = " modifiable context by the function defined in func"]
+    #[doc = " @param size number of bytes to write"]
+    #[doc = " @param func generic write function; the first parameter is src,"]
+    #[doc = " the second is dest_buf, the third is dest_buf_size."]
+    #[doc = " func must return the number of bytes written to dest_buf, or <= 0 to"]
+    #[doc = " indicate no more data available to write."]
+    #[doc = " If func is NULL, src is interpreted as a simple byte array for source data."]
+    #[doc = " @return the number of bytes written to the FIFO or a negative error code on failure"]
+    #[doc = ""]
+    #[doc = " @deprecated use the new AVFifo-API with av_fifo_write() when func == NULL,"]
+    #[doc = "             av_fifo_write_from_cb() otherwise"]
+    pub fn av_fifo_generic_write(
+        f: *mut AVFifoBuffer,
+        src: *mut ::std::os::raw::c_void,
+        size: ::std::os::raw::c_int,
+        func: ::std::option::Option<
+            unsafe extern "C" fn(
+                arg1: *mut ::std::os::raw::c_void,
+                arg2: *mut ::std::os::raw::c_void,
+                arg3: ::std::os::raw::c_int,
+            ) -> ::std::os::raw::c_int,
+        >,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Resize an AVFifoBuffer."]
+    #[doc = " In case of reallocation failure, the old FIFO is kept unchanged."]
+    #[doc = ""]
+    #[doc = " @param f AVFifoBuffer to resize"]
+    #[doc = " @param size new AVFifoBuffer size in bytes"]
+    #[doc = " @return <0 for failure, >=0 otherwise"]
+    #[doc = ""]
+    #[doc = " @deprecated use the new AVFifo-API with av_fifo_grow2() to increase FIFO size,"]
+    #[doc = "             decreasing FIFO size is not supported"]
+    pub fn av_fifo_realloc2(
+        f: *mut AVFifoBuffer,
+        size: ::std::os::raw::c_uint,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Enlarge an AVFifoBuffer."]
+    #[doc = " In case of reallocation failure, the old FIFO is kept unchanged."]
+    #[doc = " The new fifo size may be larger than the requested size."]
+    #[doc = ""]
+    #[doc = " @param f AVFifoBuffer to resize"]
+    #[doc = " @param additional_space the amount of space in bytes to allocate in addition to av_fifo_size()"]
+    #[doc = " @return <0 for failure, >=0 otherwise"]
+    #[doc = ""]
+    #[doc = " @deprecated use the new AVFifo-API with av_fifo_grow2(); note that unlike"]
+    #[doc = " this function it adds to the allocated size, rather than to the used size"]
+    pub fn av_fifo_grow(
+        f: *mut AVFifoBuffer,
+        additional_space: ::std::os::raw::c_uint,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Read and discard the specified amount of data from an AVFifoBuffer."]
+    #[doc = " @param f AVFifoBuffer to read from"]
+    #[doc = " @param size amount of data to read in bytes"]
+    #[doc = ""]
+    #[doc = " @deprecated use the new AVFifo-API with av_fifo_drain2()"]
+    pub fn av_fifo_drain(f: *mut AVFifoBuffer, size: ::std::os::raw::c_int);
 }
 extern "C" {
     #[doc = " Read the file with name filename, and put its content in a newly"]
@@ -52379,9 +52937,9 @@ extern "C" {
     #[doc = " Allocate SwrContext."]
     #[doc = ""]
     #[doc = " If you use this function you will need to set the parameters (manually or"]
-    #[doc = " with swr_alloc_set_opts()) before calling swr_init()."]
+    #[doc = " with swr_alloc_set_opts2()) before calling swr_init()."]
     #[doc = ""]
-    #[doc = " @see swr_alloc_set_opts(), swr_init(), swr_free()"]
+    #[doc = " @see swr_alloc_set_opts2(), swr_init(), swr_free()"]
     #[doc = " @return NULL on error, allocated context otherwise"]
     pub fn swr_alloc() -> *mut SwrContext;
 }
@@ -52423,6 +52981,7 @@ extern "C" {
     #[doc = ""]
     #[doc = " @see swr_init(), swr_free()"]
     #[doc = " @return NULL on error, allocated context otherwise"]
+    #[doc = " @deprecated use @ref swr_alloc_set_opts2()"]
     pub fn swr_alloc_set_opts(
         s: *mut SwrContext,
         out_ch_layout: i64,
@@ -52434,6 +52993,39 @@ extern "C" {
         log_offset: ::std::os::raw::c_int,
         log_ctx: *mut ::std::os::raw::c_void,
     ) -> *mut SwrContext;
+}
+extern "C" {
+    #[doc = " Allocate SwrContext if needed and set/reset common parameters."]
+    #[doc = ""]
+    #[doc = " This function does not require *ps to be allocated with swr_alloc(). On the"]
+    #[doc = " other hand, swr_alloc() can use swr_alloc_set_opts2() to set the parameters"]
+    #[doc = " on the allocated context."]
+    #[doc = ""]
+    #[doc = " @param ps              Pointer to an existing Swr context if available, or to NULL if not."]
+    #[doc = "                        On success, *ps will be set to the allocated context."]
+    #[doc = " @param out_ch_layout   output channel layout (e.g. AV_CHANNEL_LAYOUT_*)"]
+    #[doc = " @param out_sample_fmt  output sample format (AV_SAMPLE_FMT_*)."]
+    #[doc = " @param out_sample_rate output sample rate (frequency in Hz)"]
+    #[doc = " @param in_ch_layout    input channel layout (e.g. AV_CHANNEL_LAYOUT_*)"]
+    #[doc = " @param in_sample_fmt   input sample format (AV_SAMPLE_FMT_*)."]
+    #[doc = " @param in_sample_rate  input sample rate (frequency in Hz)"]
+    #[doc = " @param log_offset      logging level offset"]
+    #[doc = " @param log_ctx         parent logging context, can be NULL"]
+    #[doc = ""]
+    #[doc = " @see swr_init(), swr_free()"]
+    #[doc = " @return 0 on success, a negative AVERROR code on error."]
+    #[doc = "         On error, the Swr context is freed and *ps set to NULL."]
+    pub fn swr_alloc_set_opts2(
+        ps: *mut *mut SwrContext,
+        out_ch_layout: *mut AVChannelLayout,
+        out_sample_fmt: AVSampleFormat,
+        out_sample_rate: ::std::os::raw::c_int,
+        in_ch_layout: *mut AVChannelLayout,
+        in_sample_fmt: AVSampleFormat,
+        in_sample_rate: ::std::os::raw::c_int,
+        log_offset: ::std::os::raw::c_int,
+        log_ctx: *mut ::std::os::raw::c_void,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     #[doc = " Free the given SwrContext and set the pointer to NULL."]
@@ -52551,6 +53143,7 @@ extern "C" {
     #[doc = " @param matrix_encoding     matrixed stereo downmix mode (e.g. dplii)"]
     #[doc = " @param log_ctx             parent logging context, can be NULL"]
     #[doc = " @return                    0 on success, negative AVERROR code on failure"]
+    #[doc = " @deprecated                use @ref swr_build_matrix2()"]
     pub fn swr_build_matrix(
         in_layout: u64,
         out_layout: u64,
@@ -52563,6 +53156,42 @@ extern "C" {
         stride: ::std::os::raw::c_int,
         matrix_encoding: AVMatrixEncoding,
         log_ctx: *mut ::std::os::raw::c_void,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " Generate a channel mixing matrix."]
+    #[doc = ""]
+    #[doc = " This function is the one used internally by libswresample for building the"]
+    #[doc = " default mixing matrix. It is made public just as a utility function for"]
+    #[doc = " building custom matrices."]
+    #[doc = ""]
+    #[doc = " @param in_layout           input channel layout"]
+    #[doc = " @param out_layout          output channel layout"]
+    #[doc = " @param center_mix_level    mix level for the center channel"]
+    #[doc = " @param surround_mix_level  mix level for the surround channel(s)"]
+    #[doc = " @param lfe_mix_level       mix level for the low-frequency effects channel"]
+    #[doc = " @param rematrix_maxval     if 1.0, coefficients will be normalized to prevent"]
+    #[doc = "                            overflow. if INT_MAX, coefficients will not be"]
+    #[doc = "                            normalized."]
+    #[doc = " @param[out] matrix         mixing coefficients; matrix[i + stride * o] is"]
+    #[doc = "                            the weight of input channel i in output channel o."]
+    #[doc = " @param stride              distance between adjacent input channels in the"]
+    #[doc = "                            matrix array"]
+    #[doc = " @param matrix_encoding     matrixed stereo downmix mode (e.g. dplii)"]
+    #[doc = " @param log_ctx             parent logging context, can be NULL"]
+    #[doc = " @return                    0 on success, negative AVERROR code on failure"]
+    pub fn swr_build_matrix2(
+        in_layout: *const AVChannelLayout,
+        out_layout: *const AVChannelLayout,
+        center_mix_level: f64,
+        surround_mix_level: f64,
+        lfe_mix_level: f64,
+        maxval: f64,
+        rematrix_volume: f64,
+        matrix: *mut f64,
+        stride: isize,
+        matrix_encoding: AVMatrixEncoding,
+        log_context: *mut ::std::os::raw::c_void,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -53340,16 +53969,6 @@ fn bindgen_test_layout___va_list_tag() {
         );
     }
     test_field_reg_save_area();
-}
-#[doc = " Array of pointers to hardware configurations supported by the codec,"]
-#[doc = " or NULL if no hardware supported.  The array is terminated by a NULL"]
-#[doc = " pointer."]
-#[doc = ""]
-#[doc = " The user can only access this field via avcodec_get_hw_config()."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct AVCodecHWConfigInternal {
-    pub _address: u8,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
