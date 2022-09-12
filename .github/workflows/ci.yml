@@ -76,7 +76,7 @@ jobs:
           sudo apt-get -y install libopus-dev
 
       - run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/5.1
           cd ffmpeg
           mkdir build
           cd build
@@ -164,7 +164,7 @@ jobs:
           sudo apt-get -y install libopus-dev
 
       - run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/5.1
           cd ffmpeg
           mkdir build
           cd build
@@ -291,7 +291,7 @@ jobs:
 
       - name: Build FFmpeg dylib
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/5.1
           cd ffmpeg
           mkdir build
           cd build
@@ -375,7 +375,7 @@ jobs:
 
       - name: Build FFmpeg dylib
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/5.1
           cd ffmpeg
           mkdir build
           cd build
@@ -464,7 +464,7 @@ jobs:
           cd ../..
       - name: Build FFmpeg
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/5.1
           cd ffmpeg
           mkdir build
           cd build
