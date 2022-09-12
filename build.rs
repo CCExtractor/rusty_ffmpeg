@@ -143,13 +143,17 @@ fn generate_bindings(ffmpeg_include_dir: Option<&Path>, headers: &[PathBuf]) -> 
             }
         })
         .fold(
-            if let Some(ffmpeg_include_dir) = ffmpeg_include_dir {
-                bindgen::builder()
-                    .parse_callbacks(Box::new(filter_callback))
+            {
+                let builder = bindgen::builder()
+                    // Force impl Debug if possible(for `AVCodecParameters`)
+                    .impl_debug(true)
+                    .parse_callbacks(Box::new(filter_callback));
+                if let Some(ffmpeg_include_dir) = ffmpeg_include_dir {
                     // Add clang path, for `#include` header finding in bindgen process.
-                    .clang_arg(format!("-I{}", ffmpeg_include_dir))
-            } else {
-                bindgen::builder().parse_callbacks(Box::new(filter_callback))
+                    builder.clang_arg(format!("-I{}", ffmpeg_include_dir))
+                } else {
+                    builder
+                }
             },
             |builder, header| builder.header(header),
         )
@@ -196,7 +200,7 @@ impl EnvVars {
     }
 }
 
-/// clang doens't support -I{verbatim path} on windows, so we need to remove it if possible.
+/// clang doesn't support -I{verbatim path} on windows, so we need to remove it if possible.
 fn remove_verbatim(path: String) -> PathBuf {
     let path = if let Some(path) = path.strip_prefix(r#"\\?\"#) {
         path.to_string()
