@@ -20,7 +20,7 @@ To use this crate, you need to set several environment variables.
 
 Build ffmpeg statically and set `FFMPEG_PKG_CONFIG_PATH` to the path of the generated FFmpeg `pkg-config` files. And you don't need to set other environment variables for static linking.
 
-(Hint: set `FFMPEG_PKG_CONFIG_PATH` to some placeholder value will let `rusty_ffmpeg` probing system library.)
+(Hint: setting `FFMPEG_PKG_CONFIG_PATH` to some placeholder value will leave a `rusty_ffmpeg` probing system library.)
 
 #### Windows
 
@@ -28,7 +28,7 @@ Build ffmpeg statically and set `FFMPEG_PKG_CONFIG_PATH` to the path of the gene
 
 ### Fine-grained usage:
 
-You need to set several environment variables for both linking and binding generating procedure.
+You need to set several environment variables for both linking and binding generating procedures.
 
 #### To link: 
 
@@ -44,4 +44,4 @@ You need to set several environment variables for both linking and binding gener
 
 ## Attention
 
-FFI is not that easy, especially when you are dealing with a big old C project. Don't feel depressed when there are some problems. The CI check already have some typical ffmpeg compilation and use cases for you to check. File an issue if you still have any problem.
+FFI is not that easy, especially when you are dealing with a big old C project. Don't feel depressed when there are some problems. The CI check already has some typical ffmpeg compilation and use cases for you to check. File an issue if you still have any problem.
