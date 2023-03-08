@@ -245,10 +245,17 @@ jobs:
           override: true
           target: ${{ matrix.config.target }}
 
-      - run: |
-          git clone https://github.com/microsoft/vcpkg --depth 1
-          ./vcpkg/bootstrap-vcpkg.bat
-          ./vcpkg/vcpkg.exe install ffmpeg:${{ matrix.config.vcpkg_triplet }}
+      - name: Get vcpkg
+        id: vcpkg
+        uses: friendlyanon/setup-vcpkg@v1
+        with:
+          committish: "2023.02.24"
+          cache-version: "1"
+          ignore-reserve-cache-error: true
+
+      - name: Install Dependencies
+        run: |
+          ./vcpkg/vcpkg install ffmpeg:${{ matrix.config.vcpkg_triplet }}
 
       - name: Set env
         shell: bash
