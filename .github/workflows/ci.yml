@@ -250,7 +250,7 @@ jobs:
         uses: friendlyanon/setup-vcpkg@v1
         with:
           committish: "2023.02.24"
-          cache-version: "1"
+          cache-version: ${{ matrix.config.vcpkg_triplet }}-1
           ignore-reserve-cache-error: true
 
       - name: Install Dependencies
