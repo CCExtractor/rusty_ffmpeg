@@ -1,6 +1,6 @@
 [package]
 name = "rusty_ffmpeg"
-version = "0.10.0+ffmpeg.5.1"
+version = "0.11.0+ffmpeg.6.0"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2021"
 
