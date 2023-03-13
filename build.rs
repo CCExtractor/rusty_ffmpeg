@@ -181,13 +181,13 @@ pub struct EnvVars {
 
 impl EnvVars {
     fn init() -> Self {
-        // TODO use a macro here to init with printing env_changed.
-        /* Workaround of cargo rerun-if-env-changed bug
         println!("cargo:rerun-if-env-changed=DOCS_RS");
-        println!("cargo:rerun-if-env-changed=VCPKG_ROOT");
+        println!("cargo:rerun-if-env-changed=OUT_DIR");
+        println!("cargo:rerun-if-env-changed=FFMPEG_INCLUDE_DIR");
+        println!("cargo:rerun-if-env-changed=FFMPEG_DLL_PATH");
         println!("cargo:rerun-if-env-changed=FFMPEG_PKG_CONFIG_PATH");
-        println!("cargo:rerun-if-env-changed=FFMPEG_DYNAMIC_LINKING");
-        */
+        println!("cargo:rerun-if-env-changed=FFMPEG_LIBS_DIR");
+        println!("cargo:rerun-if-env-changed=FFMPEG_BINDING_PATH");
         Self {
             docs_rs: env::var("DOCS_RS").ok(),
             out_dir: env::var("OUT_DIR").ok().map(remove_verbatim),
