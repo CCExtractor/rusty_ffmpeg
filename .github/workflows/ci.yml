@@ -163,12 +163,13 @@ jobs:
           sudo apt-get -y install libmp3lame-dev
           sudo apt-get -y install libopus-dev
 
+      # Disable exr,phm to workaround `https://github.com/larksuite/rsmpeg/pull/98#issuecomment-1467511193`
       - run: |
           git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.0
           cd ffmpeg
           mkdir build
           cd build
-          ../configure --prefix=${PWD}/build
+          ../configure --disable-decoder=exr,phm --prefix=${PWD}/build
           make -j$(nproc)
           make install
           cp -r ./build ~/ffmpeg_build
