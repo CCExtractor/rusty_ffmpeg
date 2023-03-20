@@ -66,14 +66,15 @@ jobs:
             texinfo \
             wget \
             yasm \
-            zlib1g-dev
-          sudo apt-get -y install nasm
-          sudo apt-get -y install libx264-dev
-          sudo apt-get -y install libx265-dev libnuma-dev
-          sudo apt-get -y install libvpx-dev
-          sudo apt-get -y install libfdk-aac-dev
-          sudo apt-get -y install libmp3lame-dev
-          sudo apt-get -y install libopus-dev
+            zlib1g-dev \
+            nasm \
+            libx264-dev \
+            libx265-dev \
+            libnuma-dev \
+            libvpx-dev \
+            libfdk-aac-dev \
+            libmp3lame-dev \
+            libopus-dev
 
       - run: |
           git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.0
@@ -119,6 +120,125 @@ jobs:
           LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
           LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
         run: cargo clippy -- -D warnings
+
+  build_static_and_test_ubuntu_with_system_ffmpeg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          components: clippy
+
+      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+      - name: Install FFmpegBuildTools
+        run: |
+          sudo apt-get update -qq && sudo apt-get -y install \
+            autoconf \
+            automake \
+            build-essential \
+            cmake \
+            git-core \
+            libass-dev \
+            libfreetype6-dev \
+            libgnutls28-dev \
+            libsdl2-dev \
+            libtool \
+            libva-dev \
+            libvdpau-dev \
+            libvorbis-dev \
+            libxcb1-dev \
+            libxcb-shm0-dev \
+            libxcb-xfixes0-dev \
+            pkg-config \
+            texinfo \
+            wget \
+            yasm \
+            zlib1g-dev \
+            nasm \
+            libx264-dev \
+            libx265-dev \
+            libnuma-dev \
+            libvpx-dev \
+            libfdk-aac-dev \
+            libmp3lame-dev \
+            libopus-dev \
+            libraw1394-dev \
+            libdc1394-dev \
+            libavc1394-dev \
+            libiec61883-dev \
+            libjack-dev \
+            libfaad-dev \
+            libgsm1-dev \
+            libzmq3-dev \
+            libssh-dev \
+            libbluray-dev \
+            libopenmpt-dev \
+            ocl-icd-opencl-dev \
+            libogg-dev \
+            libspeex-dev \
+            libtheora-dev \
+            flite1-dev \
+            libchromaprint-dev \
+            libopenal-dev \
+            libcdio-dev \
+            libcaca-dev \
+            libpocketsphinx-dev \
+            libsphinxbase-dev \
+            libbs2b-dev \
+            liblilv-dev \
+            libsratom-dev \
+            libsord-dev \
+            libserd-dev \
+            librubberband-dev \
+            libsamplerate0-dev \
+            libmysofa-dev \
+            libvidstab-dev \
+            libzimg-dev \
+            libgme-dev \
+            librabbitmq-dev \
+            libdav1d-dev \
+            libzvbi-dev \
+            libsnappy-dev \
+            libaom-dev \
+            libcodec2-dev \
+            libshine-dev \
+            libtwolame-dev \
+            libwebp-dev \
+            libxvidcore-dev \
+            libsoxr-dev \
+            libcdio-paranoia-dev \
+            libcdio-cdda-dev \
+            libsrt-gnutls-dev \
+            libmfx-dev \
+            libvorbis-dev
+
+      - name: Install System FFmpeg
+        run: |
+          sudo apt-get update -qq && sudo apt-get -y install \
+            libavcodec-dev \
+            libavdevice-dev \
+            libavfilter-dev \
+            libavformat-dev \
+            libavutil-dev \
+            libpostproc-dev \
+            libswresample-dev \
+            libswscale-dev
+      - name: Clippy check
+        run: cargo clippy --features link_system_ffmpeg -- -D warnings
+
+      - name: Run Slice Example
+        run: cargo run --example slice --features link_system_ffmpeg
+
+      - name: Check test result correctness
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "0"
+          else
+            echo "1"
+          fi
 
   build_static_and_test_ubuntu:
     runs-on: ubuntu-latest
@@ -175,23 +295,11 @@ jobs:
           cp -r ./build ~/ffmpeg_build
           cd ../..
 
-      - name: Binding Build
-        run: |
-          FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
-          FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
-          cargo build --verbose
-
       - name: Binding Test
         run: |
           FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
           FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
           cargo test --verbose
-
-      - name: Build Examples
-        run: |
-          FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
-          FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
-          cargo build --examples --verbose
 
       - name: Run Slice Example
         run: |
@@ -232,13 +340,6 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      # Using this since it's used by clang-sys's CI
-      - name: Install LLVM and Clang
-        uses: KyleMayes/install-llvm-action@v1
-        with:
-          version: "10.0"
-          directory: ${{ github.workspace }}/clang
-
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
@@ -246,13 +347,26 @@ jobs:
           override: true
           target: ${{ matrix.config.target }}
 
-      - name: Get vcpkg
-        id: vcpkg
-        uses: friendlyanon/setup-vcpkg@v1
+      # Using this since it's used by clang-sys's CI
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
         with:
-          committish: "2023.02.24"
-          cache-version: ${{ matrix.config.vcpkg_triplet }}-1
-          ignore-reserve-cache-error: true
+          version: "10.0"
+          directory: ${{ github.workspace }}/clang
+
+      - name: Cache vcpkg
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/vcpkg
+          key: vcpkg-${{ runner.os }}
+
+      - name: Build vcpkg
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          git clone https://github.com/microsoft/vcpkg --depth 1
+          ./vcpkg/bootstrap-vcpkg.bat
 
       - name: Install Dependencies
         run: |
