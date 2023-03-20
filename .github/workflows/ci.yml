@@ -208,6 +208,9 @@ jobs:
             libwebp-dev \
             libxvidcore-dev \
             libsoxr-dev \
+            libsrt-dev \
+            libcdio-paranoia-dev \
+            libcdio-cdda-dev \
             libvorbis-dev
 
       - name: Install System FFmpeg
