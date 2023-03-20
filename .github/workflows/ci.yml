@@ -66,14 +66,15 @@ jobs:
             texinfo \
             wget \
             yasm \
-            zlib1g-dev
-          sudo apt-get -y install nasm
-          sudo apt-get -y install libx264-dev
-          sudo apt-get -y install libx265-dev libnuma-dev
-          sudo apt-get -y install libvpx-dev
-          sudo apt-get -y install libfdk-aac-dev
-          sudo apt-get -y install libmp3lame-dev
-          sudo apt-get -y install libopus-dev
+            zlib1g-dev \
+            nasm \
+            libx264-dev \
+            libx265-dev \
+            libnuma-dev \
+            libvpx-dev \
+            libfdk-aac-dev \
+            libmp3lame-dev \
+            libopus-dev
 
       - run: |
           git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.0
@@ -131,11 +132,52 @@ jobs:
           override: true
           components: clippy
 
+      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+      - name: Install FFmpegBuildTools
+        run: |
+          sudo apt-get update -qq && sudo apt-get -y install \
+            autoconf \
+            automake \
+            build-essential \
+            cmake \
+            git-core \
+            libass-dev \
+            libfreetype6-dev \
+            libgnutls28-dev \
+            libsdl2-dev \
+            libtool \
+            libva-dev \
+            libvdpau-dev \
+            libvorbis-dev \
+            libxcb1-dev \
+            libxcb-shm0-dev \
+            libxcb-xfixes0-dev \
+            pkg-config \
+            texinfo \
+            wget \
+            yasm \
+            zlib1g-dev \
+            nasm \
+            libx264-dev \
+            libx265-dev \
+            libnuma-dev \
+            libvpx-dev \
+            libfdk-aac-dev \
+            libmp3lame-dev \
+            libopus-dev
+
       - name: Install System FFmpeg
         run: |
-          sudo apt-get update -qq && sudo apt-get -y install libavcodec-dev libavdevice-dev \
-              libavfilter-dev libavformat-dev libavutil-dev \
-              libpostproc-dev libswresample-dev libswscale-dev
+          sudo apt-get update -qq && sudo apt-get -y install \
+            libavcodec-dev \
+            libavdevice-dev \
+            libavfilter-dev \
+            libavformat-dev \
+            libavutil-dev \
+            libpostproc-dev \
+            libswresample-dev \
+            libswscale-dev \
+            libmp3lame-dev \
       - name: Clippy check
         run: cargo clippy --features link_system_ffmpeg -- -D warnings
 
