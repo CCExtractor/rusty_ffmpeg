@@ -140,7 +140,7 @@ jobs:
         run: cargo clippy --features link_system_ffmpeg -- -D warnings
 
       - name: Run Slice Example
-        run: cargo run --example slice
+        run: cargo run --example slice --features link_system_ffmpeg
 
       - name: Check test result correctness
         run: |
