@@ -211,6 +211,7 @@ jobs:
             libsrt-dev \
             libcdio-paranoia-dev \
             libcdio-cdda-dev \
+            libsrt-gnutls-dev \
             libvorbis-dev
 
       - name: Install System FFmpeg
