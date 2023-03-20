@@ -135,6 +135,7 @@ jobs:
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
       - name: Install FFmpegBuildTools
         run: |
+          sudo add-apt-repository ppa:mc3man/bionic-media
           sudo apt-get update -qq && sudo apt-get -y install \
             autoconf \
             automake \
@@ -164,9 +165,12 @@ jobs:
             libvpx-dev \
             libfdk-aac-dev \
             libmp3lame-dev \
-            libraw1394-dev \
             libopus-dev \
+            libraw1394-dev \
             libdc1394-dev \
+            libavc1394-dev \
+            libiec61883-dev \
+            libjack-dev \
             libfaad-dev \
             libgsm1-dev \
             libzmq3-dev \
@@ -178,6 +182,33 @@ jobs:
             libtheora-dev \
             flite1-dev \
             libchromaprint-dev \
+            libopenal-dev \
+            libcdio-dev \
+            libcaca-dev \
+            libpocketsphinx-dev \
+            libsphinxbase-dev \
+            libbs2b-dev \
+            liblilv-dev \
+            libsratom-dev \
+            libsord-dev \
+            libserd-dev \
+            librubberband-dev \
+            libsamplerate0-dev \
+            libmysofa-dev \
+            libvidstab-dev \
+            libzimg-dev \
+            libgme-dev \
+            librabbitmq-dev \
+            libdav1d-dev \
+            libzvbi-dev \
+            libsnappy-dev \
+            libaom-dev \
+            libcodec2-dev \
+            libshine-dev \
+            libtwolame-dev \
+            libwebp-dev \
+            libxvidcore-dev \
+            libsoxr-dev \
             libvorbis-dev
 
       - name: Install System FFmpeg
