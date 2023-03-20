@@ -174,10 +174,9 @@ jobs:
             libbluray-dev \
             libopenmpt-dev \
             libogg-dev \
-            libschroedinger-dev \
             libspeex-dev \
             libtheora-dev \
-            libflite-dev \
+            flite1-dev \
             libchromaprint-dev \
             libvorbis-dev
 
@@ -191,8 +190,7 @@ jobs:
             libavutil-dev \
             libpostproc-dev \
             libswresample-dev \
-            libswscale-dev \
-            libmp3lame-dev \
+            libswscale-dev
       - name: Clippy check
         run: cargo clippy --features link_system_ffmpeg -- -D warnings
 
