@@ -38,3 +38,7 @@ vcpkg = "0.2"
 [features]
 # linking system ffmpeg as fallback.
 link_system_ffmpeg = []
+# FFmpeg 5.* support
+ffmpeg5 = []
+# FFmpeg 6.* support
+ffmpeg6 = []

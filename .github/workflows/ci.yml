@@ -283,7 +283,8 @@ jobs:
           sudo apt-get -y install libmp3lame-dev
           sudo apt-get -y install libopus-dev
 
-      # Disable exr,phm to workaround `https://github.com/larksuite/rsmpeg/pull/98#issuecomment-1467511193`
+      # Disable exr,phm to workaround "multiple definition of 'ff_init_half2float_tables'"
+      # Ref: `https://github.com/larksuite/rsmpeg/pull/98#issuecomment-1467511193`
       - run: |
           git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.0
           cd ffmpeg
