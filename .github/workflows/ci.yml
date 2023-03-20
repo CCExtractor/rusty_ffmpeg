@@ -120,6 +120,25 @@ jobs:
           LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
         run: cargo clippy -- -D warnings
 
+  rust_clippy_check_ubuntu_with_system_ffmpeg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          components: clippy
+
+      - name: Install System FFmpeg
+        run: |
+          sudo apt-get update -qq && sudo apt-get -y install libavcodec-dev libavdevice-dev \
+              libavfilter-dev libavformat-dev libavutil-dev \
+              libpostproc-dev libswresample-dev libswscale-dev
+      - name: Clippy check
+        run: cargo clippy --features link_system_ffmpeg -- -D warnings
+
   build_static_and_test_ubuntu:
     runs-on: ubuntu-latest
     steps:
@@ -232,13 +251,6 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
-      # Using this since it's used by clang-sys's CI
-      - name: Install LLVM and Clang
-        uses: KyleMayes/install-llvm-action@v1
-        with:
-          version: "10.0"
-          directory: ${{ github.workspace }}/clang
-
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
@@ -246,12 +258,19 @@ jobs:
           override: true
           target: ${{ matrix.config.target }}
 
+      # Using this since it's used by clang-sys's CI
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "10.0"
+          directory: ${{ github.workspace }}/clang
+
       - name: Get vcpkg
         id: vcpkg
         uses: friendlyanon/setup-vcpkg@v1
         with:
           committish: "2023.02.24"
-          cache-version: ${{ matrix.config.vcpkg_triplet }}-1
+          cache-version: vcpkg-${{ runner.os }}
           ignore-reserve-cache-error: true
 
       - name: Install Dependencies

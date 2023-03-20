@@ -42,6 +42,10 @@ You need to set several environment variables for both linking and binding gener
 
 2. Use your pre-built binding: Set `FFMPEG_BINDING_PATH` to the pre-built binding file. The pre-built binding is usually copied from the `OUT_DIR` of the compile-time binding generation, by using it you don't need to regenerate the same binding file again and again.
 
+### Linking FFmpeg installed by package manager on (*nix)
+
+You can enable system-wide FFmpeg linking by enabling feature `link_system_ffmpeg`.
+
 ## Attention
 
 FFI is not that easy, especially when you are dealing with a big old C project. Don't feel depressed when there are some problems. The CI check already has some typical ffmpeg compilation and use cases for you to check. File an issue if you still have any problem.

@@ -214,27 +214,7 @@ fn remove_verbatim(path: String) -> PathBuf {
 mod non_windows {
     use super::*;
 
-    /// Try probing ffmpeg installed in system with no side effect. Return unfound Err(library name) when failed.
-    // TODO: this is useful in static lib searching
-    #[allow(dead_code)]
-    fn try_probe_system_ffmpeg(library_names: &[&str]) -> Result<(), String> {
-        match library_names.iter().find(|libname| {
-            pkg_config::Config::new()
-                // Remove side effect by disable metadata emitting
-                .cargo_metadata(false)
-                .probe(libname)
-                .is_err()
-        }) {
-            Some(&libname) => Err(libname.to_string()),
-            None => Ok(()),
-        }
-    }
-
-    pub fn static_linking_with_pkg_config(
-        library_names: &[&str],
-        ffmpeg_pkg_config_path: &Path,
-    ) -> Vec<PathBuf> {
-        env::set_var("PKG_CONFIG_PATH", ffmpeg_pkg_config_path);
+    pub fn static_linking_with_pkg_config(library_names: &[&str]) -> Vec<PathBuf> {
         // TODO: if specific library is not enabled, we should not probe it. If we
         // want to implement this, we Should modify try_probe_system_ffmpeg() too.
         let mut paths = HashSet::new();
@@ -311,11 +291,9 @@ fn static_linking(env_vars: &EnvVars) {
 
     #[cfg(not(target_os = "windows"))]
     {
-        use non_windows::*;
-        // Hint: set PKG_CONFIG_PATH to some placeholder value will let pkg_config probing system library.
-        if let Some(ffmpeg_pkg_config_path) = env_vars.ffmpeg_pkg_config_path.as_ref() {
+        fn link_and_bindgen(env_vars: &EnvVars, output_binding_path: &Path) {
             // Probe libraries(enable emitting cargo metadata)
-            let include_paths = static_linking_with_pkg_config(&*LIBS, ffmpeg_pkg_config_path);
+            let include_paths = static_linking_with_pkg_config(&*LIBS);
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
@@ -328,6 +306,12 @@ fn static_linking(env_vars: &EnvVars) {
                     .write_to_file(output_binding_path)
                     .expect("Cannot write binding to file.");
             }
+        }
+        use non_windows::*;
+        // Hint: set PKG_CONFIG_PATH to some placeholder value will let pkg_config probing system library.
+        if let Some(ffmpeg_pkg_config_path) = env_vars.ffmpeg_pkg_config_path.as_ref() {
+            env::set_var("PKG_CONFIG_PATH", ffmpeg_pkg_config_path);
+            link_and_bindgen(env_vars, output_binding_path);
         } else if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
             static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
@@ -340,6 +324,9 @@ fn static_linking(env_vars: &EnvVars) {
                 panic!("No binding generation method is set!");
             }
         } else {
+            #[cfg(feature = "link_system_ffmpeg")]
+            link_and_bindgen(env_vars, output_binding_path);
+            #[cfg(not(feature = "link_system_ffmpeg"))]
             panic!("No linking method set!");
         };
     }

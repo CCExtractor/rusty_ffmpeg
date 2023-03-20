@@ -35,3 +35,6 @@ pkg-config = "0.3"
 [target.'cfg(windows)'.build-dependencies]
 vcpkg = "0.2"
 
+[features]
+# linking system ffmpeg as fallback.
+link_system_ffmpeg = []
