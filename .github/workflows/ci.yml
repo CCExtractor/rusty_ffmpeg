@@ -208,7 +208,6 @@ jobs:
             libwebp-dev \
             libxvidcore-dev \
             libsoxr-dev \
-            libsrt-dev \
             libcdio-paranoia-dev \
             libcdio-cdda-dev \
             libsrt-gnutls-dev \
