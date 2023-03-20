@@ -135,7 +135,6 @@ jobs:
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
       - name: Install FFmpegBuildTools
         run: |
-          sudo add-apt-repository ppa:mc3man/bionic-media
           sudo apt-get update -qq && sudo apt-get -y install \
             autoconf \
             automake \
