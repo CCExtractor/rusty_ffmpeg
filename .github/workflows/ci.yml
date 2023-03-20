@@ -176,6 +176,7 @@ jobs:
             libssh-dev \
             libbluray-dev \
             libopenmpt-dev \
+            ocl-icd-opencl-dev \
             libogg-dev \
             libspeex-dev \
             libtheora-dev \
@@ -211,6 +212,7 @@ jobs:
             libcdio-paranoia-dev \
             libcdio-cdda-dev \
             libsrt-gnutls-dev \
+            libmfx-dev \
             libvorbis-dev
 
       - name: Install System FFmpeg
