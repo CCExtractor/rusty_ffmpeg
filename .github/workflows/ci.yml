@@ -164,7 +164,22 @@ jobs:
             libvpx-dev \
             libfdk-aac-dev \
             libmp3lame-dev \
-            libopus-dev
+            libraw1394-dev \
+            libopus-dev \
+            libdc1394-22-dev \
+            libfaad-dev \
+            libgsm1-dev \
+            libzmq-dev \
+            libssh-dev \
+            libbluray-dev \
+            libopenmpt-dev \
+            libogg-dev \
+            libschroedinger-dev \
+            libspeex-dev \
+            libtheora-dev \
+            libflite-dev \
+            libchromaprint-dev \
+            libvorbis-dev
 
       - name: Install System FFmpeg
         run: |
