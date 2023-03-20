@@ -140,10 +140,7 @@ jobs:
         run: cargo clippy --features link_system_ffmpeg -- -D warnings
 
       - name: Run Slice Example
-        run: |
-          FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
-          FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
-          cargo run --example slice
+        run: cargo run --example slice
 
       - name: Check test result correctness
         run: |
