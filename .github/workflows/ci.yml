@@ -166,10 +166,10 @@ jobs:
             libmp3lame-dev \
             libraw1394-dev \
             libopus-dev \
-            libdc1394-22-dev \
+            libdc1394-dev \
             libfaad-dev \
             libgsm1-dev \
-            libzmq-dev \
+            libzmq3-dev \
             libssh-dev \
             libbluray-dev \
             libopenmpt-dev \
