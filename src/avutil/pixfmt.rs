@@ -90,7 +90,7 @@ AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_P010, AVPixelFormat_AV_PIX_FMT_P010BE, A
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_P012, AVPixelFormat_AV_PIX_FMT_P012BE, AVPixelFormat_AV_PIX_FMT_P012LE);
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_P016, AVPixelFormat_AV_PIX_FMT_P016BE, AVPixelFormat_AV_PIX_FMT_P016LE);
 
-#[cfg(feature = "ffmpeg5")]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_Y210, AVPixelFormat_AV_PIX_FMT_Y210BE,  AVPixelFormat_AV_PIX_FMT_Y210LE);
 #[cfg(feature = "ffmpeg6")]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_Y212, AVPixelFormat_AV_PIX_FMT_Y212BE,  AVPixelFormat_AV_PIX_FMT_Y212LE);
@@ -98,18 +98,18 @@ AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_Y212, AVPixelFormat_AV_PIX_FMT_Y212BE,  
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_XV30, AVPixelFormat_AV_PIX_FMT_XV30BE,  AVPixelFormat_AV_PIX_FMT_XV30LE);
 #[cfg(feature = "ffmpeg6")]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_XV36, AVPixelFormat_AV_PIX_FMT_XV36BE,  AVPixelFormat_AV_PIX_FMT_XV36LE);
-#[cfg(feature = "ffmpeg5")]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_X2RGB10, AVPixelFormat_AV_PIX_FMT_X2RGB10BE, AVPixelFormat_AV_PIX_FMT_X2RGB10LE);
-#[cfg(feature = "ffmpeg5")]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_X2BGR10, AVPixelFormat_AV_PIX_FMT_X2BGR10BE, AVPixelFormat_AV_PIX_FMT_X2BGR10LE);
 
-#[cfg(feature = "ffmpeg5")]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_P210, AVPixelFormat_AV_PIX_FMT_P210BE, AVPixelFormat_AV_PIX_FMT_P210LE);
-#[cfg(feature = "ffmpeg5")]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_P410, AVPixelFormat_AV_PIX_FMT_P410BE, AVPixelFormat_AV_PIX_FMT_P410LE);
-#[cfg(feature = "ffmpeg5")]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_P216, AVPixelFormat_AV_PIX_FMT_P216BE, AVPixelFormat_AV_PIX_FMT_P216LE);
-#[cfg(feature = "ffmpeg5")]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
 AV_PIX_FMT_NE!(AVPixelFormat_AV_PIX_FMT_P416, AVPixelFormat_AV_PIX_FMT_P416BE, AVPixelFormat_AV_PIX_FMT_P416LE);
 
 #[cfg(feature = "ffmpeg6")]
