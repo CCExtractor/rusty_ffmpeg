@@ -109,9 +109,22 @@ jobs:
           version: "10.0"
           directory: ${{ github.workspace }}/clang
 
-      - run: |
+      - name: Cache vcpkg
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/vcpkg
+          key: vcpkg-${{ runner.os }}
+
+      - name: Build vcpkg
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
           git clone https://github.com/microsoft/vcpkg --depth 1
           ./vcpkg/bootstrap-vcpkg.bat
+
+      - name: Install Dependencies
+        run: |
           ./vcpkg/vcpkg.exe install ffmpeg:x64-windows-static-md
 
       - name: Clippy check 
