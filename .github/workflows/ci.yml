@@ -115,7 +115,7 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/vcpkg
-          key: vcpkg-${{ runner.os }}
+          key: vcpkg-${{ runner.os }}-x64-windows-static-md
 
       - name: Build vcpkg
         if: steps.cache.outputs.cache-hit != 'true'
@@ -374,7 +374,7 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/vcpkg
-          key: vcpkg-${{ runner.os }}
+          key: vcpkg-${{ runner.os }}-${{ matrix.config.vcpkg_triplet }}
 
       - name: Build vcpkg
         if: steps.cache.outputs.cache-hit != 'true'
