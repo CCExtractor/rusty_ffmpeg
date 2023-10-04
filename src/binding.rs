@@ -9927,7 +9927,7 @@ extern "C" {
     ) -> i64;
 }
 extern "C" {
-    #[doc = " Add a value to a timestamp.\n\n This function guarantees that when the same value is repeatly added that\n no accumulation of rounding errors occurs.\n\n @param[in] ts     Input timestamp\n @param[in] ts_tb  Input timestamp time base\n @param[in] inc    Value to be added\n @param[in] inc_tb Time base of `inc`"]
+    #[doc = " Add a value to a timestamp.\n\n This function guarantees that when the same value is repeatedly added that\n no accumulation of rounding errors occurs.\n\n @param[in] ts     Input timestamp\n @param[in] ts_tb  Input timestamp time base\n @param[in] inc    Value to be added\n @param[in] inc_tb Time base of `inc`"]
     pub fn av_add_stable(ts_tb: AVRational, ts: i64, inc_tb: AVRational, inc: i64) -> i64;
 }
 pub type __gnuc_va_list = __builtin_va_list;
@@ -10131,7 +10131,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Send the specified message to the log once with the initial_level and then with\n the subsequent_level. By default, all logging messages are sent to\n stderr. This behavior can be altered by setting a different logging callback\n function.\n @see av_log\n\n @param avcl A pointer to an arbitrary struct of which the first field is a\n        pointer to an AVClass struct or NULL if general log.\n @param initial_level importance level of the message expressed using a @ref\n        lavu_log_constants \"Logging Constant\" for the first occurance.\n @param subsequent_level importance level of the message expressed using a @ref\n        lavu_log_constants \"Logging Constant\" after the first occurance.\n @param fmt The format string (printf-compatible) that specifies how\n        subsequent arguments are converted to output.\n @param state a variable to keep trak of if a message has already been printed\n        this must be initialized to 0 before the first use. The same state\n        must not be accessed by 2 Threads simultaneously."]
+    #[doc = " Send the specified message to the log once with the initial_level and then with\n the subsequent_level. By default, all logging messages are sent to\n stderr. This behavior can be altered by setting a different logging callback\n function.\n @see av_log\n\n @param avcl A pointer to an arbitrary struct of which the first field is a\n        pointer to an AVClass struct or NULL if general log.\n @param initial_level importance level of the message expressed using a @ref\n        lavu_log_constants \"Logging Constant\" for the first occurrence.\n @param subsequent_level importance level of the message expressed using a @ref\n        lavu_log_constants \"Logging Constant\" after the first occurrence.\n @param fmt The format string (printf-compatible) that specifies how\n        subsequent arguments are converted to output.\n @param state a variable to keep trak of if a message has already been printed\n        this must be initialized to 0 before the first use. The same state\n        must not be accessed by 2 Threads simultaneously."]
     pub fn av_log_once(
         avcl: *mut ::std::os::raw::c_void,
         initial_level: ::std::os::raw::c_int,
@@ -11091,7 +11091,7 @@ extern "C" {
     pub fn av_dict_free(m: *mut *mut AVDictionary);
 }
 extern "C" {
-    #[doc = " Get dictionary entries as a string.\n\n Create a string containing dictionary's entries.\n Such string may be passed back to av_dict_parse_string().\n @note String is escaped with backslashes ('\\').\n\n @warning Separators cannot be neither '\\\\' nor '\\0'. They also cannot be the same.\n\n @param[in]  m             The dictionary\n @param[out] buffer        Pointer to buffer that will be allocated with string containg entries.\n                           Buffer must be freed by the caller when is no longer needed.\n @param[in]  key_val_sep   Character used to separate key from value\n @param[in]  pairs_sep     Character used to separate two pairs from each other\n\n @return                   >= 0 on success, negative on error"]
+    #[doc = " Get dictionary entries as a string.\n\n Create a string containing dictionary's entries.\n Such string may be passed back to av_dict_parse_string().\n @note String is escaped with backslashes ('\\').\n\n @warning Separators cannot be neither '\\\\' nor '\\0'. They also cannot be the same.\n\n @param[in]  m             The dictionary\n @param[out] buffer        Pointer to buffer that will be allocated with string containing entries.\n                           Buffer must be freed by the caller when is no longer needed.\n @param[in]  key_val_sep   Character used to separate key from value\n @param[in]  pairs_sep     Character used to separate two pairs from each other\n\n @return                   >= 0 on success, negative on error"]
     pub fn av_dict_get_string(
         m: *const AVDictionary,
         buffer: *mut *mut ::std::os::raw::c_char,
@@ -11223,7 +11223,7 @@ fn bindgen_test_layout_AVChannelCustom() {
         )
     );
 }
-#[doc = " An AVChannelLayout holds information about the channel layout of audio data.\n\n A channel layout here is defined as a set of channels ordered in a specific\n way (unless the channel order is AV_CHANNEL_ORDER_UNSPEC, in which case an\n AVChannelLayout carries only the channel count).\n All orders may be treated as if they were AV_CHANNEL_ORDER_UNSPEC by\n ignoring everything but the channel count, as long as av_channel_layout_check()\n considers they are valid.\n\n Unlike most structures in FFmpeg, sizeof(AVChannelLayout) is a part of the\n public ABI and may be used by the caller. E.g. it may be allocated on stack\n or embedded in caller-defined structs.\n\n AVChannelLayout can be initialized as follows:\n - default initialization with {0}, followed by setting all used fields\n   correctly;\n - by assigning one of the predefined AV_CHANNEL_LAYOUT_* initializers;\n - with a constructor function, such as av_channel_layout_default(),\n   av_channel_layout_from_mask() or av_channel_layout_from_string().\n\n The channel layout must be unitialized with av_channel_layout_uninit()\n\n Copying an AVChannelLayout via assigning is forbidden,\n av_channel_layout_copy() must be used instead (and its return value should\n be checked)\n\n No new fields may be added to it without a major version bump, except for\n new elements of the union fitting in sizeof(uint64_t)."]
+#[doc = " An AVChannelLayout holds information about the channel layout of audio data.\n\n A channel layout here is defined as a set of channels ordered in a specific\n way (unless the channel order is AV_CHANNEL_ORDER_UNSPEC, in which case an\n AVChannelLayout carries only the channel count).\n All orders may be treated as if they were AV_CHANNEL_ORDER_UNSPEC by\n ignoring everything but the channel count, as long as av_channel_layout_check()\n considers they are valid.\n\n Unlike most structures in FFmpeg, sizeof(AVChannelLayout) is a part of the\n public ABI and may be used by the caller. E.g. it may be allocated on stack\n or embedded in caller-defined structs.\n\n AVChannelLayout can be initialized as follows:\n - default initialization with {0}, followed by setting all used fields\n   correctly;\n - by assigning one of the predefined AV_CHANNEL_LAYOUT_* initializers;\n - with a constructor function, such as av_channel_layout_default(),\n   av_channel_layout_from_mask() or av_channel_layout_from_string().\n\n The channel layout must be uninitialized with av_channel_layout_uninit()\n\n Copying an AVChannelLayout via assigning is forbidden,\n av_channel_layout_copy() must be used instead (and its return value should\n be checked)\n\n No new fields may be added to it without a major version bump, except for\n new elements of the union fitting in sizeof(uint64_t)."]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct AVChannelLayout {
@@ -11241,7 +11241,7 @@ pub struct AVChannelLayout {
 pub union AVChannelLayout__bindgen_ty_1 {
     #[doc = " This member must be used for AV_CHANNEL_ORDER_NATIVE, and may be used\n for AV_CHANNEL_ORDER_AMBISONIC to signal non-diegetic channels.\n It is a bitmask, where the position of each set bit means that the\n AVChannel with the corresponding value is present.\n\n I.e. when (mask & (1 << AV_CHAN_FOO)) is non-zero, then AV_CHAN_FOO\n is present in the layout. Otherwise it is not present.\n\n @note when a channel layout using a bitmask is constructed or\n modified manually (i.e.  not using any of the av_channel_layout_*\n functions), the code doing it must ensure that the number of set bits\n is equal to nb_channels."]
     pub mask: u64,
-    #[doc = " This member must be used when the channel order is\n AV_CHANNEL_ORDER_CUSTOM. It is a nb_channels-sized array, with each\n element signalling the presence of the AVChannel with the\n corresponding value in map[i].id.\n\n I.e. when map[i].id is equal to AV_CHAN_FOO, then AV_CH_FOO is the\n i-th channel in the audio data.\n\n When map[i].id is in the range between AV_CHAN_AMBISONIC_BASE and\n AV_CHAN_AMBISONIC_END (inclusive), the channel contains an ambisonic\n component with ACN index (as defined above)\n n = map[i].id - AV_CHAN_AMBISONIC_BASE.\n\n map[i].name may be filled with a 0-terminated string, in which case\n it will be used for the purpose of identifying the channel with the\n convenience functions below. Otherise it must be zeroed."]
+    #[doc = " This member must be used when the channel order is\n AV_CHANNEL_ORDER_CUSTOM. It is a nb_channels-sized array, with each\n element signalling the presence of the AVChannel with the\n corresponding value in map[i].id.\n\n I.e. when map[i].id is equal to AV_CHAN_FOO, then AV_CH_FOO is the\n i-th channel in the audio data.\n\n When map[i].id is in the range between AV_CHAN_AMBISONIC_BASE and\n AV_CHAN_AMBISONIC_END (inclusive), the channel contains an ambisonic\n component with ACN index (as defined above)\n n = map[i].id - AV_CHAN_AMBISONIC_BASE.\n\n map[i].name may be filled with a 0-terminated string, in which case\n it will be used for the purpose of identifying the channel with the\n convenience functions below. Otherwise it must be zeroed."]
     pub map: *mut AVChannelCustom,
 }
 #[test]
@@ -11559,7 +11559,7 @@ pub const AVFrameSideDataType_AV_FRAME_DATA_DISPLAYMATRIX: AVFrameSideDataType =
 pub const AVFrameSideDataType_AV_FRAME_DATA_AFD: AVFrameSideDataType = 7;
 #[doc = " Motion vectors exported by some codecs (on demand through the export_mvs\n flag set in the libavcodec AVCodecContext flags2 option).\n The data is the AVMotionVector struct defined in\n libavutil/motion_vector.h."]
 pub const AVFrameSideDataType_AV_FRAME_DATA_MOTION_VECTORS: AVFrameSideDataType = 8;
-#[doc = " Recommmends skipping the specified number of samples. This is exported\n only if the \"skip_manual\" AVOption is set in libavcodec.\n This has the same format as AV_PKT_DATA_SKIP_SAMPLES.\n @code\n u32le number of samples to skip from start of this packet\n u32le number of samples to skip from end of this packet\n u8    reason for start skip\n u8    reason for end   skip (0=padding silence, 1=convergence)\n @endcode"]
+#[doc = " Recommends skipping the specified number of samples. This is exported\n only if the \"skip_manual\" AVOption is set in libavcodec.\n This has the same format as AV_PKT_DATA_SKIP_SAMPLES.\n @code\n u32le number of samples to skip from start of this packet\n u32le number of samples to skip from end of this packet\n u8    reason for start skip\n u8    reason for end   skip (0=padding silence, 1=convergence)\n @endcode"]
 pub const AVFrameSideDataType_AV_FRAME_DATA_SKIP_SAMPLES: AVFrameSideDataType = 9;
 #[doc = " This side data must be associated with an audio frame and corresponds to\n enum AVAudioServiceType defined in avcodec.h."]
 pub const AVFrameSideDataType_AV_FRAME_DATA_AUDIO_SERVICE_TYPE: AVFrameSideDataType = 10;
@@ -12991,7 +12991,7 @@ pub const AV_HWFRAME_MAP_DIRECT: _bindgen_ty_2 = 8;
 #[doc = " Flags to apply to frame mappings."]
 pub type _bindgen_ty_2 = ::std::os::raw::c_uint;
 extern "C" {
-    #[doc = " Map a hardware frame.\n\n This has a number of different possible effects, depending on the format\n and origin of the src and dst frames.  On input, src should be a usable\n frame with valid buffers and dst should be blank (typically as just created\n by av_frame_alloc()).  src should have an associated hwframe context, and\n dst may optionally have a format and associated hwframe context.\n\n If src was created by mapping a frame from the hwframe context of dst,\n then this function undoes the mapping - dst is replaced by a reference to\n the frame that src was originally mapped from.\n\n If both src and dst have an associated hwframe context, then this function\n attempts to map the src frame from its hardware context to that of dst and\n then fill dst with appropriate data to be usable there.  This will only be\n possible if the hwframe contexts and associated devices are compatible -\n given compatible devices, av_hwframe_ctx_create_derived() can be used to\n create a hwframe context for dst in which mapping should be possible.\n\n If src has a hwframe context but dst does not, then the src frame is\n mapped to normal memory and should thereafter be usable as a normal frame.\n If the format is set on dst, then the mapping will attempt to create dst\n with that format and fail if it is not possible.  If format is unset (is\n AV_PIX_FMT_NONE) then dst will be mapped with whatever the most appropriate\n format to use is (probably the sw_format of the src hwframe context).\n\n A return value of AVERROR(ENOSYS) indicates that the mapping is not\n possible with the given arguments and hwframe setup, while other return\n values indicate that it failed somehow.\n\n On failure, the destination frame will be left blank, except for the\n hw_frames_ctx/format fields thay may have been set by the caller - those will\n be preserved as they were.\n\n @param dst Destination frame, to contain the mapping.\n @param src Source frame, to be mapped.\n @param flags Some combination of AV_HWFRAME_MAP_* flags.\n @return Zero on success, negative AVERROR code on failure."]
+    #[doc = " Map a hardware frame.\n\n This has a number of different possible effects, depending on the format\n and origin of the src and dst frames.  On input, src should be a usable\n frame with valid buffers and dst should be blank (typically as just created\n by av_frame_alloc()).  src should have an associated hwframe context, and\n dst may optionally have a format and associated hwframe context.\n\n If src was created by mapping a frame from the hwframe context of dst,\n then this function undoes the mapping - dst is replaced by a reference to\n the frame that src was originally mapped from.\n\n If both src and dst have an associated hwframe context, then this function\n attempts to map the src frame from its hardware context to that of dst and\n then fill dst with appropriate data to be usable there.  This will only be\n possible if the hwframe contexts and associated devices are compatible -\n given compatible devices, av_hwframe_ctx_create_derived() can be used to\n create a hwframe context for dst in which mapping should be possible.\n\n If src has a hwframe context but dst does not, then the src frame is\n mapped to normal memory and should thereafter be usable as a normal frame.\n If the format is set on dst, then the mapping will attempt to create dst\n with that format and fail if it is not possible.  If format is unset (is\n AV_PIX_FMT_NONE) then dst will be mapped with whatever the most appropriate\n format to use is (probably the sw_format of the src hwframe context).\n\n A return value of AVERROR(ENOSYS) indicates that the mapping is not\n possible with the given arguments and hwframe setup, while other return\n values indicate that it failed somehow.\n\n On failure, the destination frame will be left blank, except for the\n hw_frames_ctx/format fields that may have been set by the caller - those will\n be preserved as they were.\n\n @param dst Destination frame, to contain the mapping.\n @param src Source frame, to be mapped.\n @param flags Some combination of AV_HWFRAME_MAP_* flags.\n @return Zero on success, negative AVERROR code on failure."]
     pub fn av_hwframe_map(
         dst: *mut AVFrame,
         src: *const AVFrame,
@@ -14698,7 +14698,7 @@ pub const AVPacketSideDataType_AV_PKT_DATA_QUALITY_STATS: AVPacketSideDataType =
 pub const AVPacketSideDataType_AV_PKT_DATA_FALLBACK_TRACK: AVPacketSideDataType = 9;
 #[doc = " This side data corresponds to the AVCPBProperties struct."]
 pub const AVPacketSideDataType_AV_PKT_DATA_CPB_PROPERTIES: AVPacketSideDataType = 10;
-#[doc = " Recommmends skipping the specified number of samples\n @code\n u32le number of samples to skip from start of this packet\n u32le number of samples to skip from end of this packet\n u8    reason for start skip\n u8    reason for end   skip (0=padding silence, 1=convergence)\n @endcode"]
+#[doc = " Recommends skipping the specified number of samples\n @code\n u32le number of samples to skip from start of this packet\n u32le number of samples to skip from end of this packet\n u8    reason for start skip\n u8    reason for end   skip (0=padding silence, 1=convergence)\n @endcode"]
 pub const AVPacketSideDataType_AV_PKT_DATA_SKIP_SAMPLES: AVPacketSideDataType = 11;
 #[doc = " An AV_PKT_DATA_JP_DUALMONO side data packet indicates that\n the packet may contain \"dual mono\" audio specific to Japanese DTV\n and if it is true, recommends only the selected channel to be used.\n @code\n u8    selected channels (0=main/left, 1=sub/right, 2=both)\n @endcode"]
 pub const AVPacketSideDataType_AV_PKT_DATA_JP_DUALMONO: AVPacketSideDataType = 12;
@@ -19465,7 +19465,7 @@ pub struct AVOptionRanges {
     pub range: *mut *mut AVOptionRange,
     #[doc = " Number of ranges per component."]
     pub nb_ranges: ::std::os::raw::c_int,
-    #[doc = " Number of componentes."]
+    #[doc = " Number of components."]
     pub nb_components: ::std::os::raw::c_int,
 }
 #[test]
@@ -19889,7 +19889,7 @@ extern "C" {
     pub fn av_opt_freep_ranges(ranges: *mut *mut AVOptionRanges);
 }
 extern "C" {
-    #[doc = " Get a list of allowed ranges for the given option.\n\n The returned list may depend on other fields in obj like for example profile.\n\n @param flags is a bitmask of flags, undefined flags should not be set and should be ignored\n              AV_OPT_SEARCH_FAKE_OBJ indicates that the obj is a double pointer to a AVClass instead of a full instance\n              AV_OPT_MULTI_COMPONENT_RANGE indicates that function may return more than one component, @see AVOptionRanges\n\n The result must be freed with av_opt_freep_ranges.\n\n @return number of compontents returned on success, a negative errro code otherwise"]
+    #[doc = " Get a list of allowed ranges for the given option.\n\n The returned list may depend on other fields in obj like for example profile.\n\n @param flags is a bitmask of flags, undefined flags should not be set and should be ignored\n              AV_OPT_SEARCH_FAKE_OBJ indicates that the obj is a double pointer to a AVClass instead of a full instance\n              AV_OPT_MULTI_COMPONENT_RANGE indicates that function may return more than one component, @see AVOptionRanges\n\n The result must be freed with av_opt_freep_ranges.\n\n @return number of components returned on success, a negative error code otherwise"]
     pub fn av_opt_query_ranges(
         arg1: *mut *mut AVOptionRanges,
         obj: *mut ::std::os::raw::c_void,
@@ -19905,7 +19905,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Get a default list of allowed ranges for the given option.\n\n This list is constructed without using the AVClass.query_ranges() callback\n and can be used as fallback from within the callback.\n\n @param flags is a bitmask of flags, undefined flags should not be set and should be ignored\n              AV_OPT_SEARCH_FAKE_OBJ indicates that the obj is a double pointer to a AVClass instead of a full instance\n              AV_OPT_MULTI_COMPONENT_RANGE indicates that function may return more than one component, @see AVOptionRanges\n\n The result must be freed with av_opt_free_ranges.\n\n @return number of compontents returned on success, a negative errro code otherwise"]
+    #[doc = " Get a default list of allowed ranges for the given option.\n\n This list is constructed without using the AVClass.query_ranges() callback\n and can be used as fallback from within the callback.\n\n @param flags is a bitmask of flags, undefined flags should not be set and should be ignored\n              AV_OPT_SEARCH_FAKE_OBJ indicates that the obj is a double pointer to a AVClass instead of a full instance\n              AV_OPT_MULTI_COMPONENT_RANGE indicates that function may return more than one component, @see AVOptionRanges\n\n The result must be freed with av_opt_free_ranges.\n\n @return number of components returned on success, a negative error code otherwise"]
     pub fn av_opt_query_ranges_default(
         arg1: *mut *mut AVOptionRanges,
         obj: *mut ::std::os::raw::c_void,
@@ -19929,7 +19929,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Serialize object's options.\n\n Create a string containing object's serialized options.\n Such string may be passed back to av_opt_set_from_string() in order to restore option values.\n A key/value or pairs separator occurring in the serialized value or\n name string are escaped through the av_escape() function.\n\n @param[in]  obj           AVClass object to serialize\n @param[in]  opt_flags     serialize options with all the specified flags set (AV_OPT_FLAG)\n @param[in]  flags         combination of AV_OPT_SERIALIZE_* flags\n @param[out] buffer        Pointer to buffer that will be allocated with string containg serialized options.\n                           Buffer must be freed by the caller when is no longer needed.\n @param[in]  key_val_sep   character used to separate key from value\n @param[in]  pairs_sep     character used to separate two pairs from each other\n @return                   >= 0 on success, negative on error\n @warning Separators cannot be neither '\\\\' nor '\\0'. They also cannot be the same."]
+    #[doc = " Serialize object's options.\n\n Create a string containing object's serialized options.\n Such string may be passed back to av_opt_set_from_string() in order to restore option values.\n A key/value or pairs separator occurring in the serialized value or\n name string are escaped through the av_escape() function.\n\n @param[in]  obj           AVClass object to serialize\n @param[in]  opt_flags     serialize options with all the specified flags set (AV_OPT_FLAG)\n @param[in]  flags         combination of AV_OPT_SERIALIZE_* flags\n @param[out] buffer        Pointer to buffer that will be allocated with string containing serialized options.\n                           Buffer must be freed by the caller when is no longer needed.\n @param[in]  key_val_sep   character used to separate key from value\n @param[in]  pairs_sep     character used to separate two pairs from each other\n @return                   >= 0 on success, negative on error\n @warning Separators cannot be neither '\\\\' nor '\\0'. They also cannot be the same."]
     pub fn av_opt_serialize(
         obj: *mut ::std::os::raw::c_void,
         opt_flags: ::std::os::raw::c_int,
@@ -22115,7 +22115,7 @@ extern "C" {
     pub fn av_stream_get_parser(s: *const AVStream) -> *mut AVCodecParserContext;
 }
 extern "C" {
-    #[doc = " Returns the pts of the last muxed packet + its duration\n\n the retuned value is undefined when used with a demuxer."]
+    #[doc = " Returns the pts of the last muxed packet + its duration\n\n the returned value is undefined when used with a demuxer."]
     pub fn av_stream_get_end_pts(st: *const AVStream) -> i64;
 }
 #[doc = " New fields can be added to the end with minor version bumps.\n Removal, reordering and changes to existing fields require a major\n version bump.\n sizeof(AVProgram) must not be used outside libav*."]
@@ -22506,7 +22506,7 @@ pub struct AVFormatContext {
     pub codec_whitelist: *mut ::std::os::raw::c_char,
     #[doc = " ',' separated list of allowed demuxers.\n If NULL then all are allowed\n - encoding: unused\n - decoding: set by user"]
     pub format_whitelist: *mut ::std::os::raw::c_char,
-    #[doc = " IO repositioned flag.\n This is set by avformat when the underlaying IO context read pointer\n is repositioned, for example when doing byte based seeking.\n Demuxers can use the flag to detect such changes."]
+    #[doc = " IO repositioned flag.\n This is set by avformat when the underlying IO context read pointer\n is repositioned, for example when doing byte based seeking.\n Demuxers can use the flag to detect such changes."]
     pub io_repositioned: ::std::os::raw::c_int,
     #[doc = " Forced video codec.\n This allows forcing a specific decoder, even when there are multiple with\n the same codec_id.\n Demuxing: Set by user"]
     pub video_codec: *const AVCodec,
@@ -22547,7 +22547,7 @@ pub struct AVFormatContext {
     pub protocol_blacklist: *mut ::std::os::raw::c_char,
     #[doc = " The maximum number of streams.\n - encoding: unused\n - decoding: set by user"]
     pub max_streams: ::std::os::raw::c_int,
-    #[doc = " Skip duration calcuation in estimate_timings_from_pts.\n - encoding: unused\n - decoding: set by user"]
+    #[doc = " Skip duration calculation in estimate_timings_from_pts.\n - encoding: unused\n - decoding: set by user"]
     pub skip_estimate_duration_from_pts: ::std::os::raw::c_int,
     #[doc = " Maximum number of packets that can be probed\n - encoding: unused\n - decoding: set by user"]
     pub max_probe_packets: ::std::os::raw::c_int,
@@ -24148,7 +24148,7 @@ extern "C" {
     pub fn avdevice_free_list_devices(device_list: *mut *mut AVDeviceInfoList);
 }
 extern "C" {
-    #[doc = " List devices.\n\n Returns available device names and their parameters.\n These are convinient wrappers for avdevice_list_devices().\n Device context is allocated and deallocated internally.\n\n @param device           device format. May be NULL if device name is set.\n @param device_name      device name. May be NULL if device format is set.\n @param device_options   An AVDictionary filled with device-private options. May be NULL.\n                         The same options must be passed later to avformat_write_header() for output\n                         devices or avformat_open_input() for input devices, or at any other place\n                         that affects device-private options.\n @param[out] device_list list of autodetected devices\n @return count of autodetected devices, negative on error.\n @note device argument takes precedence over device_name when both are set."]
+    #[doc = " List devices.\n\n Returns available device names and their parameters.\n These are convenient wrappers for avdevice_list_devices().\n Device context is allocated and deallocated internally.\n\n @param device           device format. May be NULL if device name is set.\n @param device_name      device name. May be NULL if device format is set.\n @param device_options   An AVDictionary filled with device-private options. May be NULL.\n                         The same options must be passed later to avformat_write_header() for output\n                         devices or avformat_open_input() for input devices, or at any other place\n                         that affects device-private options.\n @param[out] device_list list of autodetected devices\n @return count of autodetected devices, negative on error.\n @note device argument takes precedence over device_name when both are set."]
     pub fn avdevice_list_input_sources(
         device: *const AVInputFormat,
         device_name: *const ::std::os::raw::c_char,
@@ -25753,7 +25753,7 @@ pub struct AVFilterParams {
     pub filter_name: *mut ::std::os::raw::c_char,
     #[doc = " Name to be used for this filter instance.\n\n An av_malloc()'ed string, may be set by avfilter_graph_segment_parse() or\n left NULL. The caller may av_free() this string and replace with another\n one or NULL.\n\n Will be used by avfilter_graph_segment_create_filters() - passed as the\n third argument to avfilter_graph_alloc_filter(), then freed and set to\n NULL."]
     pub instance_name: *mut ::std::os::raw::c_char,
-    #[doc = " Options to be apllied to the filter.\n\n Filled by avfilter_graph_segment_parse(). Afterwards may be freely\n modified by the caller.\n\n Will be applied to the filter by avfilter_graph_segment_apply_opts()\n with an equivalent of av_opt_set_dict2(filter, &opts, AV_OPT_SEARCH_CHILDREN),\n i.e. any unapplied options will be left in this dictionary."]
+    #[doc = " Options to be applied to the filter.\n\n Filled by avfilter_graph_segment_parse(). Afterwards may be freely\n modified by the caller.\n\n Will be applied to the filter by avfilter_graph_segment_apply_opts()\n with an equivalent of av_opt_set_dict2(filter, &opts, AV_OPT_SEARCH_CHILDREN),\n i.e. any unapplied options will be left in this dictionary."]
     pub opts: *mut AVDictionary,
     pub inputs: *mut *mut AVFilterPadParams,
     pub nb_inputs: ::std::os::raw::c_uint,
@@ -25995,7 +25995,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Link filters in a graph segment.\n\n Walk through all filter instances in the graph segment and try to link all\n unlinked input and output pads. Any creation-pending filters (see\n avfilter_graph_segment_create_filters()) present in the segment will cause\n this function to fail. Disabled filters and already linked pads are skipped.\n\n Every filter output pad that has a corresponding AVFilterPadParams with a\n non-NULL label is\n - linked to the input with the matching label, if one exists;\n - exported in the outputs linked list otherwise, with the label preserved.\n Unlabeled outputs are\n - linked to the first unlinked unlabeled input in the next non-disabled\n   filter in the chain, if one exists\n - exported in the ouputs linked list otherwise, with NULL label\n\n Similarly, unlinked input pads are exported in the inputs linked list.\n\n @param seg the filtergraph segment to process\n @param flags reserved for future use, caller must set to 0 for now\n @param[out] inputs  a linked list of all free (unlinked) inputs of the\n                     filters in this graph segment will be returned here. It\n                     is to be freed by the caller using avfilter_inout_free().\n @param[out] outputs a linked list of all free (unlinked) outputs of the\n                     filters in this graph segment will be returned here. It\n                     is to be freed by the caller using avfilter_inout_free().\n\n @retval \"non-negative number\" success\n @retval \"negative error code\" failure\n\n @note Calling this function multiple times is safe, as it is idempotent."]
+    #[doc = " Link filters in a graph segment.\n\n Walk through all filter instances in the graph segment and try to link all\n unlinked input and output pads. Any creation-pending filters (see\n avfilter_graph_segment_create_filters()) present in the segment will cause\n this function to fail. Disabled filters and already linked pads are skipped.\n\n Every filter output pad that has a corresponding AVFilterPadParams with a\n non-NULL label is\n - linked to the input with the matching label, if one exists;\n - exported in the outputs linked list otherwise, with the label preserved.\n Unlabeled outputs are\n - linked to the first unlinked unlabeled input in the next non-disabled\n   filter in the chain, if one exists\n - exported in the outputs linked list otherwise, with NULL label\n\n Similarly, unlinked input pads are exported in the inputs linked list.\n\n @param seg the filtergraph segment to process\n @param flags reserved for future use, caller must set to 0 for now\n @param[out] inputs  a linked list of all free (unlinked) inputs of the\n                     filters in this graph segment will be returned here. It\n                     is to be freed by the caller using avfilter_inout_free().\n @param[out] outputs a linked list of all free (unlinked) outputs of the\n                     filters in this graph segment will be returned here. It\n                     is to be freed by the caller using avfilter_inout_free().\n\n @retval \"non-negative number\" success\n @retval \"negative error code\" failure\n\n @note Calling this function multiple times is safe, as it is idempotent."]
     pub fn avfilter_graph_segment_link(
         seg: *mut AVFilterGraphSegment,
         flags: ::std::os::raw::c_int,
@@ -28226,7 +28226,7 @@ extern "C" {
         height: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
-#[doc = " Context structure for the Lagged Fibonacci PRNG.\n The exact layout, types and content of this struct may change and should\n not be accessed directly. Only its `sizeof()` is guaranteed to stay the same\n to allow easy instanciation."]
+#[doc = " Context structure for the Lagged Fibonacci PRNG.\n The exact layout, types and content of this struct may change and should\n not be accessed directly. Only its `sizeof()` is guaranteed to stay the same\n to allow easy instantiation."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVLFG {
@@ -28280,7 +28280,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Get the next two numbers generated by a Box-Muller Gaussian\n generator using the random numbers issued by lfg.\n\n @param lfg pointer to the contex structure\n @param out array where the two generated numbers are placed"]
+    #[doc = " Get the next two numbers generated by a Box-Muller Gaussian\n generator using the random numbers issued by lfg.\n\n @param lfg pointer to the context structure\n @param out array where the two generated numbers are placed"]
     pub fn av_bmg_get(lfg: *mut AVLFG, out: *mut f64);
 }
 extern "C" {
