@@ -310,6 +310,12 @@ fn static_linking(env_vars: &EnvVars) {
         use non_windows::*;
         // Hint: set PKG_CONFIG_PATH to some placeholder value will let pkg_config probing system library.
         if let Some(ffmpeg_pkg_config_path) = env_vars.ffmpeg_pkg_config_path.as_ref() {
+            if !Path::new(ffmpeg_pkg_config_path).exists() {
+                panic!(
+                    "error: FFMPEG_PKG_CONFIG_PATH is set to `{}`, which does not exist.",
+                    ffmpeg_pkg_config_path
+                );
+            }
             env::set_var("PKG_CONFIG_PATH", ffmpeg_pkg_config_path);
             link_and_bindgen(env_vars, output_binding_path);
         } else if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
