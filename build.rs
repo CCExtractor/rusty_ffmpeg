@@ -1,8 +1,7 @@
 use bindgen::{self, callbacks, Bindings};
-use once_cell::sync::Lazy;
-
 use camino::Utf8Path as Path;
 use camino::Utf8PathBuf as PathBuf;
+use once_cell::sync::Lazy;
 use std::{collections::HashSet, env, fs};
 
 /// All the libs that FFmpeg has
@@ -21,45 +20,104 @@ static LIBS: Lazy<[&str; 7]> = Lazy::new(|| {
 /// Whitelist of the headers we want to generate bindings
 static HEADERS: Lazy<Vec<PathBuf>> = Lazy::new(|| {
     [
+        "libavcodec/ac3_parser.h",
+        "libavcodec/adts_parser.h",
         "libavcodec/avcodec.h",
+        "libavcodec/avdct.h",
         "libavcodec/avfft.h",
         "libavcodec/bsf.h",
+        "libavcodec/codec.h",
+        "libavcodec/codec_desc.h",
+        "libavcodec/codec_id.h",
+        "libavcodec/codec_par.h",
+        // "libavcodec/d3d11va.h",
+        "libavcodec/defs.h",
+        "libavcodec/dirac.h",
         "libavcodec/dv_profile.h",
+        // "libavcodec/dxva2.h",
+        "libavcodec/jni.h",
+        "libavcodec/mediacodec.h",
+        "libavcodec/packet.h",
+        // "libavcodec/qsv.h",
+        // "libavcodec/vdpau.h",
+        "libavcodec/version.h",
+        "libavcodec/version_major.h",
+        // "libavcodec/videotoolbox.h",
         "libavcodec/vorbis_parser.h",
+        // "libavcodec/xvmc.h",
         "libavdevice/avdevice.h",
+        "libavdevice/version.h",
+        "libavdevice/version_major.h",
         "libavfilter/avfilter.h",
         "libavfilter/buffersink.h",
         "libavfilter/buffersrc.h",
+        "libavfilter/version.h",
+        "libavfilter/version_major.h",
         "libavformat/avformat.h",
         "libavformat/avio.h",
+        "libavformat/version.h",
+        "libavformat/version_major.h",
         "libavutil/adler32.h",
         "libavutil/aes.h",
+        "libavutil/aes_ctr.h",
+        "libavutil/ambient_viewing_environment.h",
+        "libavutil/attributes.h",
         "libavutil/audio_fifo.h",
+        "libavutil/avassert.h",
+        "libavutil/avconfig.h",
         "libavutil/avstring.h",
         "libavutil/avutil.h",
         "libavutil/base64.h",
         "libavutil/blowfish.h",
         "libavutil/bprint.h",
+        "libavutil/bswap.h",
         "libavutil/buffer.h",
         "libavutil/camellia.h",
         "libavutil/cast5.h",
         "libavutil/channel_layout.h",
+        "libavutil/common.h",
         "libavutil/cpu.h",
         "libavutil/crc.h",
+        "libavutil/csp.h",
+        "libavutil/des.h",
+        "libavutil/detection_bbox.h",
         "libavutil/dict.h",
         "libavutil/display.h",
+        "libavutil/dovi_meta.h",
         "libavutil/downmix_info.h",
+        "libavutil/encryption_info.h",
         "libavutil/error.h",
         "libavutil/eval.h",
+        "libavutil/executor.h",
+        "libavutil/ffversion.h",
         "libavutil/fifo.h",
         "libavutil/file.h",
+        "libavutil/film_grain_params.h",
         "libavutil/frame.h",
         "libavutil/hash.h",
+        "libavutil/hdr_dynamic_metadata.h",
+        "libavutil/hdr_dynamic_vivid_metadata.h",
         "libavutil/hmac.h",
+        "libavutil/hwcontext.h",
+        // "libavutil/hwcontext_cuda.h",
+        // "libavutil/hwcontext_d3d11va.h",
+        // "libavutil/hwcontext_drm.h",
+        // "libavutil/hwcontext_dxva2.h",
+        // "libavutil/hwcontext_mediacodec.h",
+        // "libavutil/hwcontext_opencl.h",
+        // "libavutil/hwcontext_qsv.h",
+        // "libavutil/hwcontext_vaapi.h",
+        // "libavutil/hwcontext_vdpau.h",
+        // "libavutil/hwcontext_videotoolbox.h",
+        // "libavutil/hwcontext_vulkan.h",
         "libavutil/imgutils.h",
+        "libavutil/intfloat.h",
+        "libavutil/intreadwrite.h",
         "libavutil/lfg.h",
         "libavutil/log.h",
+        "libavutil/lzo.h",
         "libavutil/macros.h",
+        "libavutil/mastering_display_metadata.h",
         "libavutil/mathematics.h",
         "libavutil/md5.h",
         "libavutil/mem.h",
@@ -68,22 +126,37 @@ static HEADERS: Lazy<Vec<PathBuf>> = Lazy::new(|| {
         "libavutil/opt.h",
         "libavutil/parseutils.h",
         "libavutil/pixdesc.h",
+        "libavutil/pixelutils.h",
         "libavutil/pixfmt.h",
         "libavutil/random_seed.h",
         "libavutil/rational.h",
+        "libavutil/rc4.h",
         "libavutil/replaygain.h",
         "libavutil/ripemd.h",
         "libavutil/samplefmt.h",
         "libavutil/sha.h",
         "libavutil/sha512.h",
+        "libavutil/spherical.h",
         "libavutil/stereo3d.h",
+        "libavutil/tea.h",
         "libavutil/threadmessage.h",
         "libavutil/time.h",
         "libavutil/timecode.h",
+        "libavutil/timestamp.h",
+        "libavutil/tree.h",
         "libavutil/twofish.h",
+        "libavutil/tx.h",
+        "libavutil/uuid.h",
+        "libavutil/version.h",
+        "libavutil/video_enc_params.h",
+        "libavutil/video_hint.h",
         "libavutil/xtea.h",
         "libswresample/swresample.h",
+        "libswresample/version.h",
+        "libswresample/version_major.h",
         "libswscale/swscale.h",
+        "libswscale/version.h",
+        "libswscale/version_major.h",
     ]
     .into_iter()
     .map(|x| Path::new(x).into_iter().collect())
@@ -94,11 +167,11 @@ static HEADERS: Lazy<Vec<PathBuf>> = Lazy::new(|| {
 /// exactly the same as `CargoCallback`.
 #[derive(Debug)]
 struct FilterCargoCallbacks {
-    emitted_macro: HashSet<String>,
+    emitted_macro: HashSet<&'static str>,
 }
 
 impl FilterCargoCallbacks {
-    fn new(set: HashSet<String>) -> Self {
+    fn new(set: HashSet<&'static str>) -> Self {
         Self { emitted_macro: set }
     }
 }
@@ -117,43 +190,45 @@ fn use_prebuilt_binding(from: &Path, to: &Path) {
     fs::copy(from, to).expect("Prebuilt binding file failed to be copied.");
 }
 
-fn generate_bindings(ffmpeg_include_dir: Option<&Path>, headers: &[PathBuf]) -> Bindings {
+fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings {
+    if !Path::new(ffmpeg_include_dir).exists() {
+        panic!(
+            "FFmpeg include dir: `{:?}` doesn't exits",
+            ffmpeg_include_dir
+        );
+    }
     // Because of the strange `FP_*` in `math.h` https://github.com/rust-lang/rust-bindgen/issues/687
     let filter_callback = FilterCargoCallbacks::new(
-        vec![
-            "FP_NAN".to_owned(),
-            "FP_INFINITE".to_owned(),
-            "FP_ZERO".to_owned(),
-            "FP_SUBNORMAL".to_owned(),
-            "FP_NORMAL".to_owned(),
+        [
+            "FP_NAN",
+            "FP_INFINITE",
+            "FP_ZERO",
+            "FP_SUBNORMAL",
+            "FP_NORMAL",
         ]
         .into_iter()
         .collect(),
     );
 
-    // Bindgen the headers
+    // Bindgen on all avaiable headers
     headers
         .iter()
-        // map header short path to full path
-        .map(|header| {
-            if let Some(ffmpeg_include_dir) = ffmpeg_include_dir {
-                ffmpeg_include_dir.join(header)
-            } else {
-                header.clone()
+        .map(|header| ffmpeg_include_dir.join(header))
+        .filter(|path| {
+            let exists = Path::new(&path).exists();
+            if !exists {
+                eprintln!("Header path `{:?}` not found.", path);
             }
+            exists
         })
         .fold(
             {
-                let builder = bindgen::builder()
+                bindgen::builder()
                     // Force impl Debug if possible(for `AVCodecParameters`)
                     .impl_debug(true)
-                    .parse_callbacks(Box::new(filter_callback));
-                if let Some(ffmpeg_include_dir) = ffmpeg_include_dir {
+                    .parse_callbacks(Box::new(filter_callback))
                     // Add clang path, for `#include` header finding in bindgen process.
-                    builder.clang_arg(format!("-I{}", ffmpeg_include_dir))
-                } else {
-                    builder
-                }
+                    .clang_arg(format!("-I{}", ffmpeg_include_dir))
             },
             |builder, header| builder.header(header),
         )
@@ -277,7 +352,7 @@ fn dynamic_linking(env_vars: &EnvVars) {
     if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
         use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
     } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-        generate_bindings(Some(ffmpeg_include_dir), &HEADERS)
+        generate_bindings(ffmpeg_include_dir, &HEADERS)
             // Is it correct to generate binding to one file? :-/
             .write_to_file(output_binding_path)
             .expect("Cannot write binding to file.");
@@ -298,11 +373,11 @@ fn static_linking(env_vars: &EnvVars) {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
                 // If use ffmpeg_pkg_config_path with ffmpeg_include_dir, prefer using the user given dir rather than pkg_config_path.
-                generate_bindings(Some(ffmpeg_include_dir), &HEADERS)
+                generate_bindings(ffmpeg_include_dir, &HEADERS)
                     .write_to_file(output_binding_path)
                     .expect("Cannot write binding to file.");
             } else {
-                generate_bindings(Some(&include_paths[0]), &HEADERS)
+                generate_bindings(&include_paths[0], &HEADERS)
                     .write_to_file(output_binding_path)
                     .expect("Cannot write binding to file.");
             }
@@ -323,7 +398,7 @@ fn static_linking(env_vars: &EnvVars) {
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-                generate_bindings(Some(ffmpeg_include_dir), &HEADERS)
+                generate_bindings(ffmpeg_include_dir, &HEADERS)
                     .write_to_file(output_binding_path)
                     .expect("Cannot write binding to file.");
             } else {
@@ -344,7 +419,7 @@ fn static_linking(env_vars: &EnvVars) {
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-                generate_bindings(Some(ffmpeg_include_dir), &HEADERS)
+                generate_bindings(ffmpeg_include_dir, &HEADERS)
                     .write_to_file(output_binding_path)
                     .expect("Cannot write binding to file.");
             } else {
@@ -355,7 +430,7 @@ fn static_linking(env_vars: &EnvVars) {
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else {
-                generate_bindings(Some(&include_paths[0]), &HEADERS)
+                generate_bindings(&include_paths[0], &HEADERS)
                     .write_to_file(output_binding_path)
                     .expect("Cannot write binding to file.");
             }
