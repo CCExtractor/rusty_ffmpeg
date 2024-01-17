@@ -7,7 +7,7 @@
 
 Cross platform FFI bindings for FFmpeg inner libraries. This is a crate that:
 
-1. Linking FFmpeg libraries for you.
+1. Links FFmpeg libraries for you.
 2. Generates Rust binding for FFmpeg libraries.
 
 ## Getting started:
