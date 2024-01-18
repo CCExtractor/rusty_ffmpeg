@@ -232,6 +232,8 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
             },
             |builder, header| builder.header(header),
         )
+        .prepend_enum_name(false)
+        .newtype_global_enum("AVPixelFormat")
         .generate()
         .expect("Binding generation failed.")
 }
