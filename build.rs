@@ -163,11 +163,72 @@ static HEADERS: Lazy<Vec<PathBuf>> = Lazy::new(|| {
     .collect()
 });
 
+/// List of enums
+const ENUMS: &[&'static str] = &[
+    "AVClassCategory",
+    "AVCRCId",
+    "AVActiveFormatDescription",
+    "AVAppToDevMessageType",
+    "AVAudioServiceType",
+    "AVChannel",
+    "AVChannelOrder",
+    "AVChromaLocation",
+    "AVCodecID",
+    "AVColorPrimaries",
+    "AVColorRange",
+    "AVColorSpace",
+    "AVColorTransferCharacteristic",
+    "AVDevToAppMessageType",
+    "AVDiscard",
+    "AVDOVIMappingMethod",
+    "AVDOVINLQMethod",
+    "AVDownmixType",
+    "AVDurationEstimationMethod",
+    "AVEscapeMode",
+    "AVFieldOrder",
+    "AVFilmGrainParamsType",
+    "AVFrameSideDataType",
+    "AVHDRPlusOverlapProcessOption",
+    "AVHMACType",
+    "AVHWDeviceType",
+    "AVHWFrameTransferDirection",
+    "AVIODataMarkerType",
+    "AVIODirEntryType",
+    "AVMatrixEncoding",
+    "AVMediaType",
+    "AVOptionType",
+    "AVPacketSideDataType",
+    "AVPictureStructure",
+    "AVPictureType",
+    "AVPixelFormat",
+    "AVRounding",
+    "AVSampleFormat",
+    "AVSideDataParamChangeFlags",
+    "AVSphericalProjection",
+    "AVStereo3DType",
+    "AVStereo3DView",
+    "AVStreamParseType",
+    "AVSubtitleType",
+    "AVThreadMessageFlags",
+    "AVTimebaseSource",
+    "AVTimecodeFlag",
+    "AVTXFlags",
+    "AVTXType",
+    "AVVideoEncParamsType",
+    "AVVideoHintType",
+    "DCTTransformType",
+    "DiracParseCodes",
+    "RDFTransformType",
+    "SwrDitherType",
+    "SwrEngine",
+    "SwrFilterType"
+];
+
 /// Filter out all symbols in the HashSet, and for others things it will act
 /// exactly the same as `CargoCallback`.
 #[derive(Debug)]
 struct FilterCargoCallbacks {
-    emitted_macro: HashSet<&'static str>,
+    emitted_macro: HashSet<&'static str>
 }
 
 impl FilterCargoCallbacks {
@@ -183,6 +244,18 @@ impl callbacks::ParseCallbacks for FilterCargoCallbacks {
         } else {
             callbacks::MacroParsingBehavior::Default
         }
+    }
+
+    fn enum_variant_name(
+            &self,
+            enum_name: Option<&str>,
+            _original_variant_name: &str,
+            _variant_value: callbacks::EnumVariantValue,
+        ) -> Option<String> {
+        if let Some(name) = enum_name {
+            eprintln!("Enum \"{}\"", name);
+        }
+        None
     }
 }
 
@@ -210,32 +283,28 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
         .collect(),
     );
 
-    // Bindgen on all avaiable headers
-    headers
-        .iter()
-        .map(|header| ffmpeg_include_dir.join(header))
-        .filter(|path| {
-            let exists = Path::new(&path).exists();
-            if !exists {
-                eprintln!("Header path `{:?}` not found.", path);
-            }
-            exists
-        })
-        .fold(
-            {
-                bindgen::builder()
-                    // Force impl Debug if possible(for `AVCodecParameters`)
-                    .impl_debug(true)
-                    .parse_callbacks(Box::new(filter_callback))
-                    // Add clang path, for `#include` header finding in bindgen process.
-                    .clang_arg(format!("-I{}", ffmpeg_include_dir))
-            },
-            |builder, header| builder.header(header),
-        )
-        .prepend_enum_name(false)
-        .newtype_global_enum("AVPixelFormat")
-        .generate()
-        .expect("Binding generation failed.")
+    let mut builder = bindgen::builder()
+        // Force impl Debug if possible (for `AVCodecParameters`)
+        .impl_debug(true)
+        .parse_callbacks(Box::new(filter_callback))
+        // Add clang path, for `#include` header finding in bindgen process.
+        .clang_arg(format!("-I{}", ffmpeg_include_dir))
+        // Stop bindgen from prefixing enums
+        .prepend_enum_name(false);
+    // Bindgen all headers
+    for header in headers {
+        let path = ffmpeg_include_dir.join(header);
+        if !path.exists() {
+            eprintln!("Header path `{:?}` not found.", path);
+        }
+        builder = builder.header(path);
+    }
+    // Setup all enums
+    for r#enum in ENUMS {
+        builder = builder.newtype_global_enum(r#enum);
+    }
+
+    builder.generate().expect("Binding generation failed.")
 }
 
 fn static_linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &Path) {
