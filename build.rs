@@ -163,72 +163,11 @@ static HEADERS: Lazy<Vec<PathBuf>> = Lazy::new(|| {
     .collect()
 });
 
-/// List of enums
-const ENUMS: &[&'static str] = &[
-    "AVClassCategory",
-    "AVCRCId",
-    "AVActiveFormatDescription",
-    "AVAppToDevMessageType",
-    "AVAudioServiceType",
-    "AVChannel",
-    "AVChannelOrder",
-    "AVChromaLocation",
-    "AVCodecID",
-    "AVColorPrimaries",
-    "AVColorRange",
-    "AVColorSpace",
-    "AVColorTransferCharacteristic",
-    "AVDevToAppMessageType",
-    "AVDiscard",
-    "AVDOVIMappingMethod",
-    "AVDOVINLQMethod",
-    "AVDownmixType",
-    "AVDurationEstimationMethod",
-    "AVEscapeMode",
-    "AVFieldOrder",
-    "AVFilmGrainParamsType",
-    "AVFrameSideDataType",
-    "AVHDRPlusOverlapProcessOption",
-    "AVHMACType",
-    "AVHWDeviceType",
-    "AVHWFrameTransferDirection",
-    "AVIODataMarkerType",
-    "AVIODirEntryType",
-    "AVMatrixEncoding",
-    "AVMediaType",
-    "AVOptionType",
-    "AVPacketSideDataType",
-    "AVPictureStructure",
-    "AVPictureType",
-    "AVPixelFormat",
-    "AVRounding",
-    "AVSampleFormat",
-    "AVSideDataParamChangeFlags",
-    "AVSphericalProjection",
-    "AVStereo3DType",
-    "AVStereo3DView",
-    "AVStreamParseType",
-    "AVSubtitleType",
-    "AVThreadMessageFlags",
-    "AVTimebaseSource",
-    "AVTimecodeFlag",
-    "AVTXFlags",
-    "AVTXType",
-    "AVVideoEncParamsType",
-    "AVVideoHintType",
-    "DCTTransformType",
-    "DiracParseCodes",
-    "RDFTransformType",
-    "SwrDitherType",
-    "SwrEngine",
-    "SwrFilterType"
-];
-
 /// Filter out all symbols in the HashSet, and for others things it will act
 /// exactly the same as `CargoCallback`.
 #[derive(Debug)]
 struct FilterCargoCallbacks {
-    emitted_macro: HashSet<&'static str>
+    emitted_macro: HashSet<&'static str>,
 }
 
 impl FilterCargoCallbacks {
@@ -247,11 +186,11 @@ impl callbacks::ParseCallbacks for FilterCargoCallbacks {
     }
 
     fn enum_variant_name(
-            &self,
-            enum_name: Option<&str>,
-            _original_variant_name: &str,
-            _variant_value: callbacks::EnumVariantValue,
-        ) -> Option<String> {
+        &self,
+        enum_name: Option<&str>,
+        _original_variant_name: &str,
+        _variant_value: callbacks::EnumVariantValue,
+    ) -> Option<String> {
         if let Some(name) = enum_name {
             eprintln!("Enum \"{}\"", name);
         }
@@ -298,10 +237,6 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
             eprintln!("Header path `{:?}` not found.", path);
         }
         builder = builder.header(path);
-    }
-    // Setup all enums
-    for r#enum in ENUMS {
-        builder = builder.newtype_global_enum(r#enum);
     }
 
     builder.generate().expect("Binding generation failed.")
