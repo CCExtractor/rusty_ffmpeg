@@ -184,18 +184,6 @@ impl callbacks::ParseCallbacks for FilterCargoCallbacks {
             callbacks::MacroParsingBehavior::Default
         }
     }
-
-    fn enum_variant_name(
-        &self,
-        enum_name: Option<&str>,
-        _original_variant_name: &str,
-        _variant_value: callbacks::EnumVariantValue,
-    ) -> Option<String> {
-        if let Some(name) = enum_name {
-            eprintln!("Enum \"{}\"", name);
-        }
-        None
-    }
 }
 
 fn use_prebuilt_binding(from: &Path, to: &Path) {
@@ -235,6 +223,7 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
         let path = ffmpeg_include_dir.join(header);
         if !path.exists() {
             eprintln!("Header path `{:?}` not found.", path);
+            continue;
         }
         builder = builder.header(path);
     }
