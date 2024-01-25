@@ -3,19 +3,19 @@ name = "rusty_ffmpeg"
 version = "0.13.3+ffmpeg.6.1"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2021"
-
-license = "MIT"
 description = "A library that provides Rust bindings for FFmpeg"
-homepage = "https://github.com/CCExtractor/rusty_ffmpeg/"
 documentation = "https://docs.rs/rusty_ffmpeg"
-repository = "https://github.com/CCExtractor/rusty_ffmpeg/"
 readme = "README.md"
+homepage = "https://github.com/CCExtractor/rusty_ffmpeg/"
+repository = "https://github.com/CCExtractor/rusty_ffmpeg/"
+license = "MIT"
 
 keywords = ["ffmpeg", "ffi", "binding", "video", "audio"]
 categories = ["external-ffi-bindings", "multimedia"]
 
-exclude = [".github"]
 build = "build.rs"
+links = "ffmpeg"
+exclude = [".github"]
 
 # Doc test of generated binding is non-sense https://github.com/rust-lang/cargo/issues/3720
 [lib]

@@ -19,27 +19,20 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
           components: rustfmt
-      - uses: actions-rs/cargo@v1
-        with:
-          command: fmt
-          args: --all -- --check
+      - run: cargo fmt --all -- --check
 
   rust_clippy_check_ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
           components: clippy
 
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
@@ -95,12 +88,11 @@ jobs:
   rust_clippy_check_windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
+          components: clippy
 
       # Using this since it's used by clang-sys's CI
       - name: Install LLVM and Clang
@@ -137,13 +129,12 @@ jobs:
   build_static_and_test_ubuntu_with_system_ffmpeg:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
           components: clippy
+
 
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
       - name: Install FFmpegBuildTools
@@ -256,12 +247,10 @@ jobs:
   build_static_and_test_ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
 
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
       - name: Install FFmpegBuildTools
@@ -353,13 +342,11 @@ jobs:
             dynamic: true
       fail-fast: false
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
-          target: ${{ matrix.config.target }}
+          targets: ${{ matrix.config.target }}
 
       # Using this since it's used by clang-sys's CI
       - name: Install LLVM and Clang
@@ -472,12 +459,10 @@ jobs:
           cp -r ./build ~/ffmpeg_prebuilt
           cd ../..
 
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
       - env:
           FFMPEG_INCLUDE_DIR: ${{ github.workspace }}/ffmpeg_prebuilt/include
           FFMPEG_DLL_PATH: ${{ github.workspace }}/ffmpeg_prebuilt/lib/libffmpeg.so
@@ -558,12 +543,10 @@ jobs:
           cp -r ./build ~/ffmpeg_prebuilt
           cd ../..
 
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
       - env:
           FFMPEG_INCLUDE_DIR: ${{ github.workspace }}/ffmpeg_prebuilt/include
           FFMPEG_DLL_PATH: ${{ github.workspace }}/ffmpeg_prebuilt/lib/libffmpeg.dylib
@@ -661,7 +644,7 @@ jobs:
           cd ../..
 
       - name: Upload Cross Compiled FFmpeg for Windows
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: cross_ffmpeg
           path: ffmpeg/build/build
@@ -670,17 +653,14 @@ jobs:
     runs-on: windows-latest
     needs: build_dynamic_and_test_windows_pre
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          target: i686-pc-windows-msvc
-          profile: minimal
           toolchain: stable
-          override: true
+          targets: i686-pc-windows-msvc
  
       - name: Download Cross Compiled FFmpeg for Windows
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: cross_ffmpeg
           path: ${{ github.workspace }}/ffmpeg_prebuilt_cross
@@ -706,12 +686,10 @@ jobs:
   docs_rs_check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
           toolchain: stable
-          override: true
 
       # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
       - name: Install FFmpegBuildTools
