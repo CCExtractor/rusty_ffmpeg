@@ -83,7 +83,7 @@ fn main() {
                 .expect("ERROR unsupported codec!");
 
         match local_codec_params.codec_type {
-            ffi::AVMediaType_AVMEDIA_TYPE_VIDEO => {
+            ffi::AVMEDIA_TYPE_VIDEO => {
                 if video_stream_index.is_none() {
                     video_stream_index = Some(i);
                     codec_ptr = local_codec;
@@ -95,7 +95,7 @@ fn main() {
                     local_codec_params.width, local_codec_params.height
                 );
             }
-            ffi::AVMediaType_AVMEDIA_TYPE_AUDIO => {
+            ffi::AVMEDIA_TYPE_AUDIO => {
                 println!(
                     "Audio Codec: {} channels, sample rate {}",
                     local_codec_params.channels, local_codec_params.sample_rate
