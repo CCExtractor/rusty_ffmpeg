@@ -210,30 +210,25 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
         .collect(),
     );
 
-    // Bindgen on all avaiable headers
-    headers
-        .iter()
-        .map(|header| ffmpeg_include_dir.join(header))
-        .filter(|path| {
-            let exists = Path::new(&path).exists();
-            if !exists {
-                eprintln!("Header path `{:?}` not found.", path);
-            }
-            exists
-        })
-        .fold(
-            {
-                bindgen::builder()
-                    // Force impl Debug if possible(for `AVCodecParameters`)
-                    .impl_debug(true)
-                    .parse_callbacks(Box::new(filter_callback))
-                    // Add clang path, for `#include` header finding in bindgen process.
-                    .clang_arg(format!("-I{}", ffmpeg_include_dir))
-            },
-            |builder, header| builder.header(header),
-        )
-        .generate()
-        .expect("Binding generation failed.")
+    let mut builder = bindgen::builder()
+        // Force impl Debug if possible (for `AVCodecParameters`)
+        .impl_debug(true)
+        .parse_callbacks(Box::new(filter_callback))
+        // Add clang path, for `#include` header finding in bindgen process.
+        .clang_arg(format!("-I{}", ffmpeg_include_dir))
+        // Stop bindgen from prefixing enums
+        .prepend_enum_name(false);
+    // Bindgen all headers
+    for header in headers {
+        let path = ffmpeg_include_dir.join(header);
+        if !path.exists() {
+            eprintln!("Header path `{:?}` not found.", path);
+            continue;
+        }
+        builder = builder.header(path);
+    }
+
+    builder.generate().expect("Binding generation failed.")
 }
 
 fn static_linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &Path) {
