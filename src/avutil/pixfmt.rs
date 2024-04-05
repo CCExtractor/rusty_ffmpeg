@@ -60,6 +60,8 @@ AV_PIX_FMT_NE!(AV_PIX_FMT_GBRP14, AV_PIX_FMT_GBRP14BE, AV_PIX_FMT_GBRP14LE);
 AV_PIX_FMT_NE!(AV_PIX_FMT_GBRP16, AV_PIX_FMT_GBRP16BE, AV_PIX_FMT_GBRP16LE);
 AV_PIX_FMT_NE!(AV_PIX_FMT_GBRAP10, AV_PIX_FMT_GBRAP10BE, AV_PIX_FMT_GBRAP10LE);
 AV_PIX_FMT_NE!(AV_PIX_FMT_GBRAP12, AV_PIX_FMT_GBRAP12BE, AV_PIX_FMT_GBRAP12LE);
+#[cfg(feature = "ffmpeg7")]
+AV_PIX_FMT_NE!(AV_PIX_FMT_GBRAP14, AV_PIX_FMT_GBRAP14BE, AV_PIX_FMT_GBRAP14LE);
 AV_PIX_FMT_NE!(AV_PIX_FMT_GBRAP16, AV_PIX_FMT_GBRAP16BE, AV_PIX_FMT_GBRAP16LE);
 
 AV_PIX_FMT_NE!(AV_PIX_FMT_BAYER_BGGR16, AV_PIX_FMT_BAYER_BGGR16BE, AV_PIX_FMT_BAYER_BGGR16LE);
@@ -86,36 +88,40 @@ AV_PIX_FMT_NE!(AV_PIX_FMT_XYZ12, AV_PIX_FMT_XYZ12BE, AV_PIX_FMT_XYZ12LE);
 AV_PIX_FMT_NE!(AV_PIX_FMT_NV20, AV_PIX_FMT_NV20BE, AV_PIX_FMT_NV20LE);
 AV_PIX_FMT_NE!(AV_PIX_FMT_AYUV64, AV_PIX_FMT_AYUV64BE, AV_PIX_FMT_AYUV64LE);
 AV_PIX_FMT_NE!(AV_PIX_FMT_P010, AV_PIX_FMT_P010BE, AV_PIX_FMT_P010LE);
-#[cfg(feature = "ffmpeg6")]
+#[cfg(any(feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_P012, AV_PIX_FMT_P012BE, AV_PIX_FMT_P012LE);
 AV_PIX_FMT_NE!(AV_PIX_FMT_P016, AV_PIX_FMT_P016BE, AV_PIX_FMT_P016LE);
 
-#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_Y210, AV_PIX_FMT_Y210BE,  AV_PIX_FMT_Y210LE);
-#[cfg(feature = "ffmpeg6")]
+#[cfg(any(feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_Y212, AV_PIX_FMT_Y212BE,  AV_PIX_FMT_Y212LE);
-#[cfg(feature = "ffmpeg6")]
+#[cfg(any(feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_XV30, AV_PIX_FMT_XV30BE,  AV_PIX_FMT_XV30LE);
-#[cfg(feature = "ffmpeg6")]
+#[cfg(any(feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_XV36, AV_PIX_FMT_XV36BE,  AV_PIX_FMT_XV36LE);
-#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_X2RGB10, AV_PIX_FMT_X2RGB10BE, AV_PIX_FMT_X2RGB10LE);
-#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_X2BGR10, AV_PIX_FMT_X2BGR10BE, AV_PIX_FMT_X2BGR10LE);
 
-#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_P210, AV_PIX_FMT_P210BE, AV_PIX_FMT_P210LE);
-#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_P410, AV_PIX_FMT_P410BE, AV_PIX_FMT_P410LE);
-#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
+#[cfg(feature = "ffmpeg7")]
+AV_PIX_FMT_NE!(AV_PIX_FMT_P212, AV_PIX_FMT_P212BE, AV_PIX_FMT_P212LE);
+#[cfg(feature = "ffmpeg7")]
+AV_PIX_FMT_NE!(AV_PIX_FMT_P412, AV_PIX_FMT_P412BE, AV_PIX_FMT_P412LE);
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_P216, AV_PIX_FMT_P216BE, AV_PIX_FMT_P216LE);
-#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6"))]
+#[cfg(any(feature = "ffmpeg5", feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_P416, AV_PIX_FMT_P416BE, AV_PIX_FMT_P416LE);
 
-#[cfg(feature = "ffmpeg6")]
+#[cfg(any(feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_RGBAF16, AV_PIX_FMT_RGBAF16BE, AV_PIX_FMT_RGBAF16LE);
 
-#[cfg(feature = "ffmpeg6")]
+#[cfg(any(feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_RGBF32, AV_PIX_FMT_RGBF32BE, AV_PIX_FMT_RGBF32LE);
-#[cfg(feature = "ffmpeg6")]
+#[cfg(any(feature = "ffmpeg6", feature = "ffmpeg7"))]
 AV_PIX_FMT_NE!(AV_PIX_FMT_RGBAF32, AV_PIX_FMT_RGBAF32BE, AV_PIX_FMT_RGBAF32LE);

@@ -46,6 +46,13 @@ You need to set several environment variables for both linking and binding gener
 
 You can enable system-wide FFmpeg linking by enabling feature `link_system_ffmpeg`.
 
+### Use specific FFmpeg version
+
+- Do nothing when you are using FFmpeg `4.*`
+- Enable `ffmpeg5` feature when you are using FFmpeg `5.*`
+- Enable `ffmpeg6` feature when you are using FFmpeg `6.*`
+- Enable `ffmpeg7` feature when you are using FFmpeg `7.*`
+
 ## Attention
 
 FFI is not that easy, especially when you are dealing with a big old C project. Don't feel depressed when there are some problems. The CI check already has some typical ffmpeg compilation and use cases for you to check. File an issue if you still have any problem.

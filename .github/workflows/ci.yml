@@ -70,7 +70,7 @@ jobs:
             libopus-dev
 
       - run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
           cd ffmpeg
           mkdir build
           cd build
@@ -233,8 +233,9 @@ jobs:
       - name: Clippy check
         run: cargo clippy --features link_system_ffmpeg -- -D warnings
 
-      - name: Run Slice Example
-        run: cargo run --example slice --features link_system_ffmpeg
+      # Currently disable until system ffmpeg upgrades to FFmpeg 7.0
+      # - name: Run Slice Example
+        # run: cargo run --example slice --features link_system_ffmpeg
 
       - name: Check test result correctness
         run: |
@@ -288,7 +289,7 @@ jobs:
       # Disable exr,phm to workaround "multiple definition of 'ff_init_half2float_tables'"
       # Ref: `https://github.com/larksuite/rsmpeg/pull/98#issuecomment-1467511193`
       - run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
           cd ffmpeg
           mkdir build
           cd build
@@ -414,7 +415,7 @@ jobs:
 
       - name: Build FFmpeg dylib
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
           cd ffmpeg
           mkdir build
           cd build
@@ -496,7 +497,7 @@ jobs:
 
       - name: Build FFmpeg dylib
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
           cd ffmpeg
           mkdir build
           cd build
@@ -583,7 +584,7 @@ jobs:
           cd ../..
       - name: Build FFmpeg
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/6.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
           cd ffmpeg
           mkdir build
           cd build

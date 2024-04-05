@@ -1,4 +1,5 @@
 //! Port from Original code: https://github.com/leandromoreira/ffmpeg-libav-tutorial/blob/master/0_hello_world.c
+
 use rusty_ffmpeg::ffi;
 
 use std::{
@@ -8,6 +9,7 @@ use std::{
     ptr, slice,
 };
 
+// This should only be used with FFmpeg 7
 fn main() {
     let filepath: CString = CString::new("./examples/slice/bear.mp4").unwrap();
 
@@ -98,7 +100,7 @@ fn main() {
             ffi::AVMEDIA_TYPE_AUDIO => {
                 println!(
                     "Audio Codec: {} channels, sample rate {}",
-                    local_codec_params.channels, local_codec_params.sample_rate
+                    local_codec_params.ch_layout.nb_channels, local_codec_params.sample_rate
                 );
             }
             _ => {}
@@ -174,18 +176,17 @@ fn decode_packet(
             ));
         } else {
             println!(
-                "Frame {} (type={}, size={} bytes) pts {} key_frame {} [DTS {}]",
-                codec_context.frame_number,
+                "Frame {} (type={}, size={} bytes) pts {} key_frame {}",
+                codec_context.frame_num,
                 unsafe { ffi::av_get_picture_type_char(frame.pict_type) },
                 frame.pkt_size,
                 frame.pts,
                 frame.key_frame,
-                frame.coded_picture_number
             );
 
             let frame_filename = format!(
                 "./examples/slice/output/frame-{}.pgm",
-                codec_context.frame_number
+                codec_context.frame_num
             );
             let width = frame.width as usize;
             let height = frame.height as usize;

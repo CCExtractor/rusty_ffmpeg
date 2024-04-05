@@ -42,3 +42,5 @@ link_system_ffmpeg = []
 ffmpeg5 = []
 # FFmpeg 6.* support
 ffmpeg6 = []
+# FFmpeg 7.* support
+ffmpeg7 = []
