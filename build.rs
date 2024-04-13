@@ -229,6 +229,8 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
                     .parse_callbacks(Box::new(filter_callback))
                     // Add clang path, for `#include` header finding in bindgen process.
                     .clang_arg(format!("-I{}", ffmpeg_include_dir))
+                    // Workaround: https://github.com/rust-lang/rust-bindgen/issues/2159
+                    .blocklist_type("__mingw_ldbl_type_t")
                     // Stop bindgen from prefixing enums
                     .prepend_enum_name(false)
             },
