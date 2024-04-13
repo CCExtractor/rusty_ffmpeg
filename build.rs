@@ -1,4 +1,4 @@
-use bindgen::{self, callbacks, Bindings};
+use bindgen::{callbacks, Bindings};
 use camino::Utf8Path as Path;
 use camino::Utf8PathBuf as PathBuf;
 use once_cell::sync::Lazy;
