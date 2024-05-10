@@ -253,6 +253,7 @@ pub struct EnvVars {
     out_dir: Option<PathBuf>,
     ffmpeg_include_dir: Option<PathBuf>,
     ffmpeg_dll_path: Option<PathBuf>,
+    ffmpeg_multi_arch_build: Option<PathBuf>,
     ffmpeg_pkg_config_path: Option<PathBuf>,
     ffmpeg_libs_dir: Option<PathBuf>,
     ffmpeg_binding_path: Option<PathBuf>,
@@ -275,6 +276,9 @@ impl EnvVars {
             ffmpeg_pkg_config_path: env::var("FFMPEG_PKG_CONFIG_PATH").ok().map(remove_verbatim),
             ffmpeg_libs_dir: env::var("FFMPEG_LIBS_DIR").ok().map(remove_verbatim),
             ffmpeg_binding_path: env::var("FFMPEG_BINDING_PATH").ok().map(remove_verbatim),
+            ffmpeg_multi_arch_build: env::var("FFMPEG_MULTI_ARCH_BUILD")
+                .ok()
+                .map(remove_verbatim),
         }
     }
 }
@@ -329,29 +333,48 @@ mod windows {
 }
 
 fn dynamic_linking(env_vars: &EnvVars) {
+    let re = regex::Regex::new(r"\w*.(so|dylib|dll)$").unwrap();
     let ffmpeg_dll_path = env_vars.ffmpeg_dll_path.as_ref().unwrap();
-
     let output_binding_path = &env_vars.out_dir.as_ref().unwrap().join("binding.rs");
 
-    // Extract dll name and the dir the dll is in.
-    let (ffmpeg_dll_name, ffmpeg_dll_dir) = {
-        let mut ffmpeg_dll_path = PathBuf::from(ffmpeg_dll_path);
-        // Without extension.
-        let ffmpeg_dll_filename = ffmpeg_dll_path.file_stem().unwrap();
-        let ffmpeg_dll_name = if cfg!(target_os = "windows") {
-            ffmpeg_dll_filename
+    let lib_name_filter = |mut file_name: String| -> Option<String> {
+        if re.is_match(file_name.as_str()) {
+            file_name = file_name.replace("lib", "");
+            file_name = file_name.replace(".so", "");
+            file_name = file_name.replace(".dylib", "");
+            file_name = file_name.replace(".dll", "");
+            Some(file_name)
         } else {
-            ffmpeg_dll_filename.trim_start_matches("lib")
+            None
         }
-        .to_string();
-        // Remove file name.
-        ffmpeg_dll_path.pop();
-        let ffmpeg_dll_path = ffmpeg_dll_path.to_string();
-        (ffmpeg_dll_name, ffmpeg_dll_path)
     };
+    if env_vars.ffmpeg_multi_arch_build.as_ref().is_none() {
+        for file in std::fs::read_dir(ffmpeg_dll_path).unwrap() {
+            let file_name = file.unwrap().file_name().into_string().unwrap();
+            let file_name = lib_name_filter(file_name);
+            if let Some(f) = file_name {
+                println!("cargo:rustc-link-lib=dylib={}", f);
+            }
+        }
+    } else {
+        let base_path = env::var("FFMPEG_LIBS_DIR").ok().unwrap();
+        let target_os = env::var("CARGO_CFG_TARGET_OS").ok().unwrap();
+        let target_arch = env::var("CARGO_CFG_TARGET_ARCH")
+            .ok()
+            .unwrap()
+            .replace("arm", "armeabi-v7a")
+            .replace("aarch64", "arm64-v8a");
+        let per_arch_path = format!("{}/{}/{}/lib", base_path, target_os, target_arch);
 
-    println!("cargo:rustc-link-lib=dylib={}", ffmpeg_dll_name);
-    println!("cargo:rustc-link-search=native={}", ffmpeg_dll_dir);
+        println!("cargo:rustc-link-search=native={}", per_arch_path);
+        for file in std::fs::read_dir(per_arch_path).unwrap() {
+            let file_name = file.unwrap().file_name().into_string().unwrap();
+            let file_name = lib_name_filter(file_name);
+            if let Some(f) = file_name {
+                println!("cargo:rustc-link-lib=dylib={}", f);
+            }
+        }
+    }
 
     if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
         use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
