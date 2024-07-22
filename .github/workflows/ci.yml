@@ -525,7 +525,7 @@ jobs:
             --enable-gpl \
             --enable-libx264 \
             --enable-pic
-          make -j$(nproc)
+          make -j$(sysctl -n hw.logicalcpu)
           make install
           cd build/lib/
           cp ~/x264_prebuilt/lib/libx264.a .
