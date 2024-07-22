@@ -314,10 +314,14 @@ mod non_windows {
     }
 }
 
-#[cfg(target_os = "windows")]
-mod windows {
+#[cfg(all(feature = "link_vcpkg_ffmpeg", feature = "link_system_ffmpeg"))]
+compile_error!("Features link_vcpkg_ffmpeg and link_system_ffmpeg features are mutually exclusive and cannot be enabled together.");
+
+#[cfg(any(feature = "link_vcpkg_ffmpeg", target_os = "windows"))]
+mod vcpkg_linking {
     use super::*;
-    pub fn static_linking_vcpkg(_env_vars: &EnvVars, _library_names: &[&str]) -> Vec<PathBuf> {
+
+    fn static_linking_vcpkg(_env_vars: &EnvVars, _library_names: &[&str]) -> Vec<PathBuf> {
         vcpkg::Config::new()
             .find_package("ffmpeg")
             .unwrap()
@@ -325,6 +329,17 @@ mod windows {
             .into_iter()
             .map(|x| PathBuf::from_path_buf(x).unwrap())
             .collect()
+    }
+
+    pub fn generate_vcpkg_bindings(env_vars: &EnvVars, output_binding_path: &Path) {
+        let include_paths = static_linking_vcpkg(env_vars, &*LIBS);
+        if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
+            use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+        } else {
+            generate_bindings(&include_paths[0], &HEADERS)
+                .write_to_file(output_binding_path)
+                .expect("Cannot write binding to file.");
+        }
     }
 }
 
@@ -411,13 +426,14 @@ fn static_linking(env_vars: &EnvVars) {
         } else {
             #[cfg(feature = "link_system_ffmpeg")]
             link_and_bindgen(env_vars, output_binding_path);
-            #[cfg(not(feature = "link_system_ffmpeg"))]
+            #[cfg(feature = "link_vcpkg_ffmpeg")]
+            vcpkg_linking::generate_vcpkg_bindings(env_vars, output_binding_path);
+            #[cfg(not(any(feature = "link_system_ffmpeg", feature = "link_vcpkg_ffmpeg")))]
             panic!("No linking method set!");
         };
     }
     #[cfg(target_os = "windows")]
     {
-        use windows::*;
         if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
             static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
@@ -430,14 +446,7 @@ fn static_linking(env_vars: &EnvVars) {
                 panic!("No binding generation method is set!");
             }
         } else {
-            let include_paths = static_linking_vcpkg(env_vars, &*LIBS);
-            if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
-                use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
-            } else {
-                generate_bindings(&include_paths[0], &HEADERS)
-                    .write_to_file(output_binding_path)
-                    .expect("Cannot write binding to file.");
-            }
+            vcpkg_linking::generate_vcpkg_bindings(env_vars, output_binding_path);
         }
     }
 }
