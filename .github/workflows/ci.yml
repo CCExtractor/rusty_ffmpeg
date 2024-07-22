@@ -124,7 +124,7 @@ jobs:
           VCPKG_ROOT: ${{ github.workspace }}/vcpkg
           LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
           LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
-        run: cargo clippy -- -D warnings
+        run: cargo clippy --features link_vcpkg_ffmpeg -- -D warnings
 
   build_static_and_test_ubuntu_with_system_ffmpeg:
     runs-on: ubuntu-latest
@@ -389,7 +389,7 @@ jobs:
           VCPKG_DEFAULT_TRIPLET: ${{ matrix.config.vcpkg_triplet }}
           LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
           LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
-        run: cargo build --target ${{ matrix.config.target }} --verbose
+        run: cargo build --features link_vcpkg_ffmpeg --target ${{ matrix.config.target }} --verbose
 
   build_dynamic_and_test_ubuntu:
     runs-on: ubuntu-latest
@@ -525,7 +525,7 @@ jobs:
             --enable-gpl \
             --enable-libx264 \
             --enable-pic
-          make -j$(nproc)
+          make -j$(sysctl -n hw.logicalcpu)
           make install
           cd build/lib/
           cp ~/x264_prebuilt/lib/libx264.a .
