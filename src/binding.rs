@@ -1446,15 +1446,31 @@ pub struct max_align_t {
     pub __bindgen_padding_0: u64,
     pub __clang_max_align_nonce2: u128,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of max_align_t"][::std::mem::size_of::<max_align_t>() - 32usize];
-    ["Alignment of max_align_t"][::std::mem::align_of::<max_align_t>() - 16usize];
-    ["Offset of field: max_align_t::__clang_max_align_nonce1"]
-        [::std::mem::offset_of!(max_align_t, __clang_max_align_nonce1) - 0usize];
-    ["Offset of field: max_align_t::__clang_max_align_nonce2"]
-        [::std::mem::offset_of!(max_align_t, __clang_max_align_nonce2) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_max_align_t() {
+    const UNINIT: ::std::mem::MaybeUninit<max_align_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<max_align_t>(),
+        32usize,
+        "Size of max_align_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<max_align_t>(),
+        16usize,
+        "Alignment of max_align_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__clang_max_align_nonce1) as usize - ptr as usize },
+        0usize,
+        "Offset of field: max_align_t::__clang_max_align_nonce1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__clang_max_align_nonce2) as usize - ptr as usize },
+        16usize,
+        "Offset of field: max_align_t::__clang_max_align_nonce2"
+    );
+}
 pub type __u_char = ::std::os::raw::c_uchar;
 pub type __u_short = ::std::os::raw::c_ushort;
 pub type __u_int = ::std::os::raw::c_uint;
@@ -1494,12 +1510,26 @@ pub type __pid_t = ::std::os::raw::c_int;
 pub struct __fsid_t {
     pub __val: [::std::os::raw::c_int; 2usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __fsid_t"][::std::mem::size_of::<__fsid_t>() - 8usize];
-    ["Alignment of __fsid_t"][::std::mem::align_of::<__fsid_t>() - 4usize];
-    ["Offset of field: __fsid_t::__val"][::std::mem::offset_of!(__fsid_t, __val) - 0usize];
-};
+#[test]
+fn bindgen_test_layout___fsid_t() {
+    const UNINIT: ::std::mem::MaybeUninit<__fsid_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__fsid_t>(),
+        8usize,
+        "Size of __fsid_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__fsid_t>(),
+        4usize,
+        "Alignment of __fsid_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__val) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __fsid_t::__val"
+    );
+}
 pub type __clock_t = ::std::os::raw::c_long;
 pub type __rlim_t = ::std::os::raw::c_ulong;
 pub type __rlim64_t = ::std::os::raw::c_ulong;
@@ -1761,13 +1791,31 @@ pub struct imaxdiv_t {
     pub quot: ::std::os::raw::c_long,
     pub rem: ::std::os::raw::c_long,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of imaxdiv_t"][::std::mem::size_of::<imaxdiv_t>() - 16usize];
-    ["Alignment of imaxdiv_t"][::std::mem::align_of::<imaxdiv_t>() - 8usize];
-    ["Offset of field: imaxdiv_t::quot"][::std::mem::offset_of!(imaxdiv_t, quot) - 0usize];
-    ["Offset of field: imaxdiv_t::rem"][::std::mem::offset_of!(imaxdiv_t, rem) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_imaxdiv_t() {
+    const UNINIT: ::std::mem::MaybeUninit<imaxdiv_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<imaxdiv_t>(),
+        16usize,
+        "Size of imaxdiv_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<imaxdiv_t>(),
+        8usize,
+        "Alignment of imaxdiv_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).quot) as usize - ptr as usize },
+        0usize,
+        "Offset of field: imaxdiv_t::quot"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rem) as usize - ptr as usize },
+        8usize,
+        "Offset of field: imaxdiv_t::rem"
+    );
+}
 extern "C" {
     pub fn imaxabs(__n: intmax_t) -> intmax_t;
 }
@@ -3145,31 +3193,62 @@ pub union __mbstate_t__bindgen_ty_1 {
     pub __wch: ::std::os::raw::c_uint,
     pub __wchb: [::std::os::raw::c_char; 4usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __mbstate_t__bindgen_ty_1"]
-        [::std::mem::size_of::<__mbstate_t__bindgen_ty_1>() - 4usize];
-    ["Alignment of __mbstate_t__bindgen_ty_1"]
-        [::std::mem::align_of::<__mbstate_t__bindgen_ty_1>() - 4usize];
-    ["Offset of field: __mbstate_t__bindgen_ty_1::__wch"]
-        [::std::mem::offset_of!(__mbstate_t__bindgen_ty_1, __wch) - 0usize];
-    ["Offset of field: __mbstate_t__bindgen_ty_1::__wchb"]
-        [::std::mem::offset_of!(__mbstate_t__bindgen_ty_1, __wchb) - 0usize];
-};
+#[test]
+fn bindgen_test_layout___mbstate_t__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<__mbstate_t__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__mbstate_t__bindgen_ty_1>(),
+        4usize,
+        "Size of __mbstate_t__bindgen_ty_1"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__mbstate_t__bindgen_ty_1>(),
+        4usize,
+        "Alignment of __mbstate_t__bindgen_ty_1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__wch) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __mbstate_t__bindgen_ty_1::__wch"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__wchb) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __mbstate_t__bindgen_ty_1::__wchb"
+    );
+}
 impl ::std::fmt::Debug for __mbstate_t__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "__mbstate_t__bindgen_ty_1 {{ union }}")
     }
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __mbstate_t"][::std::mem::size_of::<__mbstate_t>() - 8usize];
-    ["Alignment of __mbstate_t"][::std::mem::align_of::<__mbstate_t>() - 4usize];
-    ["Offset of field: __mbstate_t::__count"]
-        [::std::mem::offset_of!(__mbstate_t, __count) - 0usize];
-    ["Offset of field: __mbstate_t::__value"]
-        [::std::mem::offset_of!(__mbstate_t, __value) - 4usize];
-};
+#[test]
+fn bindgen_test_layout___mbstate_t() {
+    const UNINIT: ::std::mem::MaybeUninit<__mbstate_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__mbstate_t>(),
+        8usize,
+        "Size of __mbstate_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__mbstate_t>(),
+        4usize,
+        "Alignment of __mbstate_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__count) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __mbstate_t::__count"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__value) as usize - ptr as usize },
+        4usize,
+        "Offset of field: __mbstate_t::__value"
+    );
+}
 impl ::std::fmt::Debug for __mbstate_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -3185,13 +3264,31 @@ pub struct _G_fpos_t {
     pub __pos: __off_t,
     pub __state: __mbstate_t,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of _G_fpos_t"][::std::mem::size_of::<_G_fpos_t>() - 16usize];
-    ["Alignment of _G_fpos_t"][::std::mem::align_of::<_G_fpos_t>() - 8usize];
-    ["Offset of field: _G_fpos_t::__pos"][::std::mem::offset_of!(_G_fpos_t, __pos) - 0usize];
-    ["Offset of field: _G_fpos_t::__state"][::std::mem::offset_of!(_G_fpos_t, __state) - 8usize];
-};
+#[test]
+fn bindgen_test_layout__G_fpos_t() {
+    const UNINIT: ::std::mem::MaybeUninit<_G_fpos_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<_G_fpos_t>(),
+        16usize,
+        "Size of _G_fpos_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<_G_fpos_t>(),
+        8usize,
+        "Alignment of _G_fpos_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__pos) as usize - ptr as usize },
+        0usize,
+        "Offset of field: _G_fpos_t::__pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__state) as usize - ptr as usize },
+        8usize,
+        "Offset of field: _G_fpos_t::__state"
+    );
+}
 impl ::std::fmt::Debug for _G_fpos_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -3208,14 +3305,31 @@ pub struct _G_fpos64_t {
     pub __pos: __off64_t,
     pub __state: __mbstate_t,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of _G_fpos64_t"][::std::mem::size_of::<_G_fpos64_t>() - 16usize];
-    ["Alignment of _G_fpos64_t"][::std::mem::align_of::<_G_fpos64_t>() - 8usize];
-    ["Offset of field: _G_fpos64_t::__pos"][::std::mem::offset_of!(_G_fpos64_t, __pos) - 0usize];
-    ["Offset of field: _G_fpos64_t::__state"]
-        [::std::mem::offset_of!(_G_fpos64_t, __state) - 8usize];
-};
+#[test]
+fn bindgen_test_layout__G_fpos64_t() {
+    const UNINIT: ::std::mem::MaybeUninit<_G_fpos64_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<_G_fpos64_t>(),
+        16usize,
+        "Size of _G_fpos64_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<_G_fpos64_t>(),
+        8usize,
+        "Alignment of _G_fpos64_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__pos) as usize - ptr as usize },
+        0usize,
+        "Offset of field: _G_fpos64_t::__pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__state) as usize - ptr as usize },
+        8usize,
+        "Offset of field: _G_fpos64_t::__state"
+    );
+}
 impl ::std::fmt::Debug for _G_fpos64_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -3277,58 +3391,166 @@ pub struct _IO_FILE {
     pub _mode: ::std::os::raw::c_int,
     pub _unused2: [::std::os::raw::c_char; 20usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of _IO_FILE"][::std::mem::size_of::<_IO_FILE>() - 216usize];
-    ["Alignment of _IO_FILE"][::std::mem::align_of::<_IO_FILE>() - 8usize];
-    ["Offset of field: _IO_FILE::_flags"][::std::mem::offset_of!(_IO_FILE, _flags) - 0usize];
-    ["Offset of field: _IO_FILE::_IO_read_ptr"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_read_ptr) - 8usize];
-    ["Offset of field: _IO_FILE::_IO_read_end"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_read_end) - 16usize];
-    ["Offset of field: _IO_FILE::_IO_read_base"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_read_base) - 24usize];
-    ["Offset of field: _IO_FILE::_IO_write_base"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_write_base) - 32usize];
-    ["Offset of field: _IO_FILE::_IO_write_ptr"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_write_ptr) - 40usize];
-    ["Offset of field: _IO_FILE::_IO_write_end"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_write_end) - 48usize];
-    ["Offset of field: _IO_FILE::_IO_buf_base"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_buf_base) - 56usize];
-    ["Offset of field: _IO_FILE::_IO_buf_end"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_buf_end) - 64usize];
-    ["Offset of field: _IO_FILE::_IO_save_base"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_save_base) - 72usize];
-    ["Offset of field: _IO_FILE::_IO_backup_base"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_backup_base) - 80usize];
-    ["Offset of field: _IO_FILE::_IO_save_end"]
-        [::std::mem::offset_of!(_IO_FILE, _IO_save_end) - 88usize];
-    ["Offset of field: _IO_FILE::_markers"][::std::mem::offset_of!(_IO_FILE, _markers) - 96usize];
-    ["Offset of field: _IO_FILE::_chain"][::std::mem::offset_of!(_IO_FILE, _chain) - 104usize];
-    ["Offset of field: _IO_FILE::_fileno"][::std::mem::offset_of!(_IO_FILE, _fileno) - 112usize];
-    ["Offset of field: _IO_FILE::_flags2"][::std::mem::offset_of!(_IO_FILE, _flags2) - 116usize];
-    ["Offset of field: _IO_FILE::_old_offset"]
-        [::std::mem::offset_of!(_IO_FILE, _old_offset) - 120usize];
-    ["Offset of field: _IO_FILE::_cur_column"]
-        [::std::mem::offset_of!(_IO_FILE, _cur_column) - 128usize];
-    ["Offset of field: _IO_FILE::_vtable_offset"]
-        [::std::mem::offset_of!(_IO_FILE, _vtable_offset) - 130usize];
-    ["Offset of field: _IO_FILE::_shortbuf"]
-        [::std::mem::offset_of!(_IO_FILE, _shortbuf) - 131usize];
-    ["Offset of field: _IO_FILE::_lock"][::std::mem::offset_of!(_IO_FILE, _lock) - 136usize];
-    ["Offset of field: _IO_FILE::_offset"][::std::mem::offset_of!(_IO_FILE, _offset) - 144usize];
-    ["Offset of field: _IO_FILE::_codecvt"][::std::mem::offset_of!(_IO_FILE, _codecvt) - 152usize];
-    ["Offset of field: _IO_FILE::_wide_data"]
-        [::std::mem::offset_of!(_IO_FILE, _wide_data) - 160usize];
-    ["Offset of field: _IO_FILE::_freeres_list"]
-        [::std::mem::offset_of!(_IO_FILE, _freeres_list) - 168usize];
-    ["Offset of field: _IO_FILE::_freeres_buf"]
-        [::std::mem::offset_of!(_IO_FILE, _freeres_buf) - 176usize];
-    ["Offset of field: _IO_FILE::__pad5"][::std::mem::offset_of!(_IO_FILE, __pad5) - 184usize];
-    ["Offset of field: _IO_FILE::_mode"][::std::mem::offset_of!(_IO_FILE, _mode) - 192usize];
-    ["Offset of field: _IO_FILE::_unused2"][::std::mem::offset_of!(_IO_FILE, _unused2) - 196usize];
-};
+#[test]
+fn bindgen_test_layout__IO_FILE() {
+    const UNINIT: ::std::mem::MaybeUninit<_IO_FILE> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<_IO_FILE>(),
+        216usize,
+        "Size of _IO_FILE"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<_IO_FILE>(),
+        8usize,
+        "Alignment of _IO_FILE"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._flags) as usize - ptr as usize },
+        0usize,
+        "Offset of field: _IO_FILE::_flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_read_ptr) as usize - ptr as usize },
+        8usize,
+        "Offset of field: _IO_FILE::_IO_read_ptr"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_read_end) as usize - ptr as usize },
+        16usize,
+        "Offset of field: _IO_FILE::_IO_read_end"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_read_base) as usize - ptr as usize },
+        24usize,
+        "Offset of field: _IO_FILE::_IO_read_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_write_base) as usize - ptr as usize },
+        32usize,
+        "Offset of field: _IO_FILE::_IO_write_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_write_ptr) as usize - ptr as usize },
+        40usize,
+        "Offset of field: _IO_FILE::_IO_write_ptr"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_write_end) as usize - ptr as usize },
+        48usize,
+        "Offset of field: _IO_FILE::_IO_write_end"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_buf_base) as usize - ptr as usize },
+        56usize,
+        "Offset of field: _IO_FILE::_IO_buf_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_buf_end) as usize - ptr as usize },
+        64usize,
+        "Offset of field: _IO_FILE::_IO_buf_end"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_save_base) as usize - ptr as usize },
+        72usize,
+        "Offset of field: _IO_FILE::_IO_save_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_backup_base) as usize - ptr as usize },
+        80usize,
+        "Offset of field: _IO_FILE::_IO_backup_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._IO_save_end) as usize - ptr as usize },
+        88usize,
+        "Offset of field: _IO_FILE::_IO_save_end"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._markers) as usize - ptr as usize },
+        96usize,
+        "Offset of field: _IO_FILE::_markers"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._chain) as usize - ptr as usize },
+        104usize,
+        "Offset of field: _IO_FILE::_chain"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._fileno) as usize - ptr as usize },
+        112usize,
+        "Offset of field: _IO_FILE::_fileno"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._flags2) as usize - ptr as usize },
+        116usize,
+        "Offset of field: _IO_FILE::_flags2"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._old_offset) as usize - ptr as usize },
+        120usize,
+        "Offset of field: _IO_FILE::_old_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._cur_column) as usize - ptr as usize },
+        128usize,
+        "Offset of field: _IO_FILE::_cur_column"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._vtable_offset) as usize - ptr as usize },
+        130usize,
+        "Offset of field: _IO_FILE::_vtable_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._shortbuf) as usize - ptr as usize },
+        131usize,
+        "Offset of field: _IO_FILE::_shortbuf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._lock) as usize - ptr as usize },
+        136usize,
+        "Offset of field: _IO_FILE::_lock"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._offset) as usize - ptr as usize },
+        144usize,
+        "Offset of field: _IO_FILE::_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._codecvt) as usize - ptr as usize },
+        152usize,
+        "Offset of field: _IO_FILE::_codecvt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._wide_data) as usize - ptr as usize },
+        160usize,
+        "Offset of field: _IO_FILE::_wide_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._freeres_list) as usize - ptr as usize },
+        168usize,
+        "Offset of field: _IO_FILE::_freeres_list"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._freeres_buf) as usize - ptr as usize },
+        176usize,
+        "Offset of field: _IO_FILE::_freeres_buf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__pad5) as usize - ptr as usize },
+        184usize,
+        "Offset of field: _IO_FILE::__pad5"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._mode) as usize - ptr as usize },
+        192usize,
+        "Offset of field: _IO_FILE::_mode"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr)._unused2) as usize - ptr as usize },
+        196usize,
+        "Offset of field: _IO_FILE::_unused2"
+    );
+}
 pub type off_t = __off_t;
 pub type fpos_t = __fpos_t;
 extern "C" {
@@ -3778,39 +4000,81 @@ pub struct div_t {
     pub quot: ::std::os::raw::c_int,
     pub rem: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of div_t"][::std::mem::size_of::<div_t>() - 8usize];
-    ["Alignment of div_t"][::std::mem::align_of::<div_t>() - 4usize];
-    ["Offset of field: div_t::quot"][::std::mem::offset_of!(div_t, quot) - 0usize];
-    ["Offset of field: div_t::rem"][::std::mem::offset_of!(div_t, rem) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_div_t() {
+    const UNINIT: ::std::mem::MaybeUninit<div_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<div_t>(), 8usize, "Size of div_t");
+    assert_eq!(
+        ::std::mem::align_of::<div_t>(),
+        4usize,
+        "Alignment of div_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).quot) as usize - ptr as usize },
+        0usize,
+        "Offset of field: div_t::quot"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rem) as usize - ptr as usize },
+        4usize,
+        "Offset of field: div_t::rem"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ldiv_t {
     pub quot: ::std::os::raw::c_long,
     pub rem: ::std::os::raw::c_long,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of ldiv_t"][::std::mem::size_of::<ldiv_t>() - 16usize];
-    ["Alignment of ldiv_t"][::std::mem::align_of::<ldiv_t>() - 8usize];
-    ["Offset of field: ldiv_t::quot"][::std::mem::offset_of!(ldiv_t, quot) - 0usize];
-    ["Offset of field: ldiv_t::rem"][::std::mem::offset_of!(ldiv_t, rem) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_ldiv_t() {
+    const UNINIT: ::std::mem::MaybeUninit<ldiv_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<ldiv_t>(), 16usize, "Size of ldiv_t");
+    assert_eq!(
+        ::std::mem::align_of::<ldiv_t>(),
+        8usize,
+        "Alignment of ldiv_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).quot) as usize - ptr as usize },
+        0usize,
+        "Offset of field: ldiv_t::quot"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rem) as usize - ptr as usize },
+        8usize,
+        "Offset of field: ldiv_t::rem"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct lldiv_t {
     pub quot: ::std::os::raw::c_longlong,
     pub rem: ::std::os::raw::c_longlong,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of lldiv_t"][::std::mem::size_of::<lldiv_t>() - 16usize];
-    ["Alignment of lldiv_t"][::std::mem::align_of::<lldiv_t>() - 8usize];
-    ["Offset of field: lldiv_t::quot"][::std::mem::offset_of!(lldiv_t, quot) - 0usize];
-    ["Offset of field: lldiv_t::rem"][::std::mem::offset_of!(lldiv_t, rem) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_lldiv_t() {
+    const UNINIT: ::std::mem::MaybeUninit<lldiv_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<lldiv_t>(), 16usize, "Size of lldiv_t");
+    assert_eq!(
+        ::std::mem::align_of::<lldiv_t>(),
+        8usize,
+        "Alignment of lldiv_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).quot) as usize - ptr as usize },
+        0usize,
+        "Offset of field: lldiv_t::quot"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rem) as usize - ptr as usize },
+        8usize,
+        "Offset of field: lldiv_t::rem"
+    );
+}
 extern "C" {
     pub fn __ctype_get_mb_cur_max() -> usize;
 }
@@ -3928,12 +4192,26 @@ pub type register_t = ::std::os::raw::c_long;
 pub struct __sigset_t {
     pub __val: [::std::os::raw::c_ulong; 16usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __sigset_t"][::std::mem::size_of::<__sigset_t>() - 128usize];
-    ["Alignment of __sigset_t"][::std::mem::align_of::<__sigset_t>() - 8usize];
-    ["Offset of field: __sigset_t::__val"][::std::mem::offset_of!(__sigset_t, __val) - 0usize];
-};
+#[test]
+fn bindgen_test_layout___sigset_t() {
+    const UNINIT: ::std::mem::MaybeUninit<__sigset_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__sigset_t>(),
+        128usize,
+        "Size of __sigset_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__sigset_t>(),
+        8usize,
+        "Alignment of __sigset_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__val) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __sigset_t::__val"
+    );
+}
 pub type sigset_t = __sigset_t;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -3941,26 +4219,58 @@ pub struct timeval {
     pub tv_sec: __time_t,
     pub tv_usec: __suseconds_t,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of timeval"][::std::mem::size_of::<timeval>() - 16usize];
-    ["Alignment of timeval"][::std::mem::align_of::<timeval>() - 8usize];
-    ["Offset of field: timeval::tv_sec"][::std::mem::offset_of!(timeval, tv_sec) - 0usize];
-    ["Offset of field: timeval::tv_usec"][::std::mem::offset_of!(timeval, tv_usec) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_timeval() {
+    const UNINIT: ::std::mem::MaybeUninit<timeval> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<timeval>(), 16usize, "Size of timeval");
+    assert_eq!(
+        ::std::mem::align_of::<timeval>(),
+        8usize,
+        "Alignment of timeval"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tv_sec) as usize - ptr as usize },
+        0usize,
+        "Offset of field: timeval::tv_sec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tv_usec) as usize - ptr as usize },
+        8usize,
+        "Offset of field: timeval::tv_usec"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct timespec {
     pub tv_sec: __time_t,
     pub tv_nsec: __syscall_slong_t,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of timespec"][::std::mem::size_of::<timespec>() - 16usize];
-    ["Alignment of timespec"][::std::mem::align_of::<timespec>() - 8usize];
-    ["Offset of field: timespec::tv_sec"][::std::mem::offset_of!(timespec, tv_sec) - 0usize];
-    ["Offset of field: timespec::tv_nsec"][::std::mem::offset_of!(timespec, tv_nsec) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_timespec() {
+    const UNINIT: ::std::mem::MaybeUninit<timespec> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<timespec>(),
+        16usize,
+        "Size of timespec"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<timespec>(),
+        8usize,
+        "Alignment of timespec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tv_sec) as usize - ptr as usize },
+        0usize,
+        "Offset of field: timespec::tv_sec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tv_nsec) as usize - ptr as usize },
+        8usize,
+        "Offset of field: timespec::tv_nsec"
+    );
+}
 pub type suseconds_t = __suseconds_t;
 pub type __fd_mask = ::std::os::raw::c_long;
 #[repr(C)]
@@ -3968,12 +4278,22 @@ pub type __fd_mask = ::std::os::raw::c_long;
 pub struct fd_set {
     pub __fds_bits: [__fd_mask; 16usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of fd_set"][::std::mem::size_of::<fd_set>() - 128usize];
-    ["Alignment of fd_set"][::std::mem::align_of::<fd_set>() - 8usize];
-    ["Offset of field: fd_set::__fds_bits"][::std::mem::offset_of!(fd_set, __fds_bits) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_fd_set() {
+    const UNINIT: ::std::mem::MaybeUninit<fd_set> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<fd_set>(), 128usize, "Size of fd_set");
+    assert_eq!(
+        ::std::mem::align_of::<fd_set>(),
+        8usize,
+        "Alignment of fd_set"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__fds_bits) as usize - ptr as usize },
+        0usize,
+        "Offset of field: fd_set::__fds_bits"
+    );
+}
 pub type fd_mask = __fd_mask;
 extern "C" {
     pub fn select(
@@ -4010,27 +4330,58 @@ pub struct __atomic_wide_counter__bindgen_ty_1 {
     pub __low: ::std::os::raw::c_uint,
     pub __high: ::std::os::raw::c_uint,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __atomic_wide_counter__bindgen_ty_1"]
-        [::std::mem::size_of::<__atomic_wide_counter__bindgen_ty_1>() - 8usize];
-    ["Alignment of __atomic_wide_counter__bindgen_ty_1"]
-        [::std::mem::align_of::<__atomic_wide_counter__bindgen_ty_1>() - 4usize];
-    ["Offset of field: __atomic_wide_counter__bindgen_ty_1::__low"]
-        [::std::mem::offset_of!(__atomic_wide_counter__bindgen_ty_1, __low) - 0usize];
-    ["Offset of field: __atomic_wide_counter__bindgen_ty_1::__high"]
-        [::std::mem::offset_of!(__atomic_wide_counter__bindgen_ty_1, __high) - 4usize];
-};
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __atomic_wide_counter"][::std::mem::size_of::<__atomic_wide_counter>() - 8usize];
-    ["Alignment of __atomic_wide_counter"]
-        [::std::mem::align_of::<__atomic_wide_counter>() - 8usize];
-    ["Offset of field: __atomic_wide_counter::__value64"]
-        [::std::mem::offset_of!(__atomic_wide_counter, __value64) - 0usize];
-    ["Offset of field: __atomic_wide_counter::__value32"]
-        [::std::mem::offset_of!(__atomic_wide_counter, __value32) - 0usize];
-};
+#[test]
+fn bindgen_test_layout___atomic_wide_counter__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<__atomic_wide_counter__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__atomic_wide_counter__bindgen_ty_1>(),
+        8usize,
+        "Size of __atomic_wide_counter__bindgen_ty_1"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__atomic_wide_counter__bindgen_ty_1>(),
+        4usize,
+        "Alignment of __atomic_wide_counter__bindgen_ty_1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__low) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __atomic_wide_counter__bindgen_ty_1::__low"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__high) as usize - ptr as usize },
+        4usize,
+        "Offset of field: __atomic_wide_counter__bindgen_ty_1::__high"
+    );
+}
+#[test]
+fn bindgen_test_layout___atomic_wide_counter() {
+    const UNINIT: ::std::mem::MaybeUninit<__atomic_wide_counter> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__atomic_wide_counter>(),
+        8usize,
+        "Size of __atomic_wide_counter"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__atomic_wide_counter>(),
+        8usize,
+        "Alignment of __atomic_wide_counter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__value64) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __atomic_wide_counter::__value64"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__value32) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __atomic_wide_counter::__value32"
+    );
+}
 impl ::std::fmt::Debug for __atomic_wide_counter {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "__atomic_wide_counter {{ union }}")
@@ -4042,31 +4393,59 @@ pub struct __pthread_internal_list {
     pub __prev: *mut __pthread_internal_list,
     pub __next: *mut __pthread_internal_list,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __pthread_internal_list"][::std::mem::size_of::<__pthread_internal_list>() - 16usize];
-    ["Alignment of __pthread_internal_list"]
-        [::std::mem::align_of::<__pthread_internal_list>() - 8usize];
-    ["Offset of field: __pthread_internal_list::__prev"]
-        [::std::mem::offset_of!(__pthread_internal_list, __prev) - 0usize];
-    ["Offset of field: __pthread_internal_list::__next"]
-        [::std::mem::offset_of!(__pthread_internal_list, __next) - 8usize];
-};
+#[test]
+fn bindgen_test_layout___pthread_internal_list() {
+    const UNINIT: ::std::mem::MaybeUninit<__pthread_internal_list> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_internal_list>(),
+        16usize,
+        "Size of __pthread_internal_list"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_internal_list>(),
+        8usize,
+        "Alignment of __pthread_internal_list"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__prev) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __pthread_internal_list::__prev"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__next) as usize - ptr as usize },
+        8usize,
+        "Offset of field: __pthread_internal_list::__next"
+    );
+}
 pub type __pthread_list_t = __pthread_internal_list;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __pthread_internal_slist {
     pub __next: *mut __pthread_internal_slist,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __pthread_internal_slist"]
-        [::std::mem::size_of::<__pthread_internal_slist>() - 8usize];
-    ["Alignment of __pthread_internal_slist"]
-        [::std::mem::align_of::<__pthread_internal_slist>() - 8usize];
-    ["Offset of field: __pthread_internal_slist::__next"]
-        [::std::mem::offset_of!(__pthread_internal_slist, __next) - 0usize];
-};
+#[test]
+fn bindgen_test_layout___pthread_internal_slist() {
+    const UNINIT: ::std::mem::MaybeUninit<__pthread_internal_slist> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_internal_slist>(),
+        8usize,
+        "Size of __pthread_internal_slist"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_internal_slist>(),
+        8usize,
+        "Alignment of __pthread_internal_slist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__next) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __pthread_internal_slist::__next"
+    );
+}
 pub type __pthread_slist_t = __pthread_internal_slist;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4080,27 +4459,61 @@ pub struct __pthread_mutex_s {
     pub __elision: ::std::os::raw::c_short,
     pub __list: __pthread_list_t,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __pthread_mutex_s"][::std::mem::size_of::<__pthread_mutex_s>() - 40usize];
-    ["Alignment of __pthread_mutex_s"][::std::mem::align_of::<__pthread_mutex_s>() - 8usize];
-    ["Offset of field: __pthread_mutex_s::__lock"]
-        [::std::mem::offset_of!(__pthread_mutex_s, __lock) - 0usize];
-    ["Offset of field: __pthread_mutex_s::__count"]
-        [::std::mem::offset_of!(__pthread_mutex_s, __count) - 4usize];
-    ["Offset of field: __pthread_mutex_s::__owner"]
-        [::std::mem::offset_of!(__pthread_mutex_s, __owner) - 8usize];
-    ["Offset of field: __pthread_mutex_s::__nusers"]
-        [::std::mem::offset_of!(__pthread_mutex_s, __nusers) - 12usize];
-    ["Offset of field: __pthread_mutex_s::__kind"]
-        [::std::mem::offset_of!(__pthread_mutex_s, __kind) - 16usize];
-    ["Offset of field: __pthread_mutex_s::__spins"]
-        [::std::mem::offset_of!(__pthread_mutex_s, __spins) - 20usize];
-    ["Offset of field: __pthread_mutex_s::__elision"]
-        [::std::mem::offset_of!(__pthread_mutex_s, __elision) - 22usize];
-    ["Offset of field: __pthread_mutex_s::__list"]
-        [::std::mem::offset_of!(__pthread_mutex_s, __list) - 24usize];
-};
+#[test]
+fn bindgen_test_layout___pthread_mutex_s() {
+    const UNINIT: ::std::mem::MaybeUninit<__pthread_mutex_s> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_mutex_s>(),
+        40usize,
+        "Size of __pthread_mutex_s"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_mutex_s>(),
+        8usize,
+        "Alignment of __pthread_mutex_s"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__lock) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __pthread_mutex_s::__lock"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__count) as usize - ptr as usize },
+        4usize,
+        "Offset of field: __pthread_mutex_s::__count"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__owner) as usize - ptr as usize },
+        8usize,
+        "Offset of field: __pthread_mutex_s::__owner"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__nusers) as usize - ptr as usize },
+        12usize,
+        "Offset of field: __pthread_mutex_s::__nusers"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__kind) as usize - ptr as usize },
+        16usize,
+        "Offset of field: __pthread_mutex_s::__kind"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__spins) as usize - ptr as usize },
+        20usize,
+        "Offset of field: __pthread_mutex_s::__spins"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__elision) as usize - ptr as usize },
+        22usize,
+        "Offset of field: __pthread_mutex_s::__elision"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__list) as usize - ptr as usize },
+        24usize,
+        "Offset of field: __pthread_mutex_s::__list"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __pthread_rwlock_arch_t {
@@ -4117,36 +4530,82 @@ pub struct __pthread_rwlock_arch_t {
     pub __pad2: ::std::os::raw::c_ulong,
     pub __flags: ::std::os::raw::c_uint,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __pthread_rwlock_arch_t"][::std::mem::size_of::<__pthread_rwlock_arch_t>() - 56usize];
-    ["Alignment of __pthread_rwlock_arch_t"]
-        [::std::mem::align_of::<__pthread_rwlock_arch_t>() - 8usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__readers"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __readers) - 0usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__writers"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __writers) - 4usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__wrphase_futex"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __wrphase_futex) - 8usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__writers_futex"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __writers_futex) - 12usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__pad3"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __pad3) - 16usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__pad4"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __pad4) - 20usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__cur_writer"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __cur_writer) - 24usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__shared"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __shared) - 28usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__rwelision"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __rwelision) - 32usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__pad1"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __pad1) - 33usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__pad2"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __pad2) - 40usize];
-    ["Offset of field: __pthread_rwlock_arch_t::__flags"]
-        [::std::mem::offset_of!(__pthread_rwlock_arch_t, __flags) - 48usize];
-};
+#[test]
+fn bindgen_test_layout___pthread_rwlock_arch_t() {
+    const UNINIT: ::std::mem::MaybeUninit<__pthread_rwlock_arch_t> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_rwlock_arch_t>(),
+        56usize,
+        "Size of __pthread_rwlock_arch_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_rwlock_arch_t>(),
+        8usize,
+        "Alignment of __pthread_rwlock_arch_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__readers) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __pthread_rwlock_arch_t::__readers"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__writers) as usize - ptr as usize },
+        4usize,
+        "Offset of field: __pthread_rwlock_arch_t::__writers"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__wrphase_futex) as usize - ptr as usize },
+        8usize,
+        "Offset of field: __pthread_rwlock_arch_t::__wrphase_futex"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__writers_futex) as usize - ptr as usize },
+        12usize,
+        "Offset of field: __pthread_rwlock_arch_t::__writers_futex"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__pad3) as usize - ptr as usize },
+        16usize,
+        "Offset of field: __pthread_rwlock_arch_t::__pad3"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__pad4) as usize - ptr as usize },
+        20usize,
+        "Offset of field: __pthread_rwlock_arch_t::__pad4"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__cur_writer) as usize - ptr as usize },
+        24usize,
+        "Offset of field: __pthread_rwlock_arch_t::__cur_writer"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__shared) as usize - ptr as usize },
+        28usize,
+        "Offset of field: __pthread_rwlock_arch_t::__shared"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__rwelision) as usize - ptr as usize },
+        32usize,
+        "Offset of field: __pthread_rwlock_arch_t::__rwelision"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__pad1) as usize - ptr as usize },
+        33usize,
+        "Offset of field: __pthread_rwlock_arch_t::__pad1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__pad2) as usize - ptr as usize },
+        40usize,
+        "Offset of field: __pthread_rwlock_arch_t::__pad2"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__flags) as usize - ptr as usize },
+        48usize,
+        "Offset of field: __pthread_rwlock_arch_t::__flags"
+    );
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct __pthread_cond_s {
@@ -4158,25 +4617,56 @@ pub struct __pthread_cond_s {
     pub __wrefs: ::std::os::raw::c_uint,
     pub __g_signals: [::std::os::raw::c_uint; 2usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __pthread_cond_s"][::std::mem::size_of::<__pthread_cond_s>() - 48usize];
-    ["Alignment of __pthread_cond_s"][::std::mem::align_of::<__pthread_cond_s>() - 8usize];
-    ["Offset of field: __pthread_cond_s::__wseq"]
-        [::std::mem::offset_of!(__pthread_cond_s, __wseq) - 0usize];
-    ["Offset of field: __pthread_cond_s::__g1_start"]
-        [::std::mem::offset_of!(__pthread_cond_s, __g1_start) - 8usize];
-    ["Offset of field: __pthread_cond_s::__g_refs"]
-        [::std::mem::offset_of!(__pthread_cond_s, __g_refs) - 16usize];
-    ["Offset of field: __pthread_cond_s::__g_size"]
-        [::std::mem::offset_of!(__pthread_cond_s, __g_size) - 24usize];
-    ["Offset of field: __pthread_cond_s::__g1_orig_size"]
-        [::std::mem::offset_of!(__pthread_cond_s, __g1_orig_size) - 32usize];
-    ["Offset of field: __pthread_cond_s::__wrefs"]
-        [::std::mem::offset_of!(__pthread_cond_s, __wrefs) - 36usize];
-    ["Offset of field: __pthread_cond_s::__g_signals"]
-        [::std::mem::offset_of!(__pthread_cond_s, __g_signals) - 40usize];
-};
+#[test]
+fn bindgen_test_layout___pthread_cond_s() {
+    const UNINIT: ::std::mem::MaybeUninit<__pthread_cond_s> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_cond_s>(),
+        48usize,
+        "Size of __pthread_cond_s"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_cond_s>(),
+        8usize,
+        "Alignment of __pthread_cond_s"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__wseq) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __pthread_cond_s::__wseq"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__g1_start) as usize - ptr as usize },
+        8usize,
+        "Offset of field: __pthread_cond_s::__g1_start"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__g_refs) as usize - ptr as usize },
+        16usize,
+        "Offset of field: __pthread_cond_s::__g_refs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__g_size) as usize - ptr as usize },
+        24usize,
+        "Offset of field: __pthread_cond_s::__g_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__g1_orig_size) as usize - ptr as usize },
+        32usize,
+        "Offset of field: __pthread_cond_s::__g1_orig_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__wrefs) as usize - ptr as usize },
+        36usize,
+        "Offset of field: __pthread_cond_s::__wrefs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__g_signals) as usize - ptr as usize },
+        40usize,
+        "Offset of field: __pthread_cond_s::__g_signals"
+    );
+}
 impl ::std::fmt::Debug for __pthread_cond_s {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "__pthread_cond_s {{ __wseq: {:?}, __g1_start: {:?}, __g_refs: {:?}, __g_size: {:?}, __g1_orig_size: {:?}, __wrefs: {:?}, __g_signals: {:?} }}" , self . __wseq , self . __g1_start , self . __g_refs , self . __g_size , self . __g1_orig_size , self . __wrefs , self . __g_signals)
@@ -4189,12 +4679,26 @@ pub type __thrd_t = ::std::os::raw::c_ulong;
 pub struct __once_flag {
     pub __data: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __once_flag"][::std::mem::size_of::<__once_flag>() - 4usize];
-    ["Alignment of __once_flag"][::std::mem::align_of::<__once_flag>() - 4usize];
-    ["Offset of field: __once_flag::__data"][::std::mem::offset_of!(__once_flag, __data) - 0usize];
-};
+#[test]
+fn bindgen_test_layout___once_flag() {
+    const UNINIT: ::std::mem::MaybeUninit<__once_flag> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__once_flag>(),
+        4usize,
+        "Size of __once_flag"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__once_flag>(),
+        4usize,
+        "Alignment of __once_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __once_flag::__data"
+    );
+}
 pub type pthread_t = ::std::os::raw::c_ulong;
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -4202,15 +4706,31 @@ pub union pthread_mutexattr_t {
     pub __size: [::std::os::raw::c_char; 4usize],
     pub __align: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_mutexattr_t"][::std::mem::size_of::<pthread_mutexattr_t>() - 4usize];
-    ["Alignment of pthread_mutexattr_t"][::std::mem::align_of::<pthread_mutexattr_t>() - 4usize];
-    ["Offset of field: pthread_mutexattr_t::__size"]
-        [::std::mem::offset_of!(pthread_mutexattr_t, __size) - 0usize];
-    ["Offset of field: pthread_mutexattr_t::__align"]
-        [::std::mem::offset_of!(pthread_mutexattr_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_mutexattr_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_mutexattr_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_mutexattr_t>(),
+        4usize,
+        "Size of pthread_mutexattr_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_mutexattr_t>(),
+        4usize,
+        "Alignment of pthread_mutexattr_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_mutexattr_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_mutexattr_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_mutexattr_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_mutexattr_t {{ union }}")
@@ -4222,15 +4742,31 @@ pub union pthread_condattr_t {
     pub __size: [::std::os::raw::c_char; 4usize],
     pub __align: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_condattr_t"][::std::mem::size_of::<pthread_condattr_t>() - 4usize];
-    ["Alignment of pthread_condattr_t"][::std::mem::align_of::<pthread_condattr_t>() - 4usize];
-    ["Offset of field: pthread_condattr_t::__size"]
-        [::std::mem::offset_of!(pthread_condattr_t, __size) - 0usize];
-    ["Offset of field: pthread_condattr_t::__align"]
-        [::std::mem::offset_of!(pthread_condattr_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_condattr_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_condattr_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_condattr_t>(),
+        4usize,
+        "Size of pthread_condattr_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_condattr_t>(),
+        4usize,
+        "Alignment of pthread_condattr_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_condattr_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_condattr_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_condattr_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_condattr_t {{ union }}")
@@ -4244,15 +4780,31 @@ pub union pthread_attr_t {
     pub __size: [::std::os::raw::c_char; 56usize],
     pub __align: ::std::os::raw::c_long,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_attr_t"][::std::mem::size_of::<pthread_attr_t>() - 56usize];
-    ["Alignment of pthread_attr_t"][::std::mem::align_of::<pthread_attr_t>() - 8usize];
-    ["Offset of field: pthread_attr_t::__size"]
-        [::std::mem::offset_of!(pthread_attr_t, __size) - 0usize];
-    ["Offset of field: pthread_attr_t::__align"]
-        [::std::mem::offset_of!(pthread_attr_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_attr_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_attr_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_attr_t>(),
+        56usize,
+        "Size of pthread_attr_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_attr_t>(),
+        8usize,
+        "Alignment of pthread_attr_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_attr_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_attr_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_attr_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_attr_t {{ union }}")
@@ -4265,17 +4817,36 @@ pub union pthread_mutex_t {
     pub __size: [::std::os::raw::c_char; 40usize],
     pub __align: ::std::os::raw::c_long,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_mutex_t"][::std::mem::size_of::<pthread_mutex_t>() - 40usize];
-    ["Alignment of pthread_mutex_t"][::std::mem::align_of::<pthread_mutex_t>() - 8usize];
-    ["Offset of field: pthread_mutex_t::__data"]
-        [::std::mem::offset_of!(pthread_mutex_t, __data) - 0usize];
-    ["Offset of field: pthread_mutex_t::__size"]
-        [::std::mem::offset_of!(pthread_mutex_t, __size) - 0usize];
-    ["Offset of field: pthread_mutex_t::__align"]
-        [::std::mem::offset_of!(pthread_mutex_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_mutex_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_mutex_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_mutex_t>(),
+        40usize,
+        "Size of pthread_mutex_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_mutex_t>(),
+        8usize,
+        "Alignment of pthread_mutex_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_mutex_t::__data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_mutex_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_mutex_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_mutex_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_mutex_t {{ union }}")
@@ -4288,17 +4859,36 @@ pub union pthread_cond_t {
     pub __size: [::std::os::raw::c_char; 48usize],
     pub __align: ::std::os::raw::c_longlong,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_cond_t"][::std::mem::size_of::<pthread_cond_t>() - 48usize];
-    ["Alignment of pthread_cond_t"][::std::mem::align_of::<pthread_cond_t>() - 8usize];
-    ["Offset of field: pthread_cond_t::__data"]
-        [::std::mem::offset_of!(pthread_cond_t, __data) - 0usize];
-    ["Offset of field: pthread_cond_t::__size"]
-        [::std::mem::offset_of!(pthread_cond_t, __size) - 0usize];
-    ["Offset of field: pthread_cond_t::__align"]
-        [::std::mem::offset_of!(pthread_cond_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_cond_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_cond_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_cond_t>(),
+        48usize,
+        "Size of pthread_cond_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_cond_t>(),
+        8usize,
+        "Alignment of pthread_cond_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_cond_t::__data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_cond_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_cond_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_cond_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_cond_t {{ union }}")
@@ -4311,17 +4901,36 @@ pub union pthread_rwlock_t {
     pub __size: [::std::os::raw::c_char; 56usize],
     pub __align: ::std::os::raw::c_long,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_rwlock_t"][::std::mem::size_of::<pthread_rwlock_t>() - 56usize];
-    ["Alignment of pthread_rwlock_t"][::std::mem::align_of::<pthread_rwlock_t>() - 8usize];
-    ["Offset of field: pthread_rwlock_t::__data"]
-        [::std::mem::offset_of!(pthread_rwlock_t, __data) - 0usize];
-    ["Offset of field: pthread_rwlock_t::__size"]
-        [::std::mem::offset_of!(pthread_rwlock_t, __size) - 0usize];
-    ["Offset of field: pthread_rwlock_t::__align"]
-        [::std::mem::offset_of!(pthread_rwlock_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_rwlock_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_rwlock_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_rwlock_t>(),
+        56usize,
+        "Size of pthread_rwlock_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_rwlock_t>(),
+        8usize,
+        "Alignment of pthread_rwlock_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_rwlock_t::__data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_rwlock_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_rwlock_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_rwlock_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_rwlock_t {{ union }}")
@@ -4333,15 +4942,31 @@ pub union pthread_rwlockattr_t {
     pub __size: [::std::os::raw::c_char; 8usize],
     pub __align: ::std::os::raw::c_long,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_rwlockattr_t"][::std::mem::size_of::<pthread_rwlockattr_t>() - 8usize];
-    ["Alignment of pthread_rwlockattr_t"][::std::mem::align_of::<pthread_rwlockattr_t>() - 8usize];
-    ["Offset of field: pthread_rwlockattr_t::__size"]
-        [::std::mem::offset_of!(pthread_rwlockattr_t, __size) - 0usize];
-    ["Offset of field: pthread_rwlockattr_t::__align"]
-        [::std::mem::offset_of!(pthread_rwlockattr_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_rwlockattr_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_rwlockattr_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_rwlockattr_t>(),
+        8usize,
+        "Size of pthread_rwlockattr_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_rwlockattr_t>(),
+        8usize,
+        "Alignment of pthread_rwlockattr_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_rwlockattr_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_rwlockattr_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_rwlockattr_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_rwlockattr_t {{ union }}")
@@ -4354,15 +4979,31 @@ pub union pthread_barrier_t {
     pub __size: [::std::os::raw::c_char; 32usize],
     pub __align: ::std::os::raw::c_long,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_barrier_t"][::std::mem::size_of::<pthread_barrier_t>() - 32usize];
-    ["Alignment of pthread_barrier_t"][::std::mem::align_of::<pthread_barrier_t>() - 8usize];
-    ["Offset of field: pthread_barrier_t::__size"]
-        [::std::mem::offset_of!(pthread_barrier_t, __size) - 0usize];
-    ["Offset of field: pthread_barrier_t::__align"]
-        [::std::mem::offset_of!(pthread_barrier_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_barrier_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_barrier_t> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_barrier_t>(),
+        32usize,
+        "Size of pthread_barrier_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_barrier_t>(),
+        8usize,
+        "Alignment of pthread_barrier_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_barrier_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_barrier_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_barrier_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_barrier_t {{ union }}")
@@ -4374,16 +5015,32 @@ pub union pthread_barrierattr_t {
     pub __size: [::std::os::raw::c_char; 4usize],
     pub __align: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of pthread_barrierattr_t"][::std::mem::size_of::<pthread_barrierattr_t>() - 4usize];
-    ["Alignment of pthread_barrierattr_t"]
-        [::std::mem::align_of::<pthread_barrierattr_t>() - 4usize];
-    ["Offset of field: pthread_barrierattr_t::__size"]
-        [::std::mem::offset_of!(pthread_barrierattr_t, __size) - 0usize];
-    ["Offset of field: pthread_barrierattr_t::__align"]
-        [::std::mem::offset_of!(pthread_barrierattr_t, __align) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_pthread_barrierattr_t() {
+    const UNINIT: ::std::mem::MaybeUninit<pthread_barrierattr_t> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<pthread_barrierattr_t>(),
+        4usize,
+        "Size of pthread_barrierattr_t"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_barrierattr_t>(),
+        4usize,
+        "Alignment of pthread_barrierattr_t"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_barrierattr_t::__size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__align) as usize - ptr as usize },
+        0usize,
+        "Offset of field: pthread_barrierattr_t::__align"
+    );
+}
 impl ::std::fmt::Debug for pthread_barrierattr_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "pthread_barrierattr_t {{ union }}")
@@ -4416,22 +5073,56 @@ pub struct random_data {
     pub rand_sep: ::std::os::raw::c_int,
     pub end_ptr: *mut i32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of random_data"][::std::mem::size_of::<random_data>() - 48usize];
-    ["Alignment of random_data"][::std::mem::align_of::<random_data>() - 8usize];
-    ["Offset of field: random_data::fptr"][::std::mem::offset_of!(random_data, fptr) - 0usize];
-    ["Offset of field: random_data::rptr"][::std::mem::offset_of!(random_data, rptr) - 8usize];
-    ["Offset of field: random_data::state"][::std::mem::offset_of!(random_data, state) - 16usize];
-    ["Offset of field: random_data::rand_type"]
-        [::std::mem::offset_of!(random_data, rand_type) - 24usize];
-    ["Offset of field: random_data::rand_deg"]
-        [::std::mem::offset_of!(random_data, rand_deg) - 28usize];
-    ["Offset of field: random_data::rand_sep"]
-        [::std::mem::offset_of!(random_data, rand_sep) - 32usize];
-    ["Offset of field: random_data::end_ptr"]
-        [::std::mem::offset_of!(random_data, end_ptr) - 40usize];
-};
+#[test]
+fn bindgen_test_layout_random_data() {
+    const UNINIT: ::std::mem::MaybeUninit<random_data> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<random_data>(),
+        48usize,
+        "Size of random_data"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<random_data>(),
+        8usize,
+        "Alignment of random_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fptr) as usize - ptr as usize },
+        0usize,
+        "Offset of field: random_data::fptr"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rptr) as usize - ptr as usize },
+        8usize,
+        "Offset of field: random_data::rptr"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).state) as usize - ptr as usize },
+        16usize,
+        "Offset of field: random_data::state"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rand_type) as usize - ptr as usize },
+        24usize,
+        "Offset of field: random_data::rand_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rand_deg) as usize - ptr as usize },
+        28usize,
+        "Offset of field: random_data::rand_deg"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rand_sep) as usize - ptr as usize },
+        32usize,
+        "Offset of field: random_data::rand_sep"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).end_ptr) as usize - ptr as usize },
+        40usize,
+        "Offset of field: random_data::end_ptr"
+    );
+}
 extern "C" {
     pub fn random_r(__buf: *mut random_data, __result: *mut i32) -> ::std::os::raw::c_int;
 }
@@ -4500,18 +5191,46 @@ pub struct drand48_data {
     pub __init: ::std::os::raw::c_ushort,
     pub __a: ::std::os::raw::c_ulonglong,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of drand48_data"][::std::mem::size_of::<drand48_data>() - 24usize];
-    ["Alignment of drand48_data"][::std::mem::align_of::<drand48_data>() - 8usize];
-    ["Offset of field: drand48_data::__x"][::std::mem::offset_of!(drand48_data, __x) - 0usize];
-    ["Offset of field: drand48_data::__old_x"]
-        [::std::mem::offset_of!(drand48_data, __old_x) - 6usize];
-    ["Offset of field: drand48_data::__c"][::std::mem::offset_of!(drand48_data, __c) - 12usize];
-    ["Offset of field: drand48_data::__init"]
-        [::std::mem::offset_of!(drand48_data, __init) - 14usize];
-    ["Offset of field: drand48_data::__a"][::std::mem::offset_of!(drand48_data, __a) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_drand48_data() {
+    const UNINIT: ::std::mem::MaybeUninit<drand48_data> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<drand48_data>(),
+        24usize,
+        "Size of drand48_data"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<drand48_data>(),
+        8usize,
+        "Alignment of drand48_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__x) as usize - ptr as usize },
+        0usize,
+        "Offset of field: drand48_data::__x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__old_x) as usize - ptr as usize },
+        6usize,
+        "Offset of field: drand48_data::__old_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__c) as usize - ptr as usize },
+        12usize,
+        "Offset of field: drand48_data::__c"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__init) as usize - ptr as usize },
+        14usize,
+        "Offset of field: drand48_data::__init"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__a) as usize - ptr as usize },
+        16usize,
+        "Offset of field: drand48_data::__a"
+    );
+}
 extern "C" {
     pub fn drand48_r(__buffer: *mut drand48_data, __result: *mut f64) -> ::std::os::raw::c_int;
 }
@@ -4958,21 +5677,46 @@ pub struct __locale_struct {
     pub __ctype_toupper: *const ::std::os::raw::c_int,
     pub __names: [*const ::std::os::raw::c_char; 13usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __locale_struct"][::std::mem::size_of::<__locale_struct>() - 232usize];
-    ["Alignment of __locale_struct"][::std::mem::align_of::<__locale_struct>() - 8usize];
-    ["Offset of field: __locale_struct::__locales"]
-        [::std::mem::offset_of!(__locale_struct, __locales) - 0usize];
-    ["Offset of field: __locale_struct::__ctype_b"]
-        [::std::mem::offset_of!(__locale_struct, __ctype_b) - 104usize];
-    ["Offset of field: __locale_struct::__ctype_tolower"]
-        [::std::mem::offset_of!(__locale_struct, __ctype_tolower) - 112usize];
-    ["Offset of field: __locale_struct::__ctype_toupper"]
-        [::std::mem::offset_of!(__locale_struct, __ctype_toupper) - 120usize];
-    ["Offset of field: __locale_struct::__names"]
-        [::std::mem::offset_of!(__locale_struct, __names) - 128usize];
-};
+#[test]
+fn bindgen_test_layout___locale_struct() {
+    const UNINIT: ::std::mem::MaybeUninit<__locale_struct> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__locale_struct>(),
+        232usize,
+        "Size of __locale_struct"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__locale_struct>(),
+        8usize,
+        "Alignment of __locale_struct"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__locales) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __locale_struct::__locales"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__ctype_b) as usize - ptr as usize },
+        104usize,
+        "Offset of field: __locale_struct::__ctype_b"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__ctype_tolower) as usize - ptr as usize },
+        112usize,
+        "Offset of field: __locale_struct::__ctype_tolower"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__ctype_toupper) as usize - ptr as usize },
+        120usize,
+        "Offset of field: __locale_struct::__ctype_toupper"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).__names) as usize - ptr as usize },
+        128usize,
+        "Offset of field: __locale_struct::__names"
+    );
+}
 pub type __locale_t = *mut __locale_struct;
 pub type locale_t = __locale_t;
 extern "C" {
@@ -5335,13 +6079,31 @@ pub struct AVRational {
     #[doc = "< Denominator"]
     pub den: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVRational"][::std::mem::size_of::<AVRational>() - 8usize];
-    ["Alignment of AVRational"][::std::mem::align_of::<AVRational>() - 4usize];
-    ["Offset of field: AVRational::num"][::std::mem::offset_of!(AVRational, num) - 0usize];
-    ["Offset of field: AVRational::den"][::std::mem::offset_of!(AVRational, den) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_AVRational() {
+    const UNINIT: ::std::mem::MaybeUninit<AVRational> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVRational>(),
+        8usize,
+        "Size of AVRational"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVRational>(),
+        4usize,
+        "Alignment of AVRational"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVRational::num"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).den) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVRational::den"
+    );
+}
 extern "C" {
     #[doc = " Reduce a fraction.\n\n This is useful for framerate calculations.\n\n @param[out] dst_num Destination numerator\n @param[out] dst_den Destination denominator\n @param[in]      num Source numerator\n @param[in]      den Source denominator\n @param[in]      max Maximum allowed values for `dst_num` & `dst_den`\n @return 1 if the operation is exact, 0 otherwise"]
     pub fn av_reduce(
@@ -5400,13 +6162,31 @@ pub union av_intfloat32 {
     pub i: u32,
     pub f: f32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of av_intfloat32"][::std::mem::size_of::<av_intfloat32>() - 4usize];
-    ["Alignment of av_intfloat32"][::std::mem::align_of::<av_intfloat32>() - 4usize];
-    ["Offset of field: av_intfloat32::i"][::std::mem::offset_of!(av_intfloat32, i) - 0usize];
-    ["Offset of field: av_intfloat32::f"][::std::mem::offset_of!(av_intfloat32, f) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_av_intfloat32() {
+    const UNINIT: ::std::mem::MaybeUninit<av_intfloat32> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<av_intfloat32>(),
+        4usize,
+        "Size of av_intfloat32"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<av_intfloat32>(),
+        4usize,
+        "Alignment of av_intfloat32"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).i) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_intfloat32::i"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).f) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_intfloat32::f"
+    );
+}
 impl ::std::fmt::Debug for av_intfloat32 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "av_intfloat32 {{ union }}")
@@ -5418,13 +6198,31 @@ pub union av_intfloat64 {
     pub i: u64,
     pub f: f64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of av_intfloat64"][::std::mem::size_of::<av_intfloat64>() - 8usize];
-    ["Alignment of av_intfloat64"][::std::mem::align_of::<av_intfloat64>() - 8usize];
-    ["Offset of field: av_intfloat64::i"][::std::mem::offset_of!(av_intfloat64, i) - 0usize];
-    ["Offset of field: av_intfloat64::f"][::std::mem::offset_of!(av_intfloat64, f) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_av_intfloat64() {
+    const UNINIT: ::std::mem::MaybeUninit<av_intfloat64> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<av_intfloat64>(),
+        8usize,
+        "Size of av_intfloat64"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<av_intfloat64>(),
+        8usize,
+        "Alignment of av_intfloat64"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).i) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_intfloat64::i"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).f) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_intfloat64::f"
+    );
+}
 impl ::std::fmt::Debug for av_intfloat64 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "av_intfloat64 {{ union }}")
@@ -5561,27 +6359,72 @@ pub struct AVClass {
         unsafe extern "C" fn(iter: *mut *mut ::std::os::raw::c_void) -> *const AVClass,
     >,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVClass"][::std::mem::size_of::<AVClass>() - 72usize];
-    ["Alignment of AVClass"][::std::mem::align_of::<AVClass>() - 8usize];
-    ["Offset of field: AVClass::class_name"][::std::mem::offset_of!(AVClass, class_name) - 0usize];
-    ["Offset of field: AVClass::item_name"][::std::mem::offset_of!(AVClass, item_name) - 8usize];
-    ["Offset of field: AVClass::option"][::std::mem::offset_of!(AVClass, option) - 16usize];
-    ["Offset of field: AVClass::version"][::std::mem::offset_of!(AVClass, version) - 24usize];
-    ["Offset of field: AVClass::log_level_offset_offset"]
-        [::std::mem::offset_of!(AVClass, log_level_offset_offset) - 28usize];
-    ["Offset of field: AVClass::parent_log_context_offset"]
-        [::std::mem::offset_of!(AVClass, parent_log_context_offset) - 32usize];
-    ["Offset of field: AVClass::category"][::std::mem::offset_of!(AVClass, category) - 36usize];
-    ["Offset of field: AVClass::get_category"]
-        [::std::mem::offset_of!(AVClass, get_category) - 40usize];
-    ["Offset of field: AVClass::query_ranges"]
-        [::std::mem::offset_of!(AVClass, query_ranges) - 48usize];
-    ["Offset of field: AVClass::child_next"][::std::mem::offset_of!(AVClass, child_next) - 56usize];
-    ["Offset of field: AVClass::child_class_iterate"]
-        [::std::mem::offset_of!(AVClass, child_class_iterate) - 64usize];
-};
+#[test]
+fn bindgen_test_layout_AVClass() {
+    const UNINIT: ::std::mem::MaybeUninit<AVClass> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVClass>(), 72usize, "Size of AVClass");
+    assert_eq!(
+        ::std::mem::align_of::<AVClass>(),
+        8usize,
+        "Alignment of AVClass"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).class_name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVClass::class_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).item_name) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVClass::item_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).option) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVClass::option"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).version) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVClass::version"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).log_level_offset_offset) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVClass::log_level_offset_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).parent_log_context_offset) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVClass::parent_log_context_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).category) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVClass::category"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).get_category) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVClass::get_category"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).query_ranges) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVClass::query_ranges"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).child_next) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVClass::child_next"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).child_class_iterate) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVClass::child_class_iterate"
+    );
+}
 extern "C" {
     #[doc = " Send the specified message to the log if the level is less than or equal\n to the current av_log_level. By default, all logging messages are sent to\n stderr. This behavior can be altered by setting a different logging callback\n function.\n @see av_log_set_callback\n\n @param avcl A pointer to an arbitrary struct of which the first field is a\n        pointer to an AVClass struct or NULL if general log.\n @param level The importance level of the message expressed using a @ref\n        lavu_log_constants \"Logging Constant\".\n @param fmt The format string (printf-compatible) that specifies how\n        subsequent arguments are converted to output."]
     pub fn av_log(
@@ -6306,14 +7149,36 @@ pub struct AVBufferRef {
     #[doc = " Size of data in bytes."]
     pub size: usize,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVBufferRef"][::std::mem::size_of::<AVBufferRef>() - 24usize];
-    ["Alignment of AVBufferRef"][::std::mem::align_of::<AVBufferRef>() - 8usize];
-    ["Offset of field: AVBufferRef::buffer"][::std::mem::offset_of!(AVBufferRef, buffer) - 0usize];
-    ["Offset of field: AVBufferRef::data"][::std::mem::offset_of!(AVBufferRef, data) - 8usize];
-    ["Offset of field: AVBufferRef::size"][::std::mem::offset_of!(AVBufferRef, size) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVBufferRef() {
+    const UNINIT: ::std::mem::MaybeUninit<AVBufferRef> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVBufferRef>(),
+        24usize,
+        "Size of AVBufferRef"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVBufferRef>(),
+        8usize,
+        "Alignment of AVBufferRef"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVBufferRef::buffer"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVBufferRef::data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVBufferRef::size"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVBuffer of the given size using av_malloc().\n\n @return an AVBufferRef of given size or NULL when out of memory"]
     pub fn av_buffer_alloc(size: usize) -> *mut AVBufferRef;
@@ -6493,16 +7358,36 @@ pub struct AVChannelCustom {
     pub name: [::std::os::raw::c_char; 16usize],
     pub opaque: *mut ::std::os::raw::c_void,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVChannelCustom"][::std::mem::size_of::<AVChannelCustom>() - 32usize];
-    ["Alignment of AVChannelCustom"][::std::mem::align_of::<AVChannelCustom>() - 8usize];
-    ["Offset of field: AVChannelCustom::id"][::std::mem::offset_of!(AVChannelCustom, id) - 0usize];
-    ["Offset of field: AVChannelCustom::name"]
-        [::std::mem::offset_of!(AVChannelCustom, name) - 4usize];
-    ["Offset of field: AVChannelCustom::opaque"]
-        [::std::mem::offset_of!(AVChannelCustom, opaque) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_AVChannelCustom() {
+    const UNINIT: ::std::mem::MaybeUninit<AVChannelCustom> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVChannelCustom>(),
+        32usize,
+        "Size of AVChannelCustom"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVChannelCustom>(),
+        8usize,
+        "Alignment of AVChannelCustom"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVChannelCustom::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVChannelCustom::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVChannelCustom::opaque"
+    );
+}
 #[doc = " An AVChannelLayout holds information about the channel layout of audio data.\n\n A channel layout here is defined as a set of channels ordered in a specific\n way (unless the channel order is AV_CHANNEL_ORDER_UNSPEC, in which case an\n AVChannelLayout carries only the channel count).\n All orders may be treated as if they were AV_CHANNEL_ORDER_UNSPEC by\n ignoring everything but the channel count, as long as av_channel_layout_check()\n considers they are valid.\n\n Unlike most structures in FFmpeg, sizeof(AVChannelLayout) is a part of the\n public ABI and may be used by the caller. E.g. it may be allocated on stack\n or embedded in caller-defined structs.\n\n AVChannelLayout can be initialized as follows:\n - default initialization with {0}, followed by setting all used fields\n   correctly;\n - by assigning one of the predefined AV_CHANNEL_LAYOUT_* initializers;\n - with a constructor function, such as av_channel_layout_default(),\n   av_channel_layout_from_mask() or av_channel_layout_from_string().\n\n The channel layout must be unitialized with av_channel_layout_uninit()\n\n Copying an AVChannelLayout via assigning is forbidden,\n av_channel_layout_copy() must be used instead (and its return value should\n be checked)\n\n No new fields may be added to it without a major version bump, except for\n new elements of the union fitting in sizeof(uint64_t)."]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -6524,34 +7409,72 @@ pub union AVChannelLayout__bindgen_ty_1 {
     #[doc = " This member must be used when the channel order is\n AV_CHANNEL_ORDER_CUSTOM. It is a nb_channels-sized array, with each\n element signalling the presence of the AVChannel with the\n corresponding value in map[i].id.\n\n I.e. when map[i].id is equal to AV_CHAN_FOO, then AV_CH_FOO is the\n i-th channel in the audio data.\n\n When map[i].id is in the range between AV_CHAN_AMBISONIC_BASE and\n AV_CHAN_AMBISONIC_END (inclusive), the channel contains an ambisonic\n component with ACN index (as defined above)\n n = map[i].id - AV_CHAN_AMBISONIC_BASE.\n\n map[i].name may be filled with a 0-terminated string, in which case\n it will be used for the purpose of identifying the channel with the\n convenience functions below. Otherise it must be zeroed."]
     pub map: *mut AVChannelCustom,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVChannelLayout__bindgen_ty_1"]
-        [::std::mem::size_of::<AVChannelLayout__bindgen_ty_1>() - 8usize];
-    ["Alignment of AVChannelLayout__bindgen_ty_1"]
-        [::std::mem::align_of::<AVChannelLayout__bindgen_ty_1>() - 8usize];
-    ["Offset of field: AVChannelLayout__bindgen_ty_1::mask"]
-        [::std::mem::offset_of!(AVChannelLayout__bindgen_ty_1, mask) - 0usize];
-    ["Offset of field: AVChannelLayout__bindgen_ty_1::map"]
-        [::std::mem::offset_of!(AVChannelLayout__bindgen_ty_1, map) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVChannelLayout__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<AVChannelLayout__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVChannelLayout__bindgen_ty_1>(),
+        8usize,
+        "Size of AVChannelLayout__bindgen_ty_1"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVChannelLayout__bindgen_ty_1>(),
+        8usize,
+        "Alignment of AVChannelLayout__bindgen_ty_1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mask) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVChannelLayout__bindgen_ty_1::mask"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).map) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVChannelLayout__bindgen_ty_1::map"
+    );
+}
 impl ::std::fmt::Debug for AVChannelLayout__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "AVChannelLayout__bindgen_ty_1 {{ union }}")
     }
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVChannelLayout"][::std::mem::size_of::<AVChannelLayout>() - 24usize];
-    ["Alignment of AVChannelLayout"][::std::mem::align_of::<AVChannelLayout>() - 8usize];
-    ["Offset of field: AVChannelLayout::order"]
-        [::std::mem::offset_of!(AVChannelLayout, order) - 0usize];
-    ["Offset of field: AVChannelLayout::nb_channels"]
-        [::std::mem::offset_of!(AVChannelLayout, nb_channels) - 4usize];
-    ["Offset of field: AVChannelLayout::u"][::std::mem::offset_of!(AVChannelLayout, u) - 8usize];
-    ["Offset of field: AVChannelLayout::opaque"]
-        [::std::mem::offset_of!(AVChannelLayout, opaque) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVChannelLayout() {
+    const UNINIT: ::std::mem::MaybeUninit<AVChannelLayout> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVChannelLayout>(),
+        24usize,
+        "Size of AVChannelLayout"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVChannelLayout>(),
+        8usize,
+        "Alignment of AVChannelLayout"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).order) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVChannelLayout::order"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_channels) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVChannelLayout::nb_channels"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVChannelLayout::u"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVChannelLayout::opaque"
+    );
+}
 impl ::std::fmt::Debug for AVChannelLayout {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -6708,15 +7631,31 @@ pub struct AVDictionaryEntry {
     pub key: *mut ::std::os::raw::c_char,
     pub value: *mut ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDictionaryEntry"][::std::mem::size_of::<AVDictionaryEntry>() - 16usize];
-    ["Alignment of AVDictionaryEntry"][::std::mem::align_of::<AVDictionaryEntry>() - 8usize];
-    ["Offset of field: AVDictionaryEntry::key"]
-        [::std::mem::offset_of!(AVDictionaryEntry, key) - 0usize];
-    ["Offset of field: AVDictionaryEntry::value"]
-        [::std::mem::offset_of!(AVDictionaryEntry, value) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVDictionaryEntry() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDictionaryEntry> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDictionaryEntry>(),
+        16usize,
+        "Size of AVDictionaryEntry"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDictionaryEntry>(),
+        8usize,
+        "Alignment of AVDictionaryEntry"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDictionaryEntry::key"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).value) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDictionaryEntry::value"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVDictionary {
@@ -6867,21 +7806,46 @@ pub struct AVFrameSideData {
     pub metadata: *mut AVDictionary,
     pub buf: *mut AVBufferRef,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFrameSideData"][::std::mem::size_of::<AVFrameSideData>() - 40usize];
-    ["Alignment of AVFrameSideData"][::std::mem::align_of::<AVFrameSideData>() - 8usize];
-    ["Offset of field: AVFrameSideData::type_"]
-        [::std::mem::offset_of!(AVFrameSideData, type_) - 0usize];
-    ["Offset of field: AVFrameSideData::data"]
-        [::std::mem::offset_of!(AVFrameSideData, data) - 8usize];
-    ["Offset of field: AVFrameSideData::size"]
-        [::std::mem::offset_of!(AVFrameSideData, size) - 16usize];
-    ["Offset of field: AVFrameSideData::metadata"]
-        [::std::mem::offset_of!(AVFrameSideData, metadata) - 24usize];
-    ["Offset of field: AVFrameSideData::buf"]
-        [::std::mem::offset_of!(AVFrameSideData, buf) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVFrameSideData() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFrameSideData> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFrameSideData>(),
+        40usize,
+        "Size of AVFrameSideData"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFrameSideData>(),
+        8usize,
+        "Alignment of AVFrameSideData"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFrameSideData::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFrameSideData::data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFrameSideData::size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).metadata) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFrameSideData::metadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFrameSideData::buf"
+    );
+}
 #[doc = " Structure describing a single Region Of Interest.\n\n When multiple regions are defined in a single side-data block, they\n should be ordered from most to least important - some encoders are only\n capable of supporting a limited number of distinct regions, so will have\n to truncate the list.\n\n When overlapping regions are defined, the first region containing a given\n area of the frame applies."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -6896,23 +7860,51 @@ pub struct AVRegionOfInterest {
     #[doc = " Quantisation offset.\n\n Must be in the range -1 to +1.  A value of zero indicates no quality\n change.  A negative value asks for better quality (less quantisation),\n while a positive value asks for worse quality (greater quantisation).\n\n The range is calibrated so that the extreme values indicate the\n largest possible offset - if the rest of the frame is encoded with the\n worst possible quality, an offset of -1 indicates that this region\n should be encoded with the best possible quality anyway.  Intermediate\n values are then interpolated in some codec-dependent way.\n\n For example, in 10-bit H.264 the quantisation parameter varies between\n -12 and 51.  A typical qoffset value of -1/10 therefore indicates that\n this region should be encoded with a QP around one-tenth of the full\n range better than the rest of the frame.  So, if most of the frame\n were to be encoded with a QP of around 30, this region would get a QP\n of around 24 (an offset of approximately -1/10 * (51 - -12) = -6.3).\n An extreme value of -1 would indicate that this region should be\n encoded with the best possible quality regardless of the treatment of\n the rest of the frame - that is, should be encoded at a QP of -12."]
     pub qoffset: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVRegionOfInterest"][::std::mem::size_of::<AVRegionOfInterest>() - 28usize];
-    ["Alignment of AVRegionOfInterest"][::std::mem::align_of::<AVRegionOfInterest>() - 4usize];
-    ["Offset of field: AVRegionOfInterest::self_size"]
-        [::std::mem::offset_of!(AVRegionOfInterest, self_size) - 0usize];
-    ["Offset of field: AVRegionOfInterest::top"]
-        [::std::mem::offset_of!(AVRegionOfInterest, top) - 4usize];
-    ["Offset of field: AVRegionOfInterest::bottom"]
-        [::std::mem::offset_of!(AVRegionOfInterest, bottom) - 8usize];
-    ["Offset of field: AVRegionOfInterest::left"]
-        [::std::mem::offset_of!(AVRegionOfInterest, left) - 12usize];
-    ["Offset of field: AVRegionOfInterest::right"]
-        [::std::mem::offset_of!(AVRegionOfInterest, right) - 16usize];
-    ["Offset of field: AVRegionOfInterest::qoffset"]
-        [::std::mem::offset_of!(AVRegionOfInterest, qoffset) - 20usize];
-};
+#[test]
+fn bindgen_test_layout_AVRegionOfInterest() {
+    const UNINIT: ::std::mem::MaybeUninit<AVRegionOfInterest> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVRegionOfInterest>(),
+        28usize,
+        "Size of AVRegionOfInterest"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVRegionOfInterest>(),
+        4usize,
+        "Alignment of AVRegionOfInterest"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).self_size) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVRegionOfInterest::self_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).top) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVRegionOfInterest::top"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bottom) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVRegionOfInterest::bottom"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).left) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVRegionOfInterest::left"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).right) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVRegionOfInterest::right"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).qoffset) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVRegionOfInterest::qoffset"
+    );
+}
 #[doc = " This structure describes decoded (raw) audio or video data.\n\n AVFrame must be allocated using av_frame_alloc(). Note that this only\n allocates the AVFrame itself, the buffers for the data must be managed\n through other means (see below).\n AVFrame must be freed with av_frame_free().\n\n AVFrame is typically allocated once and then reused multiple times to hold\n different data (e.g. a single AVFrame to hold frames received from a\n decoder). In such a case, av_frame_unref() will free any references held by\n the frame and reset it to its original clean state before it\n is reused again.\n\n The data described by an AVFrame is usually reference counted through the\n AVBuffer API. The underlying buffer references are stored in AVFrame.buf /\n AVFrame.extended_buf. An AVFrame is considered to be reference counted if at\n least one reference is set, i.e. if AVFrame.buf[0] != NULL. In such a case,\n every single data plane must be contained in one of the buffers in\n AVFrame.buf or AVFrame.extended_buf.\n There may be a single buffer for all the data, or one separate buffer for\n each plane, or anything in between.\n\n sizeof(AVFrame) is not a part of the public ABI, so new fields may be added\n to the end with a minor bump.\n\n Fields can be accessed through AVOptions, the name string used, matches the\n C structure field name for fields accessible through AVOptions. The AVClass\n for AVFrame can be obtained from avcodec_get_frame_class()"]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -7000,78 +7992,246 @@ pub struct AVFrame {
     #[doc = " Duration of the frame, in the same units as pts. 0 if unknown."]
     pub duration: i64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFrame"][::std::mem::size_of::<AVFrame>() - 440usize];
-    ["Alignment of AVFrame"][::std::mem::align_of::<AVFrame>() - 8usize];
-    ["Offset of field: AVFrame::data"][::std::mem::offset_of!(AVFrame, data) - 0usize];
-    ["Offset of field: AVFrame::linesize"][::std::mem::offset_of!(AVFrame, linesize) - 64usize];
-    ["Offset of field: AVFrame::extended_data"]
-        [::std::mem::offset_of!(AVFrame, extended_data) - 96usize];
-    ["Offset of field: AVFrame::width"][::std::mem::offset_of!(AVFrame, width) - 104usize];
-    ["Offset of field: AVFrame::height"][::std::mem::offset_of!(AVFrame, height) - 108usize];
-    ["Offset of field: AVFrame::nb_samples"]
-        [::std::mem::offset_of!(AVFrame, nb_samples) - 112usize];
-    ["Offset of field: AVFrame::format"][::std::mem::offset_of!(AVFrame, format) - 116usize];
-    ["Offset of field: AVFrame::key_frame"][::std::mem::offset_of!(AVFrame, key_frame) - 120usize];
-    ["Offset of field: AVFrame::pict_type"][::std::mem::offset_of!(AVFrame, pict_type) - 124usize];
-    ["Offset of field: AVFrame::sample_aspect_ratio"]
-        [::std::mem::offset_of!(AVFrame, sample_aspect_ratio) - 128usize];
-    ["Offset of field: AVFrame::pts"][::std::mem::offset_of!(AVFrame, pts) - 136usize];
-    ["Offset of field: AVFrame::pkt_dts"][::std::mem::offset_of!(AVFrame, pkt_dts) - 144usize];
-    ["Offset of field: AVFrame::time_base"][::std::mem::offset_of!(AVFrame, time_base) - 152usize];
-    ["Offset of field: AVFrame::quality"][::std::mem::offset_of!(AVFrame, quality) - 160usize];
-    ["Offset of field: AVFrame::opaque"][::std::mem::offset_of!(AVFrame, opaque) - 168usize];
-    ["Offset of field: AVFrame::repeat_pict"]
-        [::std::mem::offset_of!(AVFrame, repeat_pict) - 176usize];
-    ["Offset of field: AVFrame::interlaced_frame"]
-        [::std::mem::offset_of!(AVFrame, interlaced_frame) - 180usize];
-    ["Offset of field: AVFrame::top_field_first"]
-        [::std::mem::offset_of!(AVFrame, top_field_first) - 184usize];
-    ["Offset of field: AVFrame::palette_has_changed"]
-        [::std::mem::offset_of!(AVFrame, palette_has_changed) - 188usize];
-    ["Offset of field: AVFrame::sample_rate"]
-        [::std::mem::offset_of!(AVFrame, sample_rate) - 192usize];
-    ["Offset of field: AVFrame::buf"][::std::mem::offset_of!(AVFrame, buf) - 200usize];
-    ["Offset of field: AVFrame::extended_buf"]
-        [::std::mem::offset_of!(AVFrame, extended_buf) - 264usize];
-    ["Offset of field: AVFrame::nb_extended_buf"]
-        [::std::mem::offset_of!(AVFrame, nb_extended_buf) - 272usize];
-    ["Offset of field: AVFrame::side_data"][::std::mem::offset_of!(AVFrame, side_data) - 280usize];
-    ["Offset of field: AVFrame::nb_side_data"]
-        [::std::mem::offset_of!(AVFrame, nb_side_data) - 288usize];
-    ["Offset of field: AVFrame::flags"][::std::mem::offset_of!(AVFrame, flags) - 292usize];
-    ["Offset of field: AVFrame::color_range"]
-        [::std::mem::offset_of!(AVFrame, color_range) - 296usize];
-    ["Offset of field: AVFrame::color_primaries"]
-        [::std::mem::offset_of!(AVFrame, color_primaries) - 300usize];
-    ["Offset of field: AVFrame::color_trc"][::std::mem::offset_of!(AVFrame, color_trc) - 304usize];
-    ["Offset of field: AVFrame::colorspace"]
-        [::std::mem::offset_of!(AVFrame, colorspace) - 308usize];
-    ["Offset of field: AVFrame::chroma_location"]
-        [::std::mem::offset_of!(AVFrame, chroma_location) - 312usize];
-    ["Offset of field: AVFrame::best_effort_timestamp"]
-        [::std::mem::offset_of!(AVFrame, best_effort_timestamp) - 320usize];
-    ["Offset of field: AVFrame::pkt_pos"][::std::mem::offset_of!(AVFrame, pkt_pos) - 328usize];
-    ["Offset of field: AVFrame::metadata"][::std::mem::offset_of!(AVFrame, metadata) - 336usize];
-    ["Offset of field: AVFrame::decode_error_flags"]
-        [::std::mem::offset_of!(AVFrame, decode_error_flags) - 344usize];
-    ["Offset of field: AVFrame::pkt_size"][::std::mem::offset_of!(AVFrame, pkt_size) - 348usize];
-    ["Offset of field: AVFrame::hw_frames_ctx"]
-        [::std::mem::offset_of!(AVFrame, hw_frames_ctx) - 352usize];
-    ["Offset of field: AVFrame::opaque_ref"]
-        [::std::mem::offset_of!(AVFrame, opaque_ref) - 360usize];
-    ["Offset of field: AVFrame::crop_top"][::std::mem::offset_of!(AVFrame, crop_top) - 368usize];
-    ["Offset of field: AVFrame::crop_bottom"]
-        [::std::mem::offset_of!(AVFrame, crop_bottom) - 376usize];
-    ["Offset of field: AVFrame::crop_left"][::std::mem::offset_of!(AVFrame, crop_left) - 384usize];
-    ["Offset of field: AVFrame::crop_right"]
-        [::std::mem::offset_of!(AVFrame, crop_right) - 392usize];
-    ["Offset of field: AVFrame::private_ref"]
-        [::std::mem::offset_of!(AVFrame, private_ref) - 400usize];
-    ["Offset of field: AVFrame::ch_layout"][::std::mem::offset_of!(AVFrame, ch_layout) - 408usize];
-    ["Offset of field: AVFrame::duration"][::std::mem::offset_of!(AVFrame, duration) - 432usize];
-};
+#[test]
+fn bindgen_test_layout_AVFrame() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFrame> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFrame>(),
+        440usize,
+        "Size of AVFrame"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFrame>(),
+        8usize,
+        "Alignment of AVFrame"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFrame::data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).linesize) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVFrame::linesize"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extended_data) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVFrame::extended_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVFrame::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        108usize,
+        "Offset of field: AVFrame::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_samples) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVFrame::nb_samples"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format) as usize - ptr as usize },
+        116usize,
+        "Offset of field: AVFrame::format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key_frame) as usize - ptr as usize },
+        120usize,
+        "Offset of field: AVFrame::key_frame"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pict_type) as usize - ptr as usize },
+        124usize,
+        "Offset of field: AVFrame::pict_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_aspect_ratio) as usize - ptr as usize },
+        128usize,
+        "Offset of field: AVFrame::sample_aspect_ratio"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pts) as usize - ptr as usize },
+        136usize,
+        "Offset of field: AVFrame::pts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pkt_dts) as usize - ptr as usize },
+        144usize,
+        "Offset of field: AVFrame::pkt_dts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base) as usize - ptr as usize },
+        152usize,
+        "Offset of field: AVFrame::time_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).quality) as usize - ptr as usize },
+        160usize,
+        "Offset of field: AVFrame::quality"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        168usize,
+        "Offset of field: AVFrame::opaque"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).repeat_pict) as usize - ptr as usize },
+        176usize,
+        "Offset of field: AVFrame::repeat_pict"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).interlaced_frame) as usize - ptr as usize },
+        180usize,
+        "Offset of field: AVFrame::interlaced_frame"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).top_field_first) as usize - ptr as usize },
+        184usize,
+        "Offset of field: AVFrame::top_field_first"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).palette_has_changed) as usize - ptr as usize },
+        188usize,
+        "Offset of field: AVFrame::palette_has_changed"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_rate) as usize - ptr as usize },
+        192usize,
+        "Offset of field: AVFrame::sample_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf) as usize - ptr as usize },
+        200usize,
+        "Offset of field: AVFrame::buf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extended_buf) as usize - ptr as usize },
+        264usize,
+        "Offset of field: AVFrame::extended_buf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_extended_buf) as usize - ptr as usize },
+        272usize,
+        "Offset of field: AVFrame::nb_extended_buf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).side_data) as usize - ptr as usize },
+        280usize,
+        "Offset of field: AVFrame::side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_side_data) as usize - ptr as usize },
+        288usize,
+        "Offset of field: AVFrame::nb_side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        292usize,
+        "Offset of field: AVFrame::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_range) as usize - ptr as usize },
+        296usize,
+        "Offset of field: AVFrame::color_range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_primaries) as usize - ptr as usize },
+        300usize,
+        "Offset of field: AVFrame::color_primaries"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_trc) as usize - ptr as usize },
+        304usize,
+        "Offset of field: AVFrame::color_trc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).colorspace) as usize - ptr as usize },
+        308usize,
+        "Offset of field: AVFrame::colorspace"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chroma_location) as usize - ptr as usize },
+        312usize,
+        "Offset of field: AVFrame::chroma_location"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).best_effort_timestamp) as usize - ptr as usize },
+        320usize,
+        "Offset of field: AVFrame::best_effort_timestamp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pkt_pos) as usize - ptr as usize },
+        328usize,
+        "Offset of field: AVFrame::pkt_pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).metadata) as usize - ptr as usize },
+        336usize,
+        "Offset of field: AVFrame::metadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).decode_error_flags) as usize - ptr as usize },
+        344usize,
+        "Offset of field: AVFrame::decode_error_flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pkt_size) as usize - ptr as usize },
+        348usize,
+        "Offset of field: AVFrame::pkt_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hw_frames_ctx) as usize - ptr as usize },
+        352usize,
+        "Offset of field: AVFrame::hw_frames_ctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque_ref) as usize - ptr as usize },
+        360usize,
+        "Offset of field: AVFrame::opaque_ref"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).crop_top) as usize - ptr as usize },
+        368usize,
+        "Offset of field: AVFrame::crop_top"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).crop_bottom) as usize - ptr as usize },
+        376usize,
+        "Offset of field: AVFrame::crop_bottom"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).crop_left) as usize - ptr as usize },
+        384usize,
+        "Offset of field: AVFrame::crop_left"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).crop_right) as usize - ptr as usize },
+        392usize,
+        "Offset of field: AVFrame::crop_right"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).private_ref) as usize - ptr as usize },
+        400usize,
+        "Offset of field: AVFrame::private_ref"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize },
+        408usize,
+        "Offset of field: AVFrame::ch_layout"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).duration) as usize - ptr as usize },
+        432usize,
+        "Offset of field: AVFrame::duration"
+    );
+}
 impl ::std::fmt::Debug for AVFrame {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVFrame {{ data: {:?}, linesize: {:?}, extended_data: {:?}, width: {:?}, height: {:?}, nb_samples: {:?}, format: {:?}, key_frame: {:?}, pict_type: {:?}, sample_aspect_ratio: {:?}, pts: {:?}, pkt_dts: {:?}, time_base: {:?}, quality: {:?}, opaque: {:?}, repeat_pict: {:?}, interlaced_frame: {:?}, top_field_first: {:?}, palette_has_changed: {:?}, sample_rate: {:?}, buf: {:?}, extended_buf: {:?}, nb_extended_buf: {:?}, side_data: {:?}, nb_side_data: {:?}, flags: {:?}, color_range: {:?}, color_primaries: {:?}, color_trc: {:?}, colorspace: {:?}, chroma_location: {:?}, best_effort_timestamp: {:?}, pkt_pos: {:?}, metadata: {:?}, decode_error_flags: {:?}, pkt_size: {:?}, hw_frames_ctx: {:?}, opaque_ref: {:?}, crop_top: {:?}, crop_bottom: {:?}, crop_left: {:?}, crop_right: {:?}, private_ref: {:?}, ch_layout: {:?}, duration: {:?} }}" , self . data , self . linesize , self . extended_data , self . width , self . height , self . nb_samples , self . format , self . key_frame , self . pict_type , self . sample_aspect_ratio , self . pts , self . pkt_dts , self . time_base , self . quality , self . opaque , self . repeat_pict , self . interlaced_frame , self . top_field_first , self . palette_has_changed , self . sample_rate , self . buf , self . extended_buf , self . nb_extended_buf , self . side_data , self . nb_side_data , self . flags , self . color_range , self . color_primaries , self . color_trc , self . colorspace , self . chroma_location , self . best_effort_timestamp , self . pkt_pos , self . metadata , self . decode_error_flags , self . pkt_size , self . hw_frames_ctx , self . opaque_ref , self . crop_top , self . crop_bottom , self . crop_left , self . crop_right , self . private_ref , self . ch_layout , self . duration)
@@ -7240,21 +8400,46 @@ pub struct AVHWDeviceContext {
     #[doc = " Arbitrary user data, to be used e.g. by the free() callback."]
     pub user_opaque: *mut ::std::os::raw::c_void,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHWDeviceContext"][::std::mem::size_of::<AVHWDeviceContext>() - 40usize];
-    ["Alignment of AVHWDeviceContext"][::std::mem::align_of::<AVHWDeviceContext>() - 8usize];
-    ["Offset of field: AVHWDeviceContext::av_class"]
-        [::std::mem::offset_of!(AVHWDeviceContext, av_class) - 0usize];
-    ["Offset of field: AVHWDeviceContext::type_"]
-        [::std::mem::offset_of!(AVHWDeviceContext, type_) - 8usize];
-    ["Offset of field: AVHWDeviceContext::hwctx"]
-        [::std::mem::offset_of!(AVHWDeviceContext, hwctx) - 16usize];
-    ["Offset of field: AVHWDeviceContext::free"]
-        [::std::mem::offset_of!(AVHWDeviceContext, free) - 24usize];
-    ["Offset of field: AVHWDeviceContext::user_opaque"]
-        [::std::mem::offset_of!(AVHWDeviceContext, user_opaque) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVHWDeviceContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHWDeviceContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHWDeviceContext>(),
+        40usize,
+        "Size of AVHWDeviceContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHWDeviceContext>(),
+        8usize,
+        "Alignment of AVHWDeviceContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVHWDeviceContext::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVHWDeviceContext::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hwctx) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVHWDeviceContext::hwctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).free) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVHWDeviceContext::free"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).user_opaque) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVHWDeviceContext::user_opaque"
+    );
+}
 #[doc = " This struct describes a set or pool of \"hardware\" frames (i.e. those with\n data not located in normal system memory). All the frames in the pool are\n assumed to be allocated in the same way and interchangeable.\n\n This struct is reference-counted with the AVBuffer mechanism and tied to a\n given AVHWDeviceContext instance. The av_hwframe_ctx_alloc() constructor\n yields a reference, whose data field points to the actual AVHWFramesContext\n struct."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -7284,35 +8469,81 @@ pub struct AVHWFramesContext {
     #[doc = " The allocated dimensions of the frames in this pool.\n\n Must be set by the user before calling av_hwframe_ctx_init()."]
     pub height: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHWFramesContext"][::std::mem::size_of::<AVHWFramesContext>() - 80usize];
-    ["Alignment of AVHWFramesContext"][::std::mem::align_of::<AVHWFramesContext>() - 8usize];
-    ["Offset of field: AVHWFramesContext::av_class"]
-        [::std::mem::offset_of!(AVHWFramesContext, av_class) - 0usize];
-    ["Offset of field: AVHWFramesContext::device_ref"]
-        [::std::mem::offset_of!(AVHWFramesContext, device_ref) - 8usize];
-    ["Offset of field: AVHWFramesContext::device_ctx"]
-        [::std::mem::offset_of!(AVHWFramesContext, device_ctx) - 16usize];
-    ["Offset of field: AVHWFramesContext::hwctx"]
-        [::std::mem::offset_of!(AVHWFramesContext, hwctx) - 24usize];
-    ["Offset of field: AVHWFramesContext::free"]
-        [::std::mem::offset_of!(AVHWFramesContext, free) - 32usize];
-    ["Offset of field: AVHWFramesContext::user_opaque"]
-        [::std::mem::offset_of!(AVHWFramesContext, user_opaque) - 40usize];
-    ["Offset of field: AVHWFramesContext::pool"]
-        [::std::mem::offset_of!(AVHWFramesContext, pool) - 48usize];
-    ["Offset of field: AVHWFramesContext::initial_pool_size"]
-        [::std::mem::offset_of!(AVHWFramesContext, initial_pool_size) - 56usize];
-    ["Offset of field: AVHWFramesContext::format"]
-        [::std::mem::offset_of!(AVHWFramesContext, format) - 60usize];
-    ["Offset of field: AVHWFramesContext::sw_format"]
-        [::std::mem::offset_of!(AVHWFramesContext, sw_format) - 64usize];
-    ["Offset of field: AVHWFramesContext::width"]
-        [::std::mem::offset_of!(AVHWFramesContext, width) - 68usize];
-    ["Offset of field: AVHWFramesContext::height"]
-        [::std::mem::offset_of!(AVHWFramesContext, height) - 72usize];
-};
+#[test]
+fn bindgen_test_layout_AVHWFramesContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHWFramesContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHWFramesContext>(),
+        80usize,
+        "Size of AVHWFramesContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHWFramesContext>(),
+        8usize,
+        "Alignment of AVHWFramesContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVHWFramesContext::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_ref) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVHWFramesContext::device_ref"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_ctx) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVHWFramesContext::device_ctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hwctx) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVHWFramesContext::hwctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).free) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVHWFramesContext::free"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).user_opaque) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVHWFramesContext::user_opaque"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pool) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVHWFramesContext::pool"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).initial_pool_size) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVHWFramesContext::initial_pool_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format) as usize - ptr as usize },
+        60usize,
+        "Offset of field: AVHWFramesContext::format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sw_format) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVHWFramesContext::sw_format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        68usize,
+        "Offset of field: AVHWFramesContext::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVHWFramesContext::height"
+    );
+}
 extern "C" {
     #[doc = " Look up an AVHWDeviceType by name.\n\n @param name String name of the device type (case-insensitive).\n @return The type from enum AVHWDeviceType, or AV_HWDEVICE_TYPE_NONE if\n         not found."]
     pub fn av_hwdevice_find_type_by_name(name: *const ::std::os::raw::c_char) -> AVHWDeviceType;
@@ -7415,24 +8646,52 @@ pub struct AVHWFramesConstraints {
     pub max_width: ::std::os::raw::c_int,
     pub max_height: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHWFramesConstraints"][::std::mem::size_of::<AVHWFramesConstraints>() - 32usize];
-    ["Alignment of AVHWFramesConstraints"]
-        [::std::mem::align_of::<AVHWFramesConstraints>() - 8usize];
-    ["Offset of field: AVHWFramesConstraints::valid_hw_formats"]
-        [::std::mem::offset_of!(AVHWFramesConstraints, valid_hw_formats) - 0usize];
-    ["Offset of field: AVHWFramesConstraints::valid_sw_formats"]
-        [::std::mem::offset_of!(AVHWFramesConstraints, valid_sw_formats) - 8usize];
-    ["Offset of field: AVHWFramesConstraints::min_width"]
-        [::std::mem::offset_of!(AVHWFramesConstraints, min_width) - 16usize];
-    ["Offset of field: AVHWFramesConstraints::min_height"]
-        [::std::mem::offset_of!(AVHWFramesConstraints, min_height) - 20usize];
-    ["Offset of field: AVHWFramesConstraints::max_width"]
-        [::std::mem::offset_of!(AVHWFramesConstraints, max_width) - 24usize];
-    ["Offset of field: AVHWFramesConstraints::max_height"]
-        [::std::mem::offset_of!(AVHWFramesConstraints, max_height) - 28usize];
-};
+#[test]
+fn bindgen_test_layout_AVHWFramesConstraints() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHWFramesConstraints> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHWFramesConstraints>(),
+        32usize,
+        "Size of AVHWFramesConstraints"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHWFramesConstraints>(),
+        8usize,
+        "Alignment of AVHWFramesConstraints"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).valid_hw_formats) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVHWFramesConstraints::valid_hw_formats"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).valid_sw_formats) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVHWFramesConstraints::valid_sw_formats"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min_width) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVHWFramesConstraints::min_width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min_height) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVHWFramesConstraints::min_height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_width) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVHWFramesConstraints::max_width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_height) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVHWFramesConstraints::max_height"
+    );
+}
 extern "C" {
     #[doc = " Allocate a HW-specific configuration structure for a given HW device.\n After use, the user must free all members as required by the specific\n hardware structure being used, then free the structure itself with\n av_free().\n\n @param device_ctx a reference to the associated AVHWDeviceContext.\n @return The newly created HW-specific configuration structure on\n         success or NULL on failure."]
     pub fn av_hwdevice_hwconfig_alloc(device_ctx: *mut AVBufferRef) -> *mut ::std::os::raw::c_void;
@@ -8054,13 +9313,31 @@ pub struct AVProfile {
     #[doc = "< short name for the profile"]
     pub name: *const ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVProfile"][::std::mem::size_of::<AVProfile>() - 16usize];
-    ["Alignment of AVProfile"][::std::mem::align_of::<AVProfile>() - 8usize];
-    ["Offset of field: AVProfile::profile"][::std::mem::offset_of!(AVProfile, profile) - 0usize];
-    ["Offset of field: AVProfile::name"][::std::mem::offset_of!(AVProfile, name) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVProfile() {
+    const UNINIT: ::std::mem::MaybeUninit<AVProfile> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVProfile>(),
+        16usize,
+        "Size of AVProfile"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVProfile>(),
+        8usize,
+        "Alignment of AVProfile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).profile) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVProfile::profile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVProfile::name"
+    );
+}
 #[doc = " AVCodec."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -8092,30 +9369,87 @@ pub struct AVCodec {
     #[doc = " Array of supported channel layouts, terminated with a zeroed layout."]
     pub ch_layouts: *const AVChannelLayout,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCodec"][::std::mem::size_of::<AVCodec>() - 96usize];
-    ["Alignment of AVCodec"][::std::mem::align_of::<AVCodec>() - 8usize];
-    ["Offset of field: AVCodec::name"][::std::mem::offset_of!(AVCodec, name) - 0usize];
-    ["Offset of field: AVCodec::long_name"][::std::mem::offset_of!(AVCodec, long_name) - 8usize];
-    ["Offset of field: AVCodec::type_"][::std::mem::offset_of!(AVCodec, type_) - 16usize];
-    ["Offset of field: AVCodec::id"][::std::mem::offset_of!(AVCodec, id) - 20usize];
-    ["Offset of field: AVCodec::capabilities"]
-        [::std::mem::offset_of!(AVCodec, capabilities) - 24usize];
-    ["Offset of field: AVCodec::max_lowres"][::std::mem::offset_of!(AVCodec, max_lowres) - 28usize];
-    ["Offset of field: AVCodec::supported_framerates"]
-        [::std::mem::offset_of!(AVCodec, supported_framerates) - 32usize];
-    ["Offset of field: AVCodec::pix_fmts"][::std::mem::offset_of!(AVCodec, pix_fmts) - 40usize];
-    ["Offset of field: AVCodec::supported_samplerates"]
-        [::std::mem::offset_of!(AVCodec, supported_samplerates) - 48usize];
-    ["Offset of field: AVCodec::sample_fmts"]
-        [::std::mem::offset_of!(AVCodec, sample_fmts) - 56usize];
-    ["Offset of field: AVCodec::priv_class"][::std::mem::offset_of!(AVCodec, priv_class) - 64usize];
-    ["Offset of field: AVCodec::profiles"][::std::mem::offset_of!(AVCodec, profiles) - 72usize];
-    ["Offset of field: AVCodec::wrapper_name"]
-        [::std::mem::offset_of!(AVCodec, wrapper_name) - 80usize];
-    ["Offset of field: AVCodec::ch_layouts"][::std::mem::offset_of!(AVCodec, ch_layouts) - 88usize];
-};
+#[test]
+fn bindgen_test_layout_AVCodec() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCodec> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVCodec>(), 96usize, "Size of AVCodec");
+    assert_eq!(
+        ::std::mem::align_of::<AVCodec>(),
+        8usize,
+        "Alignment of AVCodec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCodec::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).long_name) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVCodec::long_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVCodec::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVCodec::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).capabilities) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVCodec::capabilities"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_lowres) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVCodec::max_lowres"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).supported_framerates) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVCodec::supported_framerates"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pix_fmts) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVCodec::pix_fmts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).supported_samplerates) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVCodec::supported_samplerates"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_fmts) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVCodec::sample_fmts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_class) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVCodec::priv_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).profiles) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVCodec::profiles"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).wrapper_name) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVCodec::wrapper_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ch_layouts) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVCodec::ch_layouts"
+    );
+}
 extern "C" {
     #[doc = " Iterate over all registered codecs.\n\n @param opaque a pointer where libavcodec will store the iteration state. Must\n               point to NULL to start the iteration.\n\n @return the next registered codec or NULL when the iteration is\n         finished"]
     pub fn av_codec_iterate(opaque: *mut *mut ::std::os::raw::c_void) -> *const AVCodec;
@@ -8170,17 +9504,36 @@ pub struct AVCodecHWConfig {
     #[doc = " The device type associated with the configuration.\n\n Must be set for AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX and\n AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX, otherwise unused."]
     pub device_type: AVHWDeviceType,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCodecHWConfig"][::std::mem::size_of::<AVCodecHWConfig>() - 12usize];
-    ["Alignment of AVCodecHWConfig"][::std::mem::align_of::<AVCodecHWConfig>() - 4usize];
-    ["Offset of field: AVCodecHWConfig::pix_fmt"]
-        [::std::mem::offset_of!(AVCodecHWConfig, pix_fmt) - 0usize];
-    ["Offset of field: AVCodecHWConfig::methods"]
-        [::std::mem::offset_of!(AVCodecHWConfig, methods) - 4usize];
-    ["Offset of field: AVCodecHWConfig::device_type"]
-        [::std::mem::offset_of!(AVCodecHWConfig, device_type) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVCodecHWConfig() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCodecHWConfig> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVCodecHWConfig>(),
+        12usize,
+        "Size of AVCodecHWConfig"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVCodecHWConfig>(),
+        4usize,
+        "Alignment of AVCodecHWConfig"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pix_fmt) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCodecHWConfig::pix_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).methods) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVCodecHWConfig::methods"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_type) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVCodecHWConfig::device_type"
+    );
+}
 extern "C" {
     #[doc = " Retrieve supported hardware configurations for a codec.\n\n Values of index from zero to some maximum return the indexed configuration\n descriptor; all other values return NULL.  If the codec does not support\n any hardware configurations then it will always return NULL."]
     pub fn avcodec_get_hw_config(
@@ -8239,15 +9592,41 @@ pub struct AVPanScan {
     #[doc = " position of the top left corner in 1/16 pel for up to 3 fields/frames\n - encoding: Set by user.\n - decoding: Set by libavcodec."]
     pub position: [[i16; 2usize]; 3usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVPanScan"][::std::mem::size_of::<AVPanScan>() - 24usize];
-    ["Alignment of AVPanScan"][::std::mem::align_of::<AVPanScan>() - 4usize];
-    ["Offset of field: AVPanScan::id"][::std::mem::offset_of!(AVPanScan, id) - 0usize];
-    ["Offset of field: AVPanScan::width"][::std::mem::offset_of!(AVPanScan, width) - 4usize];
-    ["Offset of field: AVPanScan::height"][::std::mem::offset_of!(AVPanScan, height) - 8usize];
-    ["Offset of field: AVPanScan::position"][::std::mem::offset_of!(AVPanScan, position) - 12usize];
-};
+#[test]
+fn bindgen_test_layout_AVPanScan() {
+    const UNINIT: ::std::mem::MaybeUninit<AVPanScan> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVPanScan>(),
+        24usize,
+        "Size of AVPanScan"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVPanScan>(),
+        4usize,
+        "Alignment of AVPanScan"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVPanScan::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVPanScan::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVPanScan::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).position) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVPanScan::position"
+    );
+}
 #[doc = " This structure describes the bitrate properties of an encoded bitstream. It\n roughly corresponds to a subset the VBV parameters for MPEG-2 or HRD\n parameters for H.264/HEVC."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -8263,21 +9642,46 @@ pub struct AVCPBProperties {
     #[doc = " The delay between the time the packet this structure is associated with\n is received and the time when it should be decoded, in periods of a 27MHz\n clock.\n\n UINT64_MAX when unknown or unspecified."]
     pub vbv_delay: u64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCPBProperties"][::std::mem::size_of::<AVCPBProperties>() - 40usize];
-    ["Alignment of AVCPBProperties"][::std::mem::align_of::<AVCPBProperties>() - 8usize];
-    ["Offset of field: AVCPBProperties::max_bitrate"]
-        [::std::mem::offset_of!(AVCPBProperties, max_bitrate) - 0usize];
-    ["Offset of field: AVCPBProperties::min_bitrate"]
-        [::std::mem::offset_of!(AVCPBProperties, min_bitrate) - 8usize];
-    ["Offset of field: AVCPBProperties::avg_bitrate"]
-        [::std::mem::offset_of!(AVCPBProperties, avg_bitrate) - 16usize];
-    ["Offset of field: AVCPBProperties::buffer_size"]
-        [::std::mem::offset_of!(AVCPBProperties, buffer_size) - 24usize];
-    ["Offset of field: AVCPBProperties::vbv_delay"]
-        [::std::mem::offset_of!(AVCPBProperties, vbv_delay) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVCPBProperties() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCPBProperties> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVCPBProperties>(),
+        40usize,
+        "Size of AVCPBProperties"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVCPBProperties>(),
+        8usize,
+        "Alignment of AVCPBProperties"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_bitrate) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCPBProperties::max_bitrate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min_bitrate) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVCPBProperties::min_bitrate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).avg_bitrate) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVCPBProperties::avg_bitrate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer_size) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVCPBProperties::buffer_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vbv_delay) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVCPBProperties::vbv_delay"
+    );
+}
 extern "C" {
     #[doc = " Allocate a CPB properties structure and initialize its fields to default\n values.\n\n @param size if non-NULL, the size of the allocated struct will be written\n             here. This is useful for embedding it in side data.\n\n @return the newly allocated struct or NULL on failure"]
     pub fn av_cpb_properties_alloc(size: *mut usize) -> *mut AVCPBProperties;
@@ -8290,16 +9694,32 @@ pub struct AVProducerReferenceTime {
     pub wallclock: i64,
     pub flags: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVProducerReferenceTime"][::std::mem::size_of::<AVProducerReferenceTime>() - 16usize];
-    ["Alignment of AVProducerReferenceTime"]
-        [::std::mem::align_of::<AVProducerReferenceTime>() - 8usize];
-    ["Offset of field: AVProducerReferenceTime::wallclock"]
-        [::std::mem::offset_of!(AVProducerReferenceTime, wallclock) - 0usize];
-    ["Offset of field: AVProducerReferenceTime::flags"]
-        [::std::mem::offset_of!(AVProducerReferenceTime, flags) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVProducerReferenceTime() {
+    const UNINIT: ::std::mem::MaybeUninit<AVProducerReferenceTime> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVProducerReferenceTime>(),
+        16usize,
+        "Size of AVProducerReferenceTime"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVProducerReferenceTime>(),
+        8usize,
+        "Alignment of AVProducerReferenceTime"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).wallclock) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVProducerReferenceTime::wallclock"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVProducerReferenceTime::flags"
+    );
+}
 extern "C" {
     #[doc = " Encode extradata length to a buffer. Used by xiph codecs.\n\n @param s buffer to write to; must be at least (v/255+1) bytes long\n @param v size of extradata in bytes\n @return number of bytes written to the buffer."]
     pub fn av_xiphlacing(
@@ -8391,17 +9811,36 @@ pub struct AVPacketSideData {
     pub size: usize,
     pub type_: AVPacketSideDataType,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVPacketSideData"][::std::mem::size_of::<AVPacketSideData>() - 24usize];
-    ["Alignment of AVPacketSideData"][::std::mem::align_of::<AVPacketSideData>() - 8usize];
-    ["Offset of field: AVPacketSideData::data"]
-        [::std::mem::offset_of!(AVPacketSideData, data) - 0usize];
-    ["Offset of field: AVPacketSideData::size"]
-        [::std::mem::offset_of!(AVPacketSideData, size) - 8usize];
-    ["Offset of field: AVPacketSideData::type_"]
-        [::std::mem::offset_of!(AVPacketSideData, type_) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVPacketSideData() {
+    const UNINIT: ::std::mem::MaybeUninit<AVPacketSideData> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVPacketSideData>(),
+        24usize,
+        "Size of AVPacketSideData"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVPacketSideData>(),
+        8usize,
+        "Alignment of AVPacketSideData"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVPacketSideData::data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVPacketSideData::size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVPacketSideData::type_"
+    );
+}
 extern "C" {
     #[doc = " Allocate a new packet side data.\n\n @param sd    pointer to an array of side data to which the side data should\n              be added. *sd may be NULL, in which case the array will be\n              initialized.\n @param nb_sd pointer to an integer containing the number of entries in\n              the array. The integer value will be increased by 1 on success.\n @param type  side data type\n @param size  desired side data size\n @param flags currently unused. Must be zero\n\n @return pointer to freshly allocated side data on success, or NULL otherwise."]
     pub fn av_packet_side_data_new(
@@ -8478,41 +9917,122 @@ pub struct AVPacket {
     #[doc = " Time base of the packet's timestamps.\n In the future, this field may be set on packets output by encoders or\n demuxers, but its value will be by default ignored on input to decoders\n or muxers."]
     pub time_base: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVPacket"][::std::mem::size_of::<AVPacket>() - 104usize];
-    ["Alignment of AVPacket"][::std::mem::align_of::<AVPacket>() - 8usize];
-    ["Offset of field: AVPacket::buf"][::std::mem::offset_of!(AVPacket, buf) - 0usize];
-    ["Offset of field: AVPacket::pts"][::std::mem::offset_of!(AVPacket, pts) - 8usize];
-    ["Offset of field: AVPacket::dts"][::std::mem::offset_of!(AVPacket, dts) - 16usize];
-    ["Offset of field: AVPacket::data"][::std::mem::offset_of!(AVPacket, data) - 24usize];
-    ["Offset of field: AVPacket::size"][::std::mem::offset_of!(AVPacket, size) - 32usize];
-    ["Offset of field: AVPacket::stream_index"]
-        [::std::mem::offset_of!(AVPacket, stream_index) - 36usize];
-    ["Offset of field: AVPacket::flags"][::std::mem::offset_of!(AVPacket, flags) - 40usize];
-    ["Offset of field: AVPacket::side_data"][::std::mem::offset_of!(AVPacket, side_data) - 48usize];
-    ["Offset of field: AVPacket::side_data_elems"]
-        [::std::mem::offset_of!(AVPacket, side_data_elems) - 56usize];
-    ["Offset of field: AVPacket::duration"][::std::mem::offset_of!(AVPacket, duration) - 64usize];
-    ["Offset of field: AVPacket::pos"][::std::mem::offset_of!(AVPacket, pos) - 72usize];
-    ["Offset of field: AVPacket::opaque"][::std::mem::offset_of!(AVPacket, opaque) - 80usize];
-    ["Offset of field: AVPacket::opaque_ref"]
-        [::std::mem::offset_of!(AVPacket, opaque_ref) - 88usize];
-    ["Offset of field: AVPacket::time_base"][::std::mem::offset_of!(AVPacket, time_base) - 96usize];
-};
+#[test]
+fn bindgen_test_layout_AVPacket() {
+    const UNINIT: ::std::mem::MaybeUninit<AVPacket> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVPacket>(),
+        104usize,
+        "Size of AVPacket"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVPacket>(),
+        8usize,
+        "Alignment of AVPacket"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVPacket::buf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pts) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVPacket::pts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dts) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVPacket::dts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVPacket::data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVPacket::size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stream_index) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVPacket::stream_index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVPacket::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).side_data) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVPacket::side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).side_data_elems) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVPacket::side_data_elems"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).duration) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVPacket::duration"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pos) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVPacket::pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVPacket::opaque"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque_ref) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVPacket::opaque_ref"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVPacket::time_base"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVPacketList {
     pub pkt: AVPacket,
     pub next: *mut AVPacketList,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVPacketList"][::std::mem::size_of::<AVPacketList>() - 112usize];
-    ["Alignment of AVPacketList"][::std::mem::align_of::<AVPacketList>() - 8usize];
-    ["Offset of field: AVPacketList::pkt"][::std::mem::offset_of!(AVPacketList, pkt) - 0usize];
-    ["Offset of field: AVPacketList::next"][::std::mem::offset_of!(AVPacketList, next) - 104usize];
-};
+#[test]
+fn bindgen_test_layout_AVPacketList() {
+    const UNINIT: ::std::mem::MaybeUninit<AVPacketList> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVPacketList>(),
+        112usize,
+        "Size of AVPacketList"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVPacketList>(),
+        8usize,
+        "Alignment of AVPacketList"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pkt) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVPacketList::pkt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).next) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVPacketList::next"
+    );
+}
 pub const AV_SIDE_DATA_PARAM_CHANGE_SAMPLE_RATE: AVSideDataParamChangeFlags = 4;
 pub const AV_SIDE_DATA_PARAM_CHANGE_DIMENSIONS: AVSideDataParamChangeFlags = 8;
 pub type AVSideDataParamChangeFlags = ::std::os::raw::c_uint;
@@ -8649,25 +10169,56 @@ pub struct AVCodecDescriptor {
     #[doc = " If non-NULL, an array of profiles recognized for this codec.\n Terminated with AV_PROFILE_UNKNOWN."]
     pub profiles: *const AVProfile,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCodecDescriptor"][::std::mem::size_of::<AVCodecDescriptor>() - 48usize];
-    ["Alignment of AVCodecDescriptor"][::std::mem::align_of::<AVCodecDescriptor>() - 8usize];
-    ["Offset of field: AVCodecDescriptor::id"]
-        [::std::mem::offset_of!(AVCodecDescriptor, id) - 0usize];
-    ["Offset of field: AVCodecDescriptor::type_"]
-        [::std::mem::offset_of!(AVCodecDescriptor, type_) - 4usize];
-    ["Offset of field: AVCodecDescriptor::name"]
-        [::std::mem::offset_of!(AVCodecDescriptor, name) - 8usize];
-    ["Offset of field: AVCodecDescriptor::long_name"]
-        [::std::mem::offset_of!(AVCodecDescriptor, long_name) - 16usize];
-    ["Offset of field: AVCodecDescriptor::props"]
-        [::std::mem::offset_of!(AVCodecDescriptor, props) - 24usize];
-    ["Offset of field: AVCodecDescriptor::mime_types"]
-        [::std::mem::offset_of!(AVCodecDescriptor, mime_types) - 32usize];
-    ["Offset of field: AVCodecDescriptor::profiles"]
-        [::std::mem::offset_of!(AVCodecDescriptor, profiles) - 40usize];
-};
+#[test]
+fn bindgen_test_layout_AVCodecDescriptor() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCodecDescriptor> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVCodecDescriptor>(),
+        48usize,
+        "Size of AVCodecDescriptor"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVCodecDescriptor>(),
+        8usize,
+        "Alignment of AVCodecDescriptor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCodecDescriptor::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVCodecDescriptor::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVCodecDescriptor::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).long_name) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVCodecDescriptor::long_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).props) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVCodecDescriptor::props"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mime_types) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVCodecDescriptor::mime_types"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).profiles) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVCodecDescriptor::profiles"
+    );
+}
 extern "C" {
     #[doc = " @return descriptor for given codec ID or NULL if no descriptor exists."]
     pub fn avcodec_descriptor_get(id: AVCodecID) -> *const AVCodecDescriptor;
@@ -8743,73 +10294,176 @@ pub struct AVCodecParameters {
     #[doc = " Audio only. Number of samples to skip after a discontinuity."]
     pub seek_preroll: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCodecParameters"][::std::mem::size_of::<AVCodecParameters>() - 176usize];
-    ["Alignment of AVCodecParameters"][::std::mem::align_of::<AVCodecParameters>() - 8usize];
-    ["Offset of field: AVCodecParameters::codec_type"]
-        [::std::mem::offset_of!(AVCodecParameters, codec_type) - 0usize];
-    ["Offset of field: AVCodecParameters::codec_id"]
-        [::std::mem::offset_of!(AVCodecParameters, codec_id) - 4usize];
-    ["Offset of field: AVCodecParameters::codec_tag"]
-        [::std::mem::offset_of!(AVCodecParameters, codec_tag) - 8usize];
-    ["Offset of field: AVCodecParameters::extradata"]
-        [::std::mem::offset_of!(AVCodecParameters, extradata) - 16usize];
-    ["Offset of field: AVCodecParameters::extradata_size"]
-        [::std::mem::offset_of!(AVCodecParameters, extradata_size) - 24usize];
-    ["Offset of field: AVCodecParameters::coded_side_data"]
-        [::std::mem::offset_of!(AVCodecParameters, coded_side_data) - 32usize];
-    ["Offset of field: AVCodecParameters::nb_coded_side_data"]
-        [::std::mem::offset_of!(AVCodecParameters, nb_coded_side_data) - 40usize];
-    ["Offset of field: AVCodecParameters::format"]
-        [::std::mem::offset_of!(AVCodecParameters, format) - 44usize];
-    ["Offset of field: AVCodecParameters::bit_rate"]
-        [::std::mem::offset_of!(AVCodecParameters, bit_rate) - 48usize];
-    ["Offset of field: AVCodecParameters::bits_per_coded_sample"]
-        [::std::mem::offset_of!(AVCodecParameters, bits_per_coded_sample) - 56usize];
-    ["Offset of field: AVCodecParameters::bits_per_raw_sample"]
-        [::std::mem::offset_of!(AVCodecParameters, bits_per_raw_sample) - 60usize];
-    ["Offset of field: AVCodecParameters::profile"]
-        [::std::mem::offset_of!(AVCodecParameters, profile) - 64usize];
-    ["Offset of field: AVCodecParameters::level"]
-        [::std::mem::offset_of!(AVCodecParameters, level) - 68usize];
-    ["Offset of field: AVCodecParameters::width"]
-        [::std::mem::offset_of!(AVCodecParameters, width) - 72usize];
-    ["Offset of field: AVCodecParameters::height"]
-        [::std::mem::offset_of!(AVCodecParameters, height) - 76usize];
-    ["Offset of field: AVCodecParameters::sample_aspect_ratio"]
-        [::std::mem::offset_of!(AVCodecParameters, sample_aspect_ratio) - 80usize];
-    ["Offset of field: AVCodecParameters::framerate"]
-        [::std::mem::offset_of!(AVCodecParameters, framerate) - 88usize];
-    ["Offset of field: AVCodecParameters::field_order"]
-        [::std::mem::offset_of!(AVCodecParameters, field_order) - 96usize];
-    ["Offset of field: AVCodecParameters::color_range"]
-        [::std::mem::offset_of!(AVCodecParameters, color_range) - 100usize];
-    ["Offset of field: AVCodecParameters::color_primaries"]
-        [::std::mem::offset_of!(AVCodecParameters, color_primaries) - 104usize];
-    ["Offset of field: AVCodecParameters::color_trc"]
-        [::std::mem::offset_of!(AVCodecParameters, color_trc) - 108usize];
-    ["Offset of field: AVCodecParameters::color_space"]
-        [::std::mem::offset_of!(AVCodecParameters, color_space) - 112usize];
-    ["Offset of field: AVCodecParameters::chroma_location"]
-        [::std::mem::offset_of!(AVCodecParameters, chroma_location) - 116usize];
-    ["Offset of field: AVCodecParameters::video_delay"]
-        [::std::mem::offset_of!(AVCodecParameters, video_delay) - 120usize];
-    ["Offset of field: AVCodecParameters::ch_layout"]
-        [::std::mem::offset_of!(AVCodecParameters, ch_layout) - 128usize];
-    ["Offset of field: AVCodecParameters::sample_rate"]
-        [::std::mem::offset_of!(AVCodecParameters, sample_rate) - 152usize];
-    ["Offset of field: AVCodecParameters::block_align"]
-        [::std::mem::offset_of!(AVCodecParameters, block_align) - 156usize];
-    ["Offset of field: AVCodecParameters::frame_size"]
-        [::std::mem::offset_of!(AVCodecParameters, frame_size) - 160usize];
-    ["Offset of field: AVCodecParameters::initial_padding"]
-        [::std::mem::offset_of!(AVCodecParameters, initial_padding) - 164usize];
-    ["Offset of field: AVCodecParameters::trailing_padding"]
-        [::std::mem::offset_of!(AVCodecParameters, trailing_padding) - 168usize];
-    ["Offset of field: AVCodecParameters::seek_preroll"]
-        [::std::mem::offset_of!(AVCodecParameters, seek_preroll) - 172usize];
-};
+#[test]
+fn bindgen_test_layout_AVCodecParameters() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCodecParameters> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVCodecParameters>(),
+        176usize,
+        "Size of AVCodecParameters"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVCodecParameters>(),
+        8usize,
+        "Alignment of AVCodecParameters"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_type) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCodecParameters::codec_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_id) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVCodecParameters::codec_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_tag) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVCodecParameters::codec_tag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extradata) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVCodecParameters::extradata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extradata_size) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVCodecParameters::extradata_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coded_side_data) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVCodecParameters::coded_side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_coded_side_data) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVCodecParameters::nb_coded_side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVCodecParameters::format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_rate) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVCodecParameters::bit_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bits_per_coded_sample) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVCodecParameters::bits_per_coded_sample"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bits_per_raw_sample) as usize - ptr as usize },
+        60usize,
+        "Offset of field: AVCodecParameters::bits_per_raw_sample"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).profile) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVCodecParameters::profile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).level) as usize - ptr as usize },
+        68usize,
+        "Offset of field: AVCodecParameters::level"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVCodecParameters::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        76usize,
+        "Offset of field: AVCodecParameters::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_aspect_ratio) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVCodecParameters::sample_aspect_ratio"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).framerate) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVCodecParameters::framerate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).field_order) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVCodecParameters::field_order"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_range) as usize - ptr as usize },
+        100usize,
+        "Offset of field: AVCodecParameters::color_range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_primaries) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVCodecParameters::color_primaries"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_trc) as usize - ptr as usize },
+        108usize,
+        "Offset of field: AVCodecParameters::color_trc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_space) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVCodecParameters::color_space"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chroma_location) as usize - ptr as usize },
+        116usize,
+        "Offset of field: AVCodecParameters::chroma_location"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).video_delay) as usize - ptr as usize },
+        120usize,
+        "Offset of field: AVCodecParameters::video_delay"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize },
+        128usize,
+        "Offset of field: AVCodecParameters::ch_layout"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_rate) as usize - ptr as usize },
+        152usize,
+        "Offset of field: AVCodecParameters::sample_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).block_align) as usize - ptr as usize },
+        156usize,
+        "Offset of field: AVCodecParameters::block_align"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_size) as usize - ptr as usize },
+        160usize,
+        "Offset of field: AVCodecParameters::frame_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).initial_padding) as usize - ptr as usize },
+        164usize,
+        "Offset of field: AVCodecParameters::initial_padding"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).trailing_padding) as usize - ptr as usize },
+        168usize,
+        "Offset of field: AVCodecParameters::trailing_padding"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).seek_preroll) as usize - ptr as usize },
+        172usize,
+        "Offset of field: AVCodecParameters::seek_preroll"
+    );
+}
 impl ::std::fmt::Debug for AVCodecParameters {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVCodecParameters {{ codec_type: {:?}, codec_id: {:?}, codec_tag: {:?}, extradata: {:?}, extradata_size: {:?}, coded_side_data: {:?}, nb_coded_side_data: {:?}, format: {:?}, bit_rate: {:?}, bits_per_coded_sample: {:?}, bits_per_raw_sample: {:?}, profile: {:?}, level: {:?}, width: {:?}, height: {:?}, sample_aspect_ratio: {:?}, framerate: {:?}, field_order: {:?}, color_range: {:?}, color_primaries: {:?}, color_trc: {:?}, color_space: {:?}, chroma_location: {:?}, video_delay: {:?}, ch_layout: {:?}, sample_rate: {:?}, block_align: {:?}, frame_size: {:?}, initial_padding: {:?}, trailing_padding: {:?}, seek_preroll: {:?} }}" , self . codec_type , self . codec_id , self . codec_tag , self . extradata , self . extradata_size , self . coded_side_data , self . nb_coded_side_data , self . format , self . bit_rate , self . bits_per_coded_sample , self . bits_per_raw_sample , self . profile , self . level , self . width , self . height , self . sample_aspect_ratio , self . framerate , self . field_order , self . color_range , self . color_primaries , self . color_trc , self . color_space , self . chroma_location , self . video_delay , self . ch_layout , self . sample_rate , self . block_align , self . frame_size , self . initial_padding , self . trailing_padding , self . seek_preroll)
@@ -8846,18 +10500,41 @@ pub struct RcOverride {
     pub qscale: ::std::os::raw::c_int,
     pub quality_factor: f32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of RcOverride"][::std::mem::size_of::<RcOverride>() - 16usize];
-    ["Alignment of RcOverride"][::std::mem::align_of::<RcOverride>() - 4usize];
-    ["Offset of field: RcOverride::start_frame"]
-        [::std::mem::offset_of!(RcOverride, start_frame) - 0usize];
-    ["Offset of field: RcOverride::end_frame"]
-        [::std::mem::offset_of!(RcOverride, end_frame) - 4usize];
-    ["Offset of field: RcOverride::qscale"][::std::mem::offset_of!(RcOverride, qscale) - 8usize];
-    ["Offset of field: RcOverride::quality_factor"]
-        [::std::mem::offset_of!(RcOverride, quality_factor) - 12usize];
-};
+#[test]
+fn bindgen_test_layout_RcOverride() {
+    const UNINIT: ::std::mem::MaybeUninit<RcOverride> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<RcOverride>(),
+        16usize,
+        "Size of RcOverride"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<RcOverride>(),
+        4usize,
+        "Alignment of RcOverride"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).start_frame) as usize - ptr as usize },
+        0usize,
+        "Offset of field: RcOverride::start_frame"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).end_frame) as usize - ptr as usize },
+        4usize,
+        "Offset of field: RcOverride::end_frame"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).qscale) as usize - ptr as usize },
+        8usize,
+        "Offset of field: RcOverride::qscale"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).quality_factor) as usize - ptr as usize },
+        12usize,
+        "Offset of field: RcOverride::quality_factor"
+    );
+}
 #[doc = " main external API structure.\n New fields can be added to the end with minor version bumps.\n Removal, reordering and changes to existing fields require a major\n version bump.\n You can use AVOptions (av_opt* / av_set/get*()) to access these fields from user\n applications.\n The name string for AVOptions options matches the associated command line\n parameter name and can be found in libavcodec/options_table.h\n The AVOption/command line parameter names differ in some cases from the C\n structure field names for historic reasons or brevity.\n sizeof(AVCodecContext) must not be used outside libav*."]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -9209,315 +10886,781 @@ pub struct AVCodecContext {
     pub decoded_side_data: *mut *mut AVFrameSideData,
     pub nb_decoded_side_data: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCodecContext"][::std::mem::size_of::<AVCodecContext>() - 864usize];
-    ["Alignment of AVCodecContext"][::std::mem::align_of::<AVCodecContext>() - 8usize];
-    ["Offset of field: AVCodecContext::av_class"]
-        [::std::mem::offset_of!(AVCodecContext, av_class) - 0usize];
-    ["Offset of field: AVCodecContext::log_level_offset"]
-        [::std::mem::offset_of!(AVCodecContext, log_level_offset) - 8usize];
-    ["Offset of field: AVCodecContext::codec_type"]
-        [::std::mem::offset_of!(AVCodecContext, codec_type) - 12usize];
-    ["Offset of field: AVCodecContext::codec"]
-        [::std::mem::offset_of!(AVCodecContext, codec) - 16usize];
-    ["Offset of field: AVCodecContext::codec_id"]
-        [::std::mem::offset_of!(AVCodecContext, codec_id) - 24usize];
-    ["Offset of field: AVCodecContext::codec_tag"]
-        [::std::mem::offset_of!(AVCodecContext, codec_tag) - 28usize];
-    ["Offset of field: AVCodecContext::priv_data"]
-        [::std::mem::offset_of!(AVCodecContext, priv_data) - 32usize];
-    ["Offset of field: AVCodecContext::internal"]
-        [::std::mem::offset_of!(AVCodecContext, internal) - 40usize];
-    ["Offset of field: AVCodecContext::opaque"]
-        [::std::mem::offset_of!(AVCodecContext, opaque) - 48usize];
-    ["Offset of field: AVCodecContext::bit_rate"]
-        [::std::mem::offset_of!(AVCodecContext, bit_rate) - 56usize];
-    ["Offset of field: AVCodecContext::flags"]
-        [::std::mem::offset_of!(AVCodecContext, flags) - 64usize];
-    ["Offset of field: AVCodecContext::flags2"]
-        [::std::mem::offset_of!(AVCodecContext, flags2) - 68usize];
-    ["Offset of field: AVCodecContext::extradata"]
-        [::std::mem::offset_of!(AVCodecContext, extradata) - 72usize];
-    ["Offset of field: AVCodecContext::extradata_size"]
-        [::std::mem::offset_of!(AVCodecContext, extradata_size) - 80usize];
-    ["Offset of field: AVCodecContext::time_base"]
-        [::std::mem::offset_of!(AVCodecContext, time_base) - 84usize];
-    ["Offset of field: AVCodecContext::pkt_timebase"]
-        [::std::mem::offset_of!(AVCodecContext, pkt_timebase) - 92usize];
-    ["Offset of field: AVCodecContext::framerate"]
-        [::std::mem::offset_of!(AVCodecContext, framerate) - 100usize];
-    ["Offset of field: AVCodecContext::ticks_per_frame"]
-        [::std::mem::offset_of!(AVCodecContext, ticks_per_frame) - 108usize];
-    ["Offset of field: AVCodecContext::delay"]
-        [::std::mem::offset_of!(AVCodecContext, delay) - 112usize];
-    ["Offset of field: AVCodecContext::width"]
-        [::std::mem::offset_of!(AVCodecContext, width) - 116usize];
-    ["Offset of field: AVCodecContext::height"]
-        [::std::mem::offset_of!(AVCodecContext, height) - 120usize];
-    ["Offset of field: AVCodecContext::coded_width"]
-        [::std::mem::offset_of!(AVCodecContext, coded_width) - 124usize];
-    ["Offset of field: AVCodecContext::coded_height"]
-        [::std::mem::offset_of!(AVCodecContext, coded_height) - 128usize];
-    ["Offset of field: AVCodecContext::sample_aspect_ratio"]
-        [::std::mem::offset_of!(AVCodecContext, sample_aspect_ratio) - 132usize];
-    ["Offset of field: AVCodecContext::pix_fmt"]
-        [::std::mem::offset_of!(AVCodecContext, pix_fmt) - 140usize];
-    ["Offset of field: AVCodecContext::sw_pix_fmt"]
-        [::std::mem::offset_of!(AVCodecContext, sw_pix_fmt) - 144usize];
-    ["Offset of field: AVCodecContext::color_primaries"]
-        [::std::mem::offset_of!(AVCodecContext, color_primaries) - 148usize];
-    ["Offset of field: AVCodecContext::color_trc"]
-        [::std::mem::offset_of!(AVCodecContext, color_trc) - 152usize];
-    ["Offset of field: AVCodecContext::colorspace"]
-        [::std::mem::offset_of!(AVCodecContext, colorspace) - 156usize];
-    ["Offset of field: AVCodecContext::color_range"]
-        [::std::mem::offset_of!(AVCodecContext, color_range) - 160usize];
-    ["Offset of field: AVCodecContext::chroma_sample_location"]
-        [::std::mem::offset_of!(AVCodecContext, chroma_sample_location) - 164usize];
-    ["Offset of field: AVCodecContext::field_order"]
-        [::std::mem::offset_of!(AVCodecContext, field_order) - 168usize];
-    ["Offset of field: AVCodecContext::refs"]
-        [::std::mem::offset_of!(AVCodecContext, refs) - 172usize];
-    ["Offset of field: AVCodecContext::has_b_frames"]
-        [::std::mem::offset_of!(AVCodecContext, has_b_frames) - 176usize];
-    ["Offset of field: AVCodecContext::slice_flags"]
-        [::std::mem::offset_of!(AVCodecContext, slice_flags) - 180usize];
-    ["Offset of field: AVCodecContext::draw_horiz_band"]
-        [::std::mem::offset_of!(AVCodecContext, draw_horiz_band) - 184usize];
-    ["Offset of field: AVCodecContext::get_format"]
-        [::std::mem::offset_of!(AVCodecContext, get_format) - 192usize];
-    ["Offset of field: AVCodecContext::max_b_frames"]
-        [::std::mem::offset_of!(AVCodecContext, max_b_frames) - 200usize];
-    ["Offset of field: AVCodecContext::b_quant_factor"]
-        [::std::mem::offset_of!(AVCodecContext, b_quant_factor) - 204usize];
-    ["Offset of field: AVCodecContext::b_quant_offset"]
-        [::std::mem::offset_of!(AVCodecContext, b_quant_offset) - 208usize];
-    ["Offset of field: AVCodecContext::i_quant_factor"]
-        [::std::mem::offset_of!(AVCodecContext, i_quant_factor) - 212usize];
-    ["Offset of field: AVCodecContext::i_quant_offset"]
-        [::std::mem::offset_of!(AVCodecContext, i_quant_offset) - 216usize];
-    ["Offset of field: AVCodecContext::lumi_masking"]
-        [::std::mem::offset_of!(AVCodecContext, lumi_masking) - 220usize];
-    ["Offset of field: AVCodecContext::temporal_cplx_masking"]
-        [::std::mem::offset_of!(AVCodecContext, temporal_cplx_masking) - 224usize];
-    ["Offset of field: AVCodecContext::spatial_cplx_masking"]
-        [::std::mem::offset_of!(AVCodecContext, spatial_cplx_masking) - 228usize];
-    ["Offset of field: AVCodecContext::p_masking"]
-        [::std::mem::offset_of!(AVCodecContext, p_masking) - 232usize];
-    ["Offset of field: AVCodecContext::dark_masking"]
-        [::std::mem::offset_of!(AVCodecContext, dark_masking) - 236usize];
-    ["Offset of field: AVCodecContext::nsse_weight"]
-        [::std::mem::offset_of!(AVCodecContext, nsse_weight) - 240usize];
-    ["Offset of field: AVCodecContext::me_cmp"]
-        [::std::mem::offset_of!(AVCodecContext, me_cmp) - 244usize];
-    ["Offset of field: AVCodecContext::me_sub_cmp"]
-        [::std::mem::offset_of!(AVCodecContext, me_sub_cmp) - 248usize];
-    ["Offset of field: AVCodecContext::mb_cmp"]
-        [::std::mem::offset_of!(AVCodecContext, mb_cmp) - 252usize];
-    ["Offset of field: AVCodecContext::ildct_cmp"]
-        [::std::mem::offset_of!(AVCodecContext, ildct_cmp) - 256usize];
-    ["Offset of field: AVCodecContext::dia_size"]
-        [::std::mem::offset_of!(AVCodecContext, dia_size) - 260usize];
-    ["Offset of field: AVCodecContext::last_predictor_count"]
-        [::std::mem::offset_of!(AVCodecContext, last_predictor_count) - 264usize];
-    ["Offset of field: AVCodecContext::me_pre_cmp"]
-        [::std::mem::offset_of!(AVCodecContext, me_pre_cmp) - 268usize];
-    ["Offset of field: AVCodecContext::pre_dia_size"]
-        [::std::mem::offset_of!(AVCodecContext, pre_dia_size) - 272usize];
-    ["Offset of field: AVCodecContext::me_subpel_quality"]
-        [::std::mem::offset_of!(AVCodecContext, me_subpel_quality) - 276usize];
-    ["Offset of field: AVCodecContext::me_range"]
-        [::std::mem::offset_of!(AVCodecContext, me_range) - 280usize];
-    ["Offset of field: AVCodecContext::mb_decision"]
-        [::std::mem::offset_of!(AVCodecContext, mb_decision) - 284usize];
-    ["Offset of field: AVCodecContext::intra_matrix"]
-        [::std::mem::offset_of!(AVCodecContext, intra_matrix) - 288usize];
-    ["Offset of field: AVCodecContext::inter_matrix"]
-        [::std::mem::offset_of!(AVCodecContext, inter_matrix) - 296usize];
-    ["Offset of field: AVCodecContext::chroma_intra_matrix"]
-        [::std::mem::offset_of!(AVCodecContext, chroma_intra_matrix) - 304usize];
-    ["Offset of field: AVCodecContext::intra_dc_precision"]
-        [::std::mem::offset_of!(AVCodecContext, intra_dc_precision) - 312usize];
-    ["Offset of field: AVCodecContext::mb_lmin"]
-        [::std::mem::offset_of!(AVCodecContext, mb_lmin) - 316usize];
-    ["Offset of field: AVCodecContext::mb_lmax"]
-        [::std::mem::offset_of!(AVCodecContext, mb_lmax) - 320usize];
-    ["Offset of field: AVCodecContext::bidir_refine"]
-        [::std::mem::offset_of!(AVCodecContext, bidir_refine) - 324usize];
-    ["Offset of field: AVCodecContext::keyint_min"]
-        [::std::mem::offset_of!(AVCodecContext, keyint_min) - 328usize];
-    ["Offset of field: AVCodecContext::gop_size"]
-        [::std::mem::offset_of!(AVCodecContext, gop_size) - 332usize];
-    ["Offset of field: AVCodecContext::mv0_threshold"]
-        [::std::mem::offset_of!(AVCodecContext, mv0_threshold) - 336usize];
-    ["Offset of field: AVCodecContext::slices"]
-        [::std::mem::offset_of!(AVCodecContext, slices) - 340usize];
-    ["Offset of field: AVCodecContext::sample_rate"]
-        [::std::mem::offset_of!(AVCodecContext, sample_rate) - 344usize];
-    ["Offset of field: AVCodecContext::sample_fmt"]
-        [::std::mem::offset_of!(AVCodecContext, sample_fmt) - 348usize];
-    ["Offset of field: AVCodecContext::ch_layout"]
-        [::std::mem::offset_of!(AVCodecContext, ch_layout) - 352usize];
-    ["Offset of field: AVCodecContext::frame_size"]
-        [::std::mem::offset_of!(AVCodecContext, frame_size) - 376usize];
-    ["Offset of field: AVCodecContext::block_align"]
-        [::std::mem::offset_of!(AVCodecContext, block_align) - 380usize];
-    ["Offset of field: AVCodecContext::cutoff"]
-        [::std::mem::offset_of!(AVCodecContext, cutoff) - 384usize];
-    ["Offset of field: AVCodecContext::audio_service_type"]
-        [::std::mem::offset_of!(AVCodecContext, audio_service_type) - 388usize];
-    ["Offset of field: AVCodecContext::request_sample_fmt"]
-        [::std::mem::offset_of!(AVCodecContext, request_sample_fmt) - 392usize];
-    ["Offset of field: AVCodecContext::initial_padding"]
-        [::std::mem::offset_of!(AVCodecContext, initial_padding) - 396usize];
-    ["Offset of field: AVCodecContext::trailing_padding"]
-        [::std::mem::offset_of!(AVCodecContext, trailing_padding) - 400usize];
-    ["Offset of field: AVCodecContext::seek_preroll"]
-        [::std::mem::offset_of!(AVCodecContext, seek_preroll) - 404usize];
-    ["Offset of field: AVCodecContext::get_buffer2"]
-        [::std::mem::offset_of!(AVCodecContext, get_buffer2) - 408usize];
-    ["Offset of field: AVCodecContext::bit_rate_tolerance"]
-        [::std::mem::offset_of!(AVCodecContext, bit_rate_tolerance) - 416usize];
-    ["Offset of field: AVCodecContext::global_quality"]
-        [::std::mem::offset_of!(AVCodecContext, global_quality) - 420usize];
-    ["Offset of field: AVCodecContext::compression_level"]
-        [::std::mem::offset_of!(AVCodecContext, compression_level) - 424usize];
-    ["Offset of field: AVCodecContext::qcompress"]
-        [::std::mem::offset_of!(AVCodecContext, qcompress) - 428usize];
-    ["Offset of field: AVCodecContext::qblur"]
-        [::std::mem::offset_of!(AVCodecContext, qblur) - 432usize];
-    ["Offset of field: AVCodecContext::qmin"]
-        [::std::mem::offset_of!(AVCodecContext, qmin) - 436usize];
-    ["Offset of field: AVCodecContext::qmax"]
-        [::std::mem::offset_of!(AVCodecContext, qmax) - 440usize];
-    ["Offset of field: AVCodecContext::max_qdiff"]
-        [::std::mem::offset_of!(AVCodecContext, max_qdiff) - 444usize];
-    ["Offset of field: AVCodecContext::rc_buffer_size"]
-        [::std::mem::offset_of!(AVCodecContext, rc_buffer_size) - 448usize];
-    ["Offset of field: AVCodecContext::rc_override_count"]
-        [::std::mem::offset_of!(AVCodecContext, rc_override_count) - 452usize];
-    ["Offset of field: AVCodecContext::rc_override"]
-        [::std::mem::offset_of!(AVCodecContext, rc_override) - 456usize];
-    ["Offset of field: AVCodecContext::rc_max_rate"]
-        [::std::mem::offset_of!(AVCodecContext, rc_max_rate) - 464usize];
-    ["Offset of field: AVCodecContext::rc_min_rate"]
-        [::std::mem::offset_of!(AVCodecContext, rc_min_rate) - 472usize];
-    ["Offset of field: AVCodecContext::rc_max_available_vbv_use"]
-        [::std::mem::offset_of!(AVCodecContext, rc_max_available_vbv_use) - 480usize];
-    ["Offset of field: AVCodecContext::rc_min_vbv_overflow_use"]
-        [::std::mem::offset_of!(AVCodecContext, rc_min_vbv_overflow_use) - 484usize];
-    ["Offset of field: AVCodecContext::rc_initial_buffer_occupancy"]
-        [::std::mem::offset_of!(AVCodecContext, rc_initial_buffer_occupancy) - 488usize];
-    ["Offset of field: AVCodecContext::trellis"]
-        [::std::mem::offset_of!(AVCodecContext, trellis) - 492usize];
-    ["Offset of field: AVCodecContext::stats_out"]
-        [::std::mem::offset_of!(AVCodecContext, stats_out) - 496usize];
-    ["Offset of field: AVCodecContext::stats_in"]
-        [::std::mem::offset_of!(AVCodecContext, stats_in) - 504usize];
-    ["Offset of field: AVCodecContext::workaround_bugs"]
-        [::std::mem::offset_of!(AVCodecContext, workaround_bugs) - 512usize];
-    ["Offset of field: AVCodecContext::strict_std_compliance"]
-        [::std::mem::offset_of!(AVCodecContext, strict_std_compliance) - 516usize];
-    ["Offset of field: AVCodecContext::error_concealment"]
-        [::std::mem::offset_of!(AVCodecContext, error_concealment) - 520usize];
-    ["Offset of field: AVCodecContext::debug"]
-        [::std::mem::offset_of!(AVCodecContext, debug) - 524usize];
-    ["Offset of field: AVCodecContext::err_recognition"]
-        [::std::mem::offset_of!(AVCodecContext, err_recognition) - 528usize];
-    ["Offset of field: AVCodecContext::hwaccel"]
-        [::std::mem::offset_of!(AVCodecContext, hwaccel) - 536usize];
-    ["Offset of field: AVCodecContext::hwaccel_context"]
-        [::std::mem::offset_of!(AVCodecContext, hwaccel_context) - 544usize];
-    ["Offset of field: AVCodecContext::hw_frames_ctx"]
-        [::std::mem::offset_of!(AVCodecContext, hw_frames_ctx) - 552usize];
-    ["Offset of field: AVCodecContext::hw_device_ctx"]
-        [::std::mem::offset_of!(AVCodecContext, hw_device_ctx) - 560usize];
-    ["Offset of field: AVCodecContext::hwaccel_flags"]
-        [::std::mem::offset_of!(AVCodecContext, hwaccel_flags) - 568usize];
-    ["Offset of field: AVCodecContext::extra_hw_frames"]
-        [::std::mem::offset_of!(AVCodecContext, extra_hw_frames) - 572usize];
-    ["Offset of field: AVCodecContext::error"]
-        [::std::mem::offset_of!(AVCodecContext, error) - 576usize];
-    ["Offset of field: AVCodecContext::dct_algo"]
-        [::std::mem::offset_of!(AVCodecContext, dct_algo) - 640usize];
-    ["Offset of field: AVCodecContext::idct_algo"]
-        [::std::mem::offset_of!(AVCodecContext, idct_algo) - 644usize];
-    ["Offset of field: AVCodecContext::bits_per_coded_sample"]
-        [::std::mem::offset_of!(AVCodecContext, bits_per_coded_sample) - 648usize];
-    ["Offset of field: AVCodecContext::bits_per_raw_sample"]
-        [::std::mem::offset_of!(AVCodecContext, bits_per_raw_sample) - 652usize];
-    ["Offset of field: AVCodecContext::thread_count"]
-        [::std::mem::offset_of!(AVCodecContext, thread_count) - 656usize];
-    ["Offset of field: AVCodecContext::thread_type"]
-        [::std::mem::offset_of!(AVCodecContext, thread_type) - 660usize];
-    ["Offset of field: AVCodecContext::active_thread_type"]
-        [::std::mem::offset_of!(AVCodecContext, active_thread_type) - 664usize];
-    ["Offset of field: AVCodecContext::execute"]
-        [::std::mem::offset_of!(AVCodecContext, execute) - 672usize];
-    ["Offset of field: AVCodecContext::execute2"]
-        [::std::mem::offset_of!(AVCodecContext, execute2) - 680usize];
-    ["Offset of field: AVCodecContext::profile"]
-        [::std::mem::offset_of!(AVCodecContext, profile) - 688usize];
-    ["Offset of field: AVCodecContext::level"]
-        [::std::mem::offset_of!(AVCodecContext, level) - 692usize];
-    ["Offset of field: AVCodecContext::properties"]
-        [::std::mem::offset_of!(AVCodecContext, properties) - 696usize];
-    ["Offset of field: AVCodecContext::skip_loop_filter"]
-        [::std::mem::offset_of!(AVCodecContext, skip_loop_filter) - 700usize];
-    ["Offset of field: AVCodecContext::skip_idct"]
-        [::std::mem::offset_of!(AVCodecContext, skip_idct) - 704usize];
-    ["Offset of field: AVCodecContext::skip_frame"]
-        [::std::mem::offset_of!(AVCodecContext, skip_frame) - 708usize];
-    ["Offset of field: AVCodecContext::skip_alpha"]
-        [::std::mem::offset_of!(AVCodecContext, skip_alpha) - 712usize];
-    ["Offset of field: AVCodecContext::skip_top"]
-        [::std::mem::offset_of!(AVCodecContext, skip_top) - 716usize];
-    ["Offset of field: AVCodecContext::skip_bottom"]
-        [::std::mem::offset_of!(AVCodecContext, skip_bottom) - 720usize];
-    ["Offset of field: AVCodecContext::lowres"]
-        [::std::mem::offset_of!(AVCodecContext, lowres) - 724usize];
-    ["Offset of field: AVCodecContext::codec_descriptor"]
-        [::std::mem::offset_of!(AVCodecContext, codec_descriptor) - 728usize];
-    ["Offset of field: AVCodecContext::sub_charenc"]
-        [::std::mem::offset_of!(AVCodecContext, sub_charenc) - 736usize];
-    ["Offset of field: AVCodecContext::sub_charenc_mode"]
-        [::std::mem::offset_of!(AVCodecContext, sub_charenc_mode) - 744usize];
-    ["Offset of field: AVCodecContext::subtitle_header_size"]
-        [::std::mem::offset_of!(AVCodecContext, subtitle_header_size) - 748usize];
-    ["Offset of field: AVCodecContext::subtitle_header"]
-        [::std::mem::offset_of!(AVCodecContext, subtitle_header) - 752usize];
-    ["Offset of field: AVCodecContext::dump_separator"]
-        [::std::mem::offset_of!(AVCodecContext, dump_separator) - 760usize];
-    ["Offset of field: AVCodecContext::codec_whitelist"]
-        [::std::mem::offset_of!(AVCodecContext, codec_whitelist) - 768usize];
-    ["Offset of field: AVCodecContext::coded_side_data"]
-        [::std::mem::offset_of!(AVCodecContext, coded_side_data) - 776usize];
-    ["Offset of field: AVCodecContext::nb_coded_side_data"]
-        [::std::mem::offset_of!(AVCodecContext, nb_coded_side_data) - 784usize];
-    ["Offset of field: AVCodecContext::export_side_data"]
-        [::std::mem::offset_of!(AVCodecContext, export_side_data) - 788usize];
-    ["Offset of field: AVCodecContext::max_pixels"]
-        [::std::mem::offset_of!(AVCodecContext, max_pixels) - 792usize];
-    ["Offset of field: AVCodecContext::apply_cropping"]
-        [::std::mem::offset_of!(AVCodecContext, apply_cropping) - 800usize];
-    ["Offset of field: AVCodecContext::discard_damaged_percentage"]
-        [::std::mem::offset_of!(AVCodecContext, discard_damaged_percentage) - 804usize];
-    ["Offset of field: AVCodecContext::max_samples"]
-        [::std::mem::offset_of!(AVCodecContext, max_samples) - 808usize];
-    ["Offset of field: AVCodecContext::get_encode_buffer"]
-        [::std::mem::offset_of!(AVCodecContext, get_encode_buffer) - 816usize];
-    ["Offset of field: AVCodecContext::frame_num"]
-        [::std::mem::offset_of!(AVCodecContext, frame_num) - 824usize];
-    ["Offset of field: AVCodecContext::side_data_prefer_packet"]
-        [::std::mem::offset_of!(AVCodecContext, side_data_prefer_packet) - 832usize];
-    ["Offset of field: AVCodecContext::nb_side_data_prefer_packet"]
-        [::std::mem::offset_of!(AVCodecContext, nb_side_data_prefer_packet) - 840usize];
-    ["Offset of field: AVCodecContext::decoded_side_data"]
-        [::std::mem::offset_of!(AVCodecContext, decoded_side_data) - 848usize];
-    ["Offset of field: AVCodecContext::nb_decoded_side_data"]
-        [::std::mem::offset_of!(AVCodecContext, nb_decoded_side_data) - 856usize];
-};
+#[test]
+fn bindgen_test_layout_AVCodecContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCodecContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVCodecContext>(),
+        864usize,
+        "Size of AVCodecContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVCodecContext>(),
+        8usize,
+        "Alignment of AVCodecContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCodecContext::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).log_level_offset) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVCodecContext::log_level_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_type) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVCodecContext::codec_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVCodecContext::codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_id) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVCodecContext::codec_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_tag) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVCodecContext::codec_tag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_data) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVCodecContext::priv_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).internal) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVCodecContext::internal"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVCodecContext::opaque"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_rate) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVCodecContext::bit_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVCodecContext::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags2) as usize - ptr as usize },
+        68usize,
+        "Offset of field: AVCodecContext::flags2"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extradata) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVCodecContext::extradata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extradata_size) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVCodecContext::extradata_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVCodecContext::time_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pkt_timebase) as usize - ptr as usize },
+        92usize,
+        "Offset of field: AVCodecContext::pkt_timebase"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).framerate) as usize - ptr as usize },
+        100usize,
+        "Offset of field: AVCodecContext::framerate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ticks_per_frame) as usize - ptr as usize },
+        108usize,
+        "Offset of field: AVCodecContext::ticks_per_frame"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).delay) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVCodecContext::delay"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        116usize,
+        "Offset of field: AVCodecContext::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        120usize,
+        "Offset of field: AVCodecContext::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coded_width) as usize - ptr as usize },
+        124usize,
+        "Offset of field: AVCodecContext::coded_width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coded_height) as usize - ptr as usize },
+        128usize,
+        "Offset of field: AVCodecContext::coded_height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_aspect_ratio) as usize - ptr as usize },
+        132usize,
+        "Offset of field: AVCodecContext::sample_aspect_ratio"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pix_fmt) as usize - ptr as usize },
+        140usize,
+        "Offset of field: AVCodecContext::pix_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sw_pix_fmt) as usize - ptr as usize },
+        144usize,
+        "Offset of field: AVCodecContext::sw_pix_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_primaries) as usize - ptr as usize },
+        148usize,
+        "Offset of field: AVCodecContext::color_primaries"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_trc) as usize - ptr as usize },
+        152usize,
+        "Offset of field: AVCodecContext::color_trc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).colorspace) as usize - ptr as usize },
+        156usize,
+        "Offset of field: AVCodecContext::colorspace"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_range) as usize - ptr as usize },
+        160usize,
+        "Offset of field: AVCodecContext::color_range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chroma_sample_location) as usize - ptr as usize },
+        164usize,
+        "Offset of field: AVCodecContext::chroma_sample_location"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).field_order) as usize - ptr as usize },
+        168usize,
+        "Offset of field: AVCodecContext::field_order"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).refs) as usize - ptr as usize },
+        172usize,
+        "Offset of field: AVCodecContext::refs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).has_b_frames) as usize - ptr as usize },
+        176usize,
+        "Offset of field: AVCodecContext::has_b_frames"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).slice_flags) as usize - ptr as usize },
+        180usize,
+        "Offset of field: AVCodecContext::slice_flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).draw_horiz_band) as usize - ptr as usize },
+        184usize,
+        "Offset of field: AVCodecContext::draw_horiz_band"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).get_format) as usize - ptr as usize },
+        192usize,
+        "Offset of field: AVCodecContext::get_format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_b_frames) as usize - ptr as usize },
+        200usize,
+        "Offset of field: AVCodecContext::max_b_frames"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).b_quant_factor) as usize - ptr as usize },
+        204usize,
+        "Offset of field: AVCodecContext::b_quant_factor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).b_quant_offset) as usize - ptr as usize },
+        208usize,
+        "Offset of field: AVCodecContext::b_quant_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).i_quant_factor) as usize - ptr as usize },
+        212usize,
+        "Offset of field: AVCodecContext::i_quant_factor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).i_quant_offset) as usize - ptr as usize },
+        216usize,
+        "Offset of field: AVCodecContext::i_quant_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lumi_masking) as usize - ptr as usize },
+        220usize,
+        "Offset of field: AVCodecContext::lumi_masking"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).temporal_cplx_masking) as usize - ptr as usize },
+        224usize,
+        "Offset of field: AVCodecContext::temporal_cplx_masking"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).spatial_cplx_masking) as usize - ptr as usize },
+        228usize,
+        "Offset of field: AVCodecContext::spatial_cplx_masking"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).p_masking) as usize - ptr as usize },
+        232usize,
+        "Offset of field: AVCodecContext::p_masking"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dark_masking) as usize - ptr as usize },
+        236usize,
+        "Offset of field: AVCodecContext::dark_masking"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nsse_weight) as usize - ptr as usize },
+        240usize,
+        "Offset of field: AVCodecContext::nsse_weight"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).me_cmp) as usize - ptr as usize },
+        244usize,
+        "Offset of field: AVCodecContext::me_cmp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).me_sub_cmp) as usize - ptr as usize },
+        248usize,
+        "Offset of field: AVCodecContext::me_sub_cmp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mb_cmp) as usize - ptr as usize },
+        252usize,
+        "Offset of field: AVCodecContext::mb_cmp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ildct_cmp) as usize - ptr as usize },
+        256usize,
+        "Offset of field: AVCodecContext::ildct_cmp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dia_size) as usize - ptr as usize },
+        260usize,
+        "Offset of field: AVCodecContext::dia_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).last_predictor_count) as usize - ptr as usize },
+        264usize,
+        "Offset of field: AVCodecContext::last_predictor_count"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).me_pre_cmp) as usize - ptr as usize },
+        268usize,
+        "Offset of field: AVCodecContext::me_pre_cmp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pre_dia_size) as usize - ptr as usize },
+        272usize,
+        "Offset of field: AVCodecContext::pre_dia_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).me_subpel_quality) as usize - ptr as usize },
+        276usize,
+        "Offset of field: AVCodecContext::me_subpel_quality"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).me_range) as usize - ptr as usize },
+        280usize,
+        "Offset of field: AVCodecContext::me_range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mb_decision) as usize - ptr as usize },
+        284usize,
+        "Offset of field: AVCodecContext::mb_decision"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).intra_matrix) as usize - ptr as usize },
+        288usize,
+        "Offset of field: AVCodecContext::intra_matrix"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).inter_matrix) as usize - ptr as usize },
+        296usize,
+        "Offset of field: AVCodecContext::inter_matrix"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chroma_intra_matrix) as usize - ptr as usize },
+        304usize,
+        "Offset of field: AVCodecContext::chroma_intra_matrix"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).intra_dc_precision) as usize - ptr as usize },
+        312usize,
+        "Offset of field: AVCodecContext::intra_dc_precision"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mb_lmin) as usize - ptr as usize },
+        316usize,
+        "Offset of field: AVCodecContext::mb_lmin"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mb_lmax) as usize - ptr as usize },
+        320usize,
+        "Offset of field: AVCodecContext::mb_lmax"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bidir_refine) as usize - ptr as usize },
+        324usize,
+        "Offset of field: AVCodecContext::bidir_refine"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).keyint_min) as usize - ptr as usize },
+        328usize,
+        "Offset of field: AVCodecContext::keyint_min"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gop_size) as usize - ptr as usize },
+        332usize,
+        "Offset of field: AVCodecContext::gop_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mv0_threshold) as usize - ptr as usize },
+        336usize,
+        "Offset of field: AVCodecContext::mv0_threshold"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).slices) as usize - ptr as usize },
+        340usize,
+        "Offset of field: AVCodecContext::slices"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_rate) as usize - ptr as usize },
+        344usize,
+        "Offset of field: AVCodecContext::sample_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_fmt) as usize - ptr as usize },
+        348usize,
+        "Offset of field: AVCodecContext::sample_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize },
+        352usize,
+        "Offset of field: AVCodecContext::ch_layout"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_size) as usize - ptr as usize },
+        376usize,
+        "Offset of field: AVCodecContext::frame_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).block_align) as usize - ptr as usize },
+        380usize,
+        "Offset of field: AVCodecContext::block_align"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cutoff) as usize - ptr as usize },
+        384usize,
+        "Offset of field: AVCodecContext::cutoff"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_service_type) as usize - ptr as usize },
+        388usize,
+        "Offset of field: AVCodecContext::audio_service_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).request_sample_fmt) as usize - ptr as usize },
+        392usize,
+        "Offset of field: AVCodecContext::request_sample_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).initial_padding) as usize - ptr as usize },
+        396usize,
+        "Offset of field: AVCodecContext::initial_padding"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).trailing_padding) as usize - ptr as usize },
+        400usize,
+        "Offset of field: AVCodecContext::trailing_padding"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).seek_preroll) as usize - ptr as usize },
+        404usize,
+        "Offset of field: AVCodecContext::seek_preroll"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).get_buffer2) as usize - ptr as usize },
+        408usize,
+        "Offset of field: AVCodecContext::get_buffer2"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_rate_tolerance) as usize - ptr as usize },
+        416usize,
+        "Offset of field: AVCodecContext::bit_rate_tolerance"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).global_quality) as usize - ptr as usize },
+        420usize,
+        "Offset of field: AVCodecContext::global_quality"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).compression_level) as usize - ptr as usize },
+        424usize,
+        "Offset of field: AVCodecContext::compression_level"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).qcompress) as usize - ptr as usize },
+        428usize,
+        "Offset of field: AVCodecContext::qcompress"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).qblur) as usize - ptr as usize },
+        432usize,
+        "Offset of field: AVCodecContext::qblur"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).qmin) as usize - ptr as usize },
+        436usize,
+        "Offset of field: AVCodecContext::qmin"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).qmax) as usize - ptr as usize },
+        440usize,
+        "Offset of field: AVCodecContext::qmax"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_qdiff) as usize - ptr as usize },
+        444usize,
+        "Offset of field: AVCodecContext::max_qdiff"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rc_buffer_size) as usize - ptr as usize },
+        448usize,
+        "Offset of field: AVCodecContext::rc_buffer_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rc_override_count) as usize - ptr as usize },
+        452usize,
+        "Offset of field: AVCodecContext::rc_override_count"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rc_override) as usize - ptr as usize },
+        456usize,
+        "Offset of field: AVCodecContext::rc_override"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rc_max_rate) as usize - ptr as usize },
+        464usize,
+        "Offset of field: AVCodecContext::rc_max_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rc_min_rate) as usize - ptr as usize },
+        472usize,
+        "Offset of field: AVCodecContext::rc_min_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rc_max_available_vbv_use) as usize - ptr as usize },
+        480usize,
+        "Offset of field: AVCodecContext::rc_max_available_vbv_use"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rc_min_vbv_overflow_use) as usize - ptr as usize },
+        484usize,
+        "Offset of field: AVCodecContext::rc_min_vbv_overflow_use"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rc_initial_buffer_occupancy) as usize - ptr as usize },
+        488usize,
+        "Offset of field: AVCodecContext::rc_initial_buffer_occupancy"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).trellis) as usize - ptr as usize },
+        492usize,
+        "Offset of field: AVCodecContext::trellis"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stats_out) as usize - ptr as usize },
+        496usize,
+        "Offset of field: AVCodecContext::stats_out"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stats_in) as usize - ptr as usize },
+        504usize,
+        "Offset of field: AVCodecContext::stats_in"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).workaround_bugs) as usize - ptr as usize },
+        512usize,
+        "Offset of field: AVCodecContext::workaround_bugs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).strict_std_compliance) as usize - ptr as usize },
+        516usize,
+        "Offset of field: AVCodecContext::strict_std_compliance"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).error_concealment) as usize - ptr as usize },
+        520usize,
+        "Offset of field: AVCodecContext::error_concealment"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).debug) as usize - ptr as usize },
+        524usize,
+        "Offset of field: AVCodecContext::debug"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).err_recognition) as usize - ptr as usize },
+        528usize,
+        "Offset of field: AVCodecContext::err_recognition"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hwaccel) as usize - ptr as usize },
+        536usize,
+        "Offset of field: AVCodecContext::hwaccel"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hwaccel_context) as usize - ptr as usize },
+        544usize,
+        "Offset of field: AVCodecContext::hwaccel_context"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hw_frames_ctx) as usize - ptr as usize },
+        552usize,
+        "Offset of field: AVCodecContext::hw_frames_ctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hw_device_ctx) as usize - ptr as usize },
+        560usize,
+        "Offset of field: AVCodecContext::hw_device_ctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hwaccel_flags) as usize - ptr as usize },
+        568usize,
+        "Offset of field: AVCodecContext::hwaccel_flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extra_hw_frames) as usize - ptr as usize },
+        572usize,
+        "Offset of field: AVCodecContext::extra_hw_frames"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).error) as usize - ptr as usize },
+        576usize,
+        "Offset of field: AVCodecContext::error"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dct_algo) as usize - ptr as usize },
+        640usize,
+        "Offset of field: AVCodecContext::dct_algo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).idct_algo) as usize - ptr as usize },
+        644usize,
+        "Offset of field: AVCodecContext::idct_algo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bits_per_coded_sample) as usize - ptr as usize },
+        648usize,
+        "Offset of field: AVCodecContext::bits_per_coded_sample"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bits_per_raw_sample) as usize - ptr as usize },
+        652usize,
+        "Offset of field: AVCodecContext::bits_per_raw_sample"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).thread_count) as usize - ptr as usize },
+        656usize,
+        "Offset of field: AVCodecContext::thread_count"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).thread_type) as usize - ptr as usize },
+        660usize,
+        "Offset of field: AVCodecContext::thread_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).active_thread_type) as usize - ptr as usize },
+        664usize,
+        "Offset of field: AVCodecContext::active_thread_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).execute) as usize - ptr as usize },
+        672usize,
+        "Offset of field: AVCodecContext::execute"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).execute2) as usize - ptr as usize },
+        680usize,
+        "Offset of field: AVCodecContext::execute2"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).profile) as usize - ptr as usize },
+        688usize,
+        "Offset of field: AVCodecContext::profile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).level) as usize - ptr as usize },
+        692usize,
+        "Offset of field: AVCodecContext::level"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).properties) as usize - ptr as usize },
+        696usize,
+        "Offset of field: AVCodecContext::properties"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).skip_loop_filter) as usize - ptr as usize },
+        700usize,
+        "Offset of field: AVCodecContext::skip_loop_filter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).skip_idct) as usize - ptr as usize },
+        704usize,
+        "Offset of field: AVCodecContext::skip_idct"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).skip_frame) as usize - ptr as usize },
+        708usize,
+        "Offset of field: AVCodecContext::skip_frame"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).skip_alpha) as usize - ptr as usize },
+        712usize,
+        "Offset of field: AVCodecContext::skip_alpha"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).skip_top) as usize - ptr as usize },
+        716usize,
+        "Offset of field: AVCodecContext::skip_top"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).skip_bottom) as usize - ptr as usize },
+        720usize,
+        "Offset of field: AVCodecContext::skip_bottom"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lowres) as usize - ptr as usize },
+        724usize,
+        "Offset of field: AVCodecContext::lowres"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_descriptor) as usize - ptr as usize },
+        728usize,
+        "Offset of field: AVCodecContext::codec_descriptor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sub_charenc) as usize - ptr as usize },
+        736usize,
+        "Offset of field: AVCodecContext::sub_charenc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sub_charenc_mode) as usize - ptr as usize },
+        744usize,
+        "Offset of field: AVCodecContext::sub_charenc_mode"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subtitle_header_size) as usize - ptr as usize },
+        748usize,
+        "Offset of field: AVCodecContext::subtitle_header_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subtitle_header) as usize - ptr as usize },
+        752usize,
+        "Offset of field: AVCodecContext::subtitle_header"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dump_separator) as usize - ptr as usize },
+        760usize,
+        "Offset of field: AVCodecContext::dump_separator"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_whitelist) as usize - ptr as usize },
+        768usize,
+        "Offset of field: AVCodecContext::codec_whitelist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coded_side_data) as usize - ptr as usize },
+        776usize,
+        "Offset of field: AVCodecContext::coded_side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_coded_side_data) as usize - ptr as usize },
+        784usize,
+        "Offset of field: AVCodecContext::nb_coded_side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).export_side_data) as usize - ptr as usize },
+        788usize,
+        "Offset of field: AVCodecContext::export_side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_pixels) as usize - ptr as usize },
+        792usize,
+        "Offset of field: AVCodecContext::max_pixels"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).apply_cropping) as usize - ptr as usize },
+        800usize,
+        "Offset of field: AVCodecContext::apply_cropping"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).discard_damaged_percentage) as usize - ptr as usize },
+        804usize,
+        "Offset of field: AVCodecContext::discard_damaged_percentage"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_samples) as usize - ptr as usize },
+        808usize,
+        "Offset of field: AVCodecContext::max_samples"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).get_encode_buffer) as usize - ptr as usize },
+        816usize,
+        "Offset of field: AVCodecContext::get_encode_buffer"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_num) as usize - ptr as usize },
+        824usize,
+        "Offset of field: AVCodecContext::frame_num"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).side_data_prefer_packet) as usize - ptr as usize },
+        832usize,
+        "Offset of field: AVCodecContext::side_data_prefer_packet"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_side_data_prefer_packet) as usize - ptr as usize },
+        840usize,
+        "Offset of field: AVCodecContext::nb_side_data_prefer_packet"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).decoded_side_data) as usize - ptr as usize },
+        848usize,
+        "Offset of field: AVCodecContext::decoded_side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_decoded_side_data) as usize - ptr as usize },
+        856usize,
+        "Offset of field: AVCodecContext::nb_decoded_side_data"
+    );
+}
 impl ::std::fmt::Debug for AVCodecContext {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVCodecContext {{ av_class: {:?}, log_level_offset: {:?}, codec_type: {:?}, codec: {:?}, codec_id: {:?}, codec_tag: {:?}, priv_data: {:?}, internal: {:?}, opaque: {:?}, bit_rate: {:?}, flags: {:?}, flags2: {:?}, extradata: {:?}, extradata_size: {:?}, time_base: {:?}, pkt_timebase: {:?}, framerate: {:?}, ticks_per_frame: {:?}, delay: {:?}, width: {:?}, height: {:?}, coded_width: {:?}, coded_height: {:?}, sample_aspect_ratio: {:?}, pix_fmt: {:?}, sw_pix_fmt: {:?}, color_primaries: {:?}, color_trc: {:?}, colorspace: {:?}, color_range: {:?}, chroma_sample_location: {:?}, field_order: {:?}, refs: {:?}, has_b_frames: {:?}, slice_flags: {:?}, draw_horiz_band: {:?}, get_format: {:?}, max_b_frames: {:?}, b_quant_factor: {:?}, b_quant_offset: {:?}, i_quant_factor: {:?}, i_quant_offset: {:?}, lumi_masking: {:?}, temporal_cplx_masking: {:?}, spatial_cplx_masking: {:?}, p_masking: {:?}, dark_masking: {:?}, nsse_weight: {:?}, me_cmp: {:?}, me_sub_cmp: {:?}, mb_cmp: {:?}, ildct_cmp: {:?}, dia_size: {:?}, last_predictor_count: {:?}, me_pre_cmp: {:?}, pre_dia_size: {:?}, me_subpel_quality: {:?}, me_range: {:?}, mb_decision: {:?}, intra_matrix: {:?}, inter_matrix: {:?}, chroma_intra_matrix: {:?}, intra_dc_precision: {:?}, mb_lmin: {:?}, mb_lmax: {:?}, bidir_refine: {:?}, keyint_min: {:?}, gop_size: {:?}, mv0_threshold: {:?}, slices: {:?}, sample_rate: {:?}, sample_fmt: {:?}, ch_layout: {:?}, frame_size: {:?}, block_align: {:?}, cutoff: {:?}, audio_service_type: {:?}, request_sample_fmt: {:?}, initial_padding: {:?}, trailing_padding: {:?}, seek_preroll: {:?}, get_buffer2: {:?}, bit_rate_tolerance: {:?}, global_quality: {:?}, compression_level: {:?}, qcompress: {:?}, qblur: {:?}, qmin: {:?}, qmax: {:?}, max_qdiff: {:?}, rc_buffer_size: {:?}, rc_override_count: {:?}, rc_override: {:?}, rc_max_rate: {:?}, rc_min_rate: {:?}, rc_max_available_vbv_use: {:?}, rc_min_vbv_overflow_use: {:?}, rc_initial_buffer_occupancy: {:?}, trellis: {:?}, stats_out: {:?}, stats_in: {:?}, workaround_bugs: {:?}, strict_std_compliance: {:?}, error_concealment: {:?}, debug: {:?}, err_recognition: {:?}, hwaccel: {:?}, hwaccel_context: {:?}, hw_frames_ctx: {:?}, hw_device_ctx: {:?}, hwaccel_flags: {:?}, extra_hw_frames: {:?}, error: {:?}, dct_algo: {:?}, idct_algo: {:?}, bits_per_coded_sample: {:?}, bits_per_raw_sample: {:?}, thread_count: {:?}, thread_type: {:?}, active_thread_type: {:?}, execute: {:?}, execute2: {:?}, profile: {:?}, level: {:?}, properties: {:?}, skip_loop_filter: {:?}, skip_idct: {:?}, skip_frame: {:?}, skip_alpha: {:?}, skip_top: {:?}, skip_bottom: {:?}, lowres: {:?}, codec_descriptor: {:?}, sub_charenc: {:?}, sub_charenc_mode: {:?}, subtitle_header_size: {:?}, subtitle_header: {:?}, dump_separator: {:?}, codec_whitelist: {:?}, coded_side_data: {:?}, nb_coded_side_data: {:?}, export_side_data: {:?}, max_pixels: {:?}, apply_cropping: {:?}, discard_damaged_percentage: {:?}, max_samples: {:?}, get_encode_buffer: {:?}, frame_num: {:?}, side_data_prefer_packet: {:?}, nb_side_data_prefer_packet: {:?}, decoded_side_data: {:?}, nb_decoded_side_data: {:?} }}" , self . av_class , self . log_level_offset , self . codec_type , self . codec , self . codec_id , self . codec_tag , self . priv_data , self . internal , self . opaque , self . bit_rate , self . flags , self . flags2 , self . extradata , self . extradata_size , self . time_base , self . pkt_timebase , self . framerate , self . ticks_per_frame , self . delay , self . width , self . height , self . coded_width , self . coded_height , self . sample_aspect_ratio , self . pix_fmt , self . sw_pix_fmt , self . color_primaries , self . color_trc , self . colorspace , self . color_range , self . chroma_sample_location , self . field_order , self . refs , self . has_b_frames , self . slice_flags , self . draw_horiz_band , self . get_format , self . max_b_frames , self . b_quant_factor , self . b_quant_offset , self . i_quant_factor , self . i_quant_offset , self . lumi_masking , self . temporal_cplx_masking , self . spatial_cplx_masking , self . p_masking , self . dark_masking , self . nsse_weight , self . me_cmp , self . me_sub_cmp , self . mb_cmp , self . ildct_cmp , self . dia_size , self . last_predictor_count , self . me_pre_cmp , self . pre_dia_size , self . me_subpel_quality , self . me_range , self . mb_decision , self . intra_matrix , self . inter_matrix , self . chroma_intra_matrix , self . intra_dc_precision , self . mb_lmin , self . mb_lmax , self . bidir_refine , self . keyint_min , self . gop_size , self . mv0_threshold , self . slices , self . sample_rate , self . sample_fmt , self . ch_layout , self . frame_size , self . block_align , self . cutoff , self . audio_service_type , self . request_sample_fmt , self . initial_padding , self . trailing_padding , self . seek_preroll , self . get_buffer2 , self . bit_rate_tolerance , self . global_quality , self . compression_level , self . qcompress , self . qblur , self . qmin , self . qmax , self . max_qdiff , self . rc_buffer_size , self . rc_override_count , self . rc_override , self . rc_max_rate , self . rc_min_rate , self . rc_max_available_vbv_use , self . rc_min_vbv_overflow_use , self . rc_initial_buffer_occupancy , self . trellis , self . stats_out , self . stats_in , self . workaround_bugs , self . strict_std_compliance , self . error_concealment , self . debug , self . err_recognition , self . hwaccel , self . hwaccel_context , self . hw_frames_ctx , self . hw_device_ctx , self . hwaccel_flags , self . extra_hw_frames , self . error , self . dct_algo , self . idct_algo , self . bits_per_coded_sample , self . bits_per_raw_sample , self . thread_count , self . thread_type , self . active_thread_type , self . execute , self . execute2 , self . profile , self . level , self . properties , self . skip_loop_filter , self . skip_idct , self . skip_frame , self . skip_alpha , self . skip_top , self . skip_bottom , self . lowres , self . codec_descriptor , self . sub_charenc , self . sub_charenc_mode , self . subtitle_header_size , self . subtitle_header , self . dump_separator , self . codec_whitelist , self . coded_side_data , self . nb_coded_side_data , self . export_side_data , self . max_pixels , self . apply_cropping , self . discard_damaged_percentage , self . max_samples , self . get_encode_buffer , self . frame_num , self . side_data_prefer_packet , self . nb_side_data_prefer_packet , self . decoded_side_data , self . nb_decoded_side_data)
@@ -9538,17 +11681,46 @@ pub struct AVHWAccel {
     #[doc = " Hardware accelerated codec capabilities.\n see AV_HWACCEL_CODEC_CAP_*"]
     pub capabilities: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHWAccel"][::std::mem::size_of::<AVHWAccel>() - 24usize];
-    ["Alignment of AVHWAccel"][::std::mem::align_of::<AVHWAccel>() - 8usize];
-    ["Offset of field: AVHWAccel::name"][::std::mem::offset_of!(AVHWAccel, name) - 0usize];
-    ["Offset of field: AVHWAccel::type_"][::std::mem::offset_of!(AVHWAccel, type_) - 8usize];
-    ["Offset of field: AVHWAccel::id"][::std::mem::offset_of!(AVHWAccel, id) - 12usize];
-    ["Offset of field: AVHWAccel::pix_fmt"][::std::mem::offset_of!(AVHWAccel, pix_fmt) - 16usize];
-    ["Offset of field: AVHWAccel::capabilities"]
-        [::std::mem::offset_of!(AVHWAccel, capabilities) - 20usize];
-};
+#[test]
+fn bindgen_test_layout_AVHWAccel() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHWAccel> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHWAccel>(),
+        24usize,
+        "Size of AVHWAccel"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHWAccel>(),
+        8usize,
+        "Alignment of AVHWAccel"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVHWAccel::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVHWAccel::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVHWAccel::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pix_fmt) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVHWAccel::pix_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).capabilities) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVHWAccel::capabilities"
+    );
+}
 pub const SUBTITLE_NONE: AVSubtitleType = 0;
 #[doc = "< A bitmap, pict will be set"]
 pub const SUBTITLE_BITMAP: AVSubtitleType = 1;
@@ -9581,28 +11753,76 @@ pub struct AVSubtitleRect {
     #[doc = " 0 terminated ASS/SSA compatible event line.\n The presentation of this is unaffected by the other values in this\n struct."]
     pub ass: *mut ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVSubtitleRect"][::std::mem::size_of::<AVSubtitleRect>() - 96usize];
-    ["Alignment of AVSubtitleRect"][::std::mem::align_of::<AVSubtitleRect>() - 8usize];
-    ["Offset of field: AVSubtitleRect::x"][::std::mem::offset_of!(AVSubtitleRect, x) - 0usize];
-    ["Offset of field: AVSubtitleRect::y"][::std::mem::offset_of!(AVSubtitleRect, y) - 4usize];
-    ["Offset of field: AVSubtitleRect::w"][::std::mem::offset_of!(AVSubtitleRect, w) - 8usize];
-    ["Offset of field: AVSubtitleRect::h"][::std::mem::offset_of!(AVSubtitleRect, h) - 12usize];
-    ["Offset of field: AVSubtitleRect::nb_colors"]
-        [::std::mem::offset_of!(AVSubtitleRect, nb_colors) - 16usize];
-    ["Offset of field: AVSubtitleRect::data"]
-        [::std::mem::offset_of!(AVSubtitleRect, data) - 24usize];
-    ["Offset of field: AVSubtitleRect::linesize"]
-        [::std::mem::offset_of!(AVSubtitleRect, linesize) - 56usize];
-    ["Offset of field: AVSubtitleRect::flags"]
-        [::std::mem::offset_of!(AVSubtitleRect, flags) - 72usize];
-    ["Offset of field: AVSubtitleRect::type_"]
-        [::std::mem::offset_of!(AVSubtitleRect, type_) - 76usize];
-    ["Offset of field: AVSubtitleRect::text"]
-        [::std::mem::offset_of!(AVSubtitleRect, text) - 80usize];
-    ["Offset of field: AVSubtitleRect::ass"][::std::mem::offset_of!(AVSubtitleRect, ass) - 88usize];
-};
+#[test]
+fn bindgen_test_layout_AVSubtitleRect() {
+    const UNINIT: ::std::mem::MaybeUninit<AVSubtitleRect> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVSubtitleRect>(),
+        96usize,
+        "Size of AVSubtitleRect"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVSubtitleRect>(),
+        8usize,
+        "Alignment of AVSubtitleRect"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).x) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVSubtitleRect::x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).y) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVSubtitleRect::y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVSubtitleRect::w"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).h) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVSubtitleRect::h"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_colors) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVSubtitleRect::nb_colors"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVSubtitleRect::data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).linesize) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVSubtitleRect::linesize"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVSubtitleRect::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        76usize,
+        "Offset of field: AVSubtitleRect::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).text) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVSubtitleRect::text"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ass) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVSubtitleRect::ass"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVSubtitle {
@@ -9614,20 +11834,51 @@ pub struct AVSubtitle {
     #[doc = "< Same as packet pts, in AV_TIME_BASE"]
     pub pts: i64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVSubtitle"][::std::mem::size_of::<AVSubtitle>() - 32usize];
-    ["Alignment of AVSubtitle"][::std::mem::align_of::<AVSubtitle>() - 8usize];
-    ["Offset of field: AVSubtitle::format"][::std::mem::offset_of!(AVSubtitle, format) - 0usize];
-    ["Offset of field: AVSubtitle::start_display_time"]
-        [::std::mem::offset_of!(AVSubtitle, start_display_time) - 4usize];
-    ["Offset of field: AVSubtitle::end_display_time"]
-        [::std::mem::offset_of!(AVSubtitle, end_display_time) - 8usize];
-    ["Offset of field: AVSubtitle::num_rects"]
-        [::std::mem::offset_of!(AVSubtitle, num_rects) - 12usize];
-    ["Offset of field: AVSubtitle::rects"][::std::mem::offset_of!(AVSubtitle, rects) - 16usize];
-    ["Offset of field: AVSubtitle::pts"][::std::mem::offset_of!(AVSubtitle, pts) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_AVSubtitle() {
+    const UNINIT: ::std::mem::MaybeUninit<AVSubtitle> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVSubtitle>(),
+        32usize,
+        "Size of AVSubtitle"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVSubtitle>(),
+        8usize,
+        "Alignment of AVSubtitle"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVSubtitle::format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).start_display_time) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVSubtitle::start_display_time"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).end_display_time) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVSubtitle::end_display_time"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_rects) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVSubtitle::num_rects"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rects) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVSubtitle::rects"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pts) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVSubtitle::pts"
+    );
+}
 extern "C" {
     #[doc = " Return the LIBAVCODEC_VERSION_INT constant."]
     pub fn avcodec_version() -> ::std::os::raw::c_uint;
@@ -9829,81 +12080,196 @@ pub struct AVCodecParserContext {
     #[doc = " The format of the coded data, corresponds to enum AVPixelFormat for video\n and for enum AVSampleFormat for audio.\n\n Note that a decoder can have considerable freedom in how exactly it\n decodes the data, so the format reported here might be different from the\n one returned by a decoder."]
     pub format: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCodecParserContext"][::std::mem::size_of::<AVCodecParserContext>() - 336usize];
-    ["Alignment of AVCodecParserContext"][::std::mem::align_of::<AVCodecParserContext>() - 8usize];
-    ["Offset of field: AVCodecParserContext::priv_data"]
-        [::std::mem::offset_of!(AVCodecParserContext, priv_data) - 0usize];
-    ["Offset of field: AVCodecParserContext::parser"]
-        [::std::mem::offset_of!(AVCodecParserContext, parser) - 8usize];
-    ["Offset of field: AVCodecParserContext::frame_offset"]
-        [::std::mem::offset_of!(AVCodecParserContext, frame_offset) - 16usize];
-    ["Offset of field: AVCodecParserContext::cur_offset"]
-        [::std::mem::offset_of!(AVCodecParserContext, cur_offset) - 24usize];
-    ["Offset of field: AVCodecParserContext::next_frame_offset"]
-        [::std::mem::offset_of!(AVCodecParserContext, next_frame_offset) - 32usize];
-    ["Offset of field: AVCodecParserContext::pict_type"]
-        [::std::mem::offset_of!(AVCodecParserContext, pict_type) - 40usize];
-    ["Offset of field: AVCodecParserContext::repeat_pict"]
-        [::std::mem::offset_of!(AVCodecParserContext, repeat_pict) - 44usize];
-    ["Offset of field: AVCodecParserContext::pts"]
-        [::std::mem::offset_of!(AVCodecParserContext, pts) - 48usize];
-    ["Offset of field: AVCodecParserContext::dts"]
-        [::std::mem::offset_of!(AVCodecParserContext, dts) - 56usize];
-    ["Offset of field: AVCodecParserContext::last_pts"]
-        [::std::mem::offset_of!(AVCodecParserContext, last_pts) - 64usize];
-    ["Offset of field: AVCodecParserContext::last_dts"]
-        [::std::mem::offset_of!(AVCodecParserContext, last_dts) - 72usize];
-    ["Offset of field: AVCodecParserContext::fetch_timestamp"]
-        [::std::mem::offset_of!(AVCodecParserContext, fetch_timestamp) - 80usize];
-    ["Offset of field: AVCodecParserContext::cur_frame_start_index"]
-        [::std::mem::offset_of!(AVCodecParserContext, cur_frame_start_index) - 84usize];
-    ["Offset of field: AVCodecParserContext::cur_frame_offset"]
-        [::std::mem::offset_of!(AVCodecParserContext, cur_frame_offset) - 88usize];
-    ["Offset of field: AVCodecParserContext::cur_frame_pts"]
-        [::std::mem::offset_of!(AVCodecParserContext, cur_frame_pts) - 120usize];
-    ["Offset of field: AVCodecParserContext::cur_frame_dts"]
-        [::std::mem::offset_of!(AVCodecParserContext, cur_frame_dts) - 152usize];
-    ["Offset of field: AVCodecParserContext::flags"]
-        [::std::mem::offset_of!(AVCodecParserContext, flags) - 184usize];
-    ["Offset of field: AVCodecParserContext::offset"]
-        [::std::mem::offset_of!(AVCodecParserContext, offset) - 192usize];
-    ["Offset of field: AVCodecParserContext::cur_frame_end"]
-        [::std::mem::offset_of!(AVCodecParserContext, cur_frame_end) - 200usize];
-    ["Offset of field: AVCodecParserContext::key_frame"]
-        [::std::mem::offset_of!(AVCodecParserContext, key_frame) - 232usize];
-    ["Offset of field: AVCodecParserContext::dts_sync_point"]
-        [::std::mem::offset_of!(AVCodecParserContext, dts_sync_point) - 236usize];
-    ["Offset of field: AVCodecParserContext::dts_ref_dts_delta"]
-        [::std::mem::offset_of!(AVCodecParserContext, dts_ref_dts_delta) - 240usize];
-    ["Offset of field: AVCodecParserContext::pts_dts_delta"]
-        [::std::mem::offset_of!(AVCodecParserContext, pts_dts_delta) - 244usize];
-    ["Offset of field: AVCodecParserContext::cur_frame_pos"]
-        [::std::mem::offset_of!(AVCodecParserContext, cur_frame_pos) - 248usize];
-    ["Offset of field: AVCodecParserContext::pos"]
-        [::std::mem::offset_of!(AVCodecParserContext, pos) - 280usize];
-    ["Offset of field: AVCodecParserContext::last_pos"]
-        [::std::mem::offset_of!(AVCodecParserContext, last_pos) - 288usize];
-    ["Offset of field: AVCodecParserContext::duration"]
-        [::std::mem::offset_of!(AVCodecParserContext, duration) - 296usize];
-    ["Offset of field: AVCodecParserContext::field_order"]
-        [::std::mem::offset_of!(AVCodecParserContext, field_order) - 300usize];
-    ["Offset of field: AVCodecParserContext::picture_structure"]
-        [::std::mem::offset_of!(AVCodecParserContext, picture_structure) - 304usize];
-    ["Offset of field: AVCodecParserContext::output_picture_number"]
-        [::std::mem::offset_of!(AVCodecParserContext, output_picture_number) - 308usize];
-    ["Offset of field: AVCodecParserContext::width"]
-        [::std::mem::offset_of!(AVCodecParserContext, width) - 312usize];
-    ["Offset of field: AVCodecParserContext::height"]
-        [::std::mem::offset_of!(AVCodecParserContext, height) - 316usize];
-    ["Offset of field: AVCodecParserContext::coded_width"]
-        [::std::mem::offset_of!(AVCodecParserContext, coded_width) - 320usize];
-    ["Offset of field: AVCodecParserContext::coded_height"]
-        [::std::mem::offset_of!(AVCodecParserContext, coded_height) - 324usize];
-    ["Offset of field: AVCodecParserContext::format"]
-        [::std::mem::offset_of!(AVCodecParserContext, format) - 328usize];
-};
+#[test]
+fn bindgen_test_layout_AVCodecParserContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCodecParserContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVCodecParserContext>(),
+        336usize,
+        "Size of AVCodecParserContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVCodecParserContext>(),
+        8usize,
+        "Alignment of AVCodecParserContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCodecParserContext::priv_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).parser) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVCodecParserContext::parser"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_offset) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVCodecParserContext::frame_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cur_offset) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVCodecParserContext::cur_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).next_frame_offset) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVCodecParserContext::next_frame_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pict_type) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVCodecParserContext::pict_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).repeat_pict) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVCodecParserContext::repeat_pict"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pts) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVCodecParserContext::pts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dts) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVCodecParserContext::dts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).last_pts) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVCodecParserContext::last_pts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).last_dts) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVCodecParserContext::last_dts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fetch_timestamp) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVCodecParserContext::fetch_timestamp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cur_frame_start_index) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVCodecParserContext::cur_frame_start_index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cur_frame_offset) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVCodecParserContext::cur_frame_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cur_frame_pts) as usize - ptr as usize },
+        120usize,
+        "Offset of field: AVCodecParserContext::cur_frame_pts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cur_frame_dts) as usize - ptr as usize },
+        152usize,
+        "Offset of field: AVCodecParserContext::cur_frame_dts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        184usize,
+        "Offset of field: AVCodecParserContext::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).offset) as usize - ptr as usize },
+        192usize,
+        "Offset of field: AVCodecParserContext::offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cur_frame_end) as usize - ptr as usize },
+        200usize,
+        "Offset of field: AVCodecParserContext::cur_frame_end"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key_frame) as usize - ptr as usize },
+        232usize,
+        "Offset of field: AVCodecParserContext::key_frame"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dts_sync_point) as usize - ptr as usize },
+        236usize,
+        "Offset of field: AVCodecParserContext::dts_sync_point"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dts_ref_dts_delta) as usize - ptr as usize },
+        240usize,
+        "Offset of field: AVCodecParserContext::dts_ref_dts_delta"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pts_dts_delta) as usize - ptr as usize },
+        244usize,
+        "Offset of field: AVCodecParserContext::pts_dts_delta"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cur_frame_pos) as usize - ptr as usize },
+        248usize,
+        "Offset of field: AVCodecParserContext::cur_frame_pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pos) as usize - ptr as usize },
+        280usize,
+        "Offset of field: AVCodecParserContext::pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).last_pos) as usize - ptr as usize },
+        288usize,
+        "Offset of field: AVCodecParserContext::last_pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).duration) as usize - ptr as usize },
+        296usize,
+        "Offset of field: AVCodecParserContext::duration"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).field_order) as usize - ptr as usize },
+        300usize,
+        "Offset of field: AVCodecParserContext::field_order"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).picture_structure) as usize - ptr as usize },
+        304usize,
+        "Offset of field: AVCodecParserContext::picture_structure"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).output_picture_number) as usize - ptr as usize },
+        308usize,
+        "Offset of field: AVCodecParserContext::output_picture_number"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        312usize,
+        "Offset of field: AVCodecParserContext::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        316usize,
+        "Offset of field: AVCodecParserContext::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coded_width) as usize - ptr as usize },
+        320usize,
+        "Offset of field: AVCodecParserContext::coded_width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coded_height) as usize - ptr as usize },
+        324usize,
+        "Offset of field: AVCodecParserContext::coded_height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format) as usize - ptr as usize },
+        328usize,
+        "Offset of field: AVCodecParserContext::format"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVCodecParser {
@@ -9931,23 +12297,51 @@ pub struct AVCodecParser {
         ) -> ::std::os::raw::c_int,
     >,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCodecParser"][::std::mem::size_of::<AVCodecParser>() - 64usize];
-    ["Alignment of AVCodecParser"][::std::mem::align_of::<AVCodecParser>() - 8usize];
-    ["Offset of field: AVCodecParser::codec_ids"]
-        [::std::mem::offset_of!(AVCodecParser, codec_ids) - 0usize];
-    ["Offset of field: AVCodecParser::priv_data_size"]
-        [::std::mem::offset_of!(AVCodecParser, priv_data_size) - 28usize];
-    ["Offset of field: AVCodecParser::parser_init"]
-        [::std::mem::offset_of!(AVCodecParser, parser_init) - 32usize];
-    ["Offset of field: AVCodecParser::parser_parse"]
-        [::std::mem::offset_of!(AVCodecParser, parser_parse) - 40usize];
-    ["Offset of field: AVCodecParser::parser_close"]
-        [::std::mem::offset_of!(AVCodecParser, parser_close) - 48usize];
-    ["Offset of field: AVCodecParser::split"]
-        [::std::mem::offset_of!(AVCodecParser, split) - 56usize];
-};
+#[test]
+fn bindgen_test_layout_AVCodecParser() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCodecParser> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVCodecParser>(),
+        64usize,
+        "Size of AVCodecParser"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVCodecParser>(),
+        8usize,
+        "Alignment of AVCodecParser"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_ids) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCodecParser::codec_ids"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_data_size) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVCodecParser::priv_data_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).parser_init) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVCodecParser::parser_init"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).parser_parse) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVCodecParser::parser_parse"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).parser_close) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVCodecParser::parser_close"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).split) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVCodecParser::split"
+    );
+}
 extern "C" {
     #[doc = " Iterate over all registered codec parsers.\n\n @param opaque a pointer where libavcodec will store the iteration state. Must\n               point to NULL to start the iteration.\n\n @return the next registered codec parser or NULL when the iteration is\n         finished"]
     pub fn av_parser_iterate(opaque: *mut *mut ::std::os::raw::c_void) -> *const AVCodecParser;
@@ -10121,19 +12515,41 @@ pub struct AVOptionArrayDef {
     #[doc = " Separator between array elements in string representations of this\n option, used by av_opt_set() and av_opt_get(). It must be a printable\n ASCII character, excluding alphanumeric and the backslash. A comma is\n used when sep=0.\n\n The separator and the backslash must be backslash-escaped in order to\n appear in string representations of the option value."]
     pub sep: ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVOptionArrayDef"][::std::mem::size_of::<AVOptionArrayDef>() - 24usize];
-    ["Alignment of AVOptionArrayDef"][::std::mem::align_of::<AVOptionArrayDef>() - 8usize];
-    ["Offset of field: AVOptionArrayDef::def"]
-        [::std::mem::offset_of!(AVOptionArrayDef, def) - 0usize];
-    ["Offset of field: AVOptionArrayDef::size_min"]
-        [::std::mem::offset_of!(AVOptionArrayDef, size_min) - 8usize];
-    ["Offset of field: AVOptionArrayDef::size_max"]
-        [::std::mem::offset_of!(AVOptionArrayDef, size_max) - 12usize];
-    ["Offset of field: AVOptionArrayDef::sep"]
-        [::std::mem::offset_of!(AVOptionArrayDef, sep) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVOptionArrayDef() {
+    const UNINIT: ::std::mem::MaybeUninit<AVOptionArrayDef> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVOptionArrayDef>(),
+        24usize,
+        "Size of AVOptionArrayDef"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVOptionArrayDef>(),
+        8usize,
+        "Alignment of AVOptionArrayDef"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).def) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOptionArrayDef::def"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size_min) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVOptionArrayDef::size_min"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size_max) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVOptionArrayDef::size_max"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sep) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVOptionArrayDef::sep"
+    );
+}
 #[doc = " AVOption"]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -10165,42 +12581,112 @@ pub union AVOption__bindgen_ty_1 {
     #[doc = " Used for AV_OPT_TYPE_FLAG_ARRAY options. May be NULL.\n\n Foreign access to some members allowed, as noted in AVOptionArrayDef\n documentation."]
     pub arr: *const AVOptionArrayDef,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVOption__bindgen_ty_1"][::std::mem::size_of::<AVOption__bindgen_ty_1>() - 8usize];
-    ["Alignment of AVOption__bindgen_ty_1"]
-        [::std::mem::align_of::<AVOption__bindgen_ty_1>() - 8usize];
-    ["Offset of field: AVOption__bindgen_ty_1::i64_"]
-        [::std::mem::offset_of!(AVOption__bindgen_ty_1, i64_) - 0usize];
-    ["Offset of field: AVOption__bindgen_ty_1::dbl"]
-        [::std::mem::offset_of!(AVOption__bindgen_ty_1, dbl) - 0usize];
-    ["Offset of field: AVOption__bindgen_ty_1::str_"]
-        [::std::mem::offset_of!(AVOption__bindgen_ty_1, str_) - 0usize];
-    ["Offset of field: AVOption__bindgen_ty_1::q"]
-        [::std::mem::offset_of!(AVOption__bindgen_ty_1, q) - 0usize];
-    ["Offset of field: AVOption__bindgen_ty_1::arr"]
-        [::std::mem::offset_of!(AVOption__bindgen_ty_1, arr) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVOption__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<AVOption__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVOption__bindgen_ty_1>(),
+        8usize,
+        "Size of AVOption__bindgen_ty_1"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVOption__bindgen_ty_1>(),
+        8usize,
+        "Alignment of AVOption__bindgen_ty_1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).i64_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOption__bindgen_ty_1::i64_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dbl) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOption__bindgen_ty_1::dbl"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).str_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOption__bindgen_ty_1::str_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).q) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOption__bindgen_ty_1::q"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).arr) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOption__bindgen_ty_1::arr"
+    );
+}
 impl ::std::fmt::Debug for AVOption__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "AVOption__bindgen_ty_1 {{ union }}")
     }
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVOption"][::std::mem::size_of::<AVOption>() - 64usize];
-    ["Alignment of AVOption"][::std::mem::align_of::<AVOption>() - 8usize];
-    ["Offset of field: AVOption::name"][::std::mem::offset_of!(AVOption, name) - 0usize];
-    ["Offset of field: AVOption::help"][::std::mem::offset_of!(AVOption, help) - 8usize];
-    ["Offset of field: AVOption::offset"][::std::mem::offset_of!(AVOption, offset) - 16usize];
-    ["Offset of field: AVOption::type_"][::std::mem::offset_of!(AVOption, type_) - 20usize];
-    ["Offset of field: AVOption::default_val"]
-        [::std::mem::offset_of!(AVOption, default_val) - 24usize];
-    ["Offset of field: AVOption::min"][::std::mem::offset_of!(AVOption, min) - 32usize];
-    ["Offset of field: AVOption::max"][::std::mem::offset_of!(AVOption, max) - 40usize];
-    ["Offset of field: AVOption::flags"][::std::mem::offset_of!(AVOption, flags) - 48usize];
-    ["Offset of field: AVOption::unit"][::std::mem::offset_of!(AVOption, unit) - 56usize];
-};
+#[test]
+fn bindgen_test_layout_AVOption() {
+    const UNINIT: ::std::mem::MaybeUninit<AVOption> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVOption>(),
+        64usize,
+        "Size of AVOption"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVOption>(),
+        8usize,
+        "Alignment of AVOption"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOption::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).help) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVOption::help"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).offset) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVOption::offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVOption::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).default_val) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVOption::default_val"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVOption::min"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVOption::max"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVOption::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).unit) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVOption::unit"
+    );
+}
 impl ::std::fmt::Debug for AVOption {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVOption {{ name: {:?}, help: {:?}, offset: {:?}, type: {:?}, default_val: {:?}, min: {:?}, max: {:?}, flags: {:?}, unit: {:?} }}" , self . name , self . help , self . offset , self . type_ , self . default_val , self . min , self . max , self . flags , self . unit)
@@ -10222,22 +12708,51 @@ pub struct AVOptionRange {
     #[doc = " Range flag.\n If set to 1 the struct encodes a range, if set to 0 a single value."]
     pub is_range: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVOptionRange"][::std::mem::size_of::<AVOptionRange>() - 48usize];
-    ["Alignment of AVOptionRange"][::std::mem::align_of::<AVOptionRange>() - 8usize];
-    ["Offset of field: AVOptionRange::str_"][::std::mem::offset_of!(AVOptionRange, str_) - 0usize];
-    ["Offset of field: AVOptionRange::value_min"]
-        [::std::mem::offset_of!(AVOptionRange, value_min) - 8usize];
-    ["Offset of field: AVOptionRange::value_max"]
-        [::std::mem::offset_of!(AVOptionRange, value_max) - 16usize];
-    ["Offset of field: AVOptionRange::component_min"]
-        [::std::mem::offset_of!(AVOptionRange, component_min) - 24usize];
-    ["Offset of field: AVOptionRange::component_max"]
-        [::std::mem::offset_of!(AVOptionRange, component_max) - 32usize];
-    ["Offset of field: AVOptionRange::is_range"]
-        [::std::mem::offset_of!(AVOptionRange, is_range) - 40usize];
-};
+#[test]
+fn bindgen_test_layout_AVOptionRange() {
+    const UNINIT: ::std::mem::MaybeUninit<AVOptionRange> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVOptionRange>(),
+        48usize,
+        "Size of AVOptionRange"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVOptionRange>(),
+        8usize,
+        "Alignment of AVOptionRange"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).str_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOptionRange::str_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).value_min) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVOptionRange::value_min"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).value_max) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVOptionRange::value_max"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).component_min) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVOptionRange::component_min"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).component_max) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVOptionRange::component_max"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).is_range) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVOptionRange::is_range"
+    );
+}
 #[doc = " List of AVOptionRange structs."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -10249,17 +12764,36 @@ pub struct AVOptionRanges {
     #[doc = " Number of componentes."]
     pub nb_components: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVOptionRanges"][::std::mem::size_of::<AVOptionRanges>() - 16usize];
-    ["Alignment of AVOptionRanges"][::std::mem::align_of::<AVOptionRanges>() - 8usize];
-    ["Offset of field: AVOptionRanges::range"]
-        [::std::mem::offset_of!(AVOptionRanges, range) - 0usize];
-    ["Offset of field: AVOptionRanges::nb_ranges"]
-        [::std::mem::offset_of!(AVOptionRanges, nb_ranges) - 8usize];
-    ["Offset of field: AVOptionRanges::nb_components"]
-        [::std::mem::offset_of!(AVOptionRanges, nb_components) - 12usize];
-};
+#[test]
+fn bindgen_test_layout_AVOptionRanges() {
+    const UNINIT: ::std::mem::MaybeUninit<AVOptionRanges> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVOptionRanges>(),
+        16usize,
+        "Size of AVOptionRanges"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVOptionRanges>(),
+        8usize,
+        "Alignment of AVOptionRanges"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).range) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOptionRanges::range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_ranges) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVOptionRanges::nb_ranges"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_components) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVOptionRanges::nb_components"
+    );
+}
 extern "C" {
     #[doc = " Set the values of all AVOption fields to their default values.\n\n @param s an AVOption-enabled struct (its first member must be a pointer to AVClass)"]
     pub fn av_opt_set_defaults(s: *mut ::std::os::raw::c_void);
@@ -10691,23 +13225,62 @@ pub struct AVDCT {
         unsafe extern "C" fn(block: *mut i16, pixels: *const u8, line_size: isize),
     >,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDCT"][::std::mem::size_of::<AVDCT>() - 120usize];
-    ["Alignment of AVDCT"][::std::mem::align_of::<AVDCT>() - 8usize];
-    ["Offset of field: AVDCT::av_class"][::std::mem::offset_of!(AVDCT, av_class) - 0usize];
-    ["Offset of field: AVDCT::idct"][::std::mem::offset_of!(AVDCT, idct) - 8usize];
-    ["Offset of field: AVDCT::idct_permutation"]
-        [::std::mem::offset_of!(AVDCT, idct_permutation) - 16usize];
-    ["Offset of field: AVDCT::fdct"][::std::mem::offset_of!(AVDCT, fdct) - 80usize];
-    ["Offset of field: AVDCT::dct_algo"][::std::mem::offset_of!(AVDCT, dct_algo) - 88usize];
-    ["Offset of field: AVDCT::idct_algo"][::std::mem::offset_of!(AVDCT, idct_algo) - 92usize];
-    ["Offset of field: AVDCT::get_pixels"][::std::mem::offset_of!(AVDCT, get_pixels) - 96usize];
-    ["Offset of field: AVDCT::bits_per_sample"]
-        [::std::mem::offset_of!(AVDCT, bits_per_sample) - 104usize];
-    ["Offset of field: AVDCT::get_pixels_unaligned"]
-        [::std::mem::offset_of!(AVDCT, get_pixels_unaligned) - 112usize];
-};
+#[test]
+fn bindgen_test_layout_AVDCT() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDCT> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVDCT>(), 120usize, "Size of AVDCT");
+    assert_eq!(
+        ::std::mem::align_of::<AVDCT>(),
+        8usize,
+        "Alignment of AVDCT"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDCT::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).idct) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDCT::idct"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).idct_permutation) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDCT::idct_permutation"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fdct) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVDCT::fdct"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dct_algo) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVDCT::dct_algo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).idct_algo) as usize - ptr as usize },
+        92usize,
+        "Offset of field: AVDCT::idct_algo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).get_pixels) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVDCT::get_pixels"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bits_per_sample) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVDCT::bits_per_sample"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).get_pixels_unaligned) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVDCT::get_pixels_unaligned"
+    );
+}
 extern "C" {
     #[doc = " Allocates a AVDCT context.\n This needs to be initialized with avcodec_dct_init() after optionally\n configuring it with AVOptions.\n\n To free it use av_free()"]
     pub fn avcodec_dct_alloc() -> *mut AVDCT;
@@ -10726,13 +13299,31 @@ pub struct FFTComplex {
     pub re: FFTSample,
     pub im: FFTSample,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of FFTComplex"][::std::mem::size_of::<FFTComplex>() - 8usize];
-    ["Alignment of FFTComplex"][::std::mem::align_of::<FFTComplex>() - 4usize];
-    ["Offset of field: FFTComplex::re"][::std::mem::offset_of!(FFTComplex, re) - 0usize];
-    ["Offset of field: FFTComplex::im"][::std::mem::offset_of!(FFTComplex, im) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_FFTComplex() {
+    const UNINIT: ::std::mem::MaybeUninit<FFTComplex> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<FFTComplex>(),
+        8usize,
+        "Size of FFTComplex"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<FFTComplex>(),
+        4usize,
+        "Alignment of FFTComplex"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).re) as usize - ptr as usize },
+        0usize,
+        "Offset of field: FFTComplex::re"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).im) as usize - ptr as usize },
+        4usize,
+        "Offset of field: FFTComplex::im"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FFTContext {
@@ -10835,25 +13426,56 @@ pub struct AVBSFContext {
     #[doc = " The timebase used for the timestamps of the output packets. Set by the\n filter in av_bsf_init()."]
     pub time_base_out: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVBSFContext"][::std::mem::size_of::<AVBSFContext>() - 56usize];
-    ["Alignment of AVBSFContext"][::std::mem::align_of::<AVBSFContext>() - 8usize];
-    ["Offset of field: AVBSFContext::av_class"]
-        [::std::mem::offset_of!(AVBSFContext, av_class) - 0usize];
-    ["Offset of field: AVBSFContext::filter"]
-        [::std::mem::offset_of!(AVBSFContext, filter) - 8usize];
-    ["Offset of field: AVBSFContext::priv_data"]
-        [::std::mem::offset_of!(AVBSFContext, priv_data) - 16usize];
-    ["Offset of field: AVBSFContext::par_in"]
-        [::std::mem::offset_of!(AVBSFContext, par_in) - 24usize];
-    ["Offset of field: AVBSFContext::par_out"]
-        [::std::mem::offset_of!(AVBSFContext, par_out) - 32usize];
-    ["Offset of field: AVBSFContext::time_base_in"]
-        [::std::mem::offset_of!(AVBSFContext, time_base_in) - 40usize];
-    ["Offset of field: AVBSFContext::time_base_out"]
-        [::std::mem::offset_of!(AVBSFContext, time_base_out) - 48usize];
-};
+#[test]
+fn bindgen_test_layout_AVBSFContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVBSFContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVBSFContext>(),
+        56usize,
+        "Size of AVBSFContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVBSFContext>(),
+        8usize,
+        "Alignment of AVBSFContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVBSFContext::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filter) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVBSFContext::filter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_data) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVBSFContext::priv_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).par_in) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVBSFContext::par_in"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).par_out) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVBSFContext::par_out"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base_in) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVBSFContext::time_base_in"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base_out) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVBSFContext::time_base_out"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVBitStreamFilter {
@@ -10863,17 +13485,36 @@ pub struct AVBitStreamFilter {
     #[doc = " A class for the private data, used to declare bitstream filter private\n AVOptions. This field is NULL for bitstream filters that do not declare\n any options.\n\n If this field is non-NULL, the first member of the filter private data\n must be a pointer to AVClass, which will be set by libavcodec generic\n code to this class."]
     pub priv_class: *const AVClass,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVBitStreamFilter"][::std::mem::size_of::<AVBitStreamFilter>() - 24usize];
-    ["Alignment of AVBitStreamFilter"][::std::mem::align_of::<AVBitStreamFilter>() - 8usize];
-    ["Offset of field: AVBitStreamFilter::name"]
-        [::std::mem::offset_of!(AVBitStreamFilter, name) - 0usize];
-    ["Offset of field: AVBitStreamFilter::codec_ids"]
-        [::std::mem::offset_of!(AVBitStreamFilter, codec_ids) - 8usize];
-    ["Offset of field: AVBitStreamFilter::priv_class"]
-        [::std::mem::offset_of!(AVBitStreamFilter, priv_class) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVBitStreamFilter() {
+    const UNINIT: ::std::mem::MaybeUninit<AVBitStreamFilter> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVBitStreamFilter>(),
+        24usize,
+        "Size of AVBitStreamFilter"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVBitStreamFilter>(),
+        8usize,
+        "Alignment of AVBitStreamFilter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVBitStreamFilter::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_ids) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVBitStreamFilter::codec_ids"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_class) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVBitStreamFilter::priv_class"
+    );
+}
 extern "C" {
     #[doc = " @return a bitstream filter with the specified name or NULL if no such\n         bitstream filter exists."]
     pub fn av_bsf_get_by_name(name: *const ::std::os::raw::c_char) -> *const AVBitStreamFilter;
@@ -10984,15 +13625,31 @@ pub struct DiracVersionInfo {
     pub major: ::std::os::raw::c_int,
     pub minor: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of DiracVersionInfo"][::std::mem::size_of::<DiracVersionInfo>() - 8usize];
-    ["Alignment of DiracVersionInfo"][::std::mem::align_of::<DiracVersionInfo>() - 4usize];
-    ["Offset of field: DiracVersionInfo::major"]
-        [::std::mem::offset_of!(DiracVersionInfo, major) - 0usize];
-    ["Offset of field: DiracVersionInfo::minor"]
-        [::std::mem::offset_of!(DiracVersionInfo, minor) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_DiracVersionInfo() {
+    const UNINIT: ::std::mem::MaybeUninit<DiracVersionInfo> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<DiracVersionInfo>(),
+        8usize,
+        "Size of DiracVersionInfo"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<DiracVersionInfo>(),
+        4usize,
+        "Alignment of DiracVersionInfo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).major) as usize - ptr as usize },
+        0usize,
+        "Offset of field: DiracVersionInfo::major"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).minor) as usize - ptr as usize },
+        4usize,
+        "Offset of field: DiracVersionInfo::minor"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVDiracSeqHeader {
@@ -11026,59 +13683,141 @@ pub struct AVDiracSeqHeader {
     pub version: DiracVersionInfo,
     pub bit_depth: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDiracSeqHeader"][::std::mem::size_of::<AVDiracSeqHeader>() - 80usize];
-    ["Alignment of AVDiracSeqHeader"][::std::mem::align_of::<AVDiracSeqHeader>() - 4usize];
-    ["Offset of field: AVDiracSeqHeader::width"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, width) - 0usize];
-    ["Offset of field: AVDiracSeqHeader::height"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, height) - 4usize];
-    ["Offset of field: AVDiracSeqHeader::chroma_format"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, chroma_format) - 8usize];
-    ["Offset of field: AVDiracSeqHeader::interlaced"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, interlaced) - 9usize];
-    ["Offset of field: AVDiracSeqHeader::top_field_first"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, top_field_first) - 10usize];
-    ["Offset of field: AVDiracSeqHeader::frame_rate_index"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, frame_rate_index) - 11usize];
-    ["Offset of field: AVDiracSeqHeader::aspect_ratio_index"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, aspect_ratio_index) - 12usize];
-    ["Offset of field: AVDiracSeqHeader::clean_width"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, clean_width) - 14usize];
-    ["Offset of field: AVDiracSeqHeader::clean_height"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, clean_height) - 16usize];
-    ["Offset of field: AVDiracSeqHeader::clean_left_offset"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, clean_left_offset) - 18usize];
-    ["Offset of field: AVDiracSeqHeader::clean_right_offset"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, clean_right_offset) - 20usize];
-    ["Offset of field: AVDiracSeqHeader::pixel_range_index"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, pixel_range_index) - 22usize];
-    ["Offset of field: AVDiracSeqHeader::color_spec_index"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, color_spec_index) - 23usize];
-    ["Offset of field: AVDiracSeqHeader::profile"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, profile) - 24usize];
-    ["Offset of field: AVDiracSeqHeader::level"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, level) - 28usize];
-    ["Offset of field: AVDiracSeqHeader::framerate"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, framerate) - 32usize];
-    ["Offset of field: AVDiracSeqHeader::sample_aspect_ratio"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, sample_aspect_ratio) - 40usize];
-    ["Offset of field: AVDiracSeqHeader::pix_fmt"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, pix_fmt) - 48usize];
-    ["Offset of field: AVDiracSeqHeader::color_range"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, color_range) - 52usize];
-    ["Offset of field: AVDiracSeqHeader::color_primaries"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, color_primaries) - 56usize];
-    ["Offset of field: AVDiracSeqHeader::color_trc"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, color_trc) - 60usize];
-    ["Offset of field: AVDiracSeqHeader::colorspace"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, colorspace) - 64usize];
-    ["Offset of field: AVDiracSeqHeader::version"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, version) - 68usize];
-    ["Offset of field: AVDiracSeqHeader::bit_depth"]
-        [::std::mem::offset_of!(AVDiracSeqHeader, bit_depth) - 76usize];
-};
+#[test]
+fn bindgen_test_layout_AVDiracSeqHeader() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDiracSeqHeader> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDiracSeqHeader>(),
+        80usize,
+        "Size of AVDiracSeqHeader"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDiracSeqHeader>(),
+        4usize,
+        "Alignment of AVDiracSeqHeader"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDiracSeqHeader::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDiracSeqHeader::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chroma_format) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDiracSeqHeader::chroma_format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).interlaced) as usize - ptr as usize },
+        9usize,
+        "Offset of field: AVDiracSeqHeader::interlaced"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).top_field_first) as usize - ptr as usize },
+        10usize,
+        "Offset of field: AVDiracSeqHeader::top_field_first"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_rate_index) as usize - ptr as usize },
+        11usize,
+        "Offset of field: AVDiracSeqHeader::frame_rate_index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).aspect_ratio_index) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVDiracSeqHeader::aspect_ratio_index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).clean_width) as usize - ptr as usize },
+        14usize,
+        "Offset of field: AVDiracSeqHeader::clean_width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).clean_height) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDiracSeqHeader::clean_height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).clean_left_offset) as usize - ptr as usize },
+        18usize,
+        "Offset of field: AVDiracSeqHeader::clean_left_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).clean_right_offset) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVDiracSeqHeader::clean_right_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pixel_range_index) as usize - ptr as usize },
+        22usize,
+        "Offset of field: AVDiracSeqHeader::pixel_range_index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_spec_index) as usize - ptr as usize },
+        23usize,
+        "Offset of field: AVDiracSeqHeader::color_spec_index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).profile) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVDiracSeqHeader::profile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).level) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVDiracSeqHeader::level"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).framerate) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVDiracSeqHeader::framerate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_aspect_ratio) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVDiracSeqHeader::sample_aspect_ratio"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pix_fmt) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVDiracSeqHeader::pix_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_range) as usize - ptr as usize },
+        52usize,
+        "Offset of field: AVDiracSeqHeader::color_range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_primaries) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVDiracSeqHeader::color_primaries"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_trc) as usize - ptr as usize },
+        60usize,
+        "Offset of field: AVDiracSeqHeader::color_trc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).colorspace) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVDiracSeqHeader::colorspace"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).version) as usize - ptr as usize },
+        68usize,
+        "Offset of field: AVDiracSeqHeader::version"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_depth) as usize - ptr as usize },
+        76usize,
+        "Offset of field: AVDiracSeqHeader::bit_depth"
+    );
+}
 extern "C" {
     #[doc = " Parse a Dirac sequence header.\n\n @param dsh this function will allocate and fill an AVDiracSeqHeader struct\n            and write it into this pointer. The caller must free it with\n            av_free().\n @param buf the data buffer\n @param buf_size the size of the data buffer in bytes\n @param log_ctx if non-NULL, this function will log errors here\n @return 0 on success, a negative AVERROR code on failure"]
     pub fn av_dirac_parse_sequence_header(
@@ -11109,40 +13848,106 @@ pub struct AVDVProfile {
     pub audio_samples_dist: [::std::os::raw::c_int; 5usize],
     pub audio_shuffle: *const [::std::os::raw::c_uchar; 9usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDVProfile"][::std::mem::size_of::<AVDVProfile>() - 120usize];
-    ["Alignment of AVDVProfile"][::std::mem::align_of::<AVDVProfile>() - 8usize];
-    ["Offset of field: AVDVProfile::dsf"][::std::mem::offset_of!(AVDVProfile, dsf) - 0usize];
-    ["Offset of field: AVDVProfile::video_stype"]
-        [::std::mem::offset_of!(AVDVProfile, video_stype) - 4usize];
-    ["Offset of field: AVDVProfile::frame_size"]
-        [::std::mem::offset_of!(AVDVProfile, frame_size) - 8usize];
-    ["Offset of field: AVDVProfile::difseg_size"]
-        [::std::mem::offset_of!(AVDVProfile, difseg_size) - 12usize];
-    ["Offset of field: AVDVProfile::n_difchan"]
-        [::std::mem::offset_of!(AVDVProfile, n_difchan) - 16usize];
-    ["Offset of field: AVDVProfile::time_base"]
-        [::std::mem::offset_of!(AVDVProfile, time_base) - 20usize];
-    ["Offset of field: AVDVProfile::ltc_divisor"]
-        [::std::mem::offset_of!(AVDVProfile, ltc_divisor) - 28usize];
-    ["Offset of field: AVDVProfile::height"][::std::mem::offset_of!(AVDVProfile, height) - 32usize];
-    ["Offset of field: AVDVProfile::width"][::std::mem::offset_of!(AVDVProfile, width) - 36usize];
-    ["Offset of field: AVDVProfile::sar"][::std::mem::offset_of!(AVDVProfile, sar) - 40usize];
-    ["Offset of field: AVDVProfile::pix_fmt"]
-        [::std::mem::offset_of!(AVDVProfile, pix_fmt) - 56usize];
-    ["Offset of field: AVDVProfile::bpm"][::std::mem::offset_of!(AVDVProfile, bpm) - 60usize];
-    ["Offset of field: AVDVProfile::block_sizes"]
-        [::std::mem::offset_of!(AVDVProfile, block_sizes) - 64usize];
-    ["Offset of field: AVDVProfile::audio_stride"]
-        [::std::mem::offset_of!(AVDVProfile, audio_stride) - 72usize];
-    ["Offset of field: AVDVProfile::audio_min_samples"]
-        [::std::mem::offset_of!(AVDVProfile, audio_min_samples) - 76usize];
-    ["Offset of field: AVDVProfile::audio_samples_dist"]
-        [::std::mem::offset_of!(AVDVProfile, audio_samples_dist) - 88usize];
-    ["Offset of field: AVDVProfile::audio_shuffle"]
-        [::std::mem::offset_of!(AVDVProfile, audio_shuffle) - 112usize];
-};
+#[test]
+fn bindgen_test_layout_AVDVProfile() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDVProfile> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDVProfile>(),
+        120usize,
+        "Size of AVDVProfile"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDVProfile>(),
+        8usize,
+        "Alignment of AVDVProfile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dsf) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDVProfile::dsf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).video_stype) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDVProfile::video_stype"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_size) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDVProfile::frame_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).difseg_size) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVDVProfile::difseg_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).n_difchan) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDVProfile::n_difchan"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVDVProfile::time_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ltc_divisor) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVDVProfile::ltc_divisor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVDVProfile::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVDVProfile::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sar) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVDVProfile::sar"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pix_fmt) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVDVProfile::pix_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bpm) as usize - ptr as usize },
+        60usize,
+        "Offset of field: AVDVProfile::bpm"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).block_sizes) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVDVProfile::block_sizes"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_stride) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVDVProfile::audio_stride"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_min_samples) as usize - ptr as usize },
+        76usize,
+        "Offset of field: AVDVProfile::audio_min_samples"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_samples_dist) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVDVProfile::audio_samples_dist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_shuffle) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVDVProfile::audio_shuffle"
+    );
+}
 extern "C" {
     #[doc = " Get a DV profile for the provided compressed frame.\n\n @param sys the profile used for the previous frame, may be NULL\n @param frame the compressed data buffer\n @param buf_size size of the buffer in bytes\n @return the DV profile for the supplied data or NULL on failure"]
     pub fn av_dv_frame_profile(
@@ -11193,13 +13998,26 @@ pub struct AVMediaCodecContext {
     #[doc = " android/view/Surface object reference."]
     pub surface: *mut ::std::os::raw::c_void,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVMediaCodecContext"][::std::mem::size_of::<AVMediaCodecContext>() - 8usize];
-    ["Alignment of AVMediaCodecContext"][::std::mem::align_of::<AVMediaCodecContext>() - 8usize];
-    ["Offset of field: AVMediaCodecContext::surface"]
-        [::std::mem::offset_of!(AVMediaCodecContext, surface) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVMediaCodecContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVMediaCodecContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVMediaCodecContext>(),
+        8usize,
+        "Size of AVMediaCodecContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVMediaCodecContext>(),
+        8usize,
+        "Alignment of AVMediaCodecContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).surface) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVMediaCodecContext::surface"
+    );
+}
 extern "C" {
     #[doc = " Allocate and initialize a MediaCodec context.\n\n When decoding with MediaCodec is finished, the caller must free the\n MediaCodec context with av_mediacodec_default_free.\n\n @return a pointer to a newly allocated AVMediaCodecContext on success, NULL otherwise"]
     pub fn av_mediacodec_alloc_context() -> *mut AVMediaCodecContext;
@@ -11282,15 +14100,31 @@ pub struct AVIOInterruptCB {
     >,
     pub opaque: *mut ::std::os::raw::c_void,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVIOInterruptCB"][::std::mem::size_of::<AVIOInterruptCB>() - 16usize];
-    ["Alignment of AVIOInterruptCB"][::std::mem::align_of::<AVIOInterruptCB>() - 8usize];
-    ["Offset of field: AVIOInterruptCB::callback"]
-        [::std::mem::offset_of!(AVIOInterruptCB, callback) - 0usize];
-    ["Offset of field: AVIOInterruptCB::opaque"]
-        [::std::mem::offset_of!(AVIOInterruptCB, opaque) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVIOInterruptCB() {
+    const UNINIT: ::std::mem::MaybeUninit<AVIOInterruptCB> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVIOInterruptCB>(),
+        16usize,
+        "Size of AVIOInterruptCB"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVIOInterruptCB>(),
+        8usize,
+        "Alignment of AVIOInterruptCB"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).callback) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVIOInterruptCB::callback"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVIOInterruptCB::opaque"
+    );
+}
 pub const AVIO_ENTRY_UNKNOWN: AVIODirEntryType = 0;
 pub const AVIO_ENTRY_BLOCK_DEVICE: AVIODirEntryType = 1;
 pub const AVIO_ENTRY_CHARACTER_DEVICE: AVIODirEntryType = 2;
@@ -11329,27 +14163,71 @@ pub struct AVIODirEntry {
     #[doc = "< Unix file mode, -1 if unknown."]
     pub filemode: i64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVIODirEntry"][::std::mem::size_of::<AVIODirEntry>() - 72usize];
-    ["Alignment of AVIODirEntry"][::std::mem::align_of::<AVIODirEntry>() - 8usize];
-    ["Offset of field: AVIODirEntry::name"][::std::mem::offset_of!(AVIODirEntry, name) - 0usize];
-    ["Offset of field: AVIODirEntry::type_"][::std::mem::offset_of!(AVIODirEntry, type_) - 8usize];
-    ["Offset of field: AVIODirEntry::utf8"][::std::mem::offset_of!(AVIODirEntry, utf8) - 12usize];
-    ["Offset of field: AVIODirEntry::size"][::std::mem::offset_of!(AVIODirEntry, size) - 16usize];
-    ["Offset of field: AVIODirEntry::modification_timestamp"]
-        [::std::mem::offset_of!(AVIODirEntry, modification_timestamp) - 24usize];
-    ["Offset of field: AVIODirEntry::access_timestamp"]
-        [::std::mem::offset_of!(AVIODirEntry, access_timestamp) - 32usize];
-    ["Offset of field: AVIODirEntry::status_change_timestamp"]
-        [::std::mem::offset_of!(AVIODirEntry, status_change_timestamp) - 40usize];
-    ["Offset of field: AVIODirEntry::user_id"]
-        [::std::mem::offset_of!(AVIODirEntry, user_id) - 48usize];
-    ["Offset of field: AVIODirEntry::group_id"]
-        [::std::mem::offset_of!(AVIODirEntry, group_id) - 56usize];
-    ["Offset of field: AVIODirEntry::filemode"]
-        [::std::mem::offset_of!(AVIODirEntry, filemode) - 64usize];
-};
+#[test]
+fn bindgen_test_layout_AVIODirEntry() {
+    const UNINIT: ::std::mem::MaybeUninit<AVIODirEntry> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVIODirEntry>(),
+        72usize,
+        "Size of AVIODirEntry"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVIODirEntry>(),
+        8usize,
+        "Alignment of AVIODirEntry"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVIODirEntry::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVIODirEntry::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).utf8) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVIODirEntry::utf8"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVIODirEntry::size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).modification_timestamp) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVIODirEntry::modification_timestamp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).access_timestamp) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVIODirEntry::access_timestamp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).status_change_timestamp) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVIODirEntry::status_change_timestamp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).user_id) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVIODirEntry::user_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).group_id) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVIODirEntry::group_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filemode) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVIODirEntry::filemode"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVIODirContext {
@@ -11469,64 +14347,166 @@ pub struct AVIOContext {
     #[doc = " Read-only statistic of bytes written for this AVIOContext."]
     pub bytes_written: i64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVIOContext"][::std::mem::size_of::<AVIOContext>() - 208usize];
-    ["Alignment of AVIOContext"][::std::mem::align_of::<AVIOContext>() - 8usize];
-    ["Offset of field: AVIOContext::av_class"]
-        [::std::mem::offset_of!(AVIOContext, av_class) - 0usize];
-    ["Offset of field: AVIOContext::buffer"][::std::mem::offset_of!(AVIOContext, buffer) - 8usize];
-    ["Offset of field: AVIOContext::buffer_size"]
-        [::std::mem::offset_of!(AVIOContext, buffer_size) - 16usize];
-    ["Offset of field: AVIOContext::buf_ptr"]
-        [::std::mem::offset_of!(AVIOContext, buf_ptr) - 24usize];
-    ["Offset of field: AVIOContext::buf_end"]
-        [::std::mem::offset_of!(AVIOContext, buf_end) - 32usize];
-    ["Offset of field: AVIOContext::opaque"][::std::mem::offset_of!(AVIOContext, opaque) - 40usize];
-    ["Offset of field: AVIOContext::read_packet"]
-        [::std::mem::offset_of!(AVIOContext, read_packet) - 48usize];
-    ["Offset of field: AVIOContext::write_packet"]
-        [::std::mem::offset_of!(AVIOContext, write_packet) - 56usize];
-    ["Offset of field: AVIOContext::seek"][::std::mem::offset_of!(AVIOContext, seek) - 64usize];
-    ["Offset of field: AVIOContext::pos"][::std::mem::offset_of!(AVIOContext, pos) - 72usize];
-    ["Offset of field: AVIOContext::eof_reached"]
-        [::std::mem::offset_of!(AVIOContext, eof_reached) - 80usize];
-    ["Offset of field: AVIOContext::error"][::std::mem::offset_of!(AVIOContext, error) - 84usize];
-    ["Offset of field: AVIOContext::write_flag"]
-        [::std::mem::offset_of!(AVIOContext, write_flag) - 88usize];
-    ["Offset of field: AVIOContext::max_packet_size"]
-        [::std::mem::offset_of!(AVIOContext, max_packet_size) - 92usize];
-    ["Offset of field: AVIOContext::min_packet_size"]
-        [::std::mem::offset_of!(AVIOContext, min_packet_size) - 96usize];
-    ["Offset of field: AVIOContext::checksum"]
-        [::std::mem::offset_of!(AVIOContext, checksum) - 104usize];
-    ["Offset of field: AVIOContext::checksum_ptr"]
-        [::std::mem::offset_of!(AVIOContext, checksum_ptr) - 112usize];
-    ["Offset of field: AVIOContext::update_checksum"]
-        [::std::mem::offset_of!(AVIOContext, update_checksum) - 120usize];
-    ["Offset of field: AVIOContext::read_pause"]
-        [::std::mem::offset_of!(AVIOContext, read_pause) - 128usize];
-    ["Offset of field: AVIOContext::read_seek"]
-        [::std::mem::offset_of!(AVIOContext, read_seek) - 136usize];
-    ["Offset of field: AVIOContext::seekable"]
-        [::std::mem::offset_of!(AVIOContext, seekable) - 144usize];
-    ["Offset of field: AVIOContext::direct"]
-        [::std::mem::offset_of!(AVIOContext, direct) - 148usize];
-    ["Offset of field: AVIOContext::protocol_whitelist"]
-        [::std::mem::offset_of!(AVIOContext, protocol_whitelist) - 152usize];
-    ["Offset of field: AVIOContext::protocol_blacklist"]
-        [::std::mem::offset_of!(AVIOContext, protocol_blacklist) - 160usize];
-    ["Offset of field: AVIOContext::write_data_type"]
-        [::std::mem::offset_of!(AVIOContext, write_data_type) - 168usize];
-    ["Offset of field: AVIOContext::ignore_boundary_point"]
-        [::std::mem::offset_of!(AVIOContext, ignore_boundary_point) - 176usize];
-    ["Offset of field: AVIOContext::buf_ptr_max"]
-        [::std::mem::offset_of!(AVIOContext, buf_ptr_max) - 184usize];
-    ["Offset of field: AVIOContext::bytes_read"]
-        [::std::mem::offset_of!(AVIOContext, bytes_read) - 192usize];
-    ["Offset of field: AVIOContext::bytes_written"]
-        [::std::mem::offset_of!(AVIOContext, bytes_written) - 200usize];
-};
+#[test]
+fn bindgen_test_layout_AVIOContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVIOContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVIOContext>(),
+        208usize,
+        "Size of AVIOContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVIOContext>(),
+        8usize,
+        "Alignment of AVIOContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVIOContext::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVIOContext::buffer"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer_size) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVIOContext::buffer_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf_ptr) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVIOContext::buf_ptr"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf_end) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVIOContext::buf_end"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVIOContext::opaque"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).read_packet) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVIOContext::read_packet"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).write_packet) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVIOContext::write_packet"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).seek) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVIOContext::seek"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pos) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVIOContext::pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).eof_reached) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVIOContext::eof_reached"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).error) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVIOContext::error"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).write_flag) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVIOContext::write_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_packet_size) as usize - ptr as usize },
+        92usize,
+        "Offset of field: AVIOContext::max_packet_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min_packet_size) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVIOContext::min_packet_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).checksum) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVIOContext::checksum"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).checksum_ptr) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVIOContext::checksum_ptr"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).update_checksum) as usize - ptr as usize },
+        120usize,
+        "Offset of field: AVIOContext::update_checksum"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).read_pause) as usize - ptr as usize },
+        128usize,
+        "Offset of field: AVIOContext::read_pause"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).read_seek) as usize - ptr as usize },
+        136usize,
+        "Offset of field: AVIOContext::read_seek"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).seekable) as usize - ptr as usize },
+        144usize,
+        "Offset of field: AVIOContext::seekable"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).direct) as usize - ptr as usize },
+        148usize,
+        "Offset of field: AVIOContext::direct"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).protocol_whitelist) as usize - ptr as usize },
+        152usize,
+        "Offset of field: AVIOContext::protocol_whitelist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).protocol_blacklist) as usize - ptr as usize },
+        160usize,
+        "Offset of field: AVIOContext::protocol_blacklist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).write_data_type) as usize - ptr as usize },
+        168usize,
+        "Offset of field: AVIOContext::write_data_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ignore_boundary_point) as usize - ptr as usize },
+        176usize,
+        "Offset of field: AVIOContext::ignore_boundary_point"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf_ptr_max) as usize - ptr as usize },
+        184usize,
+        "Offset of field: AVIOContext::buf_ptr_max"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bytes_read) as usize - ptr as usize },
+        192usize,
+        "Offset of field: AVIOContext::bytes_read"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bytes_written) as usize - ptr as usize },
+        200usize,
+        "Offset of field: AVIOContext::bytes_written"
+    );
+}
 extern "C" {
     #[doc = " Return the name of the protocol that will handle the passed URL.\n\n NULL is returned if no protocol could be found for the given URL.\n\n @return Name of the protocol or NULL."]
     pub fn avio_find_protocol_name(
@@ -11880,18 +14860,41 @@ pub struct AVProbeData {
     #[doc = "< mime_type, when known."]
     pub mime_type: *const ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVProbeData"][::std::mem::size_of::<AVProbeData>() - 32usize];
-    ["Alignment of AVProbeData"][::std::mem::align_of::<AVProbeData>() - 8usize];
-    ["Offset of field: AVProbeData::filename"]
-        [::std::mem::offset_of!(AVProbeData, filename) - 0usize];
-    ["Offset of field: AVProbeData::buf"][::std::mem::offset_of!(AVProbeData, buf) - 8usize];
-    ["Offset of field: AVProbeData::buf_size"]
-        [::std::mem::offset_of!(AVProbeData, buf_size) - 16usize];
-    ["Offset of field: AVProbeData::mime_type"]
-        [::std::mem::offset_of!(AVProbeData, mime_type) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_AVProbeData() {
+    const UNINIT: ::std::mem::MaybeUninit<AVProbeData> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVProbeData>(),
+        32usize,
+        "Size of AVProbeData"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVProbeData>(),
+        8usize,
+        "Alignment of AVProbeData"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filename) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVProbeData::filename"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVProbeData::buf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf_size) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVProbeData::buf_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mime_type) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVProbeData::mime_type"
+    );
+}
 #[doc = " @addtogroup lavf_encoding\n @{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11915,31 +14918,71 @@ pub struct AVOutputFormat {
     #[doc = "< AVClass for the private context"]
     pub priv_class: *const AVClass,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVOutputFormat"][::std::mem::size_of::<AVOutputFormat>() - 64usize];
-    ["Alignment of AVOutputFormat"][::std::mem::align_of::<AVOutputFormat>() - 8usize];
-    ["Offset of field: AVOutputFormat::name"]
-        [::std::mem::offset_of!(AVOutputFormat, name) - 0usize];
-    ["Offset of field: AVOutputFormat::long_name"]
-        [::std::mem::offset_of!(AVOutputFormat, long_name) - 8usize];
-    ["Offset of field: AVOutputFormat::mime_type"]
-        [::std::mem::offset_of!(AVOutputFormat, mime_type) - 16usize];
-    ["Offset of field: AVOutputFormat::extensions"]
-        [::std::mem::offset_of!(AVOutputFormat, extensions) - 24usize];
-    ["Offset of field: AVOutputFormat::audio_codec"]
-        [::std::mem::offset_of!(AVOutputFormat, audio_codec) - 32usize];
-    ["Offset of field: AVOutputFormat::video_codec"]
-        [::std::mem::offset_of!(AVOutputFormat, video_codec) - 36usize];
-    ["Offset of field: AVOutputFormat::subtitle_codec"]
-        [::std::mem::offset_of!(AVOutputFormat, subtitle_codec) - 40usize];
-    ["Offset of field: AVOutputFormat::flags"]
-        [::std::mem::offset_of!(AVOutputFormat, flags) - 44usize];
-    ["Offset of field: AVOutputFormat::codec_tag"]
-        [::std::mem::offset_of!(AVOutputFormat, codec_tag) - 48usize];
-    ["Offset of field: AVOutputFormat::priv_class"]
-        [::std::mem::offset_of!(AVOutputFormat, priv_class) - 56usize];
-};
+#[test]
+fn bindgen_test_layout_AVOutputFormat() {
+    const UNINIT: ::std::mem::MaybeUninit<AVOutputFormat> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVOutputFormat>(),
+        64usize,
+        "Size of AVOutputFormat"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVOutputFormat>(),
+        8usize,
+        "Alignment of AVOutputFormat"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVOutputFormat::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).long_name) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVOutputFormat::long_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mime_type) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVOutputFormat::mime_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extensions) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVOutputFormat::extensions"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_codec) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVOutputFormat::audio_codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).video_codec) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVOutputFormat::video_codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subtitle_codec) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVOutputFormat::subtitle_codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVOutputFormat::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_tag) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVOutputFormat::codec_tag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_class) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVOutputFormat::priv_class"
+    );
+}
 #[doc = " @addtogroup lavf_decoding\n @{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -11958,24 +15001,56 @@ pub struct AVInputFormat {
     #[doc = " Comma-separated list of mime types.\n It is used check for matching mime types while probing.\n @see av_probe_input_format2"]
     pub mime_type: *const ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVInputFormat"][::std::mem::size_of::<AVInputFormat>() - 56usize];
-    ["Alignment of AVInputFormat"][::std::mem::align_of::<AVInputFormat>() - 8usize];
-    ["Offset of field: AVInputFormat::name"][::std::mem::offset_of!(AVInputFormat, name) - 0usize];
-    ["Offset of field: AVInputFormat::long_name"]
-        [::std::mem::offset_of!(AVInputFormat, long_name) - 8usize];
-    ["Offset of field: AVInputFormat::flags"]
-        [::std::mem::offset_of!(AVInputFormat, flags) - 16usize];
-    ["Offset of field: AVInputFormat::extensions"]
-        [::std::mem::offset_of!(AVInputFormat, extensions) - 24usize];
-    ["Offset of field: AVInputFormat::codec_tag"]
-        [::std::mem::offset_of!(AVInputFormat, codec_tag) - 32usize];
-    ["Offset of field: AVInputFormat::priv_class"]
-        [::std::mem::offset_of!(AVInputFormat, priv_class) - 40usize];
-    ["Offset of field: AVInputFormat::mime_type"]
-        [::std::mem::offset_of!(AVInputFormat, mime_type) - 48usize];
-};
+#[test]
+fn bindgen_test_layout_AVInputFormat() {
+    const UNINIT: ::std::mem::MaybeUninit<AVInputFormat> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVInputFormat>(),
+        56usize,
+        "Size of AVInputFormat"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVInputFormat>(),
+        8usize,
+        "Alignment of AVInputFormat"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVInputFormat::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).long_name) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVInputFormat::long_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVInputFormat::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extensions) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVInputFormat::extensions"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_tag) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVInputFormat::codec_tag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_class) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVInputFormat::priv_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mime_type) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVInputFormat::mime_type"
+    );
+}
 pub const AVSTREAM_PARSE_NONE: AVStreamParseType = 0;
 #[doc = "< full parsing and repack"]
 pub const AVSTREAM_PARSE_FULL: AVStreamParseType = 1;
@@ -12000,16 +15075,36 @@ pub struct AVIndexEntry {
     #[doc = "< Minimum distance between this and the previous keyframe, used to avoid unneeded searching."]
     pub min_distance: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVIndexEntry"][::std::mem::size_of::<AVIndexEntry>() - 24usize];
-    ["Alignment of AVIndexEntry"][::std::mem::align_of::<AVIndexEntry>() - 8usize];
-    ["Offset of field: AVIndexEntry::pos"][::std::mem::offset_of!(AVIndexEntry, pos) - 0usize];
-    ["Offset of field: AVIndexEntry::timestamp"]
-        [::std::mem::offset_of!(AVIndexEntry, timestamp) - 8usize];
-    ["Offset of field: AVIndexEntry::min_distance"]
-        [::std::mem::offset_of!(AVIndexEntry, min_distance) - 20usize];
-};
+#[test]
+fn bindgen_test_layout_AVIndexEntry() {
+    const UNINIT: ::std::mem::MaybeUninit<AVIndexEntry> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVIndexEntry>(),
+        24usize,
+        "Size of AVIndexEntry"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVIndexEntry>(),
+        8usize,
+        "Alignment of AVIndexEntry"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pos) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVIndexEntry::pos"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).timestamp) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVIndexEntry::timestamp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min_distance) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVIndexEntry::min_distance"
+    );
+}
 impl AVIndexEntry {
     #[inline]
     pub fn flags(&self) -> ::std::os::raw::c_int {
@@ -12104,41 +15199,121 @@ pub struct AVStream {
     #[doc = " Number of bits in timestamps. Used for wrapping control.\n\n - demuxing: set by libavformat\n - muxing: set by libavformat\n"]
     pub pts_wrap_bits: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVStream"][::std::mem::size_of::<AVStream>() - 232usize];
-    ["Alignment of AVStream"][::std::mem::align_of::<AVStream>() - 8usize];
-    ["Offset of field: AVStream::av_class"][::std::mem::offset_of!(AVStream, av_class) - 0usize];
-    ["Offset of field: AVStream::index"][::std::mem::offset_of!(AVStream, index) - 8usize];
-    ["Offset of field: AVStream::id"][::std::mem::offset_of!(AVStream, id) - 12usize];
-    ["Offset of field: AVStream::codecpar"][::std::mem::offset_of!(AVStream, codecpar) - 16usize];
-    ["Offset of field: AVStream::priv_data"][::std::mem::offset_of!(AVStream, priv_data) - 24usize];
-    ["Offset of field: AVStream::time_base"][::std::mem::offset_of!(AVStream, time_base) - 32usize];
-    ["Offset of field: AVStream::start_time"]
-        [::std::mem::offset_of!(AVStream, start_time) - 40usize];
-    ["Offset of field: AVStream::duration"][::std::mem::offset_of!(AVStream, duration) - 48usize];
-    ["Offset of field: AVStream::nb_frames"][::std::mem::offset_of!(AVStream, nb_frames) - 56usize];
-    ["Offset of field: AVStream::disposition"]
-        [::std::mem::offset_of!(AVStream, disposition) - 64usize];
-    ["Offset of field: AVStream::discard"][::std::mem::offset_of!(AVStream, discard) - 68usize];
-    ["Offset of field: AVStream::sample_aspect_ratio"]
-        [::std::mem::offset_of!(AVStream, sample_aspect_ratio) - 72usize];
-    ["Offset of field: AVStream::metadata"][::std::mem::offset_of!(AVStream, metadata) - 80usize];
-    ["Offset of field: AVStream::avg_frame_rate"]
-        [::std::mem::offset_of!(AVStream, avg_frame_rate) - 88usize];
-    ["Offset of field: AVStream::attached_pic"]
-        [::std::mem::offset_of!(AVStream, attached_pic) - 96usize];
-    ["Offset of field: AVStream::side_data"]
-        [::std::mem::offset_of!(AVStream, side_data) - 200usize];
-    ["Offset of field: AVStream::nb_side_data"]
-        [::std::mem::offset_of!(AVStream, nb_side_data) - 208usize];
-    ["Offset of field: AVStream::event_flags"]
-        [::std::mem::offset_of!(AVStream, event_flags) - 212usize];
-    ["Offset of field: AVStream::r_frame_rate"]
-        [::std::mem::offset_of!(AVStream, r_frame_rate) - 216usize];
-    ["Offset of field: AVStream::pts_wrap_bits"]
-        [::std::mem::offset_of!(AVStream, pts_wrap_bits) - 224usize];
-};
+#[test]
+fn bindgen_test_layout_AVStream() {
+    const UNINIT: ::std::mem::MaybeUninit<AVStream> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVStream>(),
+        232usize,
+        "Size of AVStream"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVStream>(),
+        8usize,
+        "Alignment of AVStream"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVStream::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).index) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVStream::index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVStream::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codecpar) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVStream::codecpar"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_data) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVStream::priv_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVStream::time_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).start_time) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVStream::start_time"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).duration) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVStream::duration"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_frames) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVStream::nb_frames"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).disposition) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVStream::disposition"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).discard) as usize - ptr as usize },
+        68usize,
+        "Offset of field: AVStream::discard"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_aspect_ratio) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVStream::sample_aspect_ratio"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).metadata) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVStream::metadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).avg_frame_rate) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVStream::avg_frame_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).attached_pic) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVStream::attached_pic"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).side_data) as usize - ptr as usize },
+        200usize,
+        "Offset of field: AVStream::side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_side_data) as usize - ptr as usize },
+        208usize,
+        "Offset of field: AVStream::nb_side_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).event_flags) as usize - ptr as usize },
+        212usize,
+        "Offset of field: AVStream::event_flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).r_frame_rate) as usize - ptr as usize },
+        216usize,
+        "Offset of field: AVStream::r_frame_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pts_wrap_bits) as usize - ptr as usize },
+        224usize,
+        "Offset of field: AVStream::pts_wrap_bits"
+    );
+}
 #[doc = " AVStreamGroupTileGrid holds information on how to combine several\n independent images on a single canvas for presentation.\n\n The output should be a @ref AVStreamGroupTileGrid.background \"background\"\n colored @ref AVStreamGroupTileGrid.coded_width \"coded_width\" x\n @ref AVStreamGroupTileGrid.coded_height \"coded_height\" canvas where a\n @ref AVStreamGroupTileGrid.nb_tiles \"nb_tiles\" amount of tiles are placed in\n the order they appear in the @ref AVStreamGroupTileGrid.offsets \"offsets\"\n array, at the exact offset described for them. In particular, if two or more\n tiles overlap, the image with higher index in the\n @ref AVStreamGroupTileGrid.offsets \"offsets\" array takes priority.\n Note that a single image may be used multiple times, i.e. multiple entries\n in @ref AVStreamGroupTileGrid.offsets \"offsets\" may have the same value of\n idx.\n\n The following is an example of a simple grid with 3 rows and 4 columns:\n\n +---+---+---+---+\n | 0 | 1 | 2 | 3 |\n +---+---+---+---+\n | 4 | 5 | 6 | 7 |\n +---+---+---+---+\n | 8 | 9 |10 |11 |\n +---+---+---+---+\n\n Assuming all tiles have a dimension of 512x512, the\n @ref AVStreamGroupTileGrid.offsets \"offset\" of the topleft pixel of\n the first @ref AVStreamGroup.streams \"stream\" in the group is \"0,0\", the\n @ref AVStreamGroupTileGrid.offsets \"offset\" of the topleft pixel of\n the second @ref AVStreamGroup.streams \"stream\" in the group is \"512,0\", the\n @ref AVStreamGroupTileGrid.offsets \"offset\" of the topleft pixel of\n the fifth @ref AVStreamGroup.streams \"stream\" in the group is \"0,512\", the\n @ref AVStreamGroupTileGrid.offsets \"offset\", of the topleft pixel of\n the sixth @ref AVStreamGroup.streams \"stream\" in the group is \"512,512\",\n etc.\n\n The following is an example of a canvas with overlaping tiles:\n\n +-----------+\n |   %%%%%   |\n |***%%3%%@@@|\n |**0%%%%%2@@|\n |***##1@@@@@|\n |   #####   |\n +-----------+\n\n Assuming a canvas with size 1024x1024 and all tiles with a dimension of\n 512x512, a possible @ref AVStreamGroupTileGrid.offsets \"offset\" for the\n topleft pixel of the first @ref AVStreamGroup.streams \"stream\" in the group\n would be 0x256, the @ref AVStreamGroupTileGrid.offsets \"offset\" for the\n topleft pixel of the second @ref AVStreamGroup.streams \"stream\" in the group\n would be 256x512, the @ref AVStreamGroupTileGrid.offsets \"offset\" for the\n topleft pixel of the third @ref AVStreamGroup.streams \"stream\" in the group\n would be 512x256, and the @ref AVStreamGroupTileGrid.offsets \"offset\" for\n the topleft pixel of the fourth @ref AVStreamGroup.streams \"stream\" in the\n group would be 256x0.\n\n sizeof(AVStreamGroupTileGrid) is not a part of the ABI and may only be\n allocated by avformat_stream_group_create()."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12173,45 +15348,103 @@ pub struct AVStreamGroupTileGrid__bindgen_ty_1 {
     #[doc = " Offset in pixels from the top edge of the canvas where the tile\n should be placed."]
     pub vertical: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVStreamGroupTileGrid__bindgen_ty_1"]
-        [::std::mem::size_of::<AVStreamGroupTileGrid__bindgen_ty_1>() - 12usize];
-    ["Alignment of AVStreamGroupTileGrid__bindgen_ty_1"]
-        [::std::mem::align_of::<AVStreamGroupTileGrid__bindgen_ty_1>() - 4usize];
-    ["Offset of field: AVStreamGroupTileGrid__bindgen_ty_1::idx"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid__bindgen_ty_1, idx) - 0usize];
-    ["Offset of field: AVStreamGroupTileGrid__bindgen_ty_1::horizontal"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid__bindgen_ty_1, horizontal) - 4usize];
-    ["Offset of field: AVStreamGroupTileGrid__bindgen_ty_1::vertical"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid__bindgen_ty_1, vertical) - 8usize];
-};
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVStreamGroupTileGrid"][::std::mem::size_of::<AVStreamGroupTileGrid>() - 56usize];
-    ["Alignment of AVStreamGroupTileGrid"]
-        [::std::mem::align_of::<AVStreamGroupTileGrid>() - 8usize];
-    ["Offset of field: AVStreamGroupTileGrid::av_class"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, av_class) - 0usize];
-    ["Offset of field: AVStreamGroupTileGrid::nb_tiles"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, nb_tiles) - 8usize];
-    ["Offset of field: AVStreamGroupTileGrid::coded_width"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, coded_width) - 12usize];
-    ["Offset of field: AVStreamGroupTileGrid::coded_height"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, coded_height) - 16usize];
-    ["Offset of field: AVStreamGroupTileGrid::offsets"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, offsets) - 24usize];
-    ["Offset of field: AVStreamGroupTileGrid::background"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, background) - 32usize];
-    ["Offset of field: AVStreamGroupTileGrid::horizontal_offset"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, horizontal_offset) - 36usize];
-    ["Offset of field: AVStreamGroupTileGrid::vertical_offset"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, vertical_offset) - 40usize];
-    ["Offset of field: AVStreamGroupTileGrid::width"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, width) - 44usize];
-    ["Offset of field: AVStreamGroupTileGrid::height"]
-        [::std::mem::offset_of!(AVStreamGroupTileGrid, height) - 48usize];
-};
+#[test]
+fn bindgen_test_layout_AVStreamGroupTileGrid__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<AVStreamGroupTileGrid__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVStreamGroupTileGrid__bindgen_ty_1>(),
+        12usize,
+        "Size of AVStreamGroupTileGrid__bindgen_ty_1"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVStreamGroupTileGrid__bindgen_ty_1>(),
+        4usize,
+        "Alignment of AVStreamGroupTileGrid__bindgen_ty_1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).idx) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVStreamGroupTileGrid__bindgen_ty_1::idx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).horizontal) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVStreamGroupTileGrid__bindgen_ty_1::horizontal"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vertical) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVStreamGroupTileGrid__bindgen_ty_1::vertical"
+    );
+}
+#[test]
+fn bindgen_test_layout_AVStreamGroupTileGrid() {
+    const UNINIT: ::std::mem::MaybeUninit<AVStreamGroupTileGrid> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVStreamGroupTileGrid>(),
+        56usize,
+        "Size of AVStreamGroupTileGrid"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVStreamGroupTileGrid>(),
+        8usize,
+        "Alignment of AVStreamGroupTileGrid"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVStreamGroupTileGrid::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_tiles) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVStreamGroupTileGrid::nb_tiles"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coded_width) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVStreamGroupTileGrid::coded_width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coded_height) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVStreamGroupTileGrid::coded_height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).offsets) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVStreamGroupTileGrid::offsets"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).background) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVStreamGroupTileGrid::background"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).horizontal_offset) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVStreamGroupTileGrid::horizontal_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vertical_offset) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVStreamGroupTileGrid::vertical_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVStreamGroupTileGrid::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVStreamGroupTileGrid::height"
+    );
+}
 pub const AV_STREAM_GROUP_PARAMS_NONE: AVStreamGroupParamsType = 0;
 pub const AV_STREAM_GROUP_PARAMS_IAMF_AUDIO_ELEMENT: AVStreamGroupParamsType = 1;
 pub const AV_STREAM_GROUP_PARAMS_IAMF_MIX_PRESENTATION: AVStreamGroupParamsType = 2;
@@ -12257,48 +15490,107 @@ pub union AVStreamGroup__bindgen_ty_1 {
     pub iamf_mix_presentation: *mut AVIAMFMixPresentation,
     pub tile_grid: *mut AVStreamGroupTileGrid,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVStreamGroup__bindgen_ty_1"]
-        [::std::mem::size_of::<AVStreamGroup__bindgen_ty_1>() - 8usize];
-    ["Alignment of AVStreamGroup__bindgen_ty_1"]
-        [::std::mem::align_of::<AVStreamGroup__bindgen_ty_1>() - 8usize];
-    ["Offset of field: AVStreamGroup__bindgen_ty_1::iamf_audio_element"]
-        [::std::mem::offset_of!(AVStreamGroup__bindgen_ty_1, iamf_audio_element) - 0usize];
-    ["Offset of field: AVStreamGroup__bindgen_ty_1::iamf_mix_presentation"]
-        [::std::mem::offset_of!(AVStreamGroup__bindgen_ty_1, iamf_mix_presentation) - 0usize];
-    ["Offset of field: AVStreamGroup__bindgen_ty_1::tile_grid"]
-        [::std::mem::offset_of!(AVStreamGroup__bindgen_ty_1, tile_grid) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVStreamGroup__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<AVStreamGroup__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVStreamGroup__bindgen_ty_1>(),
+        8usize,
+        "Size of AVStreamGroup__bindgen_ty_1"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVStreamGroup__bindgen_ty_1>(),
+        8usize,
+        "Alignment of AVStreamGroup__bindgen_ty_1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).iamf_audio_element) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVStreamGroup__bindgen_ty_1::iamf_audio_element"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).iamf_mix_presentation) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVStreamGroup__bindgen_ty_1::iamf_mix_presentation"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tile_grid) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVStreamGroup__bindgen_ty_1::tile_grid"
+    );
+}
 impl ::std::fmt::Debug for AVStreamGroup__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "AVStreamGroup__bindgen_ty_1 {{ union }}")
     }
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVStreamGroup"][::std::mem::size_of::<AVStreamGroup>() - 80usize];
-    ["Alignment of AVStreamGroup"][::std::mem::align_of::<AVStreamGroup>() - 8usize];
-    ["Offset of field: AVStreamGroup::av_class"]
-        [::std::mem::offset_of!(AVStreamGroup, av_class) - 0usize];
-    ["Offset of field: AVStreamGroup::priv_data"]
-        [::std::mem::offset_of!(AVStreamGroup, priv_data) - 8usize];
-    ["Offset of field: AVStreamGroup::index"]
-        [::std::mem::offset_of!(AVStreamGroup, index) - 16usize];
-    ["Offset of field: AVStreamGroup::id"][::std::mem::offset_of!(AVStreamGroup, id) - 24usize];
-    ["Offset of field: AVStreamGroup::type_"]
-        [::std::mem::offset_of!(AVStreamGroup, type_) - 32usize];
-    ["Offset of field: AVStreamGroup::params"]
-        [::std::mem::offset_of!(AVStreamGroup, params) - 40usize];
-    ["Offset of field: AVStreamGroup::metadata"]
-        [::std::mem::offset_of!(AVStreamGroup, metadata) - 48usize];
-    ["Offset of field: AVStreamGroup::nb_streams"]
-        [::std::mem::offset_of!(AVStreamGroup, nb_streams) - 56usize];
-    ["Offset of field: AVStreamGroup::streams"]
-        [::std::mem::offset_of!(AVStreamGroup, streams) - 64usize];
-    ["Offset of field: AVStreamGroup::disposition"]
-        [::std::mem::offset_of!(AVStreamGroup, disposition) - 72usize];
-};
+#[test]
+fn bindgen_test_layout_AVStreamGroup() {
+    const UNINIT: ::std::mem::MaybeUninit<AVStreamGroup> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVStreamGroup>(),
+        80usize,
+        "Size of AVStreamGroup"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVStreamGroup>(),
+        8usize,
+        "Alignment of AVStreamGroup"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVStreamGroup::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_data) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVStreamGroup::priv_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).index) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVStreamGroup::index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVStreamGroup::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVStreamGroup::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).params) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVStreamGroup::params"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).metadata) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVStreamGroup::metadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_streams) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVStreamGroup::nb_streams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).streams) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVStreamGroup::streams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).disposition) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVStreamGroup::disposition"
+    );
+}
 impl ::std::fmt::Debug for AVStreamGroup {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVStreamGroup {{ av_class: {:?}, priv_data: {:?}, index: {:?}, id: {:?}, type: {:?}, params: {:?}, metadata: {:?}, nb_streams: {:?}, streams: {:?}, disposition: {:?} }}" , self . av_class , self . priv_data , self . index , self . id , self . type_ , self . params , self . metadata , self . nb_streams , self . streams , self . disposition)
@@ -12330,32 +15622,91 @@ pub struct AVProgram {
     #[doc = "< behavior on wrap detection"]
     pub pts_wrap_behavior: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVProgram"][::std::mem::size_of::<AVProgram>() - 88usize];
-    ["Alignment of AVProgram"][::std::mem::align_of::<AVProgram>() - 8usize];
-    ["Offset of field: AVProgram::id"][::std::mem::offset_of!(AVProgram, id) - 0usize];
-    ["Offset of field: AVProgram::flags"][::std::mem::offset_of!(AVProgram, flags) - 4usize];
-    ["Offset of field: AVProgram::discard"][::std::mem::offset_of!(AVProgram, discard) - 8usize];
-    ["Offset of field: AVProgram::stream_index"]
-        [::std::mem::offset_of!(AVProgram, stream_index) - 16usize];
-    ["Offset of field: AVProgram::nb_stream_indexes"]
-        [::std::mem::offset_of!(AVProgram, nb_stream_indexes) - 24usize];
-    ["Offset of field: AVProgram::metadata"][::std::mem::offset_of!(AVProgram, metadata) - 32usize];
-    ["Offset of field: AVProgram::program_num"]
-        [::std::mem::offset_of!(AVProgram, program_num) - 40usize];
-    ["Offset of field: AVProgram::pmt_pid"][::std::mem::offset_of!(AVProgram, pmt_pid) - 44usize];
-    ["Offset of field: AVProgram::pcr_pid"][::std::mem::offset_of!(AVProgram, pcr_pid) - 48usize];
-    ["Offset of field: AVProgram::pmt_version"]
-        [::std::mem::offset_of!(AVProgram, pmt_version) - 52usize];
-    ["Offset of field: AVProgram::start_time"]
-        [::std::mem::offset_of!(AVProgram, start_time) - 56usize];
-    ["Offset of field: AVProgram::end_time"][::std::mem::offset_of!(AVProgram, end_time) - 64usize];
-    ["Offset of field: AVProgram::pts_wrap_reference"]
-        [::std::mem::offset_of!(AVProgram, pts_wrap_reference) - 72usize];
-    ["Offset of field: AVProgram::pts_wrap_behavior"]
-        [::std::mem::offset_of!(AVProgram, pts_wrap_behavior) - 80usize];
-};
+#[test]
+fn bindgen_test_layout_AVProgram() {
+    const UNINIT: ::std::mem::MaybeUninit<AVProgram> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVProgram>(),
+        88usize,
+        "Size of AVProgram"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVProgram>(),
+        8usize,
+        "Alignment of AVProgram"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVProgram::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVProgram::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).discard) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVProgram::discard"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stream_index) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVProgram::stream_index"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_stream_indexes) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVProgram::nb_stream_indexes"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).metadata) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVProgram::metadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).program_num) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVProgram::program_num"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pmt_pid) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVProgram::pmt_pid"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pcr_pid) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVProgram::pcr_pid"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pmt_version) as usize - ptr as usize },
+        52usize,
+        "Offset of field: AVProgram::pmt_version"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).start_time) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVProgram::start_time"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).end_time) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVProgram::end_time"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pts_wrap_reference) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVProgram::pts_wrap_reference"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pts_wrap_behavior) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVProgram::pts_wrap_behavior"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVChapter {
@@ -12369,17 +15720,46 @@ pub struct AVChapter {
     pub end: i64,
     pub metadata: *mut AVDictionary,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVChapter"][::std::mem::size_of::<AVChapter>() - 40usize];
-    ["Alignment of AVChapter"][::std::mem::align_of::<AVChapter>() - 8usize];
-    ["Offset of field: AVChapter::id"][::std::mem::offset_of!(AVChapter, id) - 0usize];
-    ["Offset of field: AVChapter::time_base"]
-        [::std::mem::offset_of!(AVChapter, time_base) - 8usize];
-    ["Offset of field: AVChapter::start"][::std::mem::offset_of!(AVChapter, start) - 16usize];
-    ["Offset of field: AVChapter::end"][::std::mem::offset_of!(AVChapter, end) - 24usize];
-    ["Offset of field: AVChapter::metadata"][::std::mem::offset_of!(AVChapter, metadata) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVChapter() {
+    const UNINIT: ::std::mem::MaybeUninit<AVChapter> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVChapter>(),
+        40usize,
+        "Size of AVChapter"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVChapter>(),
+        8usize,
+        "Alignment of AVChapter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVChapter::id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVChapter::time_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).start) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVChapter::start"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).end) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVChapter::end"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).metadata) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVChapter::metadata"
+    );
+}
 #[doc = " Callback used by devices to communicate with application."]
 pub type av_format_control_message = ::std::option::Option<
     unsafe extern "C" fn(
@@ -12564,156 +15944,388 @@ pub struct AVFormatContext {
         ) -> ::std::os::raw::c_int,
     >,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFormatContext"][::std::mem::size_of::<AVFormatContext>() - 464usize];
-    ["Alignment of AVFormatContext"][::std::mem::align_of::<AVFormatContext>() - 8usize];
-    ["Offset of field: AVFormatContext::av_class"]
-        [::std::mem::offset_of!(AVFormatContext, av_class) - 0usize];
-    ["Offset of field: AVFormatContext::iformat"]
-        [::std::mem::offset_of!(AVFormatContext, iformat) - 8usize];
-    ["Offset of field: AVFormatContext::oformat"]
-        [::std::mem::offset_of!(AVFormatContext, oformat) - 16usize];
-    ["Offset of field: AVFormatContext::priv_data"]
-        [::std::mem::offset_of!(AVFormatContext, priv_data) - 24usize];
-    ["Offset of field: AVFormatContext::pb"][::std::mem::offset_of!(AVFormatContext, pb) - 32usize];
-    ["Offset of field: AVFormatContext::ctx_flags"]
-        [::std::mem::offset_of!(AVFormatContext, ctx_flags) - 40usize];
-    ["Offset of field: AVFormatContext::nb_streams"]
-        [::std::mem::offset_of!(AVFormatContext, nb_streams) - 44usize];
-    ["Offset of field: AVFormatContext::streams"]
-        [::std::mem::offset_of!(AVFormatContext, streams) - 48usize];
-    ["Offset of field: AVFormatContext::nb_stream_groups"]
-        [::std::mem::offset_of!(AVFormatContext, nb_stream_groups) - 56usize];
-    ["Offset of field: AVFormatContext::stream_groups"]
-        [::std::mem::offset_of!(AVFormatContext, stream_groups) - 64usize];
-    ["Offset of field: AVFormatContext::nb_chapters"]
-        [::std::mem::offset_of!(AVFormatContext, nb_chapters) - 72usize];
-    ["Offset of field: AVFormatContext::chapters"]
-        [::std::mem::offset_of!(AVFormatContext, chapters) - 80usize];
-    ["Offset of field: AVFormatContext::url"]
-        [::std::mem::offset_of!(AVFormatContext, url) - 88usize];
-    ["Offset of field: AVFormatContext::start_time"]
-        [::std::mem::offset_of!(AVFormatContext, start_time) - 96usize];
-    ["Offset of field: AVFormatContext::duration"]
-        [::std::mem::offset_of!(AVFormatContext, duration) - 104usize];
-    ["Offset of field: AVFormatContext::bit_rate"]
-        [::std::mem::offset_of!(AVFormatContext, bit_rate) - 112usize];
-    ["Offset of field: AVFormatContext::packet_size"]
-        [::std::mem::offset_of!(AVFormatContext, packet_size) - 120usize];
-    ["Offset of field: AVFormatContext::max_delay"]
-        [::std::mem::offset_of!(AVFormatContext, max_delay) - 124usize];
-    ["Offset of field: AVFormatContext::flags"]
-        [::std::mem::offset_of!(AVFormatContext, flags) - 128usize];
-    ["Offset of field: AVFormatContext::probesize"]
-        [::std::mem::offset_of!(AVFormatContext, probesize) - 136usize];
-    ["Offset of field: AVFormatContext::max_analyze_duration"]
-        [::std::mem::offset_of!(AVFormatContext, max_analyze_duration) - 144usize];
-    ["Offset of field: AVFormatContext::key"]
-        [::std::mem::offset_of!(AVFormatContext, key) - 152usize];
-    ["Offset of field: AVFormatContext::keylen"]
-        [::std::mem::offset_of!(AVFormatContext, keylen) - 160usize];
-    ["Offset of field: AVFormatContext::nb_programs"]
-        [::std::mem::offset_of!(AVFormatContext, nb_programs) - 164usize];
-    ["Offset of field: AVFormatContext::programs"]
-        [::std::mem::offset_of!(AVFormatContext, programs) - 168usize];
-    ["Offset of field: AVFormatContext::video_codec_id"]
-        [::std::mem::offset_of!(AVFormatContext, video_codec_id) - 176usize];
-    ["Offset of field: AVFormatContext::audio_codec_id"]
-        [::std::mem::offset_of!(AVFormatContext, audio_codec_id) - 180usize];
-    ["Offset of field: AVFormatContext::subtitle_codec_id"]
-        [::std::mem::offset_of!(AVFormatContext, subtitle_codec_id) - 184usize];
-    ["Offset of field: AVFormatContext::data_codec_id"]
-        [::std::mem::offset_of!(AVFormatContext, data_codec_id) - 188usize];
-    ["Offset of field: AVFormatContext::metadata"]
-        [::std::mem::offset_of!(AVFormatContext, metadata) - 192usize];
-    ["Offset of field: AVFormatContext::start_time_realtime"]
-        [::std::mem::offset_of!(AVFormatContext, start_time_realtime) - 200usize];
-    ["Offset of field: AVFormatContext::fps_probe_size"]
-        [::std::mem::offset_of!(AVFormatContext, fps_probe_size) - 208usize];
-    ["Offset of field: AVFormatContext::error_recognition"]
-        [::std::mem::offset_of!(AVFormatContext, error_recognition) - 212usize];
-    ["Offset of field: AVFormatContext::interrupt_callback"]
-        [::std::mem::offset_of!(AVFormatContext, interrupt_callback) - 216usize];
-    ["Offset of field: AVFormatContext::debug"]
-        [::std::mem::offset_of!(AVFormatContext, debug) - 232usize];
-    ["Offset of field: AVFormatContext::max_streams"]
-        [::std::mem::offset_of!(AVFormatContext, max_streams) - 236usize];
-    ["Offset of field: AVFormatContext::max_index_size"]
-        [::std::mem::offset_of!(AVFormatContext, max_index_size) - 240usize];
-    ["Offset of field: AVFormatContext::max_picture_buffer"]
-        [::std::mem::offset_of!(AVFormatContext, max_picture_buffer) - 244usize];
-    ["Offset of field: AVFormatContext::max_interleave_delta"]
-        [::std::mem::offset_of!(AVFormatContext, max_interleave_delta) - 248usize];
-    ["Offset of field: AVFormatContext::max_ts_probe"]
-        [::std::mem::offset_of!(AVFormatContext, max_ts_probe) - 256usize];
-    ["Offset of field: AVFormatContext::max_chunk_duration"]
-        [::std::mem::offset_of!(AVFormatContext, max_chunk_duration) - 260usize];
-    ["Offset of field: AVFormatContext::max_chunk_size"]
-        [::std::mem::offset_of!(AVFormatContext, max_chunk_size) - 264usize];
-    ["Offset of field: AVFormatContext::max_probe_packets"]
-        [::std::mem::offset_of!(AVFormatContext, max_probe_packets) - 268usize];
-    ["Offset of field: AVFormatContext::strict_std_compliance"]
-        [::std::mem::offset_of!(AVFormatContext, strict_std_compliance) - 272usize];
-    ["Offset of field: AVFormatContext::event_flags"]
-        [::std::mem::offset_of!(AVFormatContext, event_flags) - 276usize];
-    ["Offset of field: AVFormatContext::avoid_negative_ts"]
-        [::std::mem::offset_of!(AVFormatContext, avoid_negative_ts) - 280usize];
-    ["Offset of field: AVFormatContext::audio_preload"]
-        [::std::mem::offset_of!(AVFormatContext, audio_preload) - 284usize];
-    ["Offset of field: AVFormatContext::use_wallclock_as_timestamps"]
-        [::std::mem::offset_of!(AVFormatContext, use_wallclock_as_timestamps) - 288usize];
-    ["Offset of field: AVFormatContext::skip_estimate_duration_from_pts"]
-        [::std::mem::offset_of!(AVFormatContext, skip_estimate_duration_from_pts) - 292usize];
-    ["Offset of field: AVFormatContext::avio_flags"]
-        [::std::mem::offset_of!(AVFormatContext, avio_flags) - 296usize];
-    ["Offset of field: AVFormatContext::duration_estimation_method"]
-        [::std::mem::offset_of!(AVFormatContext, duration_estimation_method) - 300usize];
-    ["Offset of field: AVFormatContext::skip_initial_bytes"]
-        [::std::mem::offset_of!(AVFormatContext, skip_initial_bytes) - 304usize];
-    ["Offset of field: AVFormatContext::correct_ts_overflow"]
-        [::std::mem::offset_of!(AVFormatContext, correct_ts_overflow) - 312usize];
-    ["Offset of field: AVFormatContext::seek2any"]
-        [::std::mem::offset_of!(AVFormatContext, seek2any) - 316usize];
-    ["Offset of field: AVFormatContext::flush_packets"]
-        [::std::mem::offset_of!(AVFormatContext, flush_packets) - 320usize];
-    ["Offset of field: AVFormatContext::probe_score"]
-        [::std::mem::offset_of!(AVFormatContext, probe_score) - 324usize];
-    ["Offset of field: AVFormatContext::format_probesize"]
-        [::std::mem::offset_of!(AVFormatContext, format_probesize) - 328usize];
-    ["Offset of field: AVFormatContext::codec_whitelist"]
-        [::std::mem::offset_of!(AVFormatContext, codec_whitelist) - 336usize];
-    ["Offset of field: AVFormatContext::format_whitelist"]
-        [::std::mem::offset_of!(AVFormatContext, format_whitelist) - 344usize];
-    ["Offset of field: AVFormatContext::protocol_whitelist"]
-        [::std::mem::offset_of!(AVFormatContext, protocol_whitelist) - 352usize];
-    ["Offset of field: AVFormatContext::protocol_blacklist"]
-        [::std::mem::offset_of!(AVFormatContext, protocol_blacklist) - 360usize];
-    ["Offset of field: AVFormatContext::io_repositioned"]
-        [::std::mem::offset_of!(AVFormatContext, io_repositioned) - 368usize];
-    ["Offset of field: AVFormatContext::video_codec"]
-        [::std::mem::offset_of!(AVFormatContext, video_codec) - 376usize];
-    ["Offset of field: AVFormatContext::audio_codec"]
-        [::std::mem::offset_of!(AVFormatContext, audio_codec) - 384usize];
-    ["Offset of field: AVFormatContext::subtitle_codec"]
-        [::std::mem::offset_of!(AVFormatContext, subtitle_codec) - 392usize];
-    ["Offset of field: AVFormatContext::data_codec"]
-        [::std::mem::offset_of!(AVFormatContext, data_codec) - 400usize];
-    ["Offset of field: AVFormatContext::metadata_header_padding"]
-        [::std::mem::offset_of!(AVFormatContext, metadata_header_padding) - 408usize];
-    ["Offset of field: AVFormatContext::opaque"]
-        [::std::mem::offset_of!(AVFormatContext, opaque) - 416usize];
-    ["Offset of field: AVFormatContext::control_message_cb"]
-        [::std::mem::offset_of!(AVFormatContext, control_message_cb) - 424usize];
-    ["Offset of field: AVFormatContext::output_ts_offset"]
-        [::std::mem::offset_of!(AVFormatContext, output_ts_offset) - 432usize];
-    ["Offset of field: AVFormatContext::dump_separator"]
-        [::std::mem::offset_of!(AVFormatContext, dump_separator) - 440usize];
-    ["Offset of field: AVFormatContext::io_open"]
-        [::std::mem::offset_of!(AVFormatContext, io_open) - 448usize];
-    ["Offset of field: AVFormatContext::io_close2"]
-        [::std::mem::offset_of!(AVFormatContext, io_close2) - 456usize];
-};
+#[test]
+fn bindgen_test_layout_AVFormatContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFormatContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFormatContext>(),
+        464usize,
+        "Size of AVFormatContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFormatContext>(),
+        8usize,
+        "Alignment of AVFormatContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFormatContext::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).iformat) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFormatContext::iformat"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).oformat) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFormatContext::oformat"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_data) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFormatContext::priv_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pb) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFormatContext::pb"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ctx_flags) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVFormatContext::ctx_flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_streams) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVFormatContext::nb_streams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).streams) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVFormatContext::streams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_stream_groups) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVFormatContext::nb_stream_groups"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stream_groups) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVFormatContext::stream_groups"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_chapters) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVFormatContext::nb_chapters"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chapters) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVFormatContext::chapters"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).url) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVFormatContext::url"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).start_time) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVFormatContext::start_time"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).duration) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVFormatContext::duration"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_rate) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVFormatContext::bit_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).packet_size) as usize - ptr as usize },
+        120usize,
+        "Offset of field: AVFormatContext::packet_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_delay) as usize - ptr as usize },
+        124usize,
+        "Offset of field: AVFormatContext::max_delay"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        128usize,
+        "Offset of field: AVFormatContext::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).probesize) as usize - ptr as usize },
+        136usize,
+        "Offset of field: AVFormatContext::probesize"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_analyze_duration) as usize - ptr as usize },
+        144usize,
+        "Offset of field: AVFormatContext::max_analyze_duration"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key) as usize - ptr as usize },
+        152usize,
+        "Offset of field: AVFormatContext::key"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).keylen) as usize - ptr as usize },
+        160usize,
+        "Offset of field: AVFormatContext::keylen"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_programs) as usize - ptr as usize },
+        164usize,
+        "Offset of field: AVFormatContext::nb_programs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).programs) as usize - ptr as usize },
+        168usize,
+        "Offset of field: AVFormatContext::programs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).video_codec_id) as usize - ptr as usize },
+        176usize,
+        "Offset of field: AVFormatContext::video_codec_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_codec_id) as usize - ptr as usize },
+        180usize,
+        "Offset of field: AVFormatContext::audio_codec_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subtitle_codec_id) as usize - ptr as usize },
+        184usize,
+        "Offset of field: AVFormatContext::subtitle_codec_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data_codec_id) as usize - ptr as usize },
+        188usize,
+        "Offset of field: AVFormatContext::data_codec_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).metadata) as usize - ptr as usize },
+        192usize,
+        "Offset of field: AVFormatContext::metadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).start_time_realtime) as usize - ptr as usize },
+        200usize,
+        "Offset of field: AVFormatContext::start_time_realtime"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fps_probe_size) as usize - ptr as usize },
+        208usize,
+        "Offset of field: AVFormatContext::fps_probe_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).error_recognition) as usize - ptr as usize },
+        212usize,
+        "Offset of field: AVFormatContext::error_recognition"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).interrupt_callback) as usize - ptr as usize },
+        216usize,
+        "Offset of field: AVFormatContext::interrupt_callback"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).debug) as usize - ptr as usize },
+        232usize,
+        "Offset of field: AVFormatContext::debug"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_streams) as usize - ptr as usize },
+        236usize,
+        "Offset of field: AVFormatContext::max_streams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_index_size) as usize - ptr as usize },
+        240usize,
+        "Offset of field: AVFormatContext::max_index_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_picture_buffer) as usize - ptr as usize },
+        244usize,
+        "Offset of field: AVFormatContext::max_picture_buffer"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_interleave_delta) as usize - ptr as usize },
+        248usize,
+        "Offset of field: AVFormatContext::max_interleave_delta"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_ts_probe) as usize - ptr as usize },
+        256usize,
+        "Offset of field: AVFormatContext::max_ts_probe"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_chunk_duration) as usize - ptr as usize },
+        260usize,
+        "Offset of field: AVFormatContext::max_chunk_duration"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_chunk_size) as usize - ptr as usize },
+        264usize,
+        "Offset of field: AVFormatContext::max_chunk_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_probe_packets) as usize - ptr as usize },
+        268usize,
+        "Offset of field: AVFormatContext::max_probe_packets"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).strict_std_compliance) as usize - ptr as usize },
+        272usize,
+        "Offset of field: AVFormatContext::strict_std_compliance"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).event_flags) as usize - ptr as usize },
+        276usize,
+        "Offset of field: AVFormatContext::event_flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).avoid_negative_ts) as usize - ptr as usize },
+        280usize,
+        "Offset of field: AVFormatContext::avoid_negative_ts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_preload) as usize - ptr as usize },
+        284usize,
+        "Offset of field: AVFormatContext::audio_preload"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).use_wallclock_as_timestamps) as usize - ptr as usize },
+        288usize,
+        "Offset of field: AVFormatContext::use_wallclock_as_timestamps"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).skip_estimate_duration_from_pts) as usize - ptr as usize
+        },
+        292usize,
+        "Offset of field: AVFormatContext::skip_estimate_duration_from_pts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).avio_flags) as usize - ptr as usize },
+        296usize,
+        "Offset of field: AVFormatContext::avio_flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).duration_estimation_method) as usize - ptr as usize },
+        300usize,
+        "Offset of field: AVFormatContext::duration_estimation_method"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).skip_initial_bytes) as usize - ptr as usize },
+        304usize,
+        "Offset of field: AVFormatContext::skip_initial_bytes"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).correct_ts_overflow) as usize - ptr as usize },
+        312usize,
+        "Offset of field: AVFormatContext::correct_ts_overflow"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).seek2any) as usize - ptr as usize },
+        316usize,
+        "Offset of field: AVFormatContext::seek2any"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flush_packets) as usize - ptr as usize },
+        320usize,
+        "Offset of field: AVFormatContext::flush_packets"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).probe_score) as usize - ptr as usize },
+        324usize,
+        "Offset of field: AVFormatContext::probe_score"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format_probesize) as usize - ptr as usize },
+        328usize,
+        "Offset of field: AVFormatContext::format_probesize"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec_whitelist) as usize - ptr as usize },
+        336usize,
+        "Offset of field: AVFormatContext::codec_whitelist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format_whitelist) as usize - ptr as usize },
+        344usize,
+        "Offset of field: AVFormatContext::format_whitelist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).protocol_whitelist) as usize - ptr as usize },
+        352usize,
+        "Offset of field: AVFormatContext::protocol_whitelist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).protocol_blacklist) as usize - ptr as usize },
+        360usize,
+        "Offset of field: AVFormatContext::protocol_blacklist"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).io_repositioned) as usize - ptr as usize },
+        368usize,
+        "Offset of field: AVFormatContext::io_repositioned"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).video_codec) as usize - ptr as usize },
+        376usize,
+        "Offset of field: AVFormatContext::video_codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).audio_codec) as usize - ptr as usize },
+        384usize,
+        "Offset of field: AVFormatContext::audio_codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subtitle_codec) as usize - ptr as usize },
+        392usize,
+        "Offset of field: AVFormatContext::subtitle_codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data_codec) as usize - ptr as usize },
+        400usize,
+        "Offset of field: AVFormatContext::data_codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).metadata_header_padding) as usize - ptr as usize },
+        408usize,
+        "Offset of field: AVFormatContext::metadata_header_padding"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        416usize,
+        "Offset of field: AVFormatContext::opaque"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).control_message_cb) as usize - ptr as usize },
+        424usize,
+        "Offset of field: AVFormatContext::control_message_cb"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).output_ts_offset) as usize - ptr as usize },
+        432usize,
+        "Offset of field: AVFormatContext::output_ts_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dump_separator) as usize - ptr as usize },
+        440usize,
+        "Offset of field: AVFormatContext::dump_separator"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).io_open) as usize - ptr as usize },
+        448usize,
+        "Offset of field: AVFormatContext::io_open"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).io_close2) as usize - ptr as usize },
+        456usize,
+        "Offset of field: AVFormatContext::io_close2"
+    );
+}
 extern "C" {
     #[doc = " This function will cause global side data to be injected in the next packet\n of each stream as well as after any subsequent seek.\n\n @note global side data is always available in every AVStream's\n       @ref AVCodecParameters.coded_side_data \"codecpar side data\" array, and\n       in a @ref AVCodecContext.coded_side_data \"decoder's side data\" array if\n       initialized with said stream's codecpar.\n @see av_packet_side_data_get()"]
     pub fn av_format_inject_global_side_data(s: *mut AVFormatContext);
@@ -13316,16 +16928,41 @@ pub struct AVDeviceRect {
     #[doc = "< height"]
     pub height: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDeviceRect"][::std::mem::size_of::<AVDeviceRect>() - 16usize];
-    ["Alignment of AVDeviceRect"][::std::mem::align_of::<AVDeviceRect>() - 4usize];
-    ["Offset of field: AVDeviceRect::x"][::std::mem::offset_of!(AVDeviceRect, x) - 0usize];
-    ["Offset of field: AVDeviceRect::y"][::std::mem::offset_of!(AVDeviceRect, y) - 4usize];
-    ["Offset of field: AVDeviceRect::width"][::std::mem::offset_of!(AVDeviceRect, width) - 8usize];
-    ["Offset of field: AVDeviceRect::height"]
-        [::std::mem::offset_of!(AVDeviceRect, height) - 12usize];
-};
+#[test]
+fn bindgen_test_layout_AVDeviceRect() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDeviceRect> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDeviceRect>(),
+        16usize,
+        "Size of AVDeviceRect"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDeviceRect>(),
+        4usize,
+        "Alignment of AVDeviceRect"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).x) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDeviceRect::x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).y) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDeviceRect::y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDeviceRect::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVDeviceRect::height"
+    );
+}
 #[doc = " Dummy message."]
 pub const AV_APP_TO_DEV_NONE: AVAppToDevMessageType = 1313820229;
 #[doc = " Window size change message.\n\n Message is sent to the device every time the application changes the size\n of the window device renders to.\n Message should also be sent right after window is created.\n\n data: AVDeviceRect: new window size."]
@@ -13407,19 +17044,41 @@ pub struct AVDeviceInfo {
     #[doc = "< length of media_types array, 0 if device cannot provide any media types"]
     pub nb_media_types: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDeviceInfo"][::std::mem::size_of::<AVDeviceInfo>() - 32usize];
-    ["Alignment of AVDeviceInfo"][::std::mem::align_of::<AVDeviceInfo>() - 8usize];
-    ["Offset of field: AVDeviceInfo::device_name"]
-        [::std::mem::offset_of!(AVDeviceInfo, device_name) - 0usize];
-    ["Offset of field: AVDeviceInfo::device_description"]
-        [::std::mem::offset_of!(AVDeviceInfo, device_description) - 8usize];
-    ["Offset of field: AVDeviceInfo::media_types"]
-        [::std::mem::offset_of!(AVDeviceInfo, media_types) - 16usize];
-    ["Offset of field: AVDeviceInfo::nb_media_types"]
-        [::std::mem::offset_of!(AVDeviceInfo, nb_media_types) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_AVDeviceInfo() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDeviceInfo> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDeviceInfo>(),
+        32usize,
+        "Size of AVDeviceInfo"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDeviceInfo>(),
+        8usize,
+        "Alignment of AVDeviceInfo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDeviceInfo::device_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_description) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDeviceInfo::device_description"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).media_types) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDeviceInfo::media_types"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_media_types) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVDeviceInfo::nb_media_types"
+    );
+}
 #[doc = " List of devices."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13431,17 +17090,36 @@ pub struct AVDeviceInfoList {
     #[doc = "< index of default device or -1 if no default"]
     pub default_device: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDeviceInfoList"][::std::mem::size_of::<AVDeviceInfoList>() - 16usize];
-    ["Alignment of AVDeviceInfoList"][::std::mem::align_of::<AVDeviceInfoList>() - 8usize];
-    ["Offset of field: AVDeviceInfoList::devices"]
-        [::std::mem::offset_of!(AVDeviceInfoList, devices) - 0usize];
-    ["Offset of field: AVDeviceInfoList::nb_devices"]
-        [::std::mem::offset_of!(AVDeviceInfoList, nb_devices) - 8usize];
-    ["Offset of field: AVDeviceInfoList::default_device"]
-        [::std::mem::offset_of!(AVDeviceInfoList, default_device) - 12usize];
-};
+#[test]
+fn bindgen_test_layout_AVDeviceInfoList() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDeviceInfoList> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDeviceInfoList>(),
+        16usize,
+        "Size of AVDeviceInfoList"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDeviceInfoList>(),
+        8usize,
+        "Alignment of AVDeviceInfoList"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).devices) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDeviceInfoList::devices"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_devices) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDeviceInfoList::nb_devices"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).default_device) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVDeviceInfoList::default_device"
+    );
+}
 extern "C" {
     #[doc = " List devices.\n\n Returns available device names and their parameters.\n\n @note: Some devices may accept system-dependent device names that cannot be\n        autodetected. The list returned by this function cannot be assumed to\n        be always completed.\n\n @param s                device context.\n @param[out] device_list list of autodetected devices.\n @return count of autodetected devices, negative on error."]
     pub fn avdevice_list_devices(
@@ -13581,55 +17259,152 @@ pub union AVFilter__bindgen_ty_1 {
     #[doc = " Equivalent to { sample_fmt, AV_SAMPLE_FMT_NONE } as samples_list."]
     pub sample_fmt: AVSampleFormat,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilter__bindgen_ty_1"][::std::mem::size_of::<AVFilter__bindgen_ty_1>() - 8usize];
-    ["Alignment of AVFilter__bindgen_ty_1"]
-        [::std::mem::align_of::<AVFilter__bindgen_ty_1>() - 8usize];
-    ["Offset of field: AVFilter__bindgen_ty_1::query_func"]
-        [::std::mem::offset_of!(AVFilter__bindgen_ty_1, query_func) - 0usize];
-    ["Offset of field: AVFilter__bindgen_ty_1::pixels_list"]
-        [::std::mem::offset_of!(AVFilter__bindgen_ty_1, pixels_list) - 0usize];
-    ["Offset of field: AVFilter__bindgen_ty_1::samples_list"]
-        [::std::mem::offset_of!(AVFilter__bindgen_ty_1, samples_list) - 0usize];
-    ["Offset of field: AVFilter__bindgen_ty_1::pix_fmt"]
-        [::std::mem::offset_of!(AVFilter__bindgen_ty_1, pix_fmt) - 0usize];
-    ["Offset of field: AVFilter__bindgen_ty_1::sample_fmt"]
-        [::std::mem::offset_of!(AVFilter__bindgen_ty_1, sample_fmt) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilter__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilter__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilter__bindgen_ty_1>(),
+        8usize,
+        "Size of AVFilter__bindgen_ty_1"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilter__bindgen_ty_1>(),
+        8usize,
+        "Alignment of AVFilter__bindgen_ty_1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).query_func) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilter__bindgen_ty_1::query_func"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pixels_list) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilter__bindgen_ty_1::pixels_list"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).samples_list) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilter__bindgen_ty_1::samples_list"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pix_fmt) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilter__bindgen_ty_1::pix_fmt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_fmt) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilter__bindgen_ty_1::sample_fmt"
+    );
+}
 impl ::std::fmt::Debug for AVFilter__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "AVFilter__bindgen_ty_1 {{ union }}")
     }
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilter"][::std::mem::size_of::<AVFilter>() - 104usize];
-    ["Alignment of AVFilter"][::std::mem::align_of::<AVFilter>() - 8usize];
-    ["Offset of field: AVFilter::name"][::std::mem::offset_of!(AVFilter, name) - 0usize];
-    ["Offset of field: AVFilter::description"]
-        [::std::mem::offset_of!(AVFilter, description) - 8usize];
-    ["Offset of field: AVFilter::inputs"][::std::mem::offset_of!(AVFilter, inputs) - 16usize];
-    ["Offset of field: AVFilter::outputs"][::std::mem::offset_of!(AVFilter, outputs) - 24usize];
-    ["Offset of field: AVFilter::priv_class"]
-        [::std::mem::offset_of!(AVFilter, priv_class) - 32usize];
-    ["Offset of field: AVFilter::flags"][::std::mem::offset_of!(AVFilter, flags) - 40usize];
-    ["Offset of field: AVFilter::nb_inputs"][::std::mem::offset_of!(AVFilter, nb_inputs) - 44usize];
-    ["Offset of field: AVFilter::nb_outputs"]
-        [::std::mem::offset_of!(AVFilter, nb_outputs) - 45usize];
-    ["Offset of field: AVFilter::formats_state"]
-        [::std::mem::offset_of!(AVFilter, formats_state) - 46usize];
-    ["Offset of field: AVFilter::preinit"][::std::mem::offset_of!(AVFilter, preinit) - 48usize];
-    ["Offset of field: AVFilter::init"][::std::mem::offset_of!(AVFilter, init) - 56usize];
-    ["Offset of field: AVFilter::uninit"][::std::mem::offset_of!(AVFilter, uninit) - 64usize];
-    ["Offset of field: AVFilter::formats"][::std::mem::offset_of!(AVFilter, formats) - 72usize];
-    ["Offset of field: AVFilter::priv_size"][::std::mem::offset_of!(AVFilter, priv_size) - 80usize];
-    ["Offset of field: AVFilter::flags_internal"]
-        [::std::mem::offset_of!(AVFilter, flags_internal) - 84usize];
-    ["Offset of field: AVFilter::process_command"]
-        [::std::mem::offset_of!(AVFilter, process_command) - 88usize];
-    ["Offset of field: AVFilter::activate"][::std::mem::offset_of!(AVFilter, activate) - 96usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilter() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilter> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilter>(),
+        104usize,
+        "Size of AVFilter"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilter>(),
+        8usize,
+        "Alignment of AVFilter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilter::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).description) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilter::description"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).inputs) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilter::inputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).outputs) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilter::outputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_class) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFilter::priv_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVFilter::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_inputs) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVFilter::nb_inputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_outputs) as usize - ptr as usize },
+        45usize,
+        "Offset of field: AVFilter::nb_outputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).formats_state) as usize - ptr as usize },
+        46usize,
+        "Offset of field: AVFilter::formats_state"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).preinit) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVFilter::preinit"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).init) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVFilter::init"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).uninit) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVFilter::uninit"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).formats) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVFilter::formats"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_size) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVFilter::priv_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags_internal) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVFilter::flags_internal"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).process_command) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVFilter::process_command"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).activate) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVFilter::activate"
+    );
+}
 impl ::std::fmt::Debug for AVFilter {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVFilter {{ name: {:?}, description: {:?}, inputs: {:?}, outputs: {:?}, priv_class: {:?}, flags: {:?}, nb_inputs: {:?}, nb_outputs: {:?}, formats_state: {:?}, preinit: {:?}, init: {:?}, uninit: {:?}, formats: {:?}, priv_size: {:?}, flags_internal: {:?}, process_command: {:?}, activate: {:?} }}" , self . name , self . description , self . inputs , self . outputs , self . priv_class , self . flags , self . nb_inputs , self . nb_outputs , self . formats_state , self . preinit , self . init , self . uninit , self . formats , self . priv_size , self . flags_internal , self . process_command , self . activate)
@@ -13688,53 +17463,126 @@ pub struct AVFilterContext {
     #[doc = " Sets the number of extra hardware frames which the filter will\n allocate on its output links for use in following filters or by\n the caller.\n\n Some hardware filters require all frames that they will use for\n output to be defined in advance before filtering starts.  For such\n filters, any hardware frame pools used for output must therefore be\n of fixed size.  The extra frames set here are on top of any number\n that the filter needs internally in order to operate normally.\n\n This field must be set before the graph containing this filter is\n configured."]
     pub extra_hw_frames: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterContext"][::std::mem::size_of::<AVFilterContext>() - 152usize];
-    ["Alignment of AVFilterContext"][::std::mem::align_of::<AVFilterContext>() - 8usize];
-    ["Offset of field: AVFilterContext::av_class"]
-        [::std::mem::offset_of!(AVFilterContext, av_class) - 0usize];
-    ["Offset of field: AVFilterContext::filter"]
-        [::std::mem::offset_of!(AVFilterContext, filter) - 8usize];
-    ["Offset of field: AVFilterContext::name"]
-        [::std::mem::offset_of!(AVFilterContext, name) - 16usize];
-    ["Offset of field: AVFilterContext::input_pads"]
-        [::std::mem::offset_of!(AVFilterContext, input_pads) - 24usize];
-    ["Offset of field: AVFilterContext::inputs"]
-        [::std::mem::offset_of!(AVFilterContext, inputs) - 32usize];
-    ["Offset of field: AVFilterContext::nb_inputs"]
-        [::std::mem::offset_of!(AVFilterContext, nb_inputs) - 40usize];
-    ["Offset of field: AVFilterContext::output_pads"]
-        [::std::mem::offset_of!(AVFilterContext, output_pads) - 48usize];
-    ["Offset of field: AVFilterContext::outputs"]
-        [::std::mem::offset_of!(AVFilterContext, outputs) - 56usize];
-    ["Offset of field: AVFilterContext::nb_outputs"]
-        [::std::mem::offset_of!(AVFilterContext, nb_outputs) - 64usize];
-    ["Offset of field: AVFilterContext::priv_"]
-        [::std::mem::offset_of!(AVFilterContext, priv_) - 72usize];
-    ["Offset of field: AVFilterContext::graph"]
-        [::std::mem::offset_of!(AVFilterContext, graph) - 80usize];
-    ["Offset of field: AVFilterContext::thread_type"]
-        [::std::mem::offset_of!(AVFilterContext, thread_type) - 88usize];
-    ["Offset of field: AVFilterContext::nb_threads"]
-        [::std::mem::offset_of!(AVFilterContext, nb_threads) - 92usize];
-    ["Offset of field: AVFilterContext::command_queue"]
-        [::std::mem::offset_of!(AVFilterContext, command_queue) - 96usize];
-    ["Offset of field: AVFilterContext::enable_str"]
-        [::std::mem::offset_of!(AVFilterContext, enable_str) - 104usize];
-    ["Offset of field: AVFilterContext::enable"]
-        [::std::mem::offset_of!(AVFilterContext, enable) - 112usize];
-    ["Offset of field: AVFilterContext::var_values"]
-        [::std::mem::offset_of!(AVFilterContext, var_values) - 120usize];
-    ["Offset of field: AVFilterContext::is_disabled"]
-        [::std::mem::offset_of!(AVFilterContext, is_disabled) - 128usize];
-    ["Offset of field: AVFilterContext::hw_device_ctx"]
-        [::std::mem::offset_of!(AVFilterContext, hw_device_ctx) - 136usize];
-    ["Offset of field: AVFilterContext::ready"]
-        [::std::mem::offset_of!(AVFilterContext, ready) - 144usize];
-    ["Offset of field: AVFilterContext::extra_hw_frames"]
-        [::std::mem::offset_of!(AVFilterContext, extra_hw_frames) - 148usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterContext() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterContext> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterContext>(),
+        152usize,
+        "Size of AVFilterContext"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterContext>(),
+        8usize,
+        "Alignment of AVFilterContext"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterContext::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filter) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilterContext::filter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilterContext::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).input_pads) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilterContext::input_pads"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).inputs) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFilterContext::inputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_inputs) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVFilterContext::nb_inputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).output_pads) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVFilterContext::output_pads"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).outputs) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVFilterContext::outputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_outputs) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVFilterContext::nb_outputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priv_) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVFilterContext::priv_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).graph) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVFilterContext::graph"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).thread_type) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVFilterContext::thread_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_threads) as usize - ptr as usize },
+        92usize,
+        "Offset of field: AVFilterContext::nb_threads"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).command_queue) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVFilterContext::command_queue"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).enable_str) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVFilterContext::enable_str"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).enable) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVFilterContext::enable"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).var_values) as usize - ptr as usize },
+        120usize,
+        "Offset of field: AVFilterContext::var_values"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).is_disabled) as usize - ptr as usize },
+        128usize,
+        "Offset of field: AVFilterContext::is_disabled"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hw_device_ctx) as usize - ptr as usize },
+        136usize,
+        "Offset of field: AVFilterContext::hw_device_ctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ready) as usize - ptr as usize },
+        144usize,
+        "Offset of field: AVFilterContext::ready"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).extra_hw_frames) as usize - ptr as usize },
+        148usize,
+        "Offset of field: AVFilterContext::extra_hw_frames"
+    );
+}
 #[doc = " Lists of formats / etc. supported by an end of a link.\n\n This structure is directly part of AVFilterLink, in two copies:\n one for the source filter, one for the destination filter.\n\n These lists are used for negotiating the format to actually be used,\n which will be loaded into the format and channel_layout members of\n AVFilterLink, when chosen."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13750,22 +17598,47 @@ pub struct AVFilterFormatsConfig {
     #[doc = "< AVColorRange"]
     pub color_ranges: *mut AVFilterFormats,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterFormatsConfig"][::std::mem::size_of::<AVFilterFormatsConfig>() - 40usize];
-    ["Alignment of AVFilterFormatsConfig"]
-        [::std::mem::align_of::<AVFilterFormatsConfig>() - 8usize];
-    ["Offset of field: AVFilterFormatsConfig::formats"]
-        [::std::mem::offset_of!(AVFilterFormatsConfig, formats) - 0usize];
-    ["Offset of field: AVFilterFormatsConfig::samplerates"]
-        [::std::mem::offset_of!(AVFilterFormatsConfig, samplerates) - 8usize];
-    ["Offset of field: AVFilterFormatsConfig::channel_layouts"]
-        [::std::mem::offset_of!(AVFilterFormatsConfig, channel_layouts) - 16usize];
-    ["Offset of field: AVFilterFormatsConfig::color_spaces"]
-        [::std::mem::offset_of!(AVFilterFormatsConfig, color_spaces) - 24usize];
-    ["Offset of field: AVFilterFormatsConfig::color_ranges"]
-        [::std::mem::offset_of!(AVFilterFormatsConfig, color_ranges) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterFormatsConfig() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterFormatsConfig> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterFormatsConfig>(),
+        40usize,
+        "Size of AVFilterFormatsConfig"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterFormatsConfig>(),
+        8usize,
+        "Alignment of AVFilterFormatsConfig"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).formats) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterFormatsConfig::formats"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).samplerates) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilterFormatsConfig::samplerates"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).channel_layouts) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilterFormatsConfig::channel_layouts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_spaces) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilterFormatsConfig::color_spaces"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_ranges) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFilterFormatsConfig::color_ranges"
+    );
+}
 #[doc = " A link between two filters. This contains pointers to the source and\n destination filters between which this link exists, and the indexes of\n the pads involved. In addition, this link also contains the parameters\n which have been negotiated and agreed upon between the filter, such as\n image dimensions, format, etc.\n\n Applications must not normally access the link structure directly.\n Use the buffersrc and buffersink API instead.\n In the future, access to the header may be reserved for filters\n implementation."]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -13827,62 +17700,161 @@ pub struct AVFilterLink {
     #[doc = " For hwaccel pixel formats, this should be a reference to the\n AVHWFramesContext describing the frames."]
     pub hw_frames_ctx: *mut AVBufferRef,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterLink"][::std::mem::size_of::<AVFilterLink>() - 272usize];
-    ["Alignment of AVFilterLink"][::std::mem::align_of::<AVFilterLink>() - 8usize];
-    ["Offset of field: AVFilterLink::src"][::std::mem::offset_of!(AVFilterLink, src) - 0usize];
-    ["Offset of field: AVFilterLink::srcpad"]
-        [::std::mem::offset_of!(AVFilterLink, srcpad) - 8usize];
-    ["Offset of field: AVFilterLink::dst"][::std::mem::offset_of!(AVFilterLink, dst) - 16usize];
-    ["Offset of field: AVFilterLink::dstpad"]
-        [::std::mem::offset_of!(AVFilterLink, dstpad) - 24usize];
-    ["Offset of field: AVFilterLink::type_"][::std::mem::offset_of!(AVFilterLink, type_) - 32usize];
-    ["Offset of field: AVFilterLink::format"]
-        [::std::mem::offset_of!(AVFilterLink, format) - 36usize];
-    ["Offset of field: AVFilterLink::w"][::std::mem::offset_of!(AVFilterLink, w) - 40usize];
-    ["Offset of field: AVFilterLink::h"][::std::mem::offset_of!(AVFilterLink, h) - 44usize];
-    ["Offset of field: AVFilterLink::sample_aspect_ratio"]
-        [::std::mem::offset_of!(AVFilterLink, sample_aspect_ratio) - 48usize];
-    ["Offset of field: AVFilterLink::colorspace"]
-        [::std::mem::offset_of!(AVFilterLink, colorspace) - 56usize];
-    ["Offset of field: AVFilterLink::color_range"]
-        [::std::mem::offset_of!(AVFilterLink, color_range) - 60usize];
-    ["Offset of field: AVFilterLink::sample_rate"]
-        [::std::mem::offset_of!(AVFilterLink, sample_rate) - 64usize];
-    ["Offset of field: AVFilterLink::ch_layout"]
-        [::std::mem::offset_of!(AVFilterLink, ch_layout) - 72usize];
-    ["Offset of field: AVFilterLink::time_base"]
-        [::std::mem::offset_of!(AVFilterLink, time_base) - 96usize];
-    ["Offset of field: AVFilterLink::incfg"]
-        [::std::mem::offset_of!(AVFilterLink, incfg) - 104usize];
-    ["Offset of field: AVFilterLink::outcfg"]
-        [::std::mem::offset_of!(AVFilterLink, outcfg) - 144usize];
-    ["Offset of field: AVFilterLink::graph"]
-        [::std::mem::offset_of!(AVFilterLink, graph) - 184usize];
-    ["Offset of field: AVFilterLink::current_pts"]
-        [::std::mem::offset_of!(AVFilterLink, current_pts) - 192usize];
-    ["Offset of field: AVFilterLink::current_pts_us"]
-        [::std::mem::offset_of!(AVFilterLink, current_pts_us) - 200usize];
-    ["Offset of field: AVFilterLink::frame_rate"]
-        [::std::mem::offset_of!(AVFilterLink, frame_rate) - 208usize];
-    ["Offset of field: AVFilterLink::min_samples"]
-        [::std::mem::offset_of!(AVFilterLink, min_samples) - 216usize];
-    ["Offset of field: AVFilterLink::max_samples"]
-        [::std::mem::offset_of!(AVFilterLink, max_samples) - 220usize];
-    ["Offset of field: AVFilterLink::frame_count_in"]
-        [::std::mem::offset_of!(AVFilterLink, frame_count_in) - 224usize];
-    ["Offset of field: AVFilterLink::frame_count_out"]
-        [::std::mem::offset_of!(AVFilterLink, frame_count_out) - 232usize];
-    ["Offset of field: AVFilterLink::sample_count_in"]
-        [::std::mem::offset_of!(AVFilterLink, sample_count_in) - 240usize];
-    ["Offset of field: AVFilterLink::sample_count_out"]
-        [::std::mem::offset_of!(AVFilterLink, sample_count_out) - 248usize];
-    ["Offset of field: AVFilterLink::frame_wanted_out"]
-        [::std::mem::offset_of!(AVFilterLink, frame_wanted_out) - 256usize];
-    ["Offset of field: AVFilterLink::hw_frames_ctx"]
-        [::std::mem::offset_of!(AVFilterLink, hw_frames_ctx) - 264usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterLink() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterLink> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterLink>(),
+        272usize,
+        "Size of AVFilterLink"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterLink>(),
+        8usize,
+        "Alignment of AVFilterLink"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).src) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterLink::src"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).srcpad) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilterLink::srcpad"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dst) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilterLink::dst"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dstpad) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilterLink::dstpad"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFilterLink::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVFilterLink::format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVFilterLink::w"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).h) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVFilterLink::h"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_aspect_ratio) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVFilterLink::sample_aspect_ratio"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).colorspace) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVFilterLink::colorspace"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_range) as usize - ptr as usize },
+        60usize,
+        "Offset of field: AVFilterLink::color_range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_rate) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVFilterLink::sample_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVFilterLink::ch_layout"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVFilterLink::time_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).incfg) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVFilterLink::incfg"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).outcfg) as usize - ptr as usize },
+        144usize,
+        "Offset of field: AVFilterLink::outcfg"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).graph) as usize - ptr as usize },
+        184usize,
+        "Offset of field: AVFilterLink::graph"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).current_pts) as usize - ptr as usize },
+        192usize,
+        "Offset of field: AVFilterLink::current_pts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).current_pts_us) as usize - ptr as usize },
+        200usize,
+        "Offset of field: AVFilterLink::current_pts_us"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_rate) as usize - ptr as usize },
+        208usize,
+        "Offset of field: AVFilterLink::frame_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min_samples) as usize - ptr as usize },
+        216usize,
+        "Offset of field: AVFilterLink::min_samples"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_samples) as usize - ptr as usize },
+        220usize,
+        "Offset of field: AVFilterLink::max_samples"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_count_in) as usize - ptr as usize },
+        224usize,
+        "Offset of field: AVFilterLink::frame_count_in"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_count_out) as usize - ptr as usize },
+        232usize,
+        "Offset of field: AVFilterLink::frame_count_out"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_count_in) as usize - ptr as usize },
+        240usize,
+        "Offset of field: AVFilterLink::sample_count_in"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_count_out) as usize - ptr as usize },
+        248usize,
+        "Offset of field: AVFilterLink::sample_count_out"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_wanted_out) as usize - ptr as usize },
+        256usize,
+        "Offset of field: AVFilterLink::frame_wanted_out"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hw_frames_ctx) as usize - ptr as usize },
+        264usize,
+        "Offset of field: AVFilterLink::hw_frames_ctx"
+    );
+}
 impl ::std::fmt::Debug for AVFilterLink {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVFilterLink {{ src: {:?}, srcpad: {:?}, dst: {:?}, dstpad: {:?}, type: {:?}, format: {:?}, w: {:?}, h: {:?}, sample_aspect_ratio: {:?}, colorspace: {:?}, color_range: {:?}, sample_rate: {:?}, ch_layout: {:?}, time_base: {:?}, incfg: {:?}, outcfg: {:?}, graph: {:?}, current_pts: {:?}, current_pts_us: {:?}, frame_rate: {:?}, min_samples: {:?}, max_samples: {:?}, frame_count_in: {:?}, frame_count_out: {:?}, sample_count_in: {:?}, sample_count_out: {:?}, frame_wanted_out: {:?}, hw_frames_ctx: {:?} }}" , self . src , self . srcpad , self . dst , self . dstpad , self . type_ , self . format , self . w , self . h , self . sample_aspect_ratio , self . colorspace , self . color_range , self . sample_rate , self . ch_layout , self . time_base , self . incfg , self . outcfg , self . graph , self . current_pts , self . current_pts_us , self . frame_rate , self . min_samples , self . max_samples , self . frame_count_in , self . frame_count_out , self . sample_count_in , self . sample_count_out , self . frame_wanted_out , self . hw_frames_ctx)
@@ -13993,29 +17965,66 @@ pub struct AVFilterGraph {
     #[doc = "< swr options to use for the auto-inserted aresample filters, Access ONLY through AVOptions"]
     pub aresample_swr_opts: *mut ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterGraph"][::std::mem::size_of::<AVFilterGraph>() - 64usize];
-    ["Alignment of AVFilterGraph"][::std::mem::align_of::<AVFilterGraph>() - 8usize];
-    ["Offset of field: AVFilterGraph::av_class"]
-        [::std::mem::offset_of!(AVFilterGraph, av_class) - 0usize];
-    ["Offset of field: AVFilterGraph::filters"]
-        [::std::mem::offset_of!(AVFilterGraph, filters) - 8usize];
-    ["Offset of field: AVFilterGraph::nb_filters"]
-        [::std::mem::offset_of!(AVFilterGraph, nb_filters) - 16usize];
-    ["Offset of field: AVFilterGraph::scale_sws_opts"]
-        [::std::mem::offset_of!(AVFilterGraph, scale_sws_opts) - 24usize];
-    ["Offset of field: AVFilterGraph::thread_type"]
-        [::std::mem::offset_of!(AVFilterGraph, thread_type) - 32usize];
-    ["Offset of field: AVFilterGraph::nb_threads"]
-        [::std::mem::offset_of!(AVFilterGraph, nb_threads) - 36usize];
-    ["Offset of field: AVFilterGraph::opaque"]
-        [::std::mem::offset_of!(AVFilterGraph, opaque) - 40usize];
-    ["Offset of field: AVFilterGraph::execute"]
-        [::std::mem::offset_of!(AVFilterGraph, execute) - 48usize];
-    ["Offset of field: AVFilterGraph::aresample_swr_opts"]
-        [::std::mem::offset_of!(AVFilterGraph, aresample_swr_opts) - 56usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterGraph() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterGraph> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterGraph>(),
+        64usize,
+        "Size of AVFilterGraph"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterGraph>(),
+        8usize,
+        "Alignment of AVFilterGraph"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).av_class) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterGraph::av_class"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filters) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilterGraph::filters"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_filters) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilterGraph::nb_filters"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).scale_sws_opts) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilterGraph::scale_sws_opts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).thread_type) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFilterGraph::thread_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_threads) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVFilterGraph::nb_threads"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opaque) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVFilterGraph::opaque"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).execute) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVFilterGraph::execute"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).aresample_swr_opts) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVFilterGraph::aresample_swr_opts"
+    );
+}
 extern "C" {
     #[doc = " Allocate a filter graph.\n\n @return the allocated filter graph on success or NULL."]
     pub fn avfilter_graph_alloc() -> *mut AVFilterGraph;
@@ -14082,17 +18091,41 @@ pub struct AVFilterInOut {
     #[doc = " next input/input in the list, NULL if this is the last"]
     pub next: *mut AVFilterInOut,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterInOut"][::std::mem::size_of::<AVFilterInOut>() - 32usize];
-    ["Alignment of AVFilterInOut"][::std::mem::align_of::<AVFilterInOut>() - 8usize];
-    ["Offset of field: AVFilterInOut::name"][::std::mem::offset_of!(AVFilterInOut, name) - 0usize];
-    ["Offset of field: AVFilterInOut::filter_ctx"]
-        [::std::mem::offset_of!(AVFilterInOut, filter_ctx) - 8usize];
-    ["Offset of field: AVFilterInOut::pad_idx"]
-        [::std::mem::offset_of!(AVFilterInOut, pad_idx) - 16usize];
-    ["Offset of field: AVFilterInOut::next"][::std::mem::offset_of!(AVFilterInOut, next) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterInOut() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterInOut> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterInOut>(),
+        32usize,
+        "Size of AVFilterInOut"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterInOut>(),
+        8usize,
+        "Alignment of AVFilterInOut"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterInOut::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filter_ctx) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilterInOut::filter_ctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pad_idx) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilterInOut::pad_idx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).next) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilterInOut::next"
+    );
+}
 extern "C" {
     #[doc = " Allocate a single AVFilterInOut entry.\n Must be freed with avfilter_inout_free().\n @return allocated AVFilterInOut on success, NULL on failure."]
     pub fn avfilter_inout_alloc() -> *mut AVFilterInOut;
@@ -14137,13 +18170,26 @@ pub struct AVFilterPadParams {
     #[doc = " An av_malloc()'ed string containing the pad label.\n\n May be av_free()'d and set to NULL by the caller, in which case this pad\n will be treated as unlabeled for linking.\n May also be replaced by another av_malloc()'ed string."]
     pub label: *mut ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterPadParams"][::std::mem::size_of::<AVFilterPadParams>() - 8usize];
-    ["Alignment of AVFilterPadParams"][::std::mem::align_of::<AVFilterPadParams>() - 8usize];
-    ["Offset of field: AVFilterPadParams::label"]
-        [::std::mem::offset_of!(AVFilterPadParams, label) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterPadParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterPadParams> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterPadParams>(),
+        8usize,
+        "Size of AVFilterPadParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterPadParams>(),
+        8usize,
+        "Alignment of AVFilterPadParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).label) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterPadParams::label"
+    );
+}
 #[doc = " Parameters describing a filter to be created in a filtergraph.\n\n Created as a child of AVFilterGraphSegment by avfilter_graph_segment_parse().\n Freed in avfilter_graph_segment_free()."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -14161,27 +18207,61 @@ pub struct AVFilterParams {
     pub outputs: *mut *mut AVFilterPadParams,
     pub nb_outputs: ::std::os::raw::c_uint,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterParams"][::std::mem::size_of::<AVFilterParams>() - 64usize];
-    ["Alignment of AVFilterParams"][::std::mem::align_of::<AVFilterParams>() - 8usize];
-    ["Offset of field: AVFilterParams::filter"]
-        [::std::mem::offset_of!(AVFilterParams, filter) - 0usize];
-    ["Offset of field: AVFilterParams::filter_name"]
-        [::std::mem::offset_of!(AVFilterParams, filter_name) - 8usize];
-    ["Offset of field: AVFilterParams::instance_name"]
-        [::std::mem::offset_of!(AVFilterParams, instance_name) - 16usize];
-    ["Offset of field: AVFilterParams::opts"]
-        [::std::mem::offset_of!(AVFilterParams, opts) - 24usize];
-    ["Offset of field: AVFilterParams::inputs"]
-        [::std::mem::offset_of!(AVFilterParams, inputs) - 32usize];
-    ["Offset of field: AVFilterParams::nb_inputs"]
-        [::std::mem::offset_of!(AVFilterParams, nb_inputs) - 40usize];
-    ["Offset of field: AVFilterParams::outputs"]
-        [::std::mem::offset_of!(AVFilterParams, outputs) - 48usize];
-    ["Offset of field: AVFilterParams::nb_outputs"]
-        [::std::mem::offset_of!(AVFilterParams, nb_outputs) - 56usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterParams> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterParams>(),
+        64usize,
+        "Size of AVFilterParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterParams>(),
+        8usize,
+        "Alignment of AVFilterParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filter) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterParams::filter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filter_name) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilterParams::filter_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).instance_name) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilterParams::instance_name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).opts) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilterParams::opts"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).inputs) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFilterParams::inputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_inputs) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVFilterParams::nb_inputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).outputs) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVFilterParams::outputs"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_outputs) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVFilterParams::nb_outputs"
+    );
+}
 #[doc = " A filterchain is a list of filter specifications.\n\n Created as a child of AVFilterGraphSegment by avfilter_graph_segment_parse().\n Freed in avfilter_graph_segment_free()."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -14189,15 +18269,31 @@ pub struct AVFilterChain {
     pub filters: *mut *mut AVFilterParams,
     pub nb_filters: usize,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterChain"][::std::mem::size_of::<AVFilterChain>() - 16usize];
-    ["Alignment of AVFilterChain"][::std::mem::align_of::<AVFilterChain>() - 8usize];
-    ["Offset of field: AVFilterChain::filters"]
-        [::std::mem::offset_of!(AVFilterChain, filters) - 0usize];
-    ["Offset of field: AVFilterChain::nb_filters"]
-        [::std::mem::offset_of!(AVFilterChain, nb_filters) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterChain() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterChain> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterChain>(),
+        16usize,
+        "Size of AVFilterChain"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterChain>(),
+        8usize,
+        "Alignment of AVFilterChain"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).filters) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterChain::filters"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_filters) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilterChain::nb_filters"
+    );
+}
 #[doc = " A parsed representation of a filtergraph segment.\n\n A filtergraph segment is conceptually a list of filterchains, with some\n supplementary information (e.g. format conversion flags).\n\n Created by avfilter_graph_segment_parse(). Must be freed with\n avfilter_graph_segment_free()."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -14210,19 +18306,41 @@ pub struct AVFilterGraphSegment {
     #[doc = " A string containing a colon-separated list of key=value options applied\n to all scale filters in this segment.\n\n May be set by avfilter_graph_segment_parse().\n The caller may free this string with av_free() and replace it with a\n different av_malloc()'ed string."]
     pub scale_sws_opts: *mut ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilterGraphSegment"][::std::mem::size_of::<AVFilterGraphSegment>() - 32usize];
-    ["Alignment of AVFilterGraphSegment"][::std::mem::align_of::<AVFilterGraphSegment>() - 8usize];
-    ["Offset of field: AVFilterGraphSegment::graph"]
-        [::std::mem::offset_of!(AVFilterGraphSegment, graph) - 0usize];
-    ["Offset of field: AVFilterGraphSegment::chains"]
-        [::std::mem::offset_of!(AVFilterGraphSegment, chains) - 8usize];
-    ["Offset of field: AVFilterGraphSegment::nb_chains"]
-        [::std::mem::offset_of!(AVFilterGraphSegment, nb_chains) - 16usize];
-    ["Offset of field: AVFilterGraphSegment::scale_sws_opts"]
-        [::std::mem::offset_of!(AVFilterGraphSegment, scale_sws_opts) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilterGraphSegment() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilterGraphSegment> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilterGraphSegment>(),
+        32usize,
+        "Size of AVFilterGraphSegment"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilterGraphSegment>(),
+        8usize,
+        "Alignment of AVFilterGraphSegment"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).graph) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilterGraphSegment::graph"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chains) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilterGraphSegment::chains"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_chains) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilterGraphSegment::nb_chains"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).scale_sws_opts) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilterGraphSegment::scale_sws_opts"
+    );
+}
 extern "C" {
     #[doc = " Parse a textual filtergraph description into an intermediate form.\n\n This intermediate representation is intended to be modified by the caller as\n described in the documentation of AVFilterGraphSegment and its children, and\n then applied to the graph either manually or with other\n avfilter_graph_segment_*() functions. See the documentation for\n avfilter_graph_segment_apply() for the canonical way to apply\n AVFilterGraphSegment.\n\n @param graph Filter graph the parsed segment is associated with. Will only be\n              used for logging and similar auxiliary purposes. The graph will\n              not be actually modified by this function - the parsing results\n              are instead stored in seg for further processing.\n @param graph_str a string describing the filtergraph segment\n @param flags reserved for future use, caller must set to 0 for now\n @param seg A pointer to the newly-created AVFilterGraphSegment is written\n            here on success. The graph segment is owned by the caller and must\n            be freed with avfilter_graph_segment_free() before graph itself is\n            freed.\n\n @retval \"non-negative number\" success\n @retval \"negative error code\" failure"]
     pub fn avfilter_graph_segment_parse(
@@ -14422,34 +18540,77 @@ pub struct AVBufferSrcParameters {
     pub color_space: AVColorSpace,
     pub color_range: AVColorRange,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVBufferSrcParameters"][::std::mem::size_of::<AVBufferSrcParameters>() - 88usize];
-    ["Alignment of AVBufferSrcParameters"]
-        [::std::mem::align_of::<AVBufferSrcParameters>() - 8usize];
-    ["Offset of field: AVBufferSrcParameters::format"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, format) - 0usize];
-    ["Offset of field: AVBufferSrcParameters::time_base"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, time_base) - 4usize];
-    ["Offset of field: AVBufferSrcParameters::width"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, width) - 12usize];
-    ["Offset of field: AVBufferSrcParameters::height"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, height) - 16usize];
-    ["Offset of field: AVBufferSrcParameters::sample_aspect_ratio"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, sample_aspect_ratio) - 20usize];
-    ["Offset of field: AVBufferSrcParameters::frame_rate"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, frame_rate) - 28usize];
-    ["Offset of field: AVBufferSrcParameters::hw_frames_ctx"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, hw_frames_ctx) - 40usize];
-    ["Offset of field: AVBufferSrcParameters::sample_rate"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, sample_rate) - 48usize];
-    ["Offset of field: AVBufferSrcParameters::ch_layout"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, ch_layout) - 56usize];
-    ["Offset of field: AVBufferSrcParameters::color_space"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, color_space) - 80usize];
-    ["Offset of field: AVBufferSrcParameters::color_range"]
-        [::std::mem::offset_of!(AVBufferSrcParameters, color_range) - 84usize];
-};
+#[test]
+fn bindgen_test_layout_AVBufferSrcParameters() {
+    const UNINIT: ::std::mem::MaybeUninit<AVBufferSrcParameters> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVBufferSrcParameters>(),
+        88usize,
+        "Size of AVBufferSrcParameters"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVBufferSrcParameters>(),
+        8usize,
+        "Alignment of AVBufferSrcParameters"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVBufferSrcParameters::format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_base) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVBufferSrcParameters::time_base"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVBufferSrcParameters::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVBufferSrcParameters::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_aspect_ratio) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVBufferSrcParameters::sample_aspect_ratio"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).frame_rate) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVBufferSrcParameters::frame_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hw_frames_ctx) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVBufferSrcParameters::hw_frames_ctx"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sample_rate) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVBufferSrcParameters::sample_rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ch_layout) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVBufferSrcParameters::ch_layout"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_space) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVBufferSrcParameters::color_space"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_range) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVBufferSrcParameters::color_range"
+    );
+}
 impl ::std::fmt::Debug for AVBufferSrcParameters {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVBufferSrcParameters {{ format: {:?}, time_base: {:?}, width: {:?}, height: {:?}, sample_aspect_ratio: {:?}, frame_rate: {:?}, hw_frames_ctx: {:?}, sample_rate: {:?}, ch_layout: {:?}, color_space: {:?}, color_range: {:?} }}" , self . format , self . time_base , self . width , self . height , self . sample_aspect_ratio , self . frame_rate , self . hw_frames_ctx , self . sample_rate , self . ch_layout , self . color_space , self . color_range)
@@ -14592,19 +18753,37 @@ pub struct AVAmbientViewingEnvironment {
     #[doc = " Normalized y chromaticity coordinate of the environmental ambient light\n in the nominal viewing environment according to the CIE 1931 definition\n of x and y as specified in ISO/CIE 11664-1."]
     pub ambient_light_y: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVAmbientViewingEnvironment"]
-        [::std::mem::size_of::<AVAmbientViewingEnvironment>() - 24usize];
-    ["Alignment of AVAmbientViewingEnvironment"]
-        [::std::mem::align_of::<AVAmbientViewingEnvironment>() - 4usize];
-    ["Offset of field: AVAmbientViewingEnvironment::ambient_illuminance"]
-        [::std::mem::offset_of!(AVAmbientViewingEnvironment, ambient_illuminance) - 0usize];
-    ["Offset of field: AVAmbientViewingEnvironment::ambient_light_x"]
-        [::std::mem::offset_of!(AVAmbientViewingEnvironment, ambient_light_x) - 8usize];
-    ["Offset of field: AVAmbientViewingEnvironment::ambient_light_y"]
-        [::std::mem::offset_of!(AVAmbientViewingEnvironment, ambient_light_y) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVAmbientViewingEnvironment() {
+    const UNINIT: ::std::mem::MaybeUninit<AVAmbientViewingEnvironment> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVAmbientViewingEnvironment>(),
+        24usize,
+        "Size of AVAmbientViewingEnvironment"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVAmbientViewingEnvironment>(),
+        4usize,
+        "Alignment of AVAmbientViewingEnvironment"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ambient_illuminance) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVAmbientViewingEnvironment::ambient_illuminance"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ambient_light_x) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVAmbientViewingEnvironment::ambient_light_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ambient_light_y) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVAmbientViewingEnvironment::ambient_light_y"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVAmbientViewingEnvironment structure.\n\n @return the newly allocated struct or NULL on failure"]
     pub fn av_ambient_viewing_environment_alloc(
@@ -14884,13 +19063,31 @@ pub struct AVBlowfish {
     pub p: [u32; 18usize],
     pub s: [[u32; 256usize]; 4usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVBlowfish"][::std::mem::size_of::<AVBlowfish>() - 4168usize];
-    ["Alignment of AVBlowfish"][::std::mem::align_of::<AVBlowfish>() - 4usize];
-    ["Offset of field: AVBlowfish::p"][::std::mem::offset_of!(AVBlowfish, p) - 0usize];
-    ["Offset of field: AVBlowfish::s"][::std::mem::offset_of!(AVBlowfish, s) - 72usize];
-};
+#[test]
+fn bindgen_test_layout_AVBlowfish() {
+    const UNINIT: ::std::mem::MaybeUninit<AVBlowfish> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVBlowfish>(),
+        4168usize,
+        "Size of AVBlowfish"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVBlowfish>(),
+        4usize,
+        "Alignment of AVBlowfish"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).p) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVBlowfish::p"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).s) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVBlowfish::s"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVBlowfish context."]
     pub fn av_blowfish_alloc() -> *mut AVBlowfish;
@@ -14928,22 +19125,47 @@ pub struct ff_pad_helper_AVBPrint {
     pub size_max: ::std::os::raw::c_uint,
     pub reserved_internal_buffer: [::std::os::raw::c_char; 1usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of ff_pad_helper_AVBPrint"][::std::mem::size_of::<ff_pad_helper_AVBPrint>() - 24usize];
-    ["Alignment of ff_pad_helper_AVBPrint"]
-        [::std::mem::align_of::<ff_pad_helper_AVBPrint>() - 8usize];
-    ["Offset of field: ff_pad_helper_AVBPrint::str_"]
-        [::std::mem::offset_of!(ff_pad_helper_AVBPrint, str_) - 0usize];
-    ["Offset of field: ff_pad_helper_AVBPrint::len"]
-        [::std::mem::offset_of!(ff_pad_helper_AVBPrint, len) - 8usize];
-    ["Offset of field: ff_pad_helper_AVBPrint::size"]
-        [::std::mem::offset_of!(ff_pad_helper_AVBPrint, size) - 12usize];
-    ["Offset of field: ff_pad_helper_AVBPrint::size_max"]
-        [::std::mem::offset_of!(ff_pad_helper_AVBPrint, size_max) - 16usize];
-    ["Offset of field: ff_pad_helper_AVBPrint::reserved_internal_buffer"]
-        [::std::mem::offset_of!(ff_pad_helper_AVBPrint, reserved_internal_buffer) - 20usize];
-};
+#[test]
+fn bindgen_test_layout_ff_pad_helper_AVBPrint() {
+    const UNINIT: ::std::mem::MaybeUninit<ff_pad_helper_AVBPrint> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<ff_pad_helper_AVBPrint>(),
+        24usize,
+        "Size of ff_pad_helper_AVBPrint"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ff_pad_helper_AVBPrint>(),
+        8usize,
+        "Alignment of ff_pad_helper_AVBPrint"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).str_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: ff_pad_helper_AVBPrint::str_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).len) as usize - ptr as usize },
+        8usize,
+        "Offset of field: ff_pad_helper_AVBPrint::len"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        12usize,
+        "Offset of field: ff_pad_helper_AVBPrint::size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size_max) as usize - ptr as usize },
+        16usize,
+        "Offset of field: ff_pad_helper_AVBPrint::size_max"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved_internal_buffer) as usize - ptr as usize },
+        20usize,
+        "Offset of field: ff_pad_helper_AVBPrint::reserved_internal_buffer"
+    );
+}
 #[doc = " @}"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -14955,19 +19177,51 @@ pub struct AVBPrint {
     pub reserved_internal_buffer: [::std::os::raw::c_char; 1usize],
     pub reserved_padding: [::std::os::raw::c_char; 1000usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVBPrint"][::std::mem::size_of::<AVBPrint>() - 1024usize];
-    ["Alignment of AVBPrint"][::std::mem::align_of::<AVBPrint>() - 8usize];
-    ["Offset of field: AVBPrint::str_"][::std::mem::offset_of!(AVBPrint, str_) - 0usize];
-    ["Offset of field: AVBPrint::len"][::std::mem::offset_of!(AVBPrint, len) - 8usize];
-    ["Offset of field: AVBPrint::size"][::std::mem::offset_of!(AVBPrint, size) - 12usize];
-    ["Offset of field: AVBPrint::size_max"][::std::mem::offset_of!(AVBPrint, size_max) - 16usize];
-    ["Offset of field: AVBPrint::reserved_internal_buffer"]
-        [::std::mem::offset_of!(AVBPrint, reserved_internal_buffer) - 20usize];
-    ["Offset of field: AVBPrint::reserved_padding"]
-        [::std::mem::offset_of!(AVBPrint, reserved_padding) - 21usize];
-};
+#[test]
+fn bindgen_test_layout_AVBPrint() {
+    const UNINIT: ::std::mem::MaybeUninit<AVBPrint> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVBPrint>(),
+        1024usize,
+        "Size of AVBPrint"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVBPrint>(),
+        8usize,
+        "Alignment of AVBPrint"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).str_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVBPrint::str_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).len) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVBPrint::len"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVBPrint::size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size_max) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVBPrint::size_max"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved_internal_buffer) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVBPrint::reserved_internal_buffer"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved_padding) as usize - ptr as usize },
+        21usize,
+        "Offset of field: AVBPrint::reserved_padding"
+    );
+}
 extern "C" {
     #[doc = " Init a print buffer.\n\n @param buf        buffer to init\n @param size_init  initial size (including the final 0)\n @param size_max   maximum size;\n                   - `0` means do not write anything, just count the length\n                   - `1` is replaced by the maximum value for automatic storage\n                       any large value means that the internal buffer will be\n                       reallocated as needed up to that limit\n                   - `-1` is converted to `UINT_MAX`, the largest limit possible.\n                   Check also `AV_BPRINT_SIZE_*` macros."]
     pub fn av_bprint_init(
@@ -15189,17 +19443,36 @@ pub struct AVLumaCoefficients {
     pub cg: AVRational,
     pub cb: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVLumaCoefficients"][::std::mem::size_of::<AVLumaCoefficients>() - 24usize];
-    ["Alignment of AVLumaCoefficients"][::std::mem::align_of::<AVLumaCoefficients>() - 4usize];
-    ["Offset of field: AVLumaCoefficients::cr"]
-        [::std::mem::offset_of!(AVLumaCoefficients, cr) - 0usize];
-    ["Offset of field: AVLumaCoefficients::cg"]
-        [::std::mem::offset_of!(AVLumaCoefficients, cg) - 8usize];
-    ["Offset of field: AVLumaCoefficients::cb"]
-        [::std::mem::offset_of!(AVLumaCoefficients, cb) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVLumaCoefficients() {
+    const UNINIT: ::std::mem::MaybeUninit<AVLumaCoefficients> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVLumaCoefficients>(),
+        24usize,
+        "Size of AVLumaCoefficients"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVLumaCoefficients>(),
+        4usize,
+        "Alignment of AVLumaCoefficients"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cr) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVLumaCoefficients::cr"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cg) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVLumaCoefficients::cg"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cb) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVLumaCoefficients::cb"
+    );
+}
 #[doc = " Struct containing chromaticity x and y values for the standard CIE 1931\n chromaticity definition."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -15207,13 +19480,27 @@ pub struct AVCIExy {
     pub x: AVRational,
     pub y: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVCIExy"][::std::mem::size_of::<AVCIExy>() - 16usize];
-    ["Alignment of AVCIExy"][::std::mem::align_of::<AVCIExy>() - 4usize];
-    ["Offset of field: AVCIExy::x"][::std::mem::offset_of!(AVCIExy, x) - 0usize];
-    ["Offset of field: AVCIExy::y"][::std::mem::offset_of!(AVCIExy, y) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVCIExy() {
+    const UNINIT: ::std::mem::MaybeUninit<AVCIExy> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVCIExy>(), 16usize, "Size of AVCIExy");
+    assert_eq!(
+        ::std::mem::align_of::<AVCIExy>(),
+        4usize,
+        "Alignment of AVCIExy"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).x) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVCIExy::x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).y) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVCIExy::y"
+    );
+}
 #[doc = " Struct defining the red, green, and blue primary locations in terms of CIE\n 1931 chromaticity x and y."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -15222,18 +19509,37 @@ pub struct AVPrimaryCoefficients {
     pub g: AVCIExy,
     pub b: AVCIExy,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVPrimaryCoefficients"][::std::mem::size_of::<AVPrimaryCoefficients>() - 48usize];
-    ["Alignment of AVPrimaryCoefficients"]
-        [::std::mem::align_of::<AVPrimaryCoefficients>() - 4usize];
-    ["Offset of field: AVPrimaryCoefficients::r"]
-        [::std::mem::offset_of!(AVPrimaryCoefficients, r) - 0usize];
-    ["Offset of field: AVPrimaryCoefficients::g"]
-        [::std::mem::offset_of!(AVPrimaryCoefficients, g) - 16usize];
-    ["Offset of field: AVPrimaryCoefficients::b"]
-        [::std::mem::offset_of!(AVPrimaryCoefficients, b) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVPrimaryCoefficients() {
+    const UNINIT: ::std::mem::MaybeUninit<AVPrimaryCoefficients> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVPrimaryCoefficients>(),
+        48usize,
+        "Size of AVPrimaryCoefficients"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVPrimaryCoefficients>(),
+        4usize,
+        "Alignment of AVPrimaryCoefficients"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).r) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVPrimaryCoefficients::r"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).g) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVPrimaryCoefficients::g"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).b) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVPrimaryCoefficients::b"
+    );
+}
 #[doc = " Struct defining white point location in terms of CIE 1931 chromaticity x\n and y."]
 pub type AVWhitepointCoefficients = AVCIExy;
 #[doc = " Struct that contains both white point location and primaries location, providing\n the complete description of a color gamut."]
@@ -15243,15 +19549,31 @@ pub struct AVColorPrimariesDesc {
     pub wp: AVWhitepointCoefficients,
     pub prim: AVPrimaryCoefficients,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVColorPrimariesDesc"][::std::mem::size_of::<AVColorPrimariesDesc>() - 64usize];
-    ["Alignment of AVColorPrimariesDesc"][::std::mem::align_of::<AVColorPrimariesDesc>() - 4usize];
-    ["Offset of field: AVColorPrimariesDesc::wp"]
-        [::std::mem::offset_of!(AVColorPrimariesDesc, wp) - 0usize];
-    ["Offset of field: AVColorPrimariesDesc::prim"]
-        [::std::mem::offset_of!(AVColorPrimariesDesc, prim) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVColorPrimariesDesc() {
+    const UNINIT: ::std::mem::MaybeUninit<AVColorPrimariesDesc> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVColorPrimariesDesc>(),
+        64usize,
+        "Size of AVColorPrimariesDesc"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVColorPrimariesDesc>(),
+        4usize,
+        "Alignment of AVColorPrimariesDesc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).wp) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVColorPrimariesDesc::wp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).prim) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVColorPrimariesDesc::prim"
+    );
+}
 #[doc = " Function pointer representing a double -> double transfer function that performs\n an EOTF transfer inversion. This function outputs linear light."]
 pub type av_csp_trc_function = ::std::option::Option<unsafe extern "C" fn(arg1: f64) -> f64>;
 extern "C" {
@@ -15281,13 +19603,27 @@ pub struct AVDES {
     pub round_keys: [[u64; 16usize]; 3usize],
     pub triple_des: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDES"][::std::mem::size_of::<AVDES>() - 392usize];
-    ["Alignment of AVDES"][::std::mem::align_of::<AVDES>() - 8usize];
-    ["Offset of field: AVDES::round_keys"][::std::mem::offset_of!(AVDES, round_keys) - 0usize];
-    ["Offset of field: AVDES::triple_des"][::std::mem::offset_of!(AVDES, triple_des) - 384usize];
-};
+#[test]
+fn bindgen_test_layout_AVDES() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDES> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVDES>(), 392usize, "Size of AVDES");
+    assert_eq!(
+        ::std::mem::align_of::<AVDES>(),
+        8usize,
+        "Alignment of AVDES"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).round_keys) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDES::round_keys"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).triple_des) as usize - ptr as usize },
+        384usize,
+        "Offset of field: AVDES::triple_des"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVDES context."]
     pub fn av_des_alloc() -> *mut AVDES;
@@ -15331,25 +19667,66 @@ pub struct AVDetectionBBox {
     pub classify_labels: [[::std::os::raw::c_char; 64usize]; 4usize],
     pub classify_confidences: [AVRational; 4usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDetectionBBox"][::std::mem::size_of::<AVDetectionBBox>() - 380usize];
-    ["Alignment of AVDetectionBBox"][::std::mem::align_of::<AVDetectionBBox>() - 4usize];
-    ["Offset of field: AVDetectionBBox::x"][::std::mem::offset_of!(AVDetectionBBox, x) - 0usize];
-    ["Offset of field: AVDetectionBBox::y"][::std::mem::offset_of!(AVDetectionBBox, y) - 4usize];
-    ["Offset of field: AVDetectionBBox::w"][::std::mem::offset_of!(AVDetectionBBox, w) - 8usize];
-    ["Offset of field: AVDetectionBBox::h"][::std::mem::offset_of!(AVDetectionBBox, h) - 12usize];
-    ["Offset of field: AVDetectionBBox::detect_label"]
-        [::std::mem::offset_of!(AVDetectionBBox, detect_label) - 16usize];
-    ["Offset of field: AVDetectionBBox::detect_confidence"]
-        [::std::mem::offset_of!(AVDetectionBBox, detect_confidence) - 80usize];
-    ["Offset of field: AVDetectionBBox::classify_count"]
-        [::std::mem::offset_of!(AVDetectionBBox, classify_count) - 88usize];
-    ["Offset of field: AVDetectionBBox::classify_labels"]
-        [::std::mem::offset_of!(AVDetectionBBox, classify_labels) - 92usize];
-    ["Offset of field: AVDetectionBBox::classify_confidences"]
-        [::std::mem::offset_of!(AVDetectionBBox, classify_confidences) - 348usize];
-};
+#[test]
+fn bindgen_test_layout_AVDetectionBBox() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDetectionBBox> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDetectionBBox>(),
+        380usize,
+        "Size of AVDetectionBBox"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDetectionBBox>(),
+        4usize,
+        "Alignment of AVDetectionBBox"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).x) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDetectionBBox::x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).y) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDetectionBBox::y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDetectionBBox::w"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).h) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVDetectionBBox::h"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).detect_label) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDetectionBBox::detect_label"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).detect_confidence) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVDetectionBBox::detect_confidence"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).classify_count) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVDetectionBBox::classify_count"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).classify_labels) as usize - ptr as usize },
+        92usize,
+        "Offset of field: AVDetectionBBox::classify_labels"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).classify_confidences) as usize - ptr as usize },
+        348usize,
+        "Offset of field: AVDetectionBBox::classify_confidences"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVDetectionBBoxHeader {
@@ -15362,20 +19739,42 @@ pub struct AVDetectionBBoxHeader {
     #[doc = " Size of each bounding box in bytes."]
     pub bbox_size: usize,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDetectionBBoxHeader"][::std::mem::size_of::<AVDetectionBBoxHeader>() - 280usize];
-    ["Alignment of AVDetectionBBoxHeader"]
-        [::std::mem::align_of::<AVDetectionBBoxHeader>() - 8usize];
-    ["Offset of field: AVDetectionBBoxHeader::source"]
-        [::std::mem::offset_of!(AVDetectionBBoxHeader, source) - 0usize];
-    ["Offset of field: AVDetectionBBoxHeader::nb_bboxes"]
-        [::std::mem::offset_of!(AVDetectionBBoxHeader, nb_bboxes) - 256usize];
-    ["Offset of field: AVDetectionBBoxHeader::bboxes_offset"]
-        [::std::mem::offset_of!(AVDetectionBBoxHeader, bboxes_offset) - 264usize];
-    ["Offset of field: AVDetectionBBoxHeader::bbox_size"]
-        [::std::mem::offset_of!(AVDetectionBBoxHeader, bbox_size) - 272usize];
-};
+#[test]
+fn bindgen_test_layout_AVDetectionBBoxHeader() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDetectionBBoxHeader> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDetectionBBoxHeader>(),
+        280usize,
+        "Size of AVDetectionBBoxHeader"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDetectionBBoxHeader>(),
+        8usize,
+        "Alignment of AVDetectionBBoxHeader"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).source) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDetectionBBoxHeader::source"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_bboxes) as usize - ptr as usize },
+        256usize,
+        "Offset of field: AVDetectionBBoxHeader::nb_bboxes"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bboxes_offset) as usize - ptr as usize },
+        264usize,
+        "Offset of field: AVDetectionBBoxHeader::bboxes_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bbox_size) as usize - ptr as usize },
+        272usize,
+        "Offset of field: AVDetectionBBoxHeader::bbox_size"
+    );
+}
 extern "C" {
     #[doc = " Allocates memory for AVDetectionBBoxHeader, plus an array of {@code nb_bboxes}\n AVDetectionBBox, and initializes the variables.\n Can be freed with a normal av_free() call.\n\n @param nb_bboxes number of AVDetectionBBox structures to allocate\n @param out_size if non-NULL, the size in bytes of the resulting data array is\n written here."]
     pub fn av_detection_bbox_alloc(
@@ -15418,32 +19817,64 @@ pub struct AVDOVIDecoderConfigurationRecord {
     pub bl_present_flag: u8,
     pub dv_bl_signal_compatibility_id: u8,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDOVIDecoderConfigurationRecord"]
-        [::std::mem::size_of::<AVDOVIDecoderConfigurationRecord>() - 8usize];
-    ["Alignment of AVDOVIDecoderConfigurationRecord"]
-        [::std::mem::align_of::<AVDOVIDecoderConfigurationRecord>() - 1usize];
-    ["Offset of field: AVDOVIDecoderConfigurationRecord::dv_version_major"]
-        [::std::mem::offset_of!(AVDOVIDecoderConfigurationRecord, dv_version_major) - 0usize];
-    ["Offset of field: AVDOVIDecoderConfigurationRecord::dv_version_minor"]
-        [::std::mem::offset_of!(AVDOVIDecoderConfigurationRecord, dv_version_minor) - 1usize];
-    ["Offset of field: AVDOVIDecoderConfigurationRecord::dv_profile"]
-        [::std::mem::offset_of!(AVDOVIDecoderConfigurationRecord, dv_profile) - 2usize];
-    ["Offset of field: AVDOVIDecoderConfigurationRecord::dv_level"]
-        [::std::mem::offset_of!(AVDOVIDecoderConfigurationRecord, dv_level) - 3usize];
-    ["Offset of field: AVDOVIDecoderConfigurationRecord::rpu_present_flag"]
-        [::std::mem::offset_of!(AVDOVIDecoderConfigurationRecord, rpu_present_flag) - 4usize];
-    ["Offset of field: AVDOVIDecoderConfigurationRecord::el_present_flag"]
-        [::std::mem::offset_of!(AVDOVIDecoderConfigurationRecord, el_present_flag) - 5usize];
-    ["Offset of field: AVDOVIDecoderConfigurationRecord::bl_present_flag"]
-        [::std::mem::offset_of!(AVDOVIDecoderConfigurationRecord, bl_present_flag) - 6usize];
-    ["Offset of field: AVDOVIDecoderConfigurationRecord::dv_bl_signal_compatibility_id"][::std::mem::offset_of!(
-        AVDOVIDecoderConfigurationRecord,
-        dv_bl_signal_compatibility_id
-    )
-        - 7usize];
-};
+#[test]
+fn bindgen_test_layout_AVDOVIDecoderConfigurationRecord() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDOVIDecoderConfigurationRecord> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDOVIDecoderConfigurationRecord>(),
+        8usize,
+        "Size of AVDOVIDecoderConfigurationRecord"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDOVIDecoderConfigurationRecord>(),
+        1usize,
+        "Alignment of AVDOVIDecoderConfigurationRecord"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dv_version_major) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDOVIDecoderConfigurationRecord::dv_version_major"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dv_version_minor) as usize - ptr as usize },
+        1usize,
+        "Offset of field: AVDOVIDecoderConfigurationRecord::dv_version_minor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dv_profile) as usize - ptr as usize },
+        2usize,
+        "Offset of field: AVDOVIDecoderConfigurationRecord::dv_profile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dv_level) as usize - ptr as usize },
+        3usize,
+        "Offset of field: AVDOVIDecoderConfigurationRecord::dv_level"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rpu_present_flag) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDOVIDecoderConfigurationRecord::rpu_present_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).el_present_flag) as usize - ptr as usize },
+        5usize,
+        "Offset of field: AVDOVIDecoderConfigurationRecord::el_present_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bl_present_flag) as usize - ptr as usize },
+        6usize,
+        "Offset of field: AVDOVIDecoderConfigurationRecord::bl_present_flag"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).dv_bl_signal_compatibility_id) as usize - ptr as usize
+        },
+        7usize,
+        "Offset of field: AVDOVIDecoderConfigurationRecord::dv_bl_signal_compatibility_id"
+    );
+}
 extern "C" {
     #[doc = " Allocate a AVDOVIDecoderConfigurationRecord structure and initialize its\n fields to default values.\n\n @return the newly allocated struct or NULL on failure"]
     pub fn av_dovi_alloc(size: *mut usize) -> *mut AVDOVIDecoderConfigurationRecord;
@@ -15468,43 +19899,103 @@ pub struct AVDOVIRpuDataHeader {
     pub el_spatial_resampling_filter_flag: u8,
     pub disable_residual_flag: u8,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDOVIRpuDataHeader"][::std::mem::size_of::<AVDOVIRpuDataHeader>() - 18usize];
-    ["Alignment of AVDOVIRpuDataHeader"][::std::mem::align_of::<AVDOVIRpuDataHeader>() - 2usize];
-    ["Offset of field: AVDOVIRpuDataHeader::rpu_type"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, rpu_type) - 0usize];
-    ["Offset of field: AVDOVIRpuDataHeader::rpu_format"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, rpu_format) - 2usize];
-    ["Offset of field: AVDOVIRpuDataHeader::vdr_rpu_profile"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, vdr_rpu_profile) - 4usize];
-    ["Offset of field: AVDOVIRpuDataHeader::vdr_rpu_level"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, vdr_rpu_level) - 5usize];
-    ["Offset of field: AVDOVIRpuDataHeader::chroma_resampling_explicit_filter_flag"][::std::mem::offset_of!(
-        AVDOVIRpuDataHeader,
-        chroma_resampling_explicit_filter_flag
-    ) - 6usize];
-    ["Offset of field: AVDOVIRpuDataHeader::coef_data_type"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, coef_data_type) - 7usize];
-    ["Offset of field: AVDOVIRpuDataHeader::coef_log2_denom"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, coef_log2_denom) - 8usize];
-    ["Offset of field: AVDOVIRpuDataHeader::vdr_rpu_normalized_idc"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, vdr_rpu_normalized_idc) - 9usize];
-    ["Offset of field: AVDOVIRpuDataHeader::bl_video_full_range_flag"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, bl_video_full_range_flag) - 10usize];
-    ["Offset of field: AVDOVIRpuDataHeader::bl_bit_depth"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, bl_bit_depth) - 11usize];
-    ["Offset of field: AVDOVIRpuDataHeader::el_bit_depth"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, el_bit_depth) - 12usize];
-    ["Offset of field: AVDOVIRpuDataHeader::vdr_bit_depth"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, vdr_bit_depth) - 13usize];
-    ["Offset of field: AVDOVIRpuDataHeader::spatial_resampling_filter_flag"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, spatial_resampling_filter_flag) - 14usize];
-    ["Offset of field: AVDOVIRpuDataHeader::el_spatial_resampling_filter_flag"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, el_spatial_resampling_filter_flag) - 15usize];
-    ["Offset of field: AVDOVIRpuDataHeader::disable_residual_flag"]
-        [::std::mem::offset_of!(AVDOVIRpuDataHeader, disable_residual_flag) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVDOVIRpuDataHeader() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDOVIRpuDataHeader> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDOVIRpuDataHeader>(),
+        18usize,
+        "Size of AVDOVIRpuDataHeader"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDOVIRpuDataHeader>(),
+        2usize,
+        "Alignment of AVDOVIRpuDataHeader"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rpu_type) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDOVIRpuDataHeader::rpu_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rpu_format) as usize - ptr as usize },
+        2usize,
+        "Offset of field: AVDOVIRpuDataHeader::rpu_format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vdr_rpu_profile) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDOVIRpuDataHeader::vdr_rpu_profile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vdr_rpu_level) as usize - ptr as usize },
+        5usize,
+        "Offset of field: AVDOVIRpuDataHeader::vdr_rpu_level"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).chroma_resampling_explicit_filter_flag) as usize
+                - ptr as usize
+        },
+        6usize,
+        "Offset of field: AVDOVIRpuDataHeader::chroma_resampling_explicit_filter_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coef_data_type) as usize - ptr as usize },
+        7usize,
+        "Offset of field: AVDOVIRpuDataHeader::coef_data_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coef_log2_denom) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDOVIRpuDataHeader::coef_log2_denom"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vdr_rpu_normalized_idc) as usize - ptr as usize },
+        9usize,
+        "Offset of field: AVDOVIRpuDataHeader::vdr_rpu_normalized_idc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bl_video_full_range_flag) as usize - ptr as usize },
+        10usize,
+        "Offset of field: AVDOVIRpuDataHeader::bl_video_full_range_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bl_bit_depth) as usize - ptr as usize },
+        11usize,
+        "Offset of field: AVDOVIRpuDataHeader::bl_bit_depth"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).el_bit_depth) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVDOVIRpuDataHeader::el_bit_depth"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vdr_bit_depth) as usize - ptr as usize },
+        13usize,
+        "Offset of field: AVDOVIRpuDataHeader::vdr_bit_depth"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).spatial_resampling_filter_flag) as usize - ptr as usize
+        },
+        14usize,
+        "Offset of field: AVDOVIRpuDataHeader::spatial_resampling_filter_flag"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).el_spatial_resampling_filter_flag) as usize - ptr as usize
+        },
+        15usize,
+        "Offset of field: AVDOVIRpuDataHeader::el_spatial_resampling_filter_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).disable_residual_flag) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDOVIRpuDataHeader::disable_residual_flag"
+    );
+}
 pub const AV_DOVI_MAPPING_POLYNOMIAL: AVDOVIMappingMethod = 0;
 pub const AV_DOVI_MAPPING_MMR: AVDOVIMappingMethod = 1;
 pub type AVDOVIMappingMethod = ::std::os::raw::c_uint;
@@ -15520,27 +20011,61 @@ pub struct AVDOVIReshapingCurve {
     pub mmr_constant: [i64; 8usize],
     pub mmr_coef: [[[i64; 7usize]; 3usize]; 8usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDOVIReshapingCurve"][::std::mem::size_of::<AVDOVIReshapingCurve>() - 1672usize];
-    ["Alignment of AVDOVIReshapingCurve"][::std::mem::align_of::<AVDOVIReshapingCurve>() - 8usize];
-    ["Offset of field: AVDOVIReshapingCurve::num_pivots"]
-        [::std::mem::offset_of!(AVDOVIReshapingCurve, num_pivots) - 0usize];
-    ["Offset of field: AVDOVIReshapingCurve::pivots"]
-        [::std::mem::offset_of!(AVDOVIReshapingCurve, pivots) - 2usize];
-    ["Offset of field: AVDOVIReshapingCurve::mapping_idc"]
-        [::std::mem::offset_of!(AVDOVIReshapingCurve, mapping_idc) - 20usize];
-    ["Offset of field: AVDOVIReshapingCurve::poly_order"]
-        [::std::mem::offset_of!(AVDOVIReshapingCurve, poly_order) - 52usize];
-    ["Offset of field: AVDOVIReshapingCurve::poly_coef"]
-        [::std::mem::offset_of!(AVDOVIReshapingCurve, poly_coef) - 64usize];
-    ["Offset of field: AVDOVIReshapingCurve::mmr_order"]
-        [::std::mem::offset_of!(AVDOVIReshapingCurve, mmr_order) - 256usize];
-    ["Offset of field: AVDOVIReshapingCurve::mmr_constant"]
-        [::std::mem::offset_of!(AVDOVIReshapingCurve, mmr_constant) - 264usize];
-    ["Offset of field: AVDOVIReshapingCurve::mmr_coef"]
-        [::std::mem::offset_of!(AVDOVIReshapingCurve, mmr_coef) - 328usize];
-};
+#[test]
+fn bindgen_test_layout_AVDOVIReshapingCurve() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDOVIReshapingCurve> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDOVIReshapingCurve>(),
+        1672usize,
+        "Size of AVDOVIReshapingCurve"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDOVIReshapingCurve>(),
+        8usize,
+        "Alignment of AVDOVIReshapingCurve"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_pivots) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDOVIReshapingCurve::num_pivots"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pivots) as usize - ptr as usize },
+        2usize,
+        "Offset of field: AVDOVIReshapingCurve::pivots"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mapping_idc) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVDOVIReshapingCurve::mapping_idc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).poly_order) as usize - ptr as usize },
+        52usize,
+        "Offset of field: AVDOVIReshapingCurve::poly_order"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).poly_coef) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVDOVIReshapingCurve::poly_coef"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mmr_order) as usize - ptr as usize },
+        256usize,
+        "Offset of field: AVDOVIReshapingCurve::mmr_order"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mmr_constant) as usize - ptr as usize },
+        264usize,
+        "Offset of field: AVDOVIReshapingCurve::mmr_constant"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mmr_coef) as usize - ptr as usize },
+        328usize,
+        "Offset of field: AVDOVIReshapingCurve::mmr_coef"
+    );
+}
 pub const AV_DOVI_NLQ_NONE: AVDOVINLQMethod = -1;
 pub const AV_DOVI_NLQ_LINEAR_DZ: AVDOVINLQMethod = 0;
 pub type AVDOVINLQMethod = ::std::os::raw::c_int;
@@ -15553,19 +20078,41 @@ pub struct AVDOVINLQParams {
     pub linear_deadzone_slope: u64,
     pub linear_deadzone_threshold: u64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDOVINLQParams"][::std::mem::size_of::<AVDOVINLQParams>() - 32usize];
-    ["Alignment of AVDOVINLQParams"][::std::mem::align_of::<AVDOVINLQParams>() - 8usize];
-    ["Offset of field: AVDOVINLQParams::nlq_offset"]
-        [::std::mem::offset_of!(AVDOVINLQParams, nlq_offset) - 0usize];
-    ["Offset of field: AVDOVINLQParams::vdr_in_max"]
-        [::std::mem::offset_of!(AVDOVINLQParams, vdr_in_max) - 8usize];
-    ["Offset of field: AVDOVINLQParams::linear_deadzone_slope"]
-        [::std::mem::offset_of!(AVDOVINLQParams, linear_deadzone_slope) - 16usize];
-    ["Offset of field: AVDOVINLQParams::linear_deadzone_threshold"]
-        [::std::mem::offset_of!(AVDOVINLQParams, linear_deadzone_threshold) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_AVDOVINLQParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDOVINLQParams> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDOVINLQParams>(),
+        32usize,
+        "Size of AVDOVINLQParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDOVINLQParams>(),
+        8usize,
+        "Alignment of AVDOVINLQParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nlq_offset) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDOVINLQParams::nlq_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vdr_in_max) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDOVINLQParams::vdr_in_max"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).linear_deadzone_slope) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDOVINLQParams::linear_deadzone_slope"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).linear_deadzone_threshold) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVDOVINLQParams::linear_deadzone_threshold"
+    );
+}
 #[doc = " Dolby Vision RPU data mapping parameters.\n\n @note sizeof(AVDOVIDataMapping) is not part of the public ABI."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -15579,27 +20126,61 @@ pub struct AVDOVIDataMapping {
     pub num_y_partitions: u32,
     pub nlq: [AVDOVINLQParams; 3usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDOVIDataMapping"][::std::mem::size_of::<AVDOVIDataMapping>() - 5136usize];
-    ["Alignment of AVDOVIDataMapping"][::std::mem::align_of::<AVDOVIDataMapping>() - 8usize];
-    ["Offset of field: AVDOVIDataMapping::vdr_rpu_id"]
-        [::std::mem::offset_of!(AVDOVIDataMapping, vdr_rpu_id) - 0usize];
-    ["Offset of field: AVDOVIDataMapping::mapping_color_space"]
-        [::std::mem::offset_of!(AVDOVIDataMapping, mapping_color_space) - 1usize];
-    ["Offset of field: AVDOVIDataMapping::mapping_chroma_format_idc"]
-        [::std::mem::offset_of!(AVDOVIDataMapping, mapping_chroma_format_idc) - 2usize];
-    ["Offset of field: AVDOVIDataMapping::curves"]
-        [::std::mem::offset_of!(AVDOVIDataMapping, curves) - 8usize];
-    ["Offset of field: AVDOVIDataMapping::nlq_method_idc"]
-        [::std::mem::offset_of!(AVDOVIDataMapping, nlq_method_idc) - 5024usize];
-    ["Offset of field: AVDOVIDataMapping::num_x_partitions"]
-        [::std::mem::offset_of!(AVDOVIDataMapping, num_x_partitions) - 5028usize];
-    ["Offset of field: AVDOVIDataMapping::num_y_partitions"]
-        [::std::mem::offset_of!(AVDOVIDataMapping, num_y_partitions) - 5032usize];
-    ["Offset of field: AVDOVIDataMapping::nlq"]
-        [::std::mem::offset_of!(AVDOVIDataMapping, nlq) - 5040usize];
-};
+#[test]
+fn bindgen_test_layout_AVDOVIDataMapping() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDOVIDataMapping> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDOVIDataMapping>(),
+        5136usize,
+        "Size of AVDOVIDataMapping"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDOVIDataMapping>(),
+        8usize,
+        "Alignment of AVDOVIDataMapping"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vdr_rpu_id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDOVIDataMapping::vdr_rpu_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mapping_color_space) as usize - ptr as usize },
+        1usize,
+        "Offset of field: AVDOVIDataMapping::mapping_color_space"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mapping_chroma_format_idc) as usize - ptr as usize },
+        2usize,
+        "Offset of field: AVDOVIDataMapping::mapping_chroma_format_idc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).curves) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDOVIDataMapping::curves"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nlq_method_idc) as usize - ptr as usize },
+        5024usize,
+        "Offset of field: AVDOVIDataMapping::nlq_method_idc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_x_partitions) as usize - ptr as usize },
+        5028usize,
+        "Offset of field: AVDOVIDataMapping::num_x_partitions"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_y_partitions) as usize - ptr as usize },
+        5032usize,
+        "Offset of field: AVDOVIDataMapping::num_y_partitions"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nlq) as usize - ptr as usize },
+        5040usize,
+        "Offset of field: AVDOVIDataMapping::nlq"
+    );
+}
 #[doc = " Dolby Vision RPU colorspace metadata parameters.\n\n @note sizeof(AVDOVIColorMetadata) is not part of the public ABI."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -15623,43 +20204,101 @@ pub struct AVDOVIColorMetadata {
     pub source_max_pq: u16,
     pub source_diagonal: u16,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDOVIColorMetadata"][::std::mem::size_of::<AVDOVIColorMetadata>() - 196usize];
-    ["Alignment of AVDOVIColorMetadata"][::std::mem::align_of::<AVDOVIColorMetadata>() - 4usize];
-    ["Offset of field: AVDOVIColorMetadata::dm_metadata_id"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, dm_metadata_id) - 0usize];
-    ["Offset of field: AVDOVIColorMetadata::scene_refresh_flag"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, scene_refresh_flag) - 1usize];
-    ["Offset of field: AVDOVIColorMetadata::ycc_to_rgb_matrix"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, ycc_to_rgb_matrix) - 4usize];
-    ["Offset of field: AVDOVIColorMetadata::ycc_to_rgb_offset"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, ycc_to_rgb_offset) - 76usize];
-    ["Offset of field: AVDOVIColorMetadata::rgb_to_lms_matrix"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, rgb_to_lms_matrix) - 100usize];
-    ["Offset of field: AVDOVIColorMetadata::signal_eotf"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, signal_eotf) - 172usize];
-    ["Offset of field: AVDOVIColorMetadata::signal_eotf_param0"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, signal_eotf_param0) - 174usize];
-    ["Offset of field: AVDOVIColorMetadata::signal_eotf_param1"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, signal_eotf_param1) - 176usize];
-    ["Offset of field: AVDOVIColorMetadata::signal_eotf_param2"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, signal_eotf_param2) - 180usize];
-    ["Offset of field: AVDOVIColorMetadata::signal_bit_depth"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, signal_bit_depth) - 184usize];
-    ["Offset of field: AVDOVIColorMetadata::signal_color_space"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, signal_color_space) - 185usize];
-    ["Offset of field: AVDOVIColorMetadata::signal_chroma_format"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, signal_chroma_format) - 186usize];
-    ["Offset of field: AVDOVIColorMetadata::signal_full_range_flag"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, signal_full_range_flag) - 187usize];
-    ["Offset of field: AVDOVIColorMetadata::source_min_pq"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, source_min_pq) - 188usize];
-    ["Offset of field: AVDOVIColorMetadata::source_max_pq"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, source_max_pq) - 190usize];
-    ["Offset of field: AVDOVIColorMetadata::source_diagonal"]
-        [::std::mem::offset_of!(AVDOVIColorMetadata, source_diagonal) - 192usize];
-};
+#[test]
+fn bindgen_test_layout_AVDOVIColorMetadata() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDOVIColorMetadata> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDOVIColorMetadata>(),
+        196usize,
+        "Size of AVDOVIColorMetadata"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDOVIColorMetadata>(),
+        4usize,
+        "Alignment of AVDOVIColorMetadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dm_metadata_id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDOVIColorMetadata::dm_metadata_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).scene_refresh_flag) as usize - ptr as usize },
+        1usize,
+        "Offset of field: AVDOVIColorMetadata::scene_refresh_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ycc_to_rgb_matrix) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDOVIColorMetadata::ycc_to_rgb_matrix"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ycc_to_rgb_offset) as usize - ptr as usize },
+        76usize,
+        "Offset of field: AVDOVIColorMetadata::ycc_to_rgb_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rgb_to_lms_matrix) as usize - ptr as usize },
+        100usize,
+        "Offset of field: AVDOVIColorMetadata::rgb_to_lms_matrix"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_eotf) as usize - ptr as usize },
+        172usize,
+        "Offset of field: AVDOVIColorMetadata::signal_eotf"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_eotf_param0) as usize - ptr as usize },
+        174usize,
+        "Offset of field: AVDOVIColorMetadata::signal_eotf_param0"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_eotf_param1) as usize - ptr as usize },
+        176usize,
+        "Offset of field: AVDOVIColorMetadata::signal_eotf_param1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_eotf_param2) as usize - ptr as usize },
+        180usize,
+        "Offset of field: AVDOVIColorMetadata::signal_eotf_param2"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_bit_depth) as usize - ptr as usize },
+        184usize,
+        "Offset of field: AVDOVIColorMetadata::signal_bit_depth"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_color_space) as usize - ptr as usize },
+        185usize,
+        "Offset of field: AVDOVIColorMetadata::signal_color_space"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_chroma_format) as usize - ptr as usize },
+        186usize,
+        "Offset of field: AVDOVIColorMetadata::signal_chroma_format"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_full_range_flag) as usize - ptr as usize },
+        187usize,
+        "Offset of field: AVDOVIColorMetadata::signal_full_range_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).source_min_pq) as usize - ptr as usize },
+        188usize,
+        "Offset of field: AVDOVIColorMetadata::source_min_pq"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).source_max_pq) as usize - ptr as usize },
+        190usize,
+        "Offset of field: AVDOVIColorMetadata::source_max_pq"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).source_diagonal) as usize - ptr as usize },
+        192usize,
+        "Offset of field: AVDOVIColorMetadata::source_diagonal"
+    );
+}
 #[doc = " Combined struct representing a combination of header, mapping and color\n metadata, for attaching to frames as side data.\n\n @note The struct must be allocated with av_dovi_metadata_alloc() and\n       its size is not a part of the public ABI."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -15669,17 +20308,36 @@ pub struct AVDOVIMetadata {
     pub mapping_offset: usize,
     pub color_offset: usize,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDOVIMetadata"][::std::mem::size_of::<AVDOVIMetadata>() - 24usize];
-    ["Alignment of AVDOVIMetadata"][::std::mem::align_of::<AVDOVIMetadata>() - 8usize];
-    ["Offset of field: AVDOVIMetadata::header_offset"]
-        [::std::mem::offset_of!(AVDOVIMetadata, header_offset) - 0usize];
-    ["Offset of field: AVDOVIMetadata::mapping_offset"]
-        [::std::mem::offset_of!(AVDOVIMetadata, mapping_offset) - 8usize];
-    ["Offset of field: AVDOVIMetadata::color_offset"]
-        [::std::mem::offset_of!(AVDOVIMetadata, color_offset) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVDOVIMetadata() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDOVIMetadata> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDOVIMetadata>(),
+        24usize,
+        "Size of AVDOVIMetadata"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDOVIMetadata>(),
+        8usize,
+        "Alignment of AVDOVIMetadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).header_offset) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDOVIMetadata::header_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mapping_offset) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDOVIMetadata::mapping_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_offset) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDOVIMetadata::color_offset"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVDOVIMetadata structure and initialize its\n fields to default values.\n\n @param size If this parameter is non-NULL, the size in bytes of the\n             allocated struct will be written here on success\n\n @return the newly allocated struct or NULL on failure"]
     pub fn av_dovi_metadata_alloc(size: *mut usize) -> *mut AVDOVIMetadata;
@@ -15713,23 +20371,51 @@ pub struct AVDownmixInfo {
     #[doc = " Absolute scale factor representing the level at which the LFE data is\n mixed into L/R channels during downmixing."]
     pub lfe_mix_level: f64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDownmixInfo"][::std::mem::size_of::<AVDownmixInfo>() - 48usize];
-    ["Alignment of AVDownmixInfo"][::std::mem::align_of::<AVDownmixInfo>() - 8usize];
-    ["Offset of field: AVDownmixInfo::preferred_downmix_type"]
-        [::std::mem::offset_of!(AVDownmixInfo, preferred_downmix_type) - 0usize];
-    ["Offset of field: AVDownmixInfo::center_mix_level"]
-        [::std::mem::offset_of!(AVDownmixInfo, center_mix_level) - 8usize];
-    ["Offset of field: AVDownmixInfo::center_mix_level_ltrt"]
-        [::std::mem::offset_of!(AVDownmixInfo, center_mix_level_ltrt) - 16usize];
-    ["Offset of field: AVDownmixInfo::surround_mix_level"]
-        [::std::mem::offset_of!(AVDownmixInfo, surround_mix_level) - 24usize];
-    ["Offset of field: AVDownmixInfo::surround_mix_level_ltrt"]
-        [::std::mem::offset_of!(AVDownmixInfo, surround_mix_level_ltrt) - 32usize];
-    ["Offset of field: AVDownmixInfo::lfe_mix_level"]
-        [::std::mem::offset_of!(AVDownmixInfo, lfe_mix_level) - 40usize];
-};
+#[test]
+fn bindgen_test_layout_AVDownmixInfo() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDownmixInfo> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDownmixInfo>(),
+        48usize,
+        "Size of AVDownmixInfo"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDownmixInfo>(),
+        8usize,
+        "Alignment of AVDownmixInfo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).preferred_downmix_type) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDownmixInfo::preferred_downmix_type"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).center_mix_level) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVDownmixInfo::center_mix_level"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).center_mix_level_ltrt) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVDownmixInfo::center_mix_level_ltrt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).surround_mix_level) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVDownmixInfo::surround_mix_level"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).surround_mix_level_ltrt) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVDownmixInfo::surround_mix_level_ltrt"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lfe_mix_level) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVDownmixInfo::lfe_mix_level"
+    );
+}
 extern "C" {
     #[doc = " Get a frame's AV_FRAME_DATA_DOWNMIX_INFO side data for editing.\n\n If the side data is absent, it is created and added to the frame.\n\n @param frame the frame for which the side data is to be obtained or created\n\n @return the AVDownmixInfo structure to be edited by the caller, or NULL if\n         the structure cannot be allocated."]
     pub fn av_downmix_info_update_side_data(frame: *mut AVFrame) -> *mut AVDownmixInfo;
@@ -15742,17 +20428,32 @@ pub struct AVSubsampleEncryptionInfo {
     #[doc = " The number of bytes that are protected.  If using pattern encryption,\n the pattern applies to only the protected bytes; if not using pattern\n encryption, all these bytes are encrypted."]
     pub bytes_of_protected_data: ::std::os::raw::c_uint,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVSubsampleEncryptionInfo"]
-        [::std::mem::size_of::<AVSubsampleEncryptionInfo>() - 8usize];
-    ["Alignment of AVSubsampleEncryptionInfo"]
-        [::std::mem::align_of::<AVSubsampleEncryptionInfo>() - 4usize];
-    ["Offset of field: AVSubsampleEncryptionInfo::bytes_of_clear_data"]
-        [::std::mem::offset_of!(AVSubsampleEncryptionInfo, bytes_of_clear_data) - 0usize];
-    ["Offset of field: AVSubsampleEncryptionInfo::bytes_of_protected_data"]
-        [::std::mem::offset_of!(AVSubsampleEncryptionInfo, bytes_of_protected_data) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_AVSubsampleEncryptionInfo() {
+    const UNINIT: ::std::mem::MaybeUninit<AVSubsampleEncryptionInfo> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVSubsampleEncryptionInfo>(),
+        8usize,
+        "Size of AVSubsampleEncryptionInfo"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVSubsampleEncryptionInfo>(),
+        4usize,
+        "Alignment of AVSubsampleEncryptionInfo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bytes_of_clear_data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVSubsampleEncryptionInfo::bytes_of_clear_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bytes_of_protected_data) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVSubsampleEncryptionInfo::bytes_of_protected_data"
+    );
+}
 #[doc = " This describes encryption info for a packet.  This contains frame-specific\n info for how to decrypt the packet before passing it to the decoder.\n\n The size of this struct is not part of the public ABI."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -15773,29 +20474,66 @@ pub struct AVEncryptionInfo {
     pub subsamples: *mut AVSubsampleEncryptionInfo,
     pub subsample_count: u32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVEncryptionInfo"][::std::mem::size_of::<AVEncryptionInfo>() - 64usize];
-    ["Alignment of AVEncryptionInfo"][::std::mem::align_of::<AVEncryptionInfo>() - 8usize];
-    ["Offset of field: AVEncryptionInfo::scheme"]
-        [::std::mem::offset_of!(AVEncryptionInfo, scheme) - 0usize];
-    ["Offset of field: AVEncryptionInfo::crypt_byte_block"]
-        [::std::mem::offset_of!(AVEncryptionInfo, crypt_byte_block) - 4usize];
-    ["Offset of field: AVEncryptionInfo::skip_byte_block"]
-        [::std::mem::offset_of!(AVEncryptionInfo, skip_byte_block) - 8usize];
-    ["Offset of field: AVEncryptionInfo::key_id"]
-        [::std::mem::offset_of!(AVEncryptionInfo, key_id) - 16usize];
-    ["Offset of field: AVEncryptionInfo::key_id_size"]
-        [::std::mem::offset_of!(AVEncryptionInfo, key_id_size) - 24usize];
-    ["Offset of field: AVEncryptionInfo::iv"]
-        [::std::mem::offset_of!(AVEncryptionInfo, iv) - 32usize];
-    ["Offset of field: AVEncryptionInfo::iv_size"]
-        [::std::mem::offset_of!(AVEncryptionInfo, iv_size) - 40usize];
-    ["Offset of field: AVEncryptionInfo::subsamples"]
-        [::std::mem::offset_of!(AVEncryptionInfo, subsamples) - 48usize];
-    ["Offset of field: AVEncryptionInfo::subsample_count"]
-        [::std::mem::offset_of!(AVEncryptionInfo, subsample_count) - 56usize];
-};
+#[test]
+fn bindgen_test_layout_AVEncryptionInfo() {
+    const UNINIT: ::std::mem::MaybeUninit<AVEncryptionInfo> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVEncryptionInfo>(),
+        64usize,
+        "Size of AVEncryptionInfo"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVEncryptionInfo>(),
+        8usize,
+        "Alignment of AVEncryptionInfo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).scheme) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVEncryptionInfo::scheme"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).crypt_byte_block) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVEncryptionInfo::crypt_byte_block"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).skip_byte_block) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVEncryptionInfo::skip_byte_block"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key_id) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVEncryptionInfo::key_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key_id_size) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVEncryptionInfo::key_id_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).iv) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVEncryptionInfo::iv"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).iv_size) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVEncryptionInfo::iv_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subsamples) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVEncryptionInfo::subsamples"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subsample_count) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVEncryptionInfo::subsample_count"
+    );
+}
 #[doc = " This describes info used to initialize an encryption key system.\n\n The size of this struct is not part of the public ABI."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -15815,27 +20553,61 @@ pub struct AVEncryptionInitInfo {
     #[doc = " An optional pointer to the next initialization info in the list."]
     pub next: *mut AVEncryptionInitInfo,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVEncryptionInitInfo"][::std::mem::size_of::<AVEncryptionInitInfo>() - 56usize];
-    ["Alignment of AVEncryptionInitInfo"][::std::mem::align_of::<AVEncryptionInitInfo>() - 8usize];
-    ["Offset of field: AVEncryptionInitInfo::system_id"]
-        [::std::mem::offset_of!(AVEncryptionInitInfo, system_id) - 0usize];
-    ["Offset of field: AVEncryptionInitInfo::system_id_size"]
-        [::std::mem::offset_of!(AVEncryptionInitInfo, system_id_size) - 8usize];
-    ["Offset of field: AVEncryptionInitInfo::key_ids"]
-        [::std::mem::offset_of!(AVEncryptionInitInfo, key_ids) - 16usize];
-    ["Offset of field: AVEncryptionInitInfo::num_key_ids"]
-        [::std::mem::offset_of!(AVEncryptionInitInfo, num_key_ids) - 24usize];
-    ["Offset of field: AVEncryptionInitInfo::key_id_size"]
-        [::std::mem::offset_of!(AVEncryptionInitInfo, key_id_size) - 28usize];
-    ["Offset of field: AVEncryptionInitInfo::data"]
-        [::std::mem::offset_of!(AVEncryptionInitInfo, data) - 32usize];
-    ["Offset of field: AVEncryptionInitInfo::data_size"]
-        [::std::mem::offset_of!(AVEncryptionInitInfo, data_size) - 40usize];
-    ["Offset of field: AVEncryptionInitInfo::next"]
-        [::std::mem::offset_of!(AVEncryptionInitInfo, next) - 48usize];
-};
+#[test]
+fn bindgen_test_layout_AVEncryptionInitInfo() {
+    const UNINIT: ::std::mem::MaybeUninit<AVEncryptionInitInfo> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVEncryptionInitInfo>(),
+        56usize,
+        "Size of AVEncryptionInitInfo"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVEncryptionInitInfo>(),
+        8usize,
+        "Alignment of AVEncryptionInitInfo"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).system_id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVEncryptionInitInfo::system_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).system_id_size) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVEncryptionInitInfo::system_id_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key_ids) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVEncryptionInitInfo::key_ids"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_key_ids) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVEncryptionInitInfo::num_key_ids"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key_id_size) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVEncryptionInitInfo::key_id_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVEncryptionInitInfo::data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data_size) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVEncryptionInitInfo::data_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).next) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVEncryptionInitInfo::next"
+    );
+}
 extern "C" {
     #[doc = " Allocates an AVEncryptionInfo structure and sub-pointers to hold the given\n number of subsamples.  This will allocate pointers for the key ID, IV,\n and subsample entries, set the size members, and zero-initialize the rest.\n\n @param subsample_count The number of subsamples.\n @param key_id_size The number of bytes in the key ID, should be 16.\n @param iv_size The number of bytes in the IV, should be 16.\n\n @return The new AVEncryptionInfo structure, or NULL on error."]
     pub fn av_encryption_info_alloc(
@@ -15982,12 +20754,22 @@ pub struct AVExecutor {
 pub struct AVTask {
     pub next: *mut AVTask,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVTask"][::std::mem::size_of::<AVTask>() - 8usize];
-    ["Alignment of AVTask"][::std::mem::align_of::<AVTask>() - 8usize];
-    ["Offset of field: AVTask::next"][::std::mem::offset_of!(AVTask, next) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVTask() {
+    const UNINIT: ::std::mem::MaybeUninit<AVTask> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVTask>(), 8usize, "Size of AVTask");
+    assert_eq!(
+        ::std::mem::align_of::<AVTask>(),
+        8usize,
+        "Alignment of AVTask"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).next) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVTask::next"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVTaskCallbacks {
@@ -16010,21 +20792,46 @@ pub struct AVTaskCallbacks {
         ) -> ::std::os::raw::c_int,
     >,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVTaskCallbacks"][::std::mem::size_of::<AVTaskCallbacks>() - 40usize];
-    ["Alignment of AVTaskCallbacks"][::std::mem::align_of::<AVTaskCallbacks>() - 8usize];
-    ["Offset of field: AVTaskCallbacks::user_data"]
-        [::std::mem::offset_of!(AVTaskCallbacks, user_data) - 0usize];
-    ["Offset of field: AVTaskCallbacks::local_context_size"]
-        [::std::mem::offset_of!(AVTaskCallbacks, local_context_size) - 8usize];
-    ["Offset of field: AVTaskCallbacks::priority_higher"]
-        [::std::mem::offset_of!(AVTaskCallbacks, priority_higher) - 16usize];
-    ["Offset of field: AVTaskCallbacks::ready"]
-        [::std::mem::offset_of!(AVTaskCallbacks, ready) - 24usize];
-    ["Offset of field: AVTaskCallbacks::run"]
-        [::std::mem::offset_of!(AVTaskCallbacks, run) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVTaskCallbacks() {
+    const UNINIT: ::std::mem::MaybeUninit<AVTaskCallbacks> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVTaskCallbacks>(),
+        40usize,
+        "Size of AVTaskCallbacks"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVTaskCallbacks>(),
+        8usize,
+        "Alignment of AVTaskCallbacks"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).user_data) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVTaskCallbacks::user_data"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).local_context_size) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVTaskCallbacks::local_context_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).priority_higher) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVTaskCallbacks::priority_higher"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ready) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVTaskCallbacks::ready"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).run) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVTaskCallbacks::run"
+    );
+}
 extern "C" {
     #[doc = " Alloc executor\n @param callbacks callback structure for executor\n @param thread_count worker thread number\n @return return the executor"]
     pub fn av_executor_alloc(
@@ -16199,43 +21006,101 @@ pub struct AVFilmGrainAOMParams {
     #[doc = " Signals to clip to limited color levels after film grain application."]
     pub limit_output_range: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilmGrainAOMParams"][::std::mem::size_of::<AVFilmGrainAOMParams>() - 208usize];
-    ["Alignment of AVFilmGrainAOMParams"][::std::mem::align_of::<AVFilmGrainAOMParams>() - 4usize];
-    ["Offset of field: AVFilmGrainAOMParams::num_y_points"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, num_y_points) - 0usize];
-    ["Offset of field: AVFilmGrainAOMParams::y_points"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, y_points) - 4usize];
-    ["Offset of field: AVFilmGrainAOMParams::chroma_scaling_from_luma"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, chroma_scaling_from_luma) - 32usize];
-    ["Offset of field: AVFilmGrainAOMParams::num_uv_points"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, num_uv_points) - 36usize];
-    ["Offset of field: AVFilmGrainAOMParams::uv_points"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, uv_points) - 44usize];
-    ["Offset of field: AVFilmGrainAOMParams::scaling_shift"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, scaling_shift) - 84usize];
-    ["Offset of field: AVFilmGrainAOMParams::ar_coeff_lag"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, ar_coeff_lag) - 88usize];
-    ["Offset of field: AVFilmGrainAOMParams::ar_coeffs_y"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, ar_coeffs_y) - 92usize];
-    ["Offset of field: AVFilmGrainAOMParams::ar_coeffs_uv"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, ar_coeffs_uv) - 116usize];
-    ["Offset of field: AVFilmGrainAOMParams::ar_coeff_shift"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, ar_coeff_shift) - 168usize];
-    ["Offset of field: AVFilmGrainAOMParams::grain_scale_shift"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, grain_scale_shift) - 172usize];
-    ["Offset of field: AVFilmGrainAOMParams::uv_mult"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, uv_mult) - 176usize];
-    ["Offset of field: AVFilmGrainAOMParams::uv_mult_luma"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, uv_mult_luma) - 184usize];
-    ["Offset of field: AVFilmGrainAOMParams::uv_offset"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, uv_offset) - 192usize];
-    ["Offset of field: AVFilmGrainAOMParams::overlap_flag"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, overlap_flag) - 200usize];
-    ["Offset of field: AVFilmGrainAOMParams::limit_output_range"]
-        [::std::mem::offset_of!(AVFilmGrainAOMParams, limit_output_range) - 204usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilmGrainAOMParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilmGrainAOMParams> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilmGrainAOMParams>(),
+        208usize,
+        "Size of AVFilmGrainAOMParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilmGrainAOMParams>(),
+        4usize,
+        "Alignment of AVFilmGrainAOMParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_y_points) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilmGrainAOMParams::num_y_points"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).y_points) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVFilmGrainAOMParams::y_points"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chroma_scaling_from_luma) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFilmGrainAOMParams::chroma_scaling_from_luma"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_uv_points) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVFilmGrainAOMParams::num_uv_points"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).uv_points) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVFilmGrainAOMParams::uv_points"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).scaling_shift) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVFilmGrainAOMParams::scaling_shift"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ar_coeff_lag) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVFilmGrainAOMParams::ar_coeff_lag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ar_coeffs_y) as usize - ptr as usize },
+        92usize,
+        "Offset of field: AVFilmGrainAOMParams::ar_coeffs_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ar_coeffs_uv) as usize - ptr as usize },
+        116usize,
+        "Offset of field: AVFilmGrainAOMParams::ar_coeffs_uv"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ar_coeff_shift) as usize - ptr as usize },
+        168usize,
+        "Offset of field: AVFilmGrainAOMParams::ar_coeff_shift"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).grain_scale_shift) as usize - ptr as usize },
+        172usize,
+        "Offset of field: AVFilmGrainAOMParams::grain_scale_shift"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).uv_mult) as usize - ptr as usize },
+        176usize,
+        "Offset of field: AVFilmGrainAOMParams::uv_mult"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).uv_mult_luma) as usize - ptr as usize },
+        184usize,
+        "Offset of field: AVFilmGrainAOMParams::uv_mult_luma"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).uv_offset) as usize - ptr as usize },
+        192usize,
+        "Offset of field: AVFilmGrainAOMParams::uv_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).overlap_flag) as usize - ptr as usize },
+        200usize,
+        "Offset of field: AVFilmGrainAOMParams::overlap_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).limit_output_range) as usize - ptr as usize },
+        204usize,
+        "Offset of field: AVFilmGrainAOMParams::limit_output_range"
+    );
+}
 #[doc = " This structure describes how to handle film grain synthesis for codecs using\n the ITU-T H.274 Versatile suplemental enhancement information message.\n\n @note The struct must be allocated as part of AVFilmGrainParams using\n       av_film_grain_params_alloc(). Its size is not a part of the public ABI."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -16268,42 +21133,101 @@ pub struct AVFilmGrainH274Params {
     #[doc = " Specifies the model values for the component for each intensity interval.\n - When model_id == 0, the following applies:\n     For comp_model_value[y], the range of values is [0, 2^bit_depth_luma - 1]\n     For comp_model_value[cb..cr], the range of values is [0, 2^bit_depth_chroma - 1]\n - Otherwise, the following applies:\n     For comp_model_value[y], the range of values is [-2^(bit_depth_luma - 1), 2^(bit_depth_luma - 1) - 1]\n     For comp_model_value[cb..cr], the range of values is [-2^(bit_depth_chroma - 1), 2^(bit_depth_chroma - 1) - 1]"]
     pub comp_model_value: [[[i16; 6usize]; 256usize]; 3usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilmGrainH274Params"][::std::mem::size_of::<AVFilmGrainH274Params>() - 10812usize];
-    ["Alignment of AVFilmGrainH274Params"]
-        [::std::mem::align_of::<AVFilmGrainH274Params>() - 4usize];
-    ["Offset of field: AVFilmGrainH274Params::model_id"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, model_id) - 0usize];
-    ["Offset of field: AVFilmGrainH274Params::bit_depth_luma"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, bit_depth_luma) - 4usize];
-    ["Offset of field: AVFilmGrainH274Params::bit_depth_chroma"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, bit_depth_chroma) - 8usize];
-    ["Offset of field: AVFilmGrainH274Params::color_range"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, color_range) - 12usize];
-    ["Offset of field: AVFilmGrainH274Params::color_primaries"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, color_primaries) - 16usize];
-    ["Offset of field: AVFilmGrainH274Params::color_trc"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, color_trc) - 20usize];
-    ["Offset of field: AVFilmGrainH274Params::color_space"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, color_space) - 24usize];
-    ["Offset of field: AVFilmGrainH274Params::blending_mode_id"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, blending_mode_id) - 28usize];
-    ["Offset of field: AVFilmGrainH274Params::log2_scale_factor"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, log2_scale_factor) - 32usize];
-    ["Offset of field: AVFilmGrainH274Params::component_model_present"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, component_model_present) - 36usize];
-    ["Offset of field: AVFilmGrainH274Params::num_intensity_intervals"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, num_intensity_intervals) - 48usize];
-    ["Offset of field: AVFilmGrainH274Params::num_model_values"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, num_model_values) - 54usize];
-    ["Offset of field: AVFilmGrainH274Params::intensity_interval_lower_bound"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, intensity_interval_lower_bound) - 57usize];
-    ["Offset of field: AVFilmGrainH274Params::intensity_interval_upper_bound"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, intensity_interval_upper_bound) - 825usize];
-    ["Offset of field: AVFilmGrainH274Params::comp_model_value"]
-        [::std::mem::offset_of!(AVFilmGrainH274Params, comp_model_value) - 1594usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilmGrainH274Params() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilmGrainH274Params> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilmGrainH274Params>(),
+        10812usize,
+        "Size of AVFilmGrainH274Params"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilmGrainH274Params>(),
+        4usize,
+        "Alignment of AVFilmGrainH274Params"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).model_id) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilmGrainH274Params::model_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_depth_luma) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVFilmGrainH274Params::bit_depth_luma"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_depth_chroma) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilmGrainH274Params::bit_depth_chroma"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_range) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVFilmGrainH274Params::color_range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_primaries) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilmGrainH274Params::color_primaries"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_trc) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVFilmGrainH274Params::color_trc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_space) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVFilmGrainH274Params::color_space"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).blending_mode_id) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVFilmGrainH274Params::blending_mode_id"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).log2_scale_factor) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVFilmGrainH274Params::log2_scale_factor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).component_model_present) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVFilmGrainH274Params::component_model_present"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_intensity_intervals) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVFilmGrainH274Params::num_intensity_intervals"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_model_values) as usize - ptr as usize },
+        54usize,
+        "Offset of field: AVFilmGrainH274Params::num_model_values"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).intensity_interval_lower_bound) as usize - ptr as usize
+        },
+        57usize,
+        "Offset of field: AVFilmGrainH274Params::intensity_interval_lower_bound"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).intensity_interval_upper_bound) as usize - ptr as usize
+        },
+        825usize,
+        "Offset of field: AVFilmGrainH274Params::intensity_interval_upper_bound"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).comp_model_value) as usize - ptr as usize },
+        1594usize,
+        "Offset of field: AVFilmGrainH274Params::comp_model_value"
+    );
+}
 #[doc = " This structure describes how to handle film grain synthesis in video\n for specific codecs. Must be present on every frame where film grain is\n meant to be synthesised for correct presentation.\n\n @note The struct must be allocated with av_film_grain_params_alloc() and\n       its size is not a part of the public ABI."]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -16337,53 +21261,117 @@ pub union AVFilmGrainParams__bindgen_ty_1 {
     pub aom: AVFilmGrainAOMParams,
     pub h274: AVFilmGrainH274Params,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilmGrainParams__bindgen_ty_1"]
-        [::std::mem::size_of::<AVFilmGrainParams__bindgen_ty_1>() - 10812usize];
-    ["Alignment of AVFilmGrainParams__bindgen_ty_1"]
-        [::std::mem::align_of::<AVFilmGrainParams__bindgen_ty_1>() - 4usize];
-    ["Offset of field: AVFilmGrainParams__bindgen_ty_1::aom"]
-        [::std::mem::offset_of!(AVFilmGrainParams__bindgen_ty_1, aom) - 0usize];
-    ["Offset of field: AVFilmGrainParams__bindgen_ty_1::h274"]
-        [::std::mem::offset_of!(AVFilmGrainParams__bindgen_ty_1, h274) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilmGrainParams__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilmGrainParams__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilmGrainParams__bindgen_ty_1>(),
+        10812usize,
+        "Size of AVFilmGrainParams__bindgen_ty_1"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilmGrainParams__bindgen_ty_1>(),
+        4usize,
+        "Alignment of AVFilmGrainParams__bindgen_ty_1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).aom) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilmGrainParams__bindgen_ty_1::aom"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).h274) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilmGrainParams__bindgen_ty_1::h274"
+    );
+}
 impl ::std::fmt::Debug for AVFilmGrainParams__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "AVFilmGrainParams__bindgen_ty_1 {{ union }}")
     }
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVFilmGrainParams"][::std::mem::size_of::<AVFilmGrainParams>() - 10872usize];
-    ["Alignment of AVFilmGrainParams"][::std::mem::align_of::<AVFilmGrainParams>() - 8usize];
-    ["Offset of field: AVFilmGrainParams::type_"]
-        [::std::mem::offset_of!(AVFilmGrainParams, type_) - 0usize];
-    ["Offset of field: AVFilmGrainParams::seed"]
-        [::std::mem::offset_of!(AVFilmGrainParams, seed) - 8usize];
-    ["Offset of field: AVFilmGrainParams::codec"]
-        [::std::mem::offset_of!(AVFilmGrainParams, codec) - 16usize];
-    ["Offset of field: AVFilmGrainParams::width"]
-        [::std::mem::offset_of!(AVFilmGrainParams, width) - 10828usize];
-    ["Offset of field: AVFilmGrainParams::height"]
-        [::std::mem::offset_of!(AVFilmGrainParams, height) - 10832usize];
-    ["Offset of field: AVFilmGrainParams::subsampling_x"]
-        [::std::mem::offset_of!(AVFilmGrainParams, subsampling_x) - 10836usize];
-    ["Offset of field: AVFilmGrainParams::subsampling_y"]
-        [::std::mem::offset_of!(AVFilmGrainParams, subsampling_y) - 10840usize];
-    ["Offset of field: AVFilmGrainParams::color_range"]
-        [::std::mem::offset_of!(AVFilmGrainParams, color_range) - 10844usize];
-    ["Offset of field: AVFilmGrainParams::color_primaries"]
-        [::std::mem::offset_of!(AVFilmGrainParams, color_primaries) - 10848usize];
-    ["Offset of field: AVFilmGrainParams::color_trc"]
-        [::std::mem::offset_of!(AVFilmGrainParams, color_trc) - 10852usize];
-    ["Offset of field: AVFilmGrainParams::color_space"]
-        [::std::mem::offset_of!(AVFilmGrainParams, color_space) - 10856usize];
-    ["Offset of field: AVFilmGrainParams::bit_depth_luma"]
-        [::std::mem::offset_of!(AVFilmGrainParams, bit_depth_luma) - 10860usize];
-    ["Offset of field: AVFilmGrainParams::bit_depth_chroma"]
-        [::std::mem::offset_of!(AVFilmGrainParams, bit_depth_chroma) - 10864usize];
-};
+#[test]
+fn bindgen_test_layout_AVFilmGrainParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVFilmGrainParams> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVFilmGrainParams>(),
+        10872usize,
+        "Size of AVFilmGrainParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVFilmGrainParams>(),
+        8usize,
+        "Alignment of AVFilmGrainParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVFilmGrainParams::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).seed) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVFilmGrainParams::seed"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).codec) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVFilmGrainParams::codec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        10828usize,
+        "Offset of field: AVFilmGrainParams::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        10832usize,
+        "Offset of field: AVFilmGrainParams::height"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subsampling_x) as usize - ptr as usize },
+        10836usize,
+        "Offset of field: AVFilmGrainParams::subsampling_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subsampling_y) as usize - ptr as usize },
+        10840usize,
+        "Offset of field: AVFilmGrainParams::subsampling_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_range) as usize - ptr as usize },
+        10844usize,
+        "Offset of field: AVFilmGrainParams::color_range"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_primaries) as usize - ptr as usize },
+        10848usize,
+        "Offset of field: AVFilmGrainParams::color_primaries"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_trc) as usize - ptr as usize },
+        10852usize,
+        "Offset of field: AVFilmGrainParams::color_trc"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_space) as usize - ptr as usize },
+        10856usize,
+        "Offset of field: AVFilmGrainParams::color_space"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_depth_luma) as usize - ptr as usize },
+        10860usize,
+        "Offset of field: AVFilmGrainParams::bit_depth_luma"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bit_depth_chroma) as usize - ptr as usize },
+        10864usize,
+        "Offset of field: AVFilmGrainParams::bit_depth_chroma"
+    );
+}
 impl ::std::fmt::Debug for AVFilmGrainParams {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "AVFilmGrainParams {{ type: {:?}, seed: {:?}, codec: {:?}, width: {:?}, height: {:?}, subsampling_x: {:?}, subsampling_y: {:?}, color_range: {:?}, color_primaries: {:?}, color_trc: {:?}, color_space: {:?}, bit_depth_luma: {:?}, bit_depth_chroma: {:?} }}" , self . type_ , self . seed , self . codec , self . width , self . height , self . subsampling_x , self . subsampling_y , self . color_range , self . color_primaries , self . color_trc , self . color_space , self . bit_depth_luma , self . bit_depth_chroma)
@@ -16467,15 +21455,31 @@ pub struct AVHDRPlusPercentile {
     #[doc = " The linearized maxRGB value at a specific percentile in the processing\n window in the scene. The value shall be in the range of 0 to 1, inclusive\n and in multiples of 0.00001."]
     pub percentile: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHDRPlusPercentile"][::std::mem::size_of::<AVHDRPlusPercentile>() - 12usize];
-    ["Alignment of AVHDRPlusPercentile"][::std::mem::align_of::<AVHDRPlusPercentile>() - 4usize];
-    ["Offset of field: AVHDRPlusPercentile::percentage"]
-        [::std::mem::offset_of!(AVHDRPlusPercentile, percentage) - 0usize];
-    ["Offset of field: AVHDRPlusPercentile::percentile"]
-        [::std::mem::offset_of!(AVHDRPlusPercentile, percentile) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_AVHDRPlusPercentile() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHDRPlusPercentile> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHDRPlusPercentile>(),
+        12usize,
+        "Size of AVHDRPlusPercentile"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHDRPlusPercentile>(),
+        4usize,
+        "Alignment of AVHDRPlusPercentile"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).percentage) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVHDRPlusPercentile::percentage"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).percentile) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVHDRPlusPercentile::percentile"
+    );
+}
 #[doc = " Color transform parameters at a processing window in a dynamic metadata for\n SMPTE 2094-40."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -16527,83 +21531,147 @@ pub struct AVHDRPlusColorTransformParams {
     #[doc = " The color saturation gain in the processing window in the scene. The\n value shall be in the range of 0 to 63/8, inclusive and in multiples of\n 1/8. The default value shall be 1."]
     pub color_saturation_weight: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHDRPlusColorTransformParams"]
-        [::std::mem::size_of::<AVHDRPlusColorTransformParams>() - 428usize];
-    ["Alignment of AVHDRPlusColorTransformParams"]
-        [::std::mem::align_of::<AVHDRPlusColorTransformParams>() - 4usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::window_upper_left_corner_x"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        window_upper_left_corner_x
-    ) - 0usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::window_upper_left_corner_y"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        window_upper_left_corner_y
-    ) - 8usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::window_lower_right_corner_x"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        window_lower_right_corner_x
-    ) - 16usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::window_lower_right_corner_y"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        window_lower_right_corner_y
-    ) - 24usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::center_of_ellipse_x"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, center_of_ellipse_x) - 32usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::center_of_ellipse_y"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, center_of_ellipse_y) - 34usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::rotation_angle"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, rotation_angle) - 36usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::semimajor_axis_internal_ellipse"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        semimajor_axis_internal_ellipse
-    )
-        - 38usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::semimajor_axis_external_ellipse"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        semimajor_axis_external_ellipse
-    )
-        - 40usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::semiminor_axis_external_ellipse"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        semiminor_axis_external_ellipse
-    )
-        - 42usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::overlap_process_option"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, overlap_process_option) - 44usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::maxscl"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, maxscl) - 48usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::average_maxrgb"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, average_maxrgb) - 72usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::num_distribution_maxrgb_percentiles"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        num_distribution_maxrgb_percentiles
-    )
-        - 80usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::distribution_maxrgb"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, distribution_maxrgb) - 84usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::fraction_bright_pixels"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, fraction_bright_pixels) - 264usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::tone_mapping_flag"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, tone_mapping_flag) - 272usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::knee_point_x"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, knee_point_x) - 276usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::knee_point_y"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, knee_point_y) - 284usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::num_bezier_curve_anchors"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        num_bezier_curve_anchors
-    ) - 292usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::bezier_curve_anchors"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, bezier_curve_anchors) - 296usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::color_saturation_mapping_flag"][::std::mem::offset_of!(
-        AVHDRPlusColorTransformParams,
-        color_saturation_mapping_flag
-    ) - 416usize];
-    ["Offset of field: AVHDRPlusColorTransformParams::color_saturation_weight"]
-        [::std::mem::offset_of!(AVHDRPlusColorTransformParams, color_saturation_weight) - 420usize];
-};
+#[test]
+fn bindgen_test_layout_AVHDRPlusColorTransformParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHDRPlusColorTransformParams> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHDRPlusColorTransformParams>(),
+        428usize,
+        "Size of AVHDRPlusColorTransformParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHDRPlusColorTransformParams>(),
+        4usize,
+        "Alignment of AVHDRPlusColorTransformParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).window_upper_left_corner_x) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVHDRPlusColorTransformParams::window_upper_left_corner_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).window_upper_left_corner_y) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVHDRPlusColorTransformParams::window_upper_left_corner_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).window_lower_right_corner_x) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVHDRPlusColorTransformParams::window_lower_right_corner_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).window_lower_right_corner_y) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVHDRPlusColorTransformParams::window_lower_right_corner_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).center_of_ellipse_x) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVHDRPlusColorTransformParams::center_of_ellipse_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).center_of_ellipse_y) as usize - ptr as usize },
+        34usize,
+        "Offset of field: AVHDRPlusColorTransformParams::center_of_ellipse_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rotation_angle) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVHDRPlusColorTransformParams::rotation_angle"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).semimajor_axis_internal_ellipse) as usize - ptr as usize
+        },
+        38usize,
+        "Offset of field: AVHDRPlusColorTransformParams::semimajor_axis_internal_ellipse"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).semimajor_axis_external_ellipse) as usize - ptr as usize
+        },
+        40usize,
+        "Offset of field: AVHDRPlusColorTransformParams::semimajor_axis_external_ellipse"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).semiminor_axis_external_ellipse) as usize - ptr as usize
+        },
+        42usize,
+        "Offset of field: AVHDRPlusColorTransformParams::semiminor_axis_external_ellipse"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).overlap_process_option) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVHDRPlusColorTransformParams::overlap_process_option"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).maxscl) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVHDRPlusColorTransformParams::maxscl"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).average_maxrgb) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVHDRPlusColorTransformParams::average_maxrgb"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).num_distribution_maxrgb_percentiles) as usize - ptr as usize
+        },
+        80usize,
+        "Offset of field: AVHDRPlusColorTransformParams::num_distribution_maxrgb_percentiles"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).distribution_maxrgb) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVHDRPlusColorTransformParams::distribution_maxrgb"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fraction_bright_pixels) as usize - ptr as usize },
+        264usize,
+        "Offset of field: AVHDRPlusColorTransformParams::fraction_bright_pixels"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tone_mapping_flag) as usize - ptr as usize },
+        272usize,
+        "Offset of field: AVHDRPlusColorTransformParams::tone_mapping_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).knee_point_x) as usize - ptr as usize },
+        276usize,
+        "Offset of field: AVHDRPlusColorTransformParams::knee_point_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).knee_point_y) as usize - ptr as usize },
+        284usize,
+        "Offset of field: AVHDRPlusColorTransformParams::knee_point_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_bezier_curve_anchors) as usize - ptr as usize },
+        292usize,
+        "Offset of field: AVHDRPlusColorTransformParams::num_bezier_curve_anchors"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bezier_curve_anchors) as usize - ptr as usize },
+        296usize,
+        "Offset of field: AVHDRPlusColorTransformParams::bezier_curve_anchors"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).color_saturation_mapping_flag) as usize - ptr as usize
+        },
+        416usize,
+        "Offset of field: AVHDRPlusColorTransformParams::color_saturation_mapping_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_saturation_weight) as usize - ptr as usize },
+        420usize,
+        "Offset of field: AVHDRPlusColorTransformParams::color_saturation_weight"
+    );
+}
 #[doc = " This struct represents dynamic metadata for color volume transform -\n application 4 of SMPTE 2094-40:2016 standard.\n\n To be used as payload of a AVFrameSideData or AVPacketSideData with the\n appropriate type.\n\n @note The struct should be allocated with\n av_dynamic_hdr_plus_alloc() and its size is not a part of\n the public ABI."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -16635,62 +21703,115 @@ pub struct AVDynamicHDRPlus {
     #[doc = " The normalized actual peak luminance of the mastering display used for\n mastering the image essence. The values should be in the range of 0 to 1,\n inclusive and in multiples of 1/15."]
     pub mastering_display_actual_peak_luminance: [[AVRational; 25usize]; 25usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDynamicHDRPlus"][::std::mem::size_of::<AVDynamicHDRPlus>() - 11304usize];
-    ["Alignment of AVDynamicHDRPlus"][::std::mem::align_of::<AVDynamicHDRPlus>() - 4usize];
-    ["Offset of field: AVDynamicHDRPlus::itu_t_t35_country_code"]
-        [::std::mem::offset_of!(AVDynamicHDRPlus, itu_t_t35_country_code) - 0usize];
-    ["Offset of field: AVDynamicHDRPlus::application_version"]
-        [::std::mem::offset_of!(AVDynamicHDRPlus, application_version) - 1usize];
-    ["Offset of field: AVDynamicHDRPlus::num_windows"]
-        [::std::mem::offset_of!(AVDynamicHDRPlus, num_windows) - 2usize];
-    ["Offset of field: AVDynamicHDRPlus::params"]
-        [::std::mem::offset_of!(AVDynamicHDRPlus, params) - 4usize];
-    ["Offset of field: AVDynamicHDRPlus::targeted_system_display_maximum_luminance"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        targeted_system_display_maximum_luminance
-    ) - 1288usize];
-    ["Offset of field: AVDynamicHDRPlus::targeted_system_display_actual_peak_luminance_flag"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        targeted_system_display_actual_peak_luminance_flag
-    )
-        - 1296usize];
-    ["Offset of field: AVDynamicHDRPlus::num_rows_targeted_system_display_actual_peak_luminance"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        num_rows_targeted_system_display_actual_peak_luminance
-    )
-        - 1297usize];
-    ["Offset of field: AVDynamicHDRPlus::num_cols_targeted_system_display_actual_peak_luminance"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        num_cols_targeted_system_display_actual_peak_luminance
-    )
-        - 1298usize];
-    ["Offset of field: AVDynamicHDRPlus::targeted_system_display_actual_peak_luminance"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        targeted_system_display_actual_peak_luminance
-    )
-        - 1300usize];
-    ["Offset of field: AVDynamicHDRPlus::mastering_display_actual_peak_luminance_flag"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        mastering_display_actual_peak_luminance_flag
-    )
-        - 6300usize];
-    ["Offset of field: AVDynamicHDRPlus::num_rows_mastering_display_actual_peak_luminance"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        num_rows_mastering_display_actual_peak_luminance
-    )
-        - 6301usize];
-    ["Offset of field: AVDynamicHDRPlus::num_cols_mastering_display_actual_peak_luminance"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        num_cols_mastering_display_actual_peak_luminance
-    )
-        - 6302usize];
-    ["Offset of field: AVDynamicHDRPlus::mastering_display_actual_peak_luminance"][::std::mem::offset_of!(
-        AVDynamicHDRPlus,
-        mastering_display_actual_peak_luminance
-    ) - 6304usize];
-};
+#[test]
+fn bindgen_test_layout_AVDynamicHDRPlus() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDynamicHDRPlus> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDynamicHDRPlus>(),
+        11304usize,
+        "Size of AVDynamicHDRPlus"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDynamicHDRPlus>(),
+        4usize,
+        "Alignment of AVDynamicHDRPlus"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).itu_t_t35_country_code) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDynamicHDRPlus::itu_t_t35_country_code"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).application_version) as usize - ptr as usize },
+        1usize,
+        "Offset of field: AVDynamicHDRPlus::application_version"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_windows) as usize - ptr as usize },
+        2usize,
+        "Offset of field: AVDynamicHDRPlus::num_windows"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).params) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDynamicHDRPlus::params"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).targeted_system_display_maximum_luminance) as usize
+                - ptr as usize
+        },
+        1288usize,
+        "Offset of field: AVDynamicHDRPlus::targeted_system_display_maximum_luminance"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).targeted_system_display_actual_peak_luminance_flag) as usize
+                - ptr as usize
+        },
+        1296usize,
+        "Offset of field: AVDynamicHDRPlus::targeted_system_display_actual_peak_luminance_flag"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).num_rows_targeted_system_display_actual_peak_luminance)
+                as usize
+                - ptr as usize
+        },
+        1297usize,
+        "Offset of field: AVDynamicHDRPlus::num_rows_targeted_system_display_actual_peak_luminance"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).num_cols_targeted_system_display_actual_peak_luminance)
+                as usize
+                - ptr as usize
+        },
+        1298usize,
+        "Offset of field: AVDynamicHDRPlus::num_cols_targeted_system_display_actual_peak_luminance"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).targeted_system_display_actual_peak_luminance) as usize
+                - ptr as usize
+        },
+        1300usize,
+        "Offset of field: AVDynamicHDRPlus::targeted_system_display_actual_peak_luminance"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).mastering_display_actual_peak_luminance_flag) as usize
+                - ptr as usize
+        },
+        6300usize,
+        "Offset of field: AVDynamicHDRPlus::mastering_display_actual_peak_luminance_flag"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).num_rows_mastering_display_actual_peak_luminance) as usize
+                - ptr as usize
+        },
+        6301usize,
+        "Offset of field: AVDynamicHDRPlus::num_rows_mastering_display_actual_peak_luminance"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).num_cols_mastering_display_actual_peak_luminance) as usize
+                - ptr as usize
+        },
+        6302usize,
+        "Offset of field: AVDynamicHDRPlus::num_cols_mastering_display_actual_peak_luminance"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).mastering_display_actual_peak_luminance) as usize
+                - ptr as usize
+        },
+        6304usize,
+        "Offset of field: AVDynamicHDRPlus::mastering_display_actual_peak_luminance"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVDynamicHDRPlus structure and set its fields to\n default values. The resulting struct can be freed using av_freep().\n\n @return An AVDynamicHDRPlus filled with default values or NULL\n         on failure."]
     pub fn av_dynamic_hdr_plus_alloc(size: *mut usize) -> *mut AVDynamicHDRPlus;
@@ -16732,24 +21853,52 @@ pub struct AVHDRVivid3SplineParams {
     #[doc = " 3Spline_enable_Strength of three Spline.\n The value shall be in the range of 0.0 to 1.0, inclusive,\n and in multiples of 1.0/255."]
     pub enable_strength: AVRational,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHDRVivid3SplineParams"][::std::mem::size_of::<AVHDRVivid3SplineParams>() - 44usize];
-    ["Alignment of AVHDRVivid3SplineParams"]
-        [::std::mem::align_of::<AVHDRVivid3SplineParams>() - 4usize];
-    ["Offset of field: AVHDRVivid3SplineParams::th_mode"]
-        [::std::mem::offset_of!(AVHDRVivid3SplineParams, th_mode) - 0usize];
-    ["Offset of field: AVHDRVivid3SplineParams::th_enable_mb"]
-        [::std::mem::offset_of!(AVHDRVivid3SplineParams, th_enable_mb) - 4usize];
-    ["Offset of field: AVHDRVivid3SplineParams::th_enable"]
-        [::std::mem::offset_of!(AVHDRVivid3SplineParams, th_enable) - 12usize];
-    ["Offset of field: AVHDRVivid3SplineParams::th_delta1"]
-        [::std::mem::offset_of!(AVHDRVivid3SplineParams, th_delta1) - 20usize];
-    ["Offset of field: AVHDRVivid3SplineParams::th_delta2"]
-        [::std::mem::offset_of!(AVHDRVivid3SplineParams, th_delta2) - 28usize];
-    ["Offset of field: AVHDRVivid3SplineParams::enable_strength"]
-        [::std::mem::offset_of!(AVHDRVivid3SplineParams, enable_strength) - 36usize];
-};
+#[test]
+fn bindgen_test_layout_AVHDRVivid3SplineParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHDRVivid3SplineParams> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHDRVivid3SplineParams>(),
+        44usize,
+        "Size of AVHDRVivid3SplineParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHDRVivid3SplineParams>(),
+        4usize,
+        "Alignment of AVHDRVivid3SplineParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).th_mode) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVHDRVivid3SplineParams::th_mode"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).th_enable_mb) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVHDRVivid3SplineParams::th_enable_mb"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).th_enable) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVHDRVivid3SplineParams::th_enable"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).th_delta1) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVHDRVivid3SplineParams::th_delta1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).th_delta2) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVHDRVivid3SplineParams::th_delta2"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).enable_strength) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVHDRVivid3SplineParams::enable_strength"
+    );
+}
 #[doc = " Color tone mapping parameters at a processing window in a dynamic metadata for\n CUVA 005.1:2021."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -16796,70 +21945,127 @@ pub struct AVHDRVividColorToneMappingParams {
     pub three_Spline_enable_Strength: AVRational,
     pub three_spline: [AVHDRVivid3SplineParams; 2usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHDRVividColorToneMappingParams"]
-        [::std::mem::size_of::<AVHDRVividColorToneMappingParams>() - 216usize];
-    ["Alignment of AVHDRVividColorToneMappingParams"]
-        [::std::mem::align_of::<AVHDRVividColorToneMappingParams>() - 4usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::targeted_system_display_maximum_luminance"] [:: std :: mem :: offset_of ! (AVHDRVividColorToneMappingParams , targeted_system_display_maximum_luminance) - 0usize] ;
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_enable_flag"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_enable_flag) - 8usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_m_p"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_m_p) - 12usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_m_m"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_m_m) - 20usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_m_a"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_m_a) - 28usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_m_b"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_m_b) - 36usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_m_n"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_m_n) - 44usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_k1"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_k1) - 52usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_k2"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_k2) - 56usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_k3"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_k3) - 60usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_Delta_enable_mode"][::std::mem::offset_of!(
-        AVHDRVividColorToneMappingParams,
-        base_param_Delta_enable_mode
-    )
-        - 64usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::base_param_Delta"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, base_param_Delta) - 68usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_Spline_enable_flag"][::std::mem::offset_of!(
-        AVHDRVividColorToneMappingParams,
-        three_Spline_enable_flag
-    ) - 76usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_Spline_num"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, three_Spline_num) - 80usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_mode"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, three_Spline_TH_mode) - 84usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_enable_MB"][::std::mem::offset_of!(
-        AVHDRVividColorToneMappingParams,
-        three_Spline_TH_enable_MB
-    ) - 88usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_enable"][::std::mem::offset_of!(
-        AVHDRVividColorToneMappingParams,
-        three_Spline_TH_enable
-    ) - 96usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_Delta1"][::std::mem::offset_of!(
-        AVHDRVividColorToneMappingParams,
-        three_Spline_TH_Delta1
-    ) - 104usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_Delta2"][::std::mem::offset_of!(
-        AVHDRVividColorToneMappingParams,
-        three_Spline_TH_Delta2
-    ) - 112usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_Spline_enable_Strength"][::std::mem::offset_of!(
-        AVHDRVividColorToneMappingParams,
-        three_Spline_enable_Strength
-    )
-        - 120usize];
-    ["Offset of field: AVHDRVividColorToneMappingParams::three_spline"]
-        [::std::mem::offset_of!(AVHDRVividColorToneMappingParams, three_spline) - 128usize];
-};
+#[test]
+fn bindgen_test_layout_AVHDRVividColorToneMappingParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHDRVividColorToneMappingParams> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHDRVividColorToneMappingParams>(),
+        216usize,
+        "Size of AVHDRVividColorToneMappingParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHDRVividColorToneMappingParams>(),
+        4usize,
+        "Alignment of AVHDRVividColorToneMappingParams"
+    );
+    assert_eq ! (unsafe { :: std :: ptr :: addr_of ! ((* ptr) . targeted_system_display_maximum_luminance) as usize - ptr as usize } , 0usize , "Offset of field: AVHDRVividColorToneMappingParams::targeted_system_display_maximum_luminance");
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_enable_flag) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_enable_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_m_p) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_m_p"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_m_m) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_m_m"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_m_a) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_m_a"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_m_b) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_m_b"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_m_n) as usize - ptr as usize },
+        44usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_m_n"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_k1) as usize - ptr as usize },
+        52usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_k1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_k2) as usize - ptr as usize },
+        56usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_k2"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_k3) as usize - ptr as usize },
+        60usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_k3"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).base_param_Delta_enable_mode) as usize - ptr as usize
+        },
+        64usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_Delta_enable_mode"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_param_Delta) as usize - ptr as usize },
+        68usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::base_param_Delta"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).three_Spline_enable_flag) as usize - ptr as usize },
+        76usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_Spline_enable_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).three_Spline_num) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_Spline_num"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).three_Spline_TH_mode) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_mode"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).three_Spline_TH_enable_MB) as usize - ptr as usize },
+        88usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_enable_MB"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).three_Spline_TH_enable) as usize - ptr as usize },
+        96usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_enable"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).three_Spline_TH_Delta1) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_Delta1"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).three_Spline_TH_Delta2) as usize - ptr as usize },
+        112usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_Spline_TH_Delta2"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).three_Spline_enable_Strength) as usize - ptr as usize
+        },
+        120usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_Spline_enable_Strength"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).three_spline) as usize - ptr as usize },
+        128usize,
+        "Offset of field: AVHDRVividColorToneMappingParams::three_spline"
+    );
+}
 #[doc = " Color transform parameters at a processing window in a dynamic metadata for\n CUVA 005.1:2021."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -16885,36 +22091,74 @@ pub struct AVHDRVividColorTransformParams {
     #[doc = " Indicates the color correction strength parameter.\n The values should be in the range of 0.0 to 2.0, inclusive\n and in multiples of 1/128."]
     pub color_saturation_gain: [AVRational; 8usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVHDRVividColorTransformParams"]
-        [::std::mem::size_of::<AVHDRVividColorTransformParams>() - 544usize];
-    ["Alignment of AVHDRVividColorTransformParams"]
-        [::std::mem::align_of::<AVHDRVividColorTransformParams>() - 4usize];
-    ["Offset of field: AVHDRVividColorTransformParams::minimum_maxrgb"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, minimum_maxrgb) - 0usize];
-    ["Offset of field: AVHDRVividColorTransformParams::average_maxrgb"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, average_maxrgb) - 8usize];
-    ["Offset of field: AVHDRVividColorTransformParams::variance_maxrgb"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, variance_maxrgb) - 16usize];
-    ["Offset of field: AVHDRVividColorTransformParams::maximum_maxrgb"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, maximum_maxrgb) - 24usize];
-    ["Offset of field: AVHDRVividColorTransformParams::tone_mapping_mode_flag"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, tone_mapping_mode_flag) - 32usize];
-    ["Offset of field: AVHDRVividColorTransformParams::tone_mapping_param_num"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, tone_mapping_param_num) - 36usize];
-    ["Offset of field: AVHDRVividColorTransformParams::tm_params"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, tm_params) - 40usize];
-    ["Offset of field: AVHDRVividColorTransformParams::color_saturation_mapping_flag"][::std::mem::offset_of!(
-        AVHDRVividColorTransformParams,
-        color_saturation_mapping_flag
-    )
-        - 472usize];
-    ["Offset of field: AVHDRVividColorTransformParams::color_saturation_num"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, color_saturation_num) - 476usize];
-    ["Offset of field: AVHDRVividColorTransformParams::color_saturation_gain"]
-        [::std::mem::offset_of!(AVHDRVividColorTransformParams, color_saturation_gain) - 480usize];
-};
+#[test]
+fn bindgen_test_layout_AVHDRVividColorTransformParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVHDRVividColorTransformParams> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVHDRVividColorTransformParams>(),
+        544usize,
+        "Size of AVHDRVividColorTransformParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVHDRVividColorTransformParams>(),
+        4usize,
+        "Alignment of AVHDRVividColorTransformParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).minimum_maxrgb) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVHDRVividColorTransformParams::minimum_maxrgb"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).average_maxrgb) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVHDRVividColorTransformParams::average_maxrgb"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).variance_maxrgb) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVHDRVividColorTransformParams::variance_maxrgb"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).maximum_maxrgb) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVHDRVividColorTransformParams::maximum_maxrgb"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tone_mapping_mode_flag) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVHDRVividColorTransformParams::tone_mapping_mode_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tone_mapping_param_num) as usize - ptr as usize },
+        36usize,
+        "Offset of field: AVHDRVividColorTransformParams::tone_mapping_param_num"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_params) as usize - ptr as usize },
+        40usize,
+        "Offset of field: AVHDRVividColorTransformParams::tm_params"
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).color_saturation_mapping_flag) as usize - ptr as usize
+        },
+        472usize,
+        "Offset of field: AVHDRVividColorTransformParams::color_saturation_mapping_flag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_saturation_num) as usize - ptr as usize },
+        476usize,
+        "Offset of field: AVHDRVividColorTransformParams::color_saturation_num"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).color_saturation_gain) as usize - ptr as usize },
+        480usize,
+        "Offset of field: AVHDRVividColorTransformParams::color_saturation_gain"
+    );
+}
 #[doc = " This struct represents dynamic metadata for color volume transform -\n CUVA 005.1:2021 standard\n\n To be used as payload of a AVFrameSideData or AVPacketSideData with the\n appropriate type.\n\n @note The struct should be allocated with\n av_dynamic_hdr_vivid_alloc() and its size is not a part of\n the public ABI."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -16926,17 +22170,36 @@ pub struct AVDynamicHDRVivid {
     #[doc = " The color transform parameters for every processing window."]
     pub params: [AVHDRVividColorTransformParams; 3usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVDynamicHDRVivid"][::std::mem::size_of::<AVDynamicHDRVivid>() - 1636usize];
-    ["Alignment of AVDynamicHDRVivid"][::std::mem::align_of::<AVDynamicHDRVivid>() - 4usize];
-    ["Offset of field: AVDynamicHDRVivid::system_start_code"]
-        [::std::mem::offset_of!(AVDynamicHDRVivid, system_start_code) - 0usize];
-    ["Offset of field: AVDynamicHDRVivid::num_windows"]
-        [::std::mem::offset_of!(AVDynamicHDRVivid, num_windows) - 1usize];
-    ["Offset of field: AVDynamicHDRVivid::params"]
-        [::std::mem::offset_of!(AVDynamicHDRVivid, params) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_AVDynamicHDRVivid() {
+    const UNINIT: ::std::mem::MaybeUninit<AVDynamicHDRVivid> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVDynamicHDRVivid>(),
+        1636usize,
+        "Size of AVDynamicHDRVivid"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVDynamicHDRVivid>(),
+        4usize,
+        "Alignment of AVDynamicHDRVivid"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).system_start_code) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVDynamicHDRVivid::system_start_code"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).num_windows) as usize - ptr as usize },
+        1usize,
+        "Offset of field: AVDynamicHDRVivid::num_windows"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).params) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVDynamicHDRVivid::params"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVDynamicHDRVivid structure and set its fields to\n default values. The resulting struct can be freed using av_freep().\n\n @return An AVDynamicHDRVivid filled with default values or NULL\n         on failure."]
     pub fn av_dynamic_hdr_vivid_alloc(size: *mut usize) -> *mut AVDynamicHDRVivid;
@@ -17008,22 +22271,47 @@ pub struct AVComponentDescriptor {
     #[doc = " Number of bits in the component."]
     pub depth: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVComponentDescriptor"][::std::mem::size_of::<AVComponentDescriptor>() - 20usize];
-    ["Alignment of AVComponentDescriptor"]
-        [::std::mem::align_of::<AVComponentDescriptor>() - 4usize];
-    ["Offset of field: AVComponentDescriptor::plane"]
-        [::std::mem::offset_of!(AVComponentDescriptor, plane) - 0usize];
-    ["Offset of field: AVComponentDescriptor::step"]
-        [::std::mem::offset_of!(AVComponentDescriptor, step) - 4usize];
-    ["Offset of field: AVComponentDescriptor::offset"]
-        [::std::mem::offset_of!(AVComponentDescriptor, offset) - 8usize];
-    ["Offset of field: AVComponentDescriptor::shift"]
-        [::std::mem::offset_of!(AVComponentDescriptor, shift) - 12usize];
-    ["Offset of field: AVComponentDescriptor::depth"]
-        [::std::mem::offset_of!(AVComponentDescriptor, depth) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVComponentDescriptor() {
+    const UNINIT: ::std::mem::MaybeUninit<AVComponentDescriptor> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVComponentDescriptor>(),
+        20usize,
+        "Size of AVComponentDescriptor"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVComponentDescriptor>(),
+        4usize,
+        "Alignment of AVComponentDescriptor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).plane) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVComponentDescriptor::plane"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).step) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVComponentDescriptor::step"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).offset) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVComponentDescriptor::offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).shift) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVComponentDescriptor::shift"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).depth) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVComponentDescriptor::depth"
+    );
+}
 #[doc = " Descriptor that unambiguously describes how the bits of a pixel are\n stored in the up to 4 data planes of an image. It also stores the\n subsampling factors and number of components.\n\n @note This is separate of the colorspace (RGB, YCbCr, YPbPr, JPEG-style YUV\n       and all the YUV variants) AVPixFmtDescriptor just stores how values\n       are stored not what these values represent."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -17042,25 +22330,56 @@ pub struct AVPixFmtDescriptor {
     #[doc = " Alternative comma-separated names."]
     pub alias: *const ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVPixFmtDescriptor"][::std::mem::size_of::<AVPixFmtDescriptor>() - 112usize];
-    ["Alignment of AVPixFmtDescriptor"][::std::mem::align_of::<AVPixFmtDescriptor>() - 8usize];
-    ["Offset of field: AVPixFmtDescriptor::name"]
-        [::std::mem::offset_of!(AVPixFmtDescriptor, name) - 0usize];
-    ["Offset of field: AVPixFmtDescriptor::nb_components"]
-        [::std::mem::offset_of!(AVPixFmtDescriptor, nb_components) - 8usize];
-    ["Offset of field: AVPixFmtDescriptor::log2_chroma_w"]
-        [::std::mem::offset_of!(AVPixFmtDescriptor, log2_chroma_w) - 9usize];
-    ["Offset of field: AVPixFmtDescriptor::log2_chroma_h"]
-        [::std::mem::offset_of!(AVPixFmtDescriptor, log2_chroma_h) - 10usize];
-    ["Offset of field: AVPixFmtDescriptor::flags"]
-        [::std::mem::offset_of!(AVPixFmtDescriptor, flags) - 16usize];
-    ["Offset of field: AVPixFmtDescriptor::comp"]
-        [::std::mem::offset_of!(AVPixFmtDescriptor, comp) - 24usize];
-    ["Offset of field: AVPixFmtDescriptor::alias"]
-        [::std::mem::offset_of!(AVPixFmtDescriptor, alias) - 104usize];
-};
+#[test]
+fn bindgen_test_layout_AVPixFmtDescriptor() {
+    const UNINIT: ::std::mem::MaybeUninit<AVPixFmtDescriptor> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVPixFmtDescriptor>(),
+        112usize,
+        "Size of AVPixFmtDescriptor"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVPixFmtDescriptor>(),
+        8usize,
+        "Alignment of AVPixFmtDescriptor"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVPixFmtDescriptor::name"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_components) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVPixFmtDescriptor::nb_components"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).log2_chroma_w) as usize - ptr as usize },
+        9usize,
+        "Offset of field: AVPixFmtDescriptor::log2_chroma_w"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).log2_chroma_h) as usize - ptr as usize },
+        10usize,
+        "Offset of field: AVPixFmtDescriptor::log2_chroma_h"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVPixFmtDescriptor::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).comp) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVPixFmtDescriptor::comp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).alias) as usize - ptr as usize },
+        104usize,
+        "Offset of field: AVPixFmtDescriptor::alias"
+    );
+}
 extern "C" {
     #[doc = " Return the number of bits per pixel used by the pixel format\n described by pixdesc. Note that this is not the same as the number\n of bits per sample.\n\n The returned number of bits refers to the number of bits actually\n used for storing the pixel information, that is padding bits are\n not counted."]
     pub fn av_get_bits_per_pixel(pixdesc: *const AVPixFmtDescriptor) -> ::std::os::raw::c_int;
@@ -17445,17 +22764,51 @@ pub union av_alias64 {
     pub f64_: f64,
     pub f32_: [f32; 2usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of av_alias64"][::std::mem::size_of::<av_alias64>() - 8usize];
-    ["Alignment of av_alias64"][::std::mem::align_of::<av_alias64>() - 8usize];
-    ["Offset of field: av_alias64::u64_"][::std::mem::offset_of!(av_alias64, u64_) - 0usize];
-    ["Offset of field: av_alias64::u32_"][::std::mem::offset_of!(av_alias64, u32_) - 0usize];
-    ["Offset of field: av_alias64::u16_"][::std::mem::offset_of!(av_alias64, u16_) - 0usize];
-    ["Offset of field: av_alias64::u8_"][::std::mem::offset_of!(av_alias64, u8_) - 0usize];
-    ["Offset of field: av_alias64::f64_"][::std::mem::offset_of!(av_alias64, f64_) - 0usize];
-    ["Offset of field: av_alias64::f32_"][::std::mem::offset_of!(av_alias64, f32_) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_av_alias64() {
+    const UNINIT: ::std::mem::MaybeUninit<av_alias64> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<av_alias64>(),
+        8usize,
+        "Size of av_alias64"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<av_alias64>(),
+        8usize,
+        "Alignment of av_alias64"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u64_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias64::u64_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u32_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias64::u32_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u16_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias64::u16_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u8_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias64::u8_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).f64_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias64::f64_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).f32_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias64::f32_"
+    );
+}
 impl ::std::fmt::Debug for av_alias64 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "av_alias64 {{ union }}")
@@ -17469,15 +22822,41 @@ pub union av_alias32 {
     pub u8_: [u8; 4usize],
     pub f32_: f32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of av_alias32"][::std::mem::size_of::<av_alias32>() - 4usize];
-    ["Alignment of av_alias32"][::std::mem::align_of::<av_alias32>() - 4usize];
-    ["Offset of field: av_alias32::u32_"][::std::mem::offset_of!(av_alias32, u32_) - 0usize];
-    ["Offset of field: av_alias32::u16_"][::std::mem::offset_of!(av_alias32, u16_) - 0usize];
-    ["Offset of field: av_alias32::u8_"][::std::mem::offset_of!(av_alias32, u8_) - 0usize];
-    ["Offset of field: av_alias32::f32_"][::std::mem::offset_of!(av_alias32, f32_) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_av_alias32() {
+    const UNINIT: ::std::mem::MaybeUninit<av_alias32> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<av_alias32>(),
+        4usize,
+        "Size of av_alias32"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<av_alias32>(),
+        4usize,
+        "Alignment of av_alias32"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u32_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias32::u32_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u16_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias32::u16_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u8_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias32::u8_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).f32_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias32::f32_"
+    );
+}
 impl ::std::fmt::Debug for av_alias32 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "av_alias32 {{ union }}")
@@ -17489,13 +22868,31 @@ pub union av_alias16 {
     pub u16_: u16,
     pub u8_: [u8; 2usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of av_alias16"][::std::mem::size_of::<av_alias16>() - 2usize];
-    ["Alignment of av_alias16"][::std::mem::align_of::<av_alias16>() - 2usize];
-    ["Offset of field: av_alias16::u16_"][::std::mem::offset_of!(av_alias16, u16_) - 0usize];
-    ["Offset of field: av_alias16::u8_"][::std::mem::offset_of!(av_alias16, u8_) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_av_alias16() {
+    const UNINIT: ::std::mem::MaybeUninit<av_alias16> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<av_alias16>(),
+        2usize,
+        "Size of av_alias16"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<av_alias16>(),
+        2usize,
+        "Alignment of av_alias16"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u16_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias16::u16_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u8_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: av_alias16::u8_"
+    );
+}
 impl ::std::fmt::Debug for av_alias16 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "av_alias16 {{ union }}")
@@ -17506,12 +22903,26 @@ impl ::std::fmt::Debug for av_alias16 {
 pub union unaligned_64 {
     pub l: u64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of unaligned_64"][::std::mem::size_of::<unaligned_64>() - 8usize];
-    ["Alignment of unaligned_64"][::std::mem::align_of::<unaligned_64>() - 1usize];
-    ["Offset of field: unaligned_64::l"][::std::mem::offset_of!(unaligned_64, l) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_unaligned_64() {
+    const UNINIT: ::std::mem::MaybeUninit<unaligned_64> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<unaligned_64>(),
+        8usize,
+        "Size of unaligned_64"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<unaligned_64>(),
+        1usize,
+        "Alignment of unaligned_64"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).l) as usize - ptr as usize },
+        0usize,
+        "Offset of field: unaligned_64::l"
+    );
+}
 impl ::std::fmt::Debug for unaligned_64 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "unaligned_64 {{ union }}")
@@ -17522,12 +22933,26 @@ impl ::std::fmt::Debug for unaligned_64 {
 pub union unaligned_32 {
     pub l: u32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of unaligned_32"][::std::mem::size_of::<unaligned_32>() - 4usize];
-    ["Alignment of unaligned_32"][::std::mem::align_of::<unaligned_32>() - 1usize];
-    ["Offset of field: unaligned_32::l"][::std::mem::offset_of!(unaligned_32, l) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_unaligned_32() {
+    const UNINIT: ::std::mem::MaybeUninit<unaligned_32> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<unaligned_32>(),
+        4usize,
+        "Size of unaligned_32"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<unaligned_32>(),
+        1usize,
+        "Alignment of unaligned_32"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).l) as usize - ptr as usize },
+        0usize,
+        "Offset of field: unaligned_32::l"
+    );
+}
 impl ::std::fmt::Debug for unaligned_32 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "unaligned_32 {{ union }}")
@@ -17538,12 +22963,26 @@ impl ::std::fmt::Debug for unaligned_32 {
 pub union unaligned_16 {
     pub l: u16,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of unaligned_16"][::std::mem::size_of::<unaligned_16>() - 2usize];
-    ["Alignment of unaligned_16"][::std::mem::align_of::<unaligned_16>() - 1usize];
-    ["Offset of field: unaligned_16::l"][::std::mem::offset_of!(unaligned_16, l) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_unaligned_16() {
+    const UNINIT: ::std::mem::MaybeUninit<unaligned_16> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<unaligned_16>(),
+        2usize,
+        "Size of unaligned_16"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<unaligned_16>(),
+        1usize,
+        "Alignment of unaligned_16"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).l) as usize - ptr as usize },
+        0usize,
+        "Offset of field: unaligned_16::l"
+    );
+}
 impl ::std::fmt::Debug for unaligned_16 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "unaligned_16 {{ union }}")
@@ -17556,13 +22995,27 @@ pub struct AVLFG {
     pub state: [::std::os::raw::c_uint; 64usize],
     pub index: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVLFG"][::std::mem::size_of::<AVLFG>() - 260usize];
-    ["Alignment of AVLFG"][::std::mem::align_of::<AVLFG>() - 4usize];
-    ["Offset of field: AVLFG::state"][::std::mem::offset_of!(AVLFG, state) - 0usize];
-    ["Offset of field: AVLFG::index"][::std::mem::offset_of!(AVLFG, index) - 256usize];
-};
+#[test]
+fn bindgen_test_layout_AVLFG() {
+    const UNINIT: ::std::mem::MaybeUninit<AVLFG> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVLFG>(), 260usize, "Size of AVLFG");
+    assert_eq!(
+        ::std::mem::align_of::<AVLFG>(),
+        4usize,
+        "Alignment of AVLFG"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).state) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVLFG::state"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).index) as usize - ptr as usize },
+        256usize,
+        "Offset of field: AVLFG::index"
+    );
+}
 extern "C" {
     pub fn av_lfg_init(c: *mut AVLFG, seed: ::std::os::raw::c_uint);
 }
@@ -17604,25 +23057,52 @@ pub struct AVMasteringDisplayMetadata {
     #[doc = " Flag indicating whether the luminance (min_ and max_) have been set."]
     pub has_luminance: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVMasteringDisplayMetadata"]
-        [::std::mem::size_of::<AVMasteringDisplayMetadata>() - 88usize];
-    ["Alignment of AVMasteringDisplayMetadata"]
-        [::std::mem::align_of::<AVMasteringDisplayMetadata>() - 4usize];
-    ["Offset of field: AVMasteringDisplayMetadata::display_primaries"]
-        [::std::mem::offset_of!(AVMasteringDisplayMetadata, display_primaries) - 0usize];
-    ["Offset of field: AVMasteringDisplayMetadata::white_point"]
-        [::std::mem::offset_of!(AVMasteringDisplayMetadata, white_point) - 48usize];
-    ["Offset of field: AVMasteringDisplayMetadata::min_luminance"]
-        [::std::mem::offset_of!(AVMasteringDisplayMetadata, min_luminance) - 64usize];
-    ["Offset of field: AVMasteringDisplayMetadata::max_luminance"]
-        [::std::mem::offset_of!(AVMasteringDisplayMetadata, max_luminance) - 72usize];
-    ["Offset of field: AVMasteringDisplayMetadata::has_primaries"]
-        [::std::mem::offset_of!(AVMasteringDisplayMetadata, has_primaries) - 80usize];
-    ["Offset of field: AVMasteringDisplayMetadata::has_luminance"]
-        [::std::mem::offset_of!(AVMasteringDisplayMetadata, has_luminance) - 84usize];
-};
+#[test]
+fn bindgen_test_layout_AVMasteringDisplayMetadata() {
+    const UNINIT: ::std::mem::MaybeUninit<AVMasteringDisplayMetadata> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVMasteringDisplayMetadata>(),
+        88usize,
+        "Size of AVMasteringDisplayMetadata"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVMasteringDisplayMetadata>(),
+        4usize,
+        "Alignment of AVMasteringDisplayMetadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).display_primaries) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVMasteringDisplayMetadata::display_primaries"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).white_point) as usize - ptr as usize },
+        48usize,
+        "Offset of field: AVMasteringDisplayMetadata::white_point"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min_luminance) as usize - ptr as usize },
+        64usize,
+        "Offset of field: AVMasteringDisplayMetadata::min_luminance"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).max_luminance) as usize - ptr as usize },
+        72usize,
+        "Offset of field: AVMasteringDisplayMetadata::max_luminance"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).has_primaries) as usize - ptr as usize },
+        80usize,
+        "Offset of field: AVMasteringDisplayMetadata::has_primaries"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).has_luminance) as usize - ptr as usize },
+        84usize,
+        "Offset of field: AVMasteringDisplayMetadata::has_luminance"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVMasteringDisplayMetadata structure and set its fields to\n default values. The resulting struct can be freed using av_freep().\n\n @return An AVMasteringDisplayMetadata filled with default values or NULL\n         on failure."]
     pub fn av_mastering_display_metadata_alloc() -> *mut AVMasteringDisplayMetadata;
@@ -17642,16 +23122,32 @@ pub struct AVContentLightMetadata {
     #[doc = " Max average light level per frame (cd/m^2)."]
     pub MaxFALL: ::std::os::raw::c_uint,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVContentLightMetadata"][::std::mem::size_of::<AVContentLightMetadata>() - 8usize];
-    ["Alignment of AVContentLightMetadata"]
-        [::std::mem::align_of::<AVContentLightMetadata>() - 4usize];
-    ["Offset of field: AVContentLightMetadata::MaxCLL"]
-        [::std::mem::offset_of!(AVContentLightMetadata, MaxCLL) - 0usize];
-    ["Offset of field: AVContentLightMetadata::MaxFALL"]
-        [::std::mem::offset_of!(AVContentLightMetadata, MaxFALL) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_AVContentLightMetadata() {
+    const UNINIT: ::std::mem::MaybeUninit<AVContentLightMetadata> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVContentLightMetadata>(),
+        8usize,
+        "Size of AVContentLightMetadata"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVContentLightMetadata>(),
+        4usize,
+        "Alignment of AVContentLightMetadata"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).MaxCLL) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVContentLightMetadata::MaxCLL"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).MaxFALL) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVContentLightMetadata::MaxFALL"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVContentLightMetadata structure and set its fields to\n default values. The resulting struct can be freed using av_freep().\n\n @return An AVContentLightMetadata filled with default values or NULL\n         on failure."]
     pub fn av_content_light_metadata_alloc(size: *mut usize) -> *mut AVContentLightMetadata;
@@ -17716,31 +23212,76 @@ pub struct AVMotionVector {
     pub motion_y: i32,
     pub motion_scale: u16,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVMotionVector"][::std::mem::size_of::<AVMotionVector>() - 40usize];
-    ["Alignment of AVMotionVector"][::std::mem::align_of::<AVMotionVector>() - 8usize];
-    ["Offset of field: AVMotionVector::source"]
-        [::std::mem::offset_of!(AVMotionVector, source) - 0usize];
-    ["Offset of field: AVMotionVector::w"][::std::mem::offset_of!(AVMotionVector, w) - 4usize];
-    ["Offset of field: AVMotionVector::h"][::std::mem::offset_of!(AVMotionVector, h) - 5usize];
-    ["Offset of field: AVMotionVector::src_x"]
-        [::std::mem::offset_of!(AVMotionVector, src_x) - 6usize];
-    ["Offset of field: AVMotionVector::src_y"]
-        [::std::mem::offset_of!(AVMotionVector, src_y) - 8usize];
-    ["Offset of field: AVMotionVector::dst_x"]
-        [::std::mem::offset_of!(AVMotionVector, dst_x) - 10usize];
-    ["Offset of field: AVMotionVector::dst_y"]
-        [::std::mem::offset_of!(AVMotionVector, dst_y) - 12usize];
-    ["Offset of field: AVMotionVector::flags"]
-        [::std::mem::offset_of!(AVMotionVector, flags) - 16usize];
-    ["Offset of field: AVMotionVector::motion_x"]
-        [::std::mem::offset_of!(AVMotionVector, motion_x) - 24usize];
-    ["Offset of field: AVMotionVector::motion_y"]
-        [::std::mem::offset_of!(AVMotionVector, motion_y) - 28usize];
-    ["Offset of field: AVMotionVector::motion_scale"]
-        [::std::mem::offset_of!(AVMotionVector, motion_scale) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVMotionVector() {
+    const UNINIT: ::std::mem::MaybeUninit<AVMotionVector> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVMotionVector>(),
+        40usize,
+        "Size of AVMotionVector"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVMotionVector>(),
+        8usize,
+        "Alignment of AVMotionVector"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).source) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVMotionVector::source"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVMotionVector::w"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).h) as usize - ptr as usize },
+        5usize,
+        "Offset of field: AVMotionVector::h"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).src_x) as usize - ptr as usize },
+        6usize,
+        "Offset of field: AVMotionVector::src_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).src_y) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVMotionVector::src_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dst_x) as usize - ptr as usize },
+        10usize,
+        "Offset of field: AVMotionVector::dst_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dst_y) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVMotionVector::dst_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVMotionVector::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).motion_x) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVMotionVector::motion_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).motion_y) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVMotionVector::motion_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).motion_scale) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVMotionVector::motion_scale"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVMurMur3 {
@@ -17781,37 +23322,99 @@ pub struct tm {
     pub tm_gmtoff: ::std::os::raw::c_long,
     pub tm_zone: *const ::std::os::raw::c_char,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of tm"][::std::mem::size_of::<tm>() - 56usize];
-    ["Alignment of tm"][::std::mem::align_of::<tm>() - 8usize];
-    ["Offset of field: tm::tm_sec"][::std::mem::offset_of!(tm, tm_sec) - 0usize];
-    ["Offset of field: tm::tm_min"][::std::mem::offset_of!(tm, tm_min) - 4usize];
-    ["Offset of field: tm::tm_hour"][::std::mem::offset_of!(tm, tm_hour) - 8usize];
-    ["Offset of field: tm::tm_mday"][::std::mem::offset_of!(tm, tm_mday) - 12usize];
-    ["Offset of field: tm::tm_mon"][::std::mem::offset_of!(tm, tm_mon) - 16usize];
-    ["Offset of field: tm::tm_year"][::std::mem::offset_of!(tm, tm_year) - 20usize];
-    ["Offset of field: tm::tm_wday"][::std::mem::offset_of!(tm, tm_wday) - 24usize];
-    ["Offset of field: tm::tm_yday"][::std::mem::offset_of!(tm, tm_yday) - 28usize];
-    ["Offset of field: tm::tm_isdst"][::std::mem::offset_of!(tm, tm_isdst) - 32usize];
-    ["Offset of field: tm::tm_gmtoff"][::std::mem::offset_of!(tm, tm_gmtoff) - 40usize];
-    ["Offset of field: tm::tm_zone"][::std::mem::offset_of!(tm, tm_zone) - 48usize];
-};
+#[test]
+fn bindgen_test_layout_tm() {
+    const UNINIT: ::std::mem::MaybeUninit<tm> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<tm>(), 56usize, "Size of tm");
+    assert_eq!(::std::mem::align_of::<tm>(), 8usize, "Alignment of tm");
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_sec) as usize - ptr as usize },
+        0usize,
+        "Offset of field: tm::tm_sec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_min) as usize - ptr as usize },
+        4usize,
+        "Offset of field: tm::tm_min"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_hour) as usize - ptr as usize },
+        8usize,
+        "Offset of field: tm::tm_hour"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_mday) as usize - ptr as usize },
+        12usize,
+        "Offset of field: tm::tm_mday"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_mon) as usize - ptr as usize },
+        16usize,
+        "Offset of field: tm::tm_mon"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_year) as usize - ptr as usize },
+        20usize,
+        "Offset of field: tm::tm_year"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_wday) as usize - ptr as usize },
+        24usize,
+        "Offset of field: tm::tm_wday"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_yday) as usize - ptr as usize },
+        28usize,
+        "Offset of field: tm::tm_yday"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_isdst) as usize - ptr as usize },
+        32usize,
+        "Offset of field: tm::tm_isdst"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_gmtoff) as usize - ptr as usize },
+        40usize,
+        "Offset of field: tm::tm_gmtoff"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tm_zone) as usize - ptr as usize },
+        48usize,
+        "Offset of field: tm::tm_zone"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct itimerspec {
     pub it_interval: timespec,
     pub it_value: timespec,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of itimerspec"][::std::mem::size_of::<itimerspec>() - 32usize];
-    ["Alignment of itimerspec"][::std::mem::align_of::<itimerspec>() - 8usize];
-    ["Offset of field: itimerspec::it_interval"]
-        [::std::mem::offset_of!(itimerspec, it_interval) - 0usize];
-    ["Offset of field: itimerspec::it_value"]
-        [::std::mem::offset_of!(itimerspec, it_value) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_itimerspec() {
+    const UNINIT: ::std::mem::MaybeUninit<itimerspec> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<itimerspec>(),
+        32usize,
+        "Size of itimerspec"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<itimerspec>(),
+        8usize,
+        "Alignment of itimerspec"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).it_interval) as usize - ptr as usize },
+        0usize,
+        "Offset of field: itimerspec::it_interval"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).it_value) as usize - ptr as usize },
+        16usize,
+        "Offset of field: itimerspec::it_value"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct sigevent {
@@ -18066,14 +23669,32 @@ pub struct AVRC4 {
     pub x: ::std::os::raw::c_int,
     pub y: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVRC4"][::std::mem::size_of::<AVRC4>() - 264usize];
-    ["Alignment of AVRC4"][::std::mem::align_of::<AVRC4>() - 4usize];
-    ["Offset of field: AVRC4::state"][::std::mem::offset_of!(AVRC4, state) - 0usize];
-    ["Offset of field: AVRC4::x"][::std::mem::offset_of!(AVRC4, x) - 256usize];
-    ["Offset of field: AVRC4::y"][::std::mem::offset_of!(AVRC4, y) - 260usize];
-};
+#[test]
+fn bindgen_test_layout_AVRC4() {
+    const UNINIT: ::std::mem::MaybeUninit<AVRC4> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVRC4>(), 264usize, "Size of AVRC4");
+    assert_eq!(
+        ::std::mem::align_of::<AVRC4>(),
+        4usize,
+        "Alignment of AVRC4"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).state) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVRC4::state"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).x) as usize - ptr as usize },
+        256usize,
+        "Offset of field: AVRC4::x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).y) as usize - ptr as usize },
+        260usize,
+        "Offset of field: AVRC4::y"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVRC4 context."]
     pub fn av_rc4_alloc() -> *mut AVRC4;
@@ -18111,19 +23732,41 @@ pub struct AVReplayGain {
     #[doc = " Same as track_peak, but for the whole album,"]
     pub album_peak: u32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVReplayGain"][::std::mem::size_of::<AVReplayGain>() - 16usize];
-    ["Alignment of AVReplayGain"][::std::mem::align_of::<AVReplayGain>() - 4usize];
-    ["Offset of field: AVReplayGain::track_gain"]
-        [::std::mem::offset_of!(AVReplayGain, track_gain) - 0usize];
-    ["Offset of field: AVReplayGain::track_peak"]
-        [::std::mem::offset_of!(AVReplayGain, track_peak) - 4usize];
-    ["Offset of field: AVReplayGain::album_gain"]
-        [::std::mem::offset_of!(AVReplayGain, album_gain) - 8usize];
-    ["Offset of field: AVReplayGain::album_peak"]
-        [::std::mem::offset_of!(AVReplayGain, album_peak) - 12usize];
-};
+#[test]
+fn bindgen_test_layout_AVReplayGain() {
+    const UNINIT: ::std::mem::MaybeUninit<AVReplayGain> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVReplayGain>(),
+        16usize,
+        "Size of AVReplayGain"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVReplayGain>(),
+        4usize,
+        "Alignment of AVReplayGain"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).track_gain) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVReplayGain::track_gain"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).track_peak) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVReplayGain::track_peak"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).album_gain) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVReplayGain::album_gain"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).album_peak) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVReplayGain::album_peak"
+    );
+}
 extern "C" {
     #[doc = " @defgroup lavu_ripemd RIPEMD\n @ingroup lavu_hash\n RIPEMD hash function implementation.\n\n @{"]
     pub static av_ripemd_size: ::std::os::raw::c_int;
@@ -18236,29 +23879,66 @@ pub struct AVSphericalMapping {
     #[doc = " Number of pixels to pad from the edge of each cube face.\n\n @note This value is valid for only for the cubemap projection type\n       (@ref AV_SPHERICAL_CUBEMAP), and should be ignored in all other\n       cases."]
     pub padding: u32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVSphericalMapping"][::std::mem::size_of::<AVSphericalMapping>() - 36usize];
-    ["Alignment of AVSphericalMapping"][::std::mem::align_of::<AVSphericalMapping>() - 4usize];
-    ["Offset of field: AVSphericalMapping::projection"]
-        [::std::mem::offset_of!(AVSphericalMapping, projection) - 0usize];
-    ["Offset of field: AVSphericalMapping::yaw"]
-        [::std::mem::offset_of!(AVSphericalMapping, yaw) - 4usize];
-    ["Offset of field: AVSphericalMapping::pitch"]
-        [::std::mem::offset_of!(AVSphericalMapping, pitch) - 8usize];
-    ["Offset of field: AVSphericalMapping::roll"]
-        [::std::mem::offset_of!(AVSphericalMapping, roll) - 12usize];
-    ["Offset of field: AVSphericalMapping::bound_left"]
-        [::std::mem::offset_of!(AVSphericalMapping, bound_left) - 16usize];
-    ["Offset of field: AVSphericalMapping::bound_top"]
-        [::std::mem::offset_of!(AVSphericalMapping, bound_top) - 20usize];
-    ["Offset of field: AVSphericalMapping::bound_right"]
-        [::std::mem::offset_of!(AVSphericalMapping, bound_right) - 24usize];
-    ["Offset of field: AVSphericalMapping::bound_bottom"]
-        [::std::mem::offset_of!(AVSphericalMapping, bound_bottom) - 28usize];
-    ["Offset of field: AVSphericalMapping::padding"]
-        [::std::mem::offset_of!(AVSphericalMapping, padding) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVSphericalMapping() {
+    const UNINIT: ::std::mem::MaybeUninit<AVSphericalMapping> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVSphericalMapping>(),
+        36usize,
+        "Size of AVSphericalMapping"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVSphericalMapping>(),
+        4usize,
+        "Alignment of AVSphericalMapping"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).projection) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVSphericalMapping::projection"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).yaw) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVSphericalMapping::yaw"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pitch) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVSphericalMapping::pitch"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).roll) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVSphericalMapping::roll"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bound_left) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVSphericalMapping::bound_left"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bound_top) as usize - ptr as usize },
+        20usize,
+        "Offset of field: AVSphericalMapping::bound_top"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bound_right) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVSphericalMapping::bound_right"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bound_bottom) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVSphericalMapping::bound_bottom"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVSphericalMapping::padding"
+    );
+}
 extern "C" {
     #[doc = " Allocate a AVSphericalVideo structure and initialize its fields to default\n values.\n\n @return the newly allocated struct or NULL on failure"]
     pub fn av_spherical_alloc(size: *mut usize) -> *mut AVSphericalMapping;
@@ -18322,14 +24002,36 @@ pub struct AVStereo3D {
     #[doc = " Determines which views are packed."]
     pub view: AVStereo3DView,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVStereo3D"][::std::mem::size_of::<AVStereo3D>() - 12usize];
-    ["Alignment of AVStereo3D"][::std::mem::align_of::<AVStereo3D>() - 4usize];
-    ["Offset of field: AVStereo3D::type_"][::std::mem::offset_of!(AVStereo3D, type_) - 0usize];
-    ["Offset of field: AVStereo3D::flags"][::std::mem::offset_of!(AVStereo3D, flags) - 4usize];
-    ["Offset of field: AVStereo3D::view"][::std::mem::offset_of!(AVStereo3D, view) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVStereo3D() {
+    const UNINIT: ::std::mem::MaybeUninit<AVStereo3D> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVStereo3D>(),
+        12usize,
+        "Size of AVStereo3D"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVStereo3D>(),
+        4usize,
+        "Alignment of AVStereo3D"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVStereo3D::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVStereo3D::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).view) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVStereo3D::view"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVStereo3D structure and set its fields to default values.\n The resulting struct can be freed using av_freep().\n\n @return An AVStereo3D filled with default values or NULL on failure."]
     pub fn av_stereo3d_alloc() -> *mut AVStereo3D;
@@ -18475,15 +24177,41 @@ pub struct AVTimecode {
     #[doc = "< frame per second; must be consistent with the rate field"]
     pub fps: ::std::os::raw::c_uint,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVTimecode"][::std::mem::size_of::<AVTimecode>() - 20usize];
-    ["Alignment of AVTimecode"][::std::mem::align_of::<AVTimecode>() - 4usize];
-    ["Offset of field: AVTimecode::start"][::std::mem::offset_of!(AVTimecode, start) - 0usize];
-    ["Offset of field: AVTimecode::flags"][::std::mem::offset_of!(AVTimecode, flags) - 4usize];
-    ["Offset of field: AVTimecode::rate"][::std::mem::offset_of!(AVTimecode, rate) - 8usize];
-    ["Offset of field: AVTimecode::fps"][::std::mem::offset_of!(AVTimecode, fps) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVTimecode() {
+    const UNINIT: ::std::mem::MaybeUninit<AVTimecode> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVTimecode>(),
+        20usize,
+        "Size of AVTimecode"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVTimecode>(),
+        4usize,
+        "Alignment of AVTimecode"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).start) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVTimecode::start"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVTimecode::flags"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rate) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVTimecode::rate"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fps) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVTimecode::fps"
+    );
+}
 extern "C" {
     #[doc = " Adjust frame number for NTSC drop frame time code.\n\n @param framenum frame number to adjust\n @param fps      frame per second, multiples of 30\n @return         adjusted frame number\n @warning        adjustment is only valid for multiples of NTSC 29.97"]
     pub fn av_timecode_adjust_ntsc_framenum2(
@@ -18692,39 +24420,93 @@ pub struct AVComplexFloat {
     pub re: f32,
     pub im: f32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVComplexFloat"][::std::mem::size_of::<AVComplexFloat>() - 8usize];
-    ["Alignment of AVComplexFloat"][::std::mem::align_of::<AVComplexFloat>() - 4usize];
-    ["Offset of field: AVComplexFloat::re"][::std::mem::offset_of!(AVComplexFloat, re) - 0usize];
-    ["Offset of field: AVComplexFloat::im"][::std::mem::offset_of!(AVComplexFloat, im) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_AVComplexFloat() {
+    const UNINIT: ::std::mem::MaybeUninit<AVComplexFloat> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVComplexFloat>(),
+        8usize,
+        "Size of AVComplexFloat"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVComplexFloat>(),
+        4usize,
+        "Alignment of AVComplexFloat"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).re) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVComplexFloat::re"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).im) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVComplexFloat::im"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVComplexDouble {
     pub re: f64,
     pub im: f64,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVComplexDouble"][::std::mem::size_of::<AVComplexDouble>() - 16usize];
-    ["Alignment of AVComplexDouble"][::std::mem::align_of::<AVComplexDouble>() - 8usize];
-    ["Offset of field: AVComplexDouble::re"][::std::mem::offset_of!(AVComplexDouble, re) - 0usize];
-    ["Offset of field: AVComplexDouble::im"][::std::mem::offset_of!(AVComplexDouble, im) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_AVComplexDouble() {
+    const UNINIT: ::std::mem::MaybeUninit<AVComplexDouble> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVComplexDouble>(),
+        16usize,
+        "Size of AVComplexDouble"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVComplexDouble>(),
+        8usize,
+        "Alignment of AVComplexDouble"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).re) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVComplexDouble::re"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).im) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVComplexDouble::im"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVComplexInt32 {
     pub re: i32,
     pub im: i32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVComplexInt32"][::std::mem::size_of::<AVComplexInt32>() - 8usize];
-    ["Alignment of AVComplexInt32"][::std::mem::align_of::<AVComplexInt32>() - 4usize];
-    ["Offset of field: AVComplexInt32::re"][::std::mem::offset_of!(AVComplexInt32, re) - 0usize];
-    ["Offset of field: AVComplexInt32::im"][::std::mem::offset_of!(AVComplexInt32, im) - 4usize];
-};
+#[test]
+fn bindgen_test_layout_AVComplexInt32() {
+    const UNINIT: ::std::mem::MaybeUninit<AVComplexInt32> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVComplexInt32>(),
+        8usize,
+        "Size of AVComplexInt32"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVComplexInt32>(),
+        4usize,
+        "Alignment of AVComplexInt32"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).re) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVComplexInt32::re"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).im) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVComplexInt32::im"
+    );
+}
 #[doc = " Standard complex to complex FFT with sample data type of AVComplexFloat,\n AVComplexDouble or AVComplexInt32, for each respective variant.\n\n Output is not 1/len normalized. Scaling currently unsupported.\n The stride parameter must be set to the size of a single sample in bytes."]
 pub const AV_TX_FLOAT_FFT: AVTXType = 0;
 #[doc = " Standard complex to complex FFT with sample data type of AVComplexFloat,\n AVComplexDouble or AVComplexInt32, for each respective variant.\n\n Output is not 1/len normalized. Scaling currently unsupported.\n The stride parameter must be set to the size of a single sample in bytes."]
@@ -18849,23 +24631,51 @@ pub struct AVVideoEncParams {
     #[doc = " Quantisation parameter offset from the base (per-frame) qp for a given\n plane (first index) and AC/DC coefficients (second index)."]
     pub delta_qp: [[i32; 2usize]; 4usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVVideoEncParams"][::std::mem::size_of::<AVVideoEncParams>() - 64usize];
-    ["Alignment of AVVideoEncParams"][::std::mem::align_of::<AVVideoEncParams>() - 8usize];
-    ["Offset of field: AVVideoEncParams::nb_blocks"]
-        [::std::mem::offset_of!(AVVideoEncParams, nb_blocks) - 0usize];
-    ["Offset of field: AVVideoEncParams::blocks_offset"]
-        [::std::mem::offset_of!(AVVideoEncParams, blocks_offset) - 8usize];
-    ["Offset of field: AVVideoEncParams::block_size"]
-        [::std::mem::offset_of!(AVVideoEncParams, block_size) - 16usize];
-    ["Offset of field: AVVideoEncParams::type_"]
-        [::std::mem::offset_of!(AVVideoEncParams, type_) - 24usize];
-    ["Offset of field: AVVideoEncParams::qp"]
-        [::std::mem::offset_of!(AVVideoEncParams, qp) - 28usize];
-    ["Offset of field: AVVideoEncParams::delta_qp"]
-        [::std::mem::offset_of!(AVVideoEncParams, delta_qp) - 32usize];
-};
+#[test]
+fn bindgen_test_layout_AVVideoEncParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVVideoEncParams> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVVideoEncParams>(),
+        64usize,
+        "Size of AVVideoEncParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVVideoEncParams>(),
+        8usize,
+        "Alignment of AVVideoEncParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_blocks) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVVideoEncParams::nb_blocks"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).blocks_offset) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVVideoEncParams::blocks_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).block_size) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVVideoEncParams::block_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVVideoEncParams::type_"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).qp) as usize - ptr as usize },
+        28usize,
+        "Offset of field: AVVideoEncParams::qp"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).delta_qp) as usize - ptr as usize },
+        32usize,
+        "Offset of field: AVVideoEncParams::delta_qp"
+    );
+}
 #[doc = " Data structure for storing block-level encoding information.\n It is allocated as a part of AVVideoEncParams and should be retrieved with\n av_video_enc_params_block().\n\n sizeof(AVVideoBlockParams) is not a part of the ABI and new fields may be\n added to it."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -18881,21 +24691,46 @@ pub struct AVVideoBlockParams {
     #[doc = " Difference between this block's final quantization parameter and the\n corresponding per-frame value."]
     pub delta_qp: i32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVVideoBlockParams"][::std::mem::size_of::<AVVideoBlockParams>() - 20usize];
-    ["Alignment of AVVideoBlockParams"][::std::mem::align_of::<AVVideoBlockParams>() - 4usize];
-    ["Offset of field: AVVideoBlockParams::src_x"]
-        [::std::mem::offset_of!(AVVideoBlockParams, src_x) - 0usize];
-    ["Offset of field: AVVideoBlockParams::src_y"]
-        [::std::mem::offset_of!(AVVideoBlockParams, src_y) - 4usize];
-    ["Offset of field: AVVideoBlockParams::w"]
-        [::std::mem::offset_of!(AVVideoBlockParams, w) - 8usize];
-    ["Offset of field: AVVideoBlockParams::h"]
-        [::std::mem::offset_of!(AVVideoBlockParams, h) - 12usize];
-    ["Offset of field: AVVideoBlockParams::delta_qp"]
-        [::std::mem::offset_of!(AVVideoBlockParams, delta_qp) - 16usize];
-};
+#[test]
+fn bindgen_test_layout_AVVideoBlockParams() {
+    const UNINIT: ::std::mem::MaybeUninit<AVVideoBlockParams> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVVideoBlockParams>(),
+        20usize,
+        "Size of AVVideoBlockParams"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVVideoBlockParams>(),
+        4usize,
+        "Alignment of AVVideoBlockParams"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).src_x) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVVideoBlockParams::src_x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).src_y) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVVideoBlockParams::src_y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVVideoBlockParams::w"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).h) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVVideoBlockParams::h"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).delta_qp) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVVideoBlockParams::delta_qp"
+    );
+}
 extern "C" {
     #[doc = " Allocates memory for AVVideoEncParams of the given type, plus an array of\n {@code nb_blocks} AVVideoBlockParams and initializes the variables. Can be\n freed with a normal av_free() call.\n\n @param out_size if non-NULL, the size in bytes of the resulting data array is\n written here."]
     pub fn av_video_enc_params_alloc(
@@ -18920,15 +24755,41 @@ pub struct AVVideoRect {
     pub width: u32,
     pub height: u32,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVVideoRect"][::std::mem::size_of::<AVVideoRect>() - 16usize];
-    ["Alignment of AVVideoRect"][::std::mem::align_of::<AVVideoRect>() - 4usize];
-    ["Offset of field: AVVideoRect::x"][::std::mem::offset_of!(AVVideoRect, x) - 0usize];
-    ["Offset of field: AVVideoRect::y"][::std::mem::offset_of!(AVVideoRect, y) - 4usize];
-    ["Offset of field: AVVideoRect::width"][::std::mem::offset_of!(AVVideoRect, width) - 8usize];
-    ["Offset of field: AVVideoRect::height"][::std::mem::offset_of!(AVVideoRect, height) - 12usize];
-};
+#[test]
+fn bindgen_test_layout_AVVideoRect() {
+    const UNINIT: ::std::mem::MaybeUninit<AVVideoRect> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVVideoRect>(),
+        16usize,
+        "Size of AVVideoRect"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVVideoRect>(),
+        4usize,
+        "Alignment of AVVideoRect"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).x) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVVideoRect::x"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).y) as usize - ptr as usize },
+        4usize,
+        "Offset of field: AVVideoRect::y"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).width) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVVideoRect::width"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).height) as usize - ptr as usize },
+        12usize,
+        "Offset of field: AVVideoRect::height"
+    );
+}
 pub const AV_VIDEO_HINT_TYPE_CONSTANT: AVVideoHintType = 0;
 pub const AV_VIDEO_HINT_TYPE_CHANGED: AVVideoHintType = 1;
 pub type AVVideoHintType = ::std::os::raw::c_uint;
@@ -18943,18 +24804,41 @@ pub struct AVVideoHint {
     pub rect_size: usize,
     pub type_: AVVideoHintType,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVVideoHint"][::std::mem::size_of::<AVVideoHint>() - 32usize];
-    ["Alignment of AVVideoHint"][::std::mem::align_of::<AVVideoHint>() - 8usize];
-    ["Offset of field: AVVideoHint::nb_rects"]
-        [::std::mem::offset_of!(AVVideoHint, nb_rects) - 0usize];
-    ["Offset of field: AVVideoHint::rect_offset"]
-        [::std::mem::offset_of!(AVVideoHint, rect_offset) - 8usize];
-    ["Offset of field: AVVideoHint::rect_size"]
-        [::std::mem::offset_of!(AVVideoHint, rect_size) - 16usize];
-    ["Offset of field: AVVideoHint::type_"][::std::mem::offset_of!(AVVideoHint, type_) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_AVVideoHint() {
+    const UNINIT: ::std::mem::MaybeUninit<AVVideoHint> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<AVVideoHint>(),
+        32usize,
+        "Size of AVVideoHint"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<AVVideoHint>(),
+        8usize,
+        "Alignment of AVVideoHint"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nb_rects) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVVideoHint::nb_rects"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rect_offset) as usize - ptr as usize },
+        8usize,
+        "Offset of field: AVVideoHint::rect_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rect_size) as usize - ptr as usize },
+        16usize,
+        "Offset of field: AVVideoHint::rect_size"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        24usize,
+        "Offset of field: AVVideoHint::type_"
+    );
+}
 extern "C" {
     #[doc = " Allocate memory for the AVVideoHint struct along with an nb_rects-sized\n arrays of AVVideoRect.\n\n The side data contains a list of rectangles for the portions of the frame\n which changed from the last encoded one (and the remainder are assumed to be\n changed), or, alternately (depending on the type parameter) the unchanged\n ones (and the remanining ones are those which changed).\n Macroblocks will thus be hinted either to be P_SKIP-ped or go through the\n regular encoding procedure.\n\n It's responsibility of the caller to fill the AVRects accordingly, and to set\n the proper AVVideoHintType field.\n\n @param out_size if non-NULL, the size in bytes of the resulting data array is\n                 written here\n\n @return newly allocated AVVideoHint struct (must be freed by the caller using\n         av_free()) on success, NULL on memory allocation failure"]
     pub fn av_video_hint_alloc(nb_rects: usize, out_size: *mut usize) -> *mut AVVideoHint;
@@ -18970,12 +24854,22 @@ extern "C" {
 pub struct AVXTEA {
     pub key: [u32; 16usize],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of AVXTEA"][::std::mem::size_of::<AVXTEA>() - 64usize];
-    ["Alignment of AVXTEA"][::std::mem::align_of::<AVXTEA>() - 4usize];
-    ["Offset of field: AVXTEA::key"][::std::mem::offset_of!(AVXTEA, key) - 0usize];
-};
+#[test]
+fn bindgen_test_layout_AVXTEA() {
+    const UNINIT: ::std::mem::MaybeUninit<AVXTEA> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(::std::mem::size_of::<AVXTEA>(), 64usize, "Size of AVXTEA");
+    assert_eq!(
+        ::std::mem::align_of::<AVXTEA>(),
+        4usize,
+        "Alignment of AVXTEA"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).key) as usize - ptr as usize },
+        0usize,
+        "Offset of field: AVXTEA::key"
+    );
+}
 extern "C" {
     #[doc = " Allocate an AVXTEA context."]
     pub fn av_xtea_alloc() -> *mut AVXTEA;
@@ -19216,13 +25110,31 @@ pub struct SwsVector {
     #[doc = "< number of coefficients in the vector"]
     pub length: ::std::os::raw::c_int,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of SwsVector"][::std::mem::size_of::<SwsVector>() - 16usize];
-    ["Alignment of SwsVector"][::std::mem::align_of::<SwsVector>() - 8usize];
-    ["Offset of field: SwsVector::coeff"][::std::mem::offset_of!(SwsVector, coeff) - 0usize];
-    ["Offset of field: SwsVector::length"][::std::mem::offset_of!(SwsVector, length) - 8usize];
-};
+#[test]
+fn bindgen_test_layout_SwsVector() {
+    const UNINIT: ::std::mem::MaybeUninit<SwsVector> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<SwsVector>(),
+        16usize,
+        "Size of SwsVector"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<SwsVector>(),
+        8usize,
+        "Alignment of SwsVector"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).coeff) as usize - ptr as usize },
+        0usize,
+        "Offset of field: SwsVector::coeff"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).length) as usize - ptr as usize },
+        8usize,
+        "Offset of field: SwsVector::length"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SwsFilter {
@@ -19231,15 +25143,41 @@ pub struct SwsFilter {
     pub chrH: *mut SwsVector,
     pub chrV: *mut SwsVector,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of SwsFilter"][::std::mem::size_of::<SwsFilter>() - 32usize];
-    ["Alignment of SwsFilter"][::std::mem::align_of::<SwsFilter>() - 8usize];
-    ["Offset of field: SwsFilter::lumH"][::std::mem::offset_of!(SwsFilter, lumH) - 0usize];
-    ["Offset of field: SwsFilter::lumV"][::std::mem::offset_of!(SwsFilter, lumV) - 8usize];
-    ["Offset of field: SwsFilter::chrH"][::std::mem::offset_of!(SwsFilter, chrH) - 16usize];
-    ["Offset of field: SwsFilter::chrV"][::std::mem::offset_of!(SwsFilter, chrV) - 24usize];
-};
+#[test]
+fn bindgen_test_layout_SwsFilter() {
+    const UNINIT: ::std::mem::MaybeUninit<SwsFilter> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<SwsFilter>(),
+        32usize,
+        "Size of SwsFilter"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<SwsFilter>(),
+        8usize,
+        "Alignment of SwsFilter"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lumH) as usize - ptr as usize },
+        0usize,
+        "Offset of field: SwsFilter::lumH"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lumV) as usize - ptr as usize },
+        8usize,
+        "Offset of field: SwsFilter::lumV"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chrH) as usize - ptr as usize },
+        16usize,
+        "Offset of field: SwsFilter::chrH"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).chrV) as usize - ptr as usize },
+        24usize,
+        "Offset of field: SwsFilter::chrV"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SwsContext {
@@ -19446,19 +25384,41 @@ pub struct __va_list_tag {
     pub overflow_arg_area: *mut ::std::os::raw::c_void,
     pub reg_save_area: *mut ::std::os::raw::c_void,
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __va_list_tag"][::std::mem::size_of::<__va_list_tag>() - 24usize];
-    ["Alignment of __va_list_tag"][::std::mem::align_of::<__va_list_tag>() - 8usize];
-    ["Offset of field: __va_list_tag::gp_offset"]
-        [::std::mem::offset_of!(__va_list_tag, gp_offset) - 0usize];
-    ["Offset of field: __va_list_tag::fp_offset"]
-        [::std::mem::offset_of!(__va_list_tag, fp_offset) - 4usize];
-    ["Offset of field: __va_list_tag::overflow_arg_area"]
-        [::std::mem::offset_of!(__va_list_tag, overflow_arg_area) - 8usize];
-    ["Offset of field: __va_list_tag::reg_save_area"]
-        [::std::mem::offset_of!(__va_list_tag, reg_save_area) - 16usize];
-};
+#[test]
+fn bindgen_test_layout___va_list_tag() {
+    const UNINIT: ::std::mem::MaybeUninit<__va_list_tag> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<__va_list_tag>(),
+        24usize,
+        "Size of __va_list_tag"
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__va_list_tag>(),
+        8usize,
+        "Alignment of __va_list_tag"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gp_offset) as usize - ptr as usize },
+        0usize,
+        "Offset of field: __va_list_tag::gp_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fp_offset) as usize - ptr as usize },
+        4usize,
+        "Offset of field: __va_list_tag::fp_offset"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).overflow_arg_area) as usize - ptr as usize },
+        8usize,
+        "Offset of field: __va_list_tag::overflow_arg_area"
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reg_save_area) as usize - ptr as usize },
+        16usize,
+        "Offset of field: __va_list_tag::reg_save_area"
+    );
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __locale_data {
