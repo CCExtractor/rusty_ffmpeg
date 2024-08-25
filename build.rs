@@ -404,7 +404,7 @@ fn static_linking(env_vars: &EnvVars) {
             output_binding_path: &Path,
         ) -> Result<(), pkg_config::Error> {
             // Probe libraries(enable emitting cargo metadata)
-            let include_paths = linking_with_pkg_config(&*LIBS)?;
+            let include_paths = pkg_config_linking::linking_with_pkg_config(&*LIBS)?;
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
@@ -419,7 +419,6 @@ fn static_linking(env_vars: &EnvVars) {
             }
             Ok(())
         }
-        use pkg_config_linking::*;
         // Hint: set PKG_CONFIG_PATH to some placeholder value will let pkg_config probing system library.
         if let Some(ffmpeg_pkg_config_path) = env_vars.ffmpeg_pkg_config_path.as_ref() {
             if !Path::new(ffmpeg_pkg_config_path).exists() {
@@ -447,9 +446,9 @@ fn static_linking(env_vars: &EnvVars) {
             panic!(
                 "
 !!!!!!! rusty_ffmpeg: No linking method set!
-Use FFMPEG_PKG_CONFIG_PATH or FFMPEG_LIBS_DIR if you have prebuilt FFmpeg libraries.
-Enable `link_system_ffmpeg` feature if you want to link ffmpeg libraries install in system path.
-Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg provided by vcpkg.
+Use `FFMPEG_PKG_CONFIG_PATH` or `FFMPEG_LIBS_DIR` if you have prebuilt FFmpeg libraries.
+Enable `link_system_ffmpeg` feature if you want to link ffmpeg libraries installed in system path(which can be probed by pkg-config).
+Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installed by vcpkg.
 "
             );
             #[cfg(any(feature = "link_system_ffmpeg", feature = "link_vcpkg_ffmpeg"))]

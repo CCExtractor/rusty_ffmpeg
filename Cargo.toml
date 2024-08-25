@@ -33,13 +33,10 @@ vcpkg = { version = "0.2", optional = true }
 [target.'cfg(not(windows))'.build-dependencies]
 pkg-config = "0.3"
 
-[target.'cfg(windows)'.build-dependencies]
-vcpkg = "0.2"
-
 [features]
-# linking system ffmpeg as fallback.
+# Probe and link FFmpeg with pkg-config
 link_system_ffmpeg = []
-# link against vcpkg ffmpeg
+# Probe and link FFmpeg with vcpkg
 link_vcpkg_ffmpeg = ["vcpkg"]
 # FFmpeg 5.* support
 ffmpeg5 = []
