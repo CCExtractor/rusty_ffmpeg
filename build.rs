@@ -3,7 +3,10 @@ use bindgen::{callbacks, Bindings};
 use camino::Utf8Path as Path;
 use camino::Utf8PathBuf as PathBuf;
 use once_cell::sync::Lazy;
-use std::{collections::HashSet, env, fs};
+use std::{
+    collections::{HashMap, HashSet},
+    env, fs,
+};
 
 /// All the libs that FFmpeg has
 static LIBS: Lazy<[&str; 7]> = Lazy::new(|| {
@@ -16,6 +19,38 @@ static LIBS: Lazy<[&str; 7]> = Lazy::new(|| {
         "swresample",
         "swscale",
     ]
+});
+
+static SYS_STATIC_LIBS: Lazy<HashMap<&str, Vec<&str>>> = Lazy::new(|| {
+    if cfg!(target_os = "windows") {
+        // Statically linking FFmpeg on Windows requires additional dependencies.  This is a map
+        // of FFmpeg library name to system libraries.  In the future, if
+        // https://github.com/CCExtractor/rusty_ffmpeg/issues/128 is addressed, we will want to
+        // selectively choose which system libraries to link based on chosen FFmpeg features.
+        //
+        // Note that the values were obtained by building FFmpeg using vcpkg with the
+        // x64-windows-static triplet, and then examining the generated .pc files in the pkgconfig
+        // directory.
+        HashMap::from([
+            (
+                "avcodec",
+                vec!["mfuuid", "ole32", "strmiids", "ole32", "user32"],
+            ),
+            (
+                "avdevice",
+                vec![
+                    "psapi", "ole32", "strmiids", "uuid", "oleaut32", "shlwapi", "gdi32", "vfw32",
+                ],
+            ),
+            ("avfilter", vec![]),
+            ("avformat", vec!["secur32", "ws2_32"]),
+            ("avutil", vec!["user32", "bcrypt"]),
+            ("swresample", vec![]),
+            ("swscale", vec![]),
+        ])
+    } else {
+        HashMap::new()
+    }
 });
 
 /// Whitelist of the headers we want to generate bindings
@@ -291,7 +326,6 @@ fn remove_verbatim(path: String) -> PathBuf {
     PathBuf::from(path)
 }
 
-#[cfg(not(target_os = "windows"))]
 mod pkg_config_linking {
     use super::*;
 
@@ -300,6 +334,7 @@ mod pkg_config_linking {
     /// Note: no side effect if this function errors.
     pub fn linking_with_pkg_config(
         library_names: &[&str],
+        statik: bool,
     ) -> Result<Vec<PathBuf>, pkg_config::Error> {
         // dry run for library linking
         for libname in library_names {
@@ -308,6 +343,7 @@ mod pkg_config_linking {
                 .env_metadata(false)
                 .print_system_libs(false)
                 .print_system_cflags(false)
+                .statik(statik)
                 .probe(&format!("lib{}", libname))?;
         }
 
@@ -315,6 +351,7 @@ mod pkg_config_linking {
         let mut paths = HashSet::new();
         for libname in library_names {
             let new_paths = pkg_config::Config::new()
+                .statik(statik)
                 .probe(&format!("lib{}", libname))
                 .unwrap_or_else(|_| panic!("{} not found!", libname))
                 .include_paths;
@@ -399,119 +436,109 @@ fn dynamic_linking(env_vars: &EnvVars) {
 fn static_linking(env_vars: &EnvVars) {
     let output_binding_path = &env_vars.out_dir.as_ref().unwrap().join("binding.rs");
 
-    #[cfg(not(target_os = "windows"))]
-    {
-        fn static_linking_with_pkg_config_and_bindgen(
-            env_vars: &EnvVars,
-            output_binding_path: &Path,
-        ) -> Result<(), pkg_config::Error> {
-            // Probe libraries(enable emitting cargo metadata)
-            let include_paths = pkg_config_linking::linking_with_pkg_config(&*LIBS)?;
-            if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
-                use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
-            } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-                // If use ffmpeg_pkg_config_path with ffmpeg_include_dir, prefer using the user given dir rather than pkg_config_path.
-                generate_bindings(ffmpeg_include_dir, &HEADERS)
-                    .write_to_file(output_binding_path)
-                    .expect("Cannot write binding to file.");
-            } else {
-                generate_bindings(&include_paths[0], &HEADERS)
-                    .write_to_file(output_binding_path)
-                    .expect("Cannot write binding to file.");
-            }
-            Ok(())
-        }
-        // Hint: set PKG_CONFIG_PATH to some placeholder value will let pkg_config probing system library.
-        if let Some(ffmpeg_pkg_config_path) = env_vars.ffmpeg_pkg_config_path.as_ref() {
-            if !Path::new(ffmpeg_pkg_config_path).exists() {
-                panic!(
-                    "error: FFMPEG_PKG_CONFIG_PATH is set to `{}`, which does not exist.",
-                    ffmpeg_pkg_config_path
-                );
-            }
-            env::set_var("PKG_CONFIG_PATH", ffmpeg_pkg_config_path);
-            static_linking_with_pkg_config_and_bindgen(env_vars, output_binding_path)
-                .expect("Static linking with pkg-config failed.");
-        } else if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
-            static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
-            if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
-                use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
-            } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-                generate_bindings(ffmpeg_include_dir, &HEADERS)
-                    .write_to_file(output_binding_path)
-                    .expect("Cannot write binding to file.");
-            } else {
-                panic!("No binding generation method is set!");
-            }
+    fn static_linking_with_pkg_config_and_bindgen(
+        env_vars: &EnvVars,
+        output_binding_path: &Path,
+    ) -> Result<(), pkg_config::Error> {
+        // Probe libraries(enable emitting cargo metadata)
+        let include_paths = pkg_config_linking::linking_with_pkg_config(&*LIBS, true)?;
+        if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
+            use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+        } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
+            // If use ffmpeg_pkg_config_path with ffmpeg_include_dir, prefer using the user given dir rather than pkg_config_path.
+            generate_bindings(ffmpeg_include_dir, &HEADERS)
+                .write_to_file(output_binding_path)
+                .expect("Cannot write binding to file.");
         } else {
-            #[cfg(not(any(feature = "link_system_ffmpeg", feature = "link_vcpkg_ffmpeg")))]
-            panic!(
-                "
-!!!!!!! rusty_ffmpeg: No linking method set!
-Use `FFMPEG_PKG_CONFIG_PATH` or `FFMPEG_LIBS_DIR` if you have prebuilt FFmpeg libraries.
-Enable `link_system_ffmpeg` feature if you want to link ffmpeg libraries installed in system path(which can be probed by pkg-config).
-Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installed by vcpkg.
-"
-            );
-            #[cfg(any(feature = "link_system_ffmpeg", feature = "link_vcpkg_ffmpeg"))]
-            {
-                let mut success = false;
-                let mut error = String::new();
-                #[cfg(feature = "link_system_ffmpeg")]
-                if !success {
-                    if let Err(e) =
-                        static_linking_with_pkg_config_and_bindgen(env_vars, output_binding_path)
-                    {
-                        error.push('\n');
-                        error.push_str(&format!("Link system FFmpeg failed: {:?}", e));
-                    } else {
-                        println!("Link system FFmpeg succeeded.");
-                        success = true;
-                    }
-                }
-                #[cfg(feature = "link_vcpkg_ffmpeg")]
-                if !success {
-                    if let Err(e) =
-                        vcpkg_linking::linking_with_vcpkg_and_bindgen(env_vars, output_binding_path)
-                    {
-                        error.push('\n');
-                        error.push_str(&format!("Link vcpkg FFmpeg failed: {:?}", e));
-                    } else {
-                        println!("Link vcpkg FFmpeg succeeded.");
-                        success = true;
-                    }
-                }
-                if !success {
-                    panic!("FFmpeg linking trial failed: {}", error);
-                }
-            }
+            generate_bindings(&include_paths[0], &HEADERS)
+                .write_to_file(output_binding_path)
+                .expect("Cannot write binding to file.");
+        }
+        Ok(())
+    }
+
+    fn static_link_sys_libs() {
+        // Statically linking to FFmpeg may also require us to link to some system libraries.
+        let mut sys_libs: Vec<_> = SYS_STATIC_LIBS.values().flatten().collect();
+        sys_libs.sort();
+        sys_libs.dedup();
+        for sys_lib in sys_libs {
+            println!("cargo:rustc-link-lib={sys_lib}");
         }
     }
-    #[cfg(target_os = "windows")]
-    {
-        if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
-            static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
-            if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
-                use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
-            } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
-                generate_bindings(ffmpeg_include_dir, &HEADERS)
-                    .write_to_file(output_binding_path)
-                    .expect("Cannot write binding to file.");
-            } else {
-                panic!("No binding generation method is set!");
-            }
-        } else {
-            #[cfg(feature = "link_vcpkg_ffmpeg")]
-            vcpkg_linking::linking_with_vcpkg_and_bindgen(env_vars, output_binding_path)
-                .expect("Linking FFmpeg with vcpkg failed.");
-            #[cfg(not(feature = "link_vcpkg_ffmpeg"))]
+
+    // Hint: set PKG_CONFIG_PATH to some placeholder value will let pkg_config probing system library.
+    if let Some(ffmpeg_pkg_config_path) = env_vars.ffmpeg_pkg_config_path.as_ref() {
+        if !Path::new(ffmpeg_pkg_config_path).exists() {
             panic!(
-                "
-!!!!!!! rusty_ffmpeg: No linking method set!
-Use FFMPEG_PKG_CONFIG_PATH or FFMPEG_LIBS_DIR if you have prebuilt FFmpeg libraries.
-Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg provided by vcpkg.
-"
+                "error: FFMPEG_PKG_CONFIG_PATH is set to `{}`, which does not exist.",
+                ffmpeg_pkg_config_path
             );
+        }
+        env::set_var("PKG_CONFIG_PATH", ffmpeg_pkg_config_path);
+        static_linking_with_pkg_config_and_bindgen(env_vars, output_binding_path)
+            .expect("Static linking with pkg-config failed.");
+    } else if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
+        static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
+        if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
+            use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
+        } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
+            generate_bindings(ffmpeg_include_dir, &HEADERS)
+                .write_to_file(output_binding_path)
+                .expect("Cannot write binding to file.");
+        } else {
+            panic!("No binding generation method is set!");
+        }
+
+        // Statically linking to FFmpeg may also require us to link to some system libraries.
+        static_link_sys_libs();
+    } else {
+        #[cfg(not(any(feature = "link_system_ffmpeg", feature = "link_vcpkg_ffmpeg")))]
+        panic!(
+            "
+!!!!!!! rusty_ffmpeg: No linking method set!
+Use `FFMPEG_PKG_CONFIG_PATH` to probe with pkg-config for prebuilt FFmpeg libraries.
+Alternatively, use `FFMPEG_LIBS_DIR` and `FFMPEG_INCLUDE_DIR` to bypass pkg-config.
+Alternatively, enable `link_system_ffmpeg` feature if you want to link ffmpeg libraries installed
+  in system path (which can be probed by pkg-config).
+Alternatively, enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installed by vcpkg.
+"
+        );
+        #[cfg(any(feature = "link_system_ffmpeg", feature = "link_vcpkg_ffmpeg"))]
+        {
+            let mut success = false;
+            let mut error = String::new();
+            #[cfg(feature = "link_system_ffmpeg")]
+            if !success {
+                if let Err(e) =
+                    static_linking_with_pkg_config_and_bindgen(env_vars, output_binding_path)
+                {
+                    error.push('\n');
+                    error.push_str(&format!("Link system FFmpeg failed: {:?}", e));
+                } else {
+                    println!("Link system FFmpeg succeeded.");
+                    success = true;
+                }
+            }
+            #[cfg(feature = "link_vcpkg_ffmpeg")]
+            if !success {
+                if let Err(e) =
+                    vcpkg_linking::linking_with_vcpkg_and_bindgen(env_vars, output_binding_path)
+                {
+                    error.push('\n');
+                    error.push_str(&format!("Link vcpkg FFmpeg failed: {:?}", e));
+                } else {
+                    // vcpkg_linking doesn't currently link these indirect system packages, even
+                    // though they were specified in the pkg-config files.
+                    static_link_sys_libs();
+
+                    println!("Link vcpkg FFmpeg succeeded.");
+                    success = true;
+                }
+            }
+            if !success {
+                panic!("FFmpeg linking trial failed: {}", error);
+            }
         }
     }
 }

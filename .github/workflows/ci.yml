@@ -103,7 +103,7 @@ jobs:
 
       - name: Cache vcpkg
         id: cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ${{ github.workspace }}/vcpkg
@@ -327,20 +327,40 @@ jobs:
           - target: "x86_64-pc-windows-msvc"
             vcpkg_triplet: "x64-windows-static"
             rustflags: "-Ctarget-feature=+crt-static"
+            linking: "static"
+            probe_method: "vcpkg"
           - target: "x86_64-pc-windows-msvc"
             vcpkg_triplet: "x64-windows-static-md"
+            linking: "static"
+            probe_method: "vcpkg"
           - target: "x86_64-pc-windows-msvc"
             vcpkg_triplet: "x64-windows"
-            dynamic: true
+            linking: "dynamic"
+            probe_method: "vcpkg"
 
           - target: "i686-pc-windows-msvc"
             vcpkg_triplet: "x86-windows-static"
             rustflags: "-Ctarget-feature=+crt-static"
+            linking: "static"
+            probe_method: "vcpkg"
           - target: "i686-pc-windows-msvc"
             vcpkg_triplet: "x86-windows-static-md"
+            linking: "static"
+            probe_method: "vcpkg"
           - target: "i686-pc-windows-msvc"
             vcpkg_triplet: "x86-windows"
-            dynamic: true
+            linking: "dynamic"
+            probe_method: "vcpkg"
+
+          # Additional ways of telling the build script to find FFmpeg:
+          - target: "x86_64-pc-windows-msvc"
+            vcpkg_triplet: "x64-windows-static-md"
+            linking: "static"
+            probe_method: "dir_vars"
+          - target: "x86_64-pc-windows-msvc"
+            vcpkg_triplet: "x64-windows-static-md"
+            linking: "static"
+            probe_method: "pkg_config"
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
@@ -358,7 +378,7 @@ jobs:
 
       - name: Cache vcpkg
         id: cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ${{ github.workspace }}/vcpkg
@@ -377,19 +397,36 @@ jobs:
       - name: Set env
         shell: bash
         run: |
-          if [ '${{ matrix.config.dynamic }}' != '' ]; then
+          if [ '${{ matrix.config.linking }}' == 'dynamic' ]; then
             echo "VCPKGRS_DYNAMIC=1" >> $GITHUB_ENV
           fi
+          if [ '${{ matrix.config.probe_method }}' == 'vcpkg' ]; then
+            echo "VCPKG_ROOT=${{ github.workspace }}/vcpkg" >> $GITHUB_ENV
+            echo "VCPKG_DEFAULT_TRIPLET=${{ matrix.config.vcpkg_triplet }}" >> $GITHUB_ENV
+            echo "FEATURES=--features link_vcpkg_ffmpeg" >> $GITHUB_ENV
+          elif [ '${{ matrix.config.probe_method }}' == 'dir_vars' ]; then
+            echo "FFMPEG_INCLUDE_DIR=${{ github.workspace }}/vcpkg/installed/"\
+          "${{ matrix.config.vcpkg_triplet }}/include" >> $GITHUB_ENV
+            echo "FFMPEG_LIBS_DIR=${{ github.workspace }}/vcpkg/installed/"\
+          "${{ matrix.config.vcpkg_triplet }}/debug/lib" >> $GITHUB_ENV
+            echo "FEATURES=" >> $GITHUB_ENV
+          elif [ '${{ matrix.config.probe_method }}' == 'pkg_config' ]; then
+            echo "PKG_CONFIG=${{ github.workspace }}/vcpkg/installed/"\
+          "x64-windows/tools/pkgconf/pkgconf.exe" >> $GITHUB_ENV
+            echo "FFMPEG_PKG_CONFIG_PATH=${{ github.workspace }}/vcpkg/installed/"\
+          "${{ matrix.config.vcpkg_triplet }}/debug/lib/pkgconfig" >> $GITHUB_ENV
+            echo "FEATURES=" >> $GITHUB_ENV
+          fi
 
-      - name: Binding build
+      - name: Binding build and run example
         shell: bash
         env:
-          VCPKG_ROOT: ${{ github.workspace }}/vcpkg
           RUSTFLAGS: ${{ matrix.config.rustflags }}
-          VCPKG_DEFAULT_TRIPLET: ${{ matrix.config.vcpkg_triplet }}
           LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
           LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
-        run: cargo build --features link_vcpkg_ffmpeg --target ${{ matrix.config.target }} --verbose
+        run: |
+          cargo build $FEATURES --target ${{ matrix.config.target }} --verbose
+          cargo run $FEATURES --target ${{ matrix.config.target }} --example slice --verbose
 
   build_dynamic_and_test_ubuntu:
     runs-on: ubuntu-latest
