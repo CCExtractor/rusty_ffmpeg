@@ -1,4 +1,4 @@
-# Rusty FFmpeg
+# Rusty FFmpeg test
 
 [![Doc](https://docs.rs/rusty_ffmpeg/badge.svg?style=flat-square)](https://docs.rs/rusty_ffmpeg)
 [![Crates.io](https://img.shields.io/crates/v/rusty_ffmpeg)](https://crates.io/crates/rusty_ffmpeg)
