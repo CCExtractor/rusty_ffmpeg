@@ -481,8 +481,6 @@ jobs:
             --enable-libx264 \
             --enable-pic \
             --disable-vaapi \
-            --disable-qsv \
-            --disable-vaapi \
             --disable-libdrm \
             --disable-vdpau \
             --disable-xlib
