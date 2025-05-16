@@ -446,6 +446,7 @@ jobs:
             --enable-pic \
             --disable-qsv \
             --disable-vaapi \
+            --disable-libdrm \
             --disable-asm
           make -j$(nproc)
           make install
