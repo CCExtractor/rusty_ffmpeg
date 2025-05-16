@@ -1,6 +1,5 @@
 use std::ffi::c_char;
 use std::ffi::c_int;
-use core::ffi::c_size_t;
 use std::ffi::CStr;
 use super::common::MKTAG;
 use crate::ffi;
@@ -65,7 +64,7 @@ pub const AV_ERROR_MAX_STRING_SIZE: usize   = 64;
 /// Safety requirements is the same as the  av_strerror()`
 pub unsafe fn av_make_error_string(
     errbuf: *mut c_char,
-    errbuf_size: c_size_t,
+    errbuf_size: usize,
     errnum: c_int
 ) -> *mut c_char {
     ffi::av_strerror(errnum, errbuf, errbuf_size);
