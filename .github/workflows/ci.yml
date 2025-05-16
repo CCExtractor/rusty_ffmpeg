@@ -444,9 +444,6 @@ jobs:
             --enable-static \
             --enable-strip \
             --enable-pic \
-            --disable-qsv \
-            --disable-vaapi \
-            --disable-libdrm \
             --disable-asm
           make -j$(nproc)
           make install
@@ -484,6 +481,9 @@ jobs:
             --enable-libx264 \
             --enable-pic \
             --disable-vaapi \
+            --disable-qsv \
+            --disable-vaapi \
+            --disable-libdrm \
             --disable-vdpau \
             --disable-xlib
           make -j$(nproc)
