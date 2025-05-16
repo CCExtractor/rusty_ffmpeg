@@ -2,6 +2,7 @@
 /// in linked library. So we need this.
 /// Ref: https://github.com/rust-lang/rust-bindgen/issues/1344
 use crate::ffi::AVRational;
+use std::ffi::{c_double, c_int};
 
 /// Create an AVRational.
 ///
@@ -9,7 +10,7 @@ use crate::ffi::AVRational;
 ///
 /// @note The return value is not reduced.
 /// @see av_reduce()
-pub const fn av_make_q(num: libc::c_int, den: libc::c_int) -> AVRational {
+pub const fn av_make_q(num: c_int, den: c_int) -> AVRational {
     AVRational { num, den }
 }
 
@@ -23,17 +24,17 @@ pub const fn av_make_q(num: libc::c_int, den: libc::c_int) -> AVRational {
 ///         - 1 if `a > b`
 ///         - -1 if `a < b`
 ///         - `INT_MIN` if one of the values is of the form `0 / 0`
-pub fn av_cmp_q(a: AVRational, b: AVRational) -> libc::c_int {
+pub fn av_cmp_q(a: AVRational, b: AVRational) -> c_int {
     let tmp = i64::from(a.num) * i64::from(b.den) - i64::from(b.num) * i64::from(a.den);
 
     if tmp != 0 {
-        (((tmp ^ i64::from(a.den) ^ i64::from(b.den)) >> 63) | 1) as libc::c_int
+        (((tmp ^ i64::from(a.den) ^ i64::from(b.den)) >> 63) | 1) as c_int
     } else if b.den != 0 && a.den != 0 {
         0
     } else if a.num != 0 && b.num != 0 {
         (a.num >> 31) - (b.num >> 31)
     } else {
-        libc::c_int::MIN
+        c_int::MIN
     }
 }
 
@@ -41,8 +42,8 @@ pub fn av_cmp_q(a: AVRational, b: AVRational) -> libc::c_int {
 /// @param a AVRational to convert
 /// @return `a` in floating-point form
 /// @see av_d2q()
-pub fn av_q2d(a: AVRational) -> libc::c_double {
-    libc::c_double::from(a.num) / libc::c_double::from(a.den)
+pub fn av_q2d(a: AVRational) -> c_double {
+    c_double::from(a.num) / c_double::from(a.den)
 }
 
 /// Invert a rational.
