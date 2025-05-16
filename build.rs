@@ -227,7 +227,7 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
                 bindgen::builder()
                     // Force impl Debug if possible(for `AVCodecParameters`)
                     .impl_debug(true)
-                    .rust_target(RustTarget::Stable_1_68)
+                    .rust_target(RustTarget::stable(68, 0).ok().unwrap())
                     .parse_callbacks(Box::new(filter_callback))
                     // Add clang path, for `#include` header finding in bindgen process.
                     .clang_arg(format!("-I{}", ffmpeg_include_dir))
