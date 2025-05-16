@@ -422,6 +422,7 @@ jobs:
             yasm \
             zlib1g-dev \
             nasm \
+            libdrm-dev \
             libx264-dev \
             libx265-dev \
             libnuma-dev \
