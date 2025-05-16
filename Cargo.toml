@@ -22,7 +22,6 @@ exclude = [".github"]
 doctest = false
 
 [dependencies]
-libc = "0.2"
 
 [build-dependencies]
 bindgen = "0.70"

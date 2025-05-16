@@ -1,4 +1,5 @@
-use libc::c_int;
+use std::ffi::c_char;
+use std::ffi::c_int;
 use std::ffi::CStr;
 use super::common::MKTAG;
 use crate::ffi;
@@ -62,16 +63,16 @@ pub const AV_ERROR_MAX_STRING_SIZE: usize   = 64;
 /// # Safety
 /// Safety requirements is the same as the  av_strerror()`
 pub unsafe fn av_make_error_string(
-    errbuf: *mut libc::c_char,
-    errbuf_size: libc::size_t,
-    errnum: libc::c_int
-) -> *mut libc::c_char {
+    errbuf: *mut c_char,
+    errbuf_size: usize,
+    errnum: c_int
+) -> *mut c_char {
     ffi::av_strerror(errnum, errbuf, errbuf_size);
     errbuf
 }
 
 pub fn av_err2str(
-    errnum: libc::c_int
+    errnum: c_int
 ) -> String {
     let mut errbuf = [0u8; AV_ERROR_MAX_STRING_SIZE];
     let errbuf_ptr = errbuf.as_mut_ptr() as _;
