@@ -45,6 +45,7 @@ jobs:
             cmake \
             git-core \
             libass-dev \
+            libbz2-dev \
             libfreetype6-dev \
             libgnutls28-dev \
             libsdl2-dev \
@@ -70,7 +71,7 @@ jobs:
             libopus-dev
 
       - run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
           cd ffmpeg
           mkdir build
           cd build
@@ -289,7 +290,7 @@ jobs:
       # Disable exr,phm to workaround "multiple definition of 'ff_init_half2float_tables'"
       # Ref: `https://github.com/larksuite/rsmpeg/pull/98#issuecomment-1467511193`
       - run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
           cd ffmpeg
           mkdir build
           cd build
@@ -394,6 +395,42 @@ jobs:
   build_dynamic_and_test_ubuntu:
     runs-on: ubuntu-latest
     steps:
+      # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+      - name: Install FFmpegBuildTools
+        run: |
+          sudo apt-get update -qq && sudo apt-get -y install \
+            autoconf \
+            automake \
+            build-essential \
+            cmake \
+            git-core \
+            libass-dev \
+            libfreetype6-dev \
+            libgnutls28-dev \
+            libsdl2-dev \
+            libbz2-dev \
+            libtool \
+            libva-dev \
+            libvdpau-dev \
+            libvorbis-dev \
+            libxcb1-dev \
+            libxcb-shm0-dev \
+            libxcb-xfixes0-dev \
+            pkg-config \
+            texinfo \
+            wget \
+            yasm \
+            zlib1g-dev \
+            nasm \
+            libdrm-dev \
+            libx264-dev \
+            libx265-dev \
+            libnuma-dev \
+            libvpx-dev \
+            libfdk-aac-dev \
+            libmp3lame-dev \
+            libopus-dev
+
       - name: Build x264
         # Since github actions use 2 core cpu
         run: |
@@ -415,7 +452,7 @@ jobs:
 
       - name: Build FFmpeg dylib
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
           cd ffmpeg
           mkdir build
           cd build
@@ -444,6 +481,7 @@ jobs:
             --enable-libx264 \
             --enable-pic \
             --disable-vaapi \
+            --disable-libdrm \
             --disable-vdpau \
             --disable-xlib
           make -j$(nproc)
@@ -497,7 +535,7 @@ jobs:
 
       - name: Build FFmpeg dylib
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
           cd ffmpeg
           mkdir build
           cd build
@@ -584,7 +622,7 @@ jobs:
           cd ../..
       - name: Build FFmpeg
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.0
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
           cd ffmpeg
           mkdir build
           cd build
@@ -716,14 +754,14 @@ jobs:
             texinfo \
             wget \
             yasm \
-            zlib1g-dev
-          sudo apt-get -y install nasm
-          sudo apt-get -y install libx264-dev
-          sudo apt-get -y install libx265-dev libnuma-dev
-          sudo apt-get -y install libvpx-dev
-          sudo apt-get -y install libfdk-aac-dev
-          sudo apt-get -y install libmp3lame-dev
-          sudo apt-get -y install libopus-dev
+            zlib1g-dev \
+            nasm \
+            libx264-dev \
+            libx265-dev libnuma-dev \
+            libvpx-dev \
+            libfdk-aac-dev \
+            libmp3lame-dev \
+            libopus-dev
 
       - name: Set env
         run: echo "DOCS_RS=1" >> $GITHUB_ENV
