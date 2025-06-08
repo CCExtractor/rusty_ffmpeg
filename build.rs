@@ -508,7 +508,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
             panic!(
                 "
 !!!!!!! rusty_ffmpeg: No linking method set!
-Use FFMPEG_PKG_CONFIG_PATH or FFMPEG_LIBS_DIR if you have prebuilt FFmpeg libraries.
+Use FFMPEG_LIBS_DIR if you have prebuilt FFmpeg libraries.
 Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg provided by vcpkg.
 "
             );
