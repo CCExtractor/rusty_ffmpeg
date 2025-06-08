@@ -1,6 +1,6 @@
 [package]
 name = "rusty_ffmpeg"
-version = "0.16.2+ffmpeg.7.1"
+version = "0.16.3+ffmpeg.7.1"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2021"
 description = "A library that provides Rust bindings for FFmpeg"
