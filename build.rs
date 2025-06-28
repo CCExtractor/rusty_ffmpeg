@@ -243,9 +243,9 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
 }
 
 fn linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &Path, mode: FfmpegLinkMode) {
-    println!("cargo:rustc-link-search=native={}", ffmpeg_libs_dir);
+    println!("cargo:rustc-link-search=native={ffmpeg_libs_dir}");
     for library_name in library_names {
-        println!("cargo:rustc-link-lib={}={}", library_name, match mode {
+        println!("cargo:rustc-link-lib={}={library_name}", match mode {
             FfmpegLinkMode::Dynamic => "dylib",
             FfmpegLinkMode::Static => "static",
         });
