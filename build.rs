@@ -242,11 +242,20 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
         .expect("Binding generation failed.")
 }
 
-fn static_linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &Path) {
+fn linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &Path, mode: FfmpegLinkMode) {
     println!("cargo:rustc-link-search=native={}", ffmpeg_libs_dir);
     for library_name in library_names {
-        println!("cargo:rustc-link-lib=static={}", library_name);
+        println!("cargo:rustc-link-lib={}={}", library_name, match mode {
+            FfmpegLinkMode::Dynamic => "dylib",
+            FfmpegLinkMode::Static => "static",
+        });
     }
+}
+
+#[derive(Clone, Copy)]
+enum FfmpegLinkMode {
+    Static,
+    Dynamic,
 }
 
 #[allow(dead_code)]
@@ -254,6 +263,7 @@ pub struct EnvVars {
     docs_rs: Option<String>,
     out_dir: Option<PathBuf>,
     ffmpeg_include_dir: Option<PathBuf>,
+    ffmpeg_link_mode: Option<FfmpegLinkMode>,
     ffmpeg_dll_path: Option<PathBuf>,
     ffmpeg_pkg_config_path: Option<PathBuf>,
     ffmpeg_libs_dir: Option<PathBuf>,
@@ -277,6 +287,12 @@ impl EnvVars {
             ffmpeg_pkg_config_path: env::var("FFMPEG_PKG_CONFIG_PATH").ok().map(remove_verbatim),
             ffmpeg_libs_dir: env::var("FFMPEG_LIBS_DIR").ok().map(remove_verbatim),
             ffmpeg_binding_path: env::var("FFMPEG_BINDING_PATH").ok().map(remove_verbatim),
+            ffmpeg_link_mode: match env::var("FFMPEG_LINK_MODE").ok().as_deref() {
+                Some("static") => Some(FfmpegLinkMode::Static),
+                Some("dynamic") => Some(FfmpegLinkMode::Dynamic),
+                Some(r) => panic!("invalid FFMPEG_LINK_MODE value {r}, expected [static,dynamic]"),
+                None => None,
+            }
         }
     }
 }
@@ -359,8 +375,18 @@ mod vcpkg_linking {
     }
 }
 
-fn dynamic_linking(env_vars: &EnvVars) {
+fn dynamic_linking(mut env_vars: EnvVars) {
     let ffmpeg_dll_path = env_vars.ffmpeg_dll_path.as_ref().unwrap();
+    if ffmpeg_dll_path.is_dir() {
+        if env_vars.ffmpeg_libs_dir.is_none() {
+            env_vars.ffmpeg_libs_dir = Some(ffmpeg_dll_path.clone());
+        }
+        if env_vars.ffmpeg_link_mode.is_none() {
+            env_vars.ffmpeg_link_mode = Some(FfmpegLinkMode::Dynamic);
+        }
+
+        return linking(env_vars);
+    }
 
     let output_binding_path = &env_vars.out_dir.as_ref().unwrap().join("binding.rs");
 
@@ -396,12 +422,12 @@ fn dynamic_linking(env_vars: &EnvVars) {
     }
 }
 
-fn static_linking(env_vars: &EnvVars) {
+fn linking(env_vars: EnvVars) {
     let output_binding_path = &env_vars.out_dir.as_ref().unwrap().join("binding.rs");
 
     #[cfg(not(target_os = "windows"))]
     {
-        fn static_linking_with_pkg_config_and_bindgen(
+        fn linking_with_pkg_config_and_bindgen(
             env_vars: &EnvVars,
             output_binding_path: &Path,
         ) -> Result<(), pkg_config::Error> {
@@ -430,10 +456,10 @@ fn static_linking(env_vars: &EnvVars) {
                 );
             }
             env::set_var("PKG_CONFIG_PATH", ffmpeg_pkg_config_path);
-            static_linking_with_pkg_config_and_bindgen(env_vars, output_binding_path)
+            linking_with_pkg_config_and_bindgen(&env_vars, output_binding_path)
                 .expect("Static linking with pkg-config failed.");
         } else if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
-            static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
+            linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir, env_vars.ffmpeg_link_mode.unwrap_or(FfmpegLinkMode::Static));
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
@@ -460,7 +486,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
                 #[cfg(feature = "link_system_ffmpeg")]
                 if !success {
                     if let Err(e) =
-                        static_linking_with_pkg_config_and_bindgen(env_vars, output_binding_path)
+                        linking_with_pkg_config_and_bindgen(env_vars, output_binding_path)
                     {
                         error.push('\n');
                         error.push_str(&format!("Link system FFmpeg failed: {:?}", e));
@@ -490,7 +516,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
     #[cfg(target_os = "windows")]
     {
         if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
-            static_linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir);
+            linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir, env_vars.ffmpeg_link_mode);
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
@@ -502,7 +528,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
             }
         } else {
             #[cfg(feature = "link_vcpkg_ffmpeg")]
-            vcpkg_linking::linking_with_vcpkg_and_bindgen(env_vars, output_binding_path)
+            vcpkg_linking::linking_with_vcpkg_and_bindgen(&zenv_vars, output_binding_path)
                 .expect("Linking FFmpeg with vcpkg failed.");
             #[cfg(not(feature = "link_vcpkg_ffmpeg"))]
             panic!(
@@ -516,7 +542,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg provided by vcpkg.
     }
 }
 
-fn docs_rs_linking(env_vars: &EnvVars) {
+fn docs_rs_linking(env_vars: EnvVars) {
     // If it's a documentation generation from docs.rs, just copy the bindings
     // generated locally to `OUT_DIR`. We do this because the building
     // environment of docs.rs doesn't have an network connection, so we cannot
@@ -531,11 +557,11 @@ fn docs_rs_linking(env_vars: &EnvVars) {
 fn main() {
     let env_vars = EnvVars::init();
     if env_vars.docs_rs.is_some() {
-        docs_rs_linking(&env_vars);
+        docs_rs_linking(env_vars);
     } else if env_vars.ffmpeg_dll_path.is_some() {
-        dynamic_linking(&env_vars);
+        dynamic_linking(env_vars);
     } else {
         // fallback to static linking
-        static_linking(&env_vars);
+        linking(env_vars);
     }
 }
