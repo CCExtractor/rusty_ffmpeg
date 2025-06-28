@@ -486,7 +486,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
                 #[cfg(feature = "link_system_ffmpeg")]
                 if !success {
                     if let Err(e) =
-                        linking_with_pkg_config_and_bindgen(env_vars, output_binding_path)
+                        linking_with_pkg_config_and_bindgen(&env_vars, output_binding_path)
                     {
                         error.push('\n');
                         error.push_str(&format!("Link system FFmpeg failed: {:?}", e));
@@ -498,7 +498,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
                 #[cfg(feature = "link_vcpkg_ffmpeg")]
                 if !success {
                     if let Err(e) =
-                        vcpkg_linking::linking_with_vcpkg_and_bindgen(env_vars, output_binding_path)
+                        vcpkg_linking::linking_with_vcpkg_and_bindgen(&env_vars, output_binding_path)
                     {
                         error.push('\n');
                         error.push_str(&format!("Link vcpkg FFmpeg failed: {:?}", e));
@@ -528,7 +528,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
             }
         } else {
             #[cfg(feature = "link_vcpkg_ffmpeg")]
-            vcpkg_linking::linking_with_vcpkg_and_bindgen(&zenv_vars, output_binding_path)
+            vcpkg_linking::linking_with_vcpkg_and_bindgen(&env_vars, output_binding_path)
                 .expect("Linking FFmpeg with vcpkg failed.");
             #[cfg(not(feature = "link_vcpkg_ffmpeg"))]
             panic!(
