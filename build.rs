@@ -282,6 +282,7 @@ impl EnvVars {
         println!("cargo:rerun-if-env-changed=FFMPEG_PKG_CONFIG_PATH");
         println!("cargo:rerun-if-env-changed=FFMPEG_LIBS_DIR");
         println!("cargo:rerun-if-env-changed=FFMPEG_BINDING_PATH");
+        println!("cargo:rerun-if-env-changed=FFMPEG_LINK_MODE");
         Self {
             docs_rs: env::var("DOCS_RS").ok(),
             out_dir: env::var("OUT_DIR").ok().map(remove_verbatim),
