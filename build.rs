@@ -245,10 +245,13 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
 fn linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &Path, mode: FfmpegLinkMode) {
     println!("cargo:rustc-link-search=native={ffmpeg_libs_dir}");
     for library_name in library_names {
-        println!("cargo:rustc-link-lib={}={library_name}", match mode {
-            FfmpegLinkMode::Dynamic => "dylib",
-            FfmpegLinkMode::Static => "static",
-        });
+        println!(
+            "cargo:rustc-link-lib={}={library_name}",
+            match mode {
+                FfmpegLinkMode::Dynamic => "dylib",
+                FfmpegLinkMode::Static => "static",
+            }
+        );
     }
 }
 
@@ -292,7 +295,7 @@ impl EnvVars {
                 Some("dynamic") => Some(FfmpegLinkMode::Dynamic),
                 Some(r) => panic!("invalid FFMPEG_LINK_MODE value {r}, expected [static,dynamic]"),
                 None => None,
-            }
+            },
         }
     }
 }
@@ -459,7 +462,11 @@ fn linking(env_vars: EnvVars) {
             linking_with_pkg_config_and_bindgen(&env_vars, output_binding_path)
                 .expect("Static linking with pkg-config failed.");
         } else if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
-            linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir, env_vars.ffmpeg_link_mode.unwrap_or(FfmpegLinkMode::Static));
+            linking_with_libs_dir(
+                &*LIBS,
+                ffmpeg_libs_dir,
+                env_vars.ffmpeg_link_mode.unwrap_or(FfmpegLinkMode::Static),
+            );
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
@@ -497,9 +504,10 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
                 }
                 #[cfg(feature = "link_vcpkg_ffmpeg")]
                 if !success {
-                    if let Err(e) =
-                        vcpkg_linking::linking_with_vcpkg_and_bindgen(&env_vars, output_binding_path)
-                    {
+                    if let Err(e) = vcpkg_linking::linking_with_vcpkg_and_bindgen(
+                        &env_vars,
+                        output_binding_path,
+                    ) {
                         error.push('\n');
                         error.push_str(&format!("Link vcpkg FFmpeg failed: {:?}", e));
                     } else {
@@ -516,7 +524,11 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
     #[cfg(target_os = "windows")]
     {
         if let Some(ffmpeg_libs_dir) = env_vars.ffmpeg_libs_dir.as_ref() {
-            linking_with_libs_dir(&*LIBS, ffmpeg_libs_dir, env_vars.ffmpeg_link_mode);
+            linking_with_libs_dir(
+                &*LIBS,
+                ffmpeg_libs_dir,
+                env_vars.ffmpeg_link_mode.unwrap_or(FfmpegLinkMode::Static),
+            );
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
