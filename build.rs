@@ -193,6 +193,7 @@ enum FFmpegLinkMode {
     Dynamic,
 }
 
+#[cfg(not(target_os = "windows"))]
 impl FFmpegLinkMode {
     fn is_static(&self) -> bool {
         self == &Self::Static
