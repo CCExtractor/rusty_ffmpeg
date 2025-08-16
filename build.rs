@@ -187,6 +187,31 @@ impl callbacks::ParseCallbacks for FilterCargoCallbacks {
     }
 }
 
+#[derive(Clone, Copy)]
+enum FFmpegLinkMode {
+    Static,
+    Dynamic,
+}
+
+impl From<String> for FFmpegLinkMode {
+    fn from(value: String) -> Self {
+        match &*value {
+            "static" => FFmpegLinkMode::Static,
+            "dynamic" => FFmpegLinkMode::Dynamic,
+            _ => panic!("Invalid FFMPEG_LINK_MODE value, expected [static,dynamic]"),
+        }
+    }
+}
+
+impl std::fmt::Display for FFmpegLinkMode {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            FFmpegLinkMode::Static => write!(f, "static"),
+            FFmpegLinkMode::Dynamic => write!(f, "dylib"),
+        }
+    }
+}
+
 fn use_prebuilt_binding(from: &Path, to: &Path) {
     fs::copy(from, to).expect("Prebuilt binding file failed to be copied.");
 }
@@ -242,23 +267,16 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
         .expect("Binding generation failed.")
 }
 
-fn linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &Path, mode: FfmpegLinkMode) {
+fn linking_with_libs_dir(library_names: &[&str], ffmpeg_libs_dir: &Path, mode: FFmpegLinkMode) {
     println!("cargo:rustc-link-search=native={ffmpeg_libs_dir}");
     for library_name in library_names {
-        println!(
-            "cargo:rustc-link-lib={}={library_name}",
-            match mode {
-                FfmpegLinkMode::Dynamic => "dylib",
-                FfmpegLinkMode::Static => "static",
-            }
-        );
+        println!("cargo:rustc-link-lib={mode}={library_name}");
     }
 }
 
-#[derive(Clone, Copy)]
-enum FfmpegLinkMode {
-    Static,
-    Dynamic,
+fn linking_with_single_lib(library_name: &str, ffmpeg_lib_dir: &Path, mode: FFmpegLinkMode) {
+    println!("cargo:rustc-link-search=native={ffmpeg_lib_dir}");
+    println!("cargo:rustc-link-lib={mode}={library_name}");
 }
 
 #[allow(dead_code)]
@@ -266,7 +284,7 @@ pub struct EnvVars {
     docs_rs: Option<String>,
     out_dir: Option<PathBuf>,
     ffmpeg_include_dir: Option<PathBuf>,
-    ffmpeg_link_mode: Option<FfmpegLinkMode>,
+    ffmpeg_link_mode: Option<FFmpegLinkMode>,
     ffmpeg_dll_path: Option<PathBuf>,
     ffmpeg_pkg_config_path: Option<PathBuf>,
     ffmpeg_libs_dir: Option<PathBuf>,
@@ -291,12 +309,7 @@ impl EnvVars {
             ffmpeg_pkg_config_path: env::var("FFMPEG_PKG_CONFIG_PATH").ok().map(remove_verbatim),
             ffmpeg_libs_dir: env::var("FFMPEG_LIBS_DIR").ok().map(remove_verbatim),
             ffmpeg_binding_path: env::var("FFMPEG_BINDING_PATH").ok().map(remove_verbatim),
-            ffmpeg_link_mode: match env::var("FFMPEG_LINK_MODE").ok().as_deref() {
-                Some("static") => Some(FfmpegLinkMode::Static),
-                Some("dynamic") => Some(FfmpegLinkMode::Dynamic),
-                Some(r) => panic!("invalid FFMPEG_LINK_MODE value {r}, expected [static,dynamic]"),
-                None => None,
-            },
+            ffmpeg_link_mode: env::var("FFMPEG_LINK_MODE").ok().map(Into::into),
         }
     }
 }
@@ -379,41 +392,29 @@ mod vcpkg_linking {
     }
 }
 
-fn dynamic_linking(mut env_vars: EnvVars) {
+fn dynamic_linking(env_vars: EnvVars) {
     let ffmpeg_dll_path = env_vars.ffmpeg_dll_path.as_ref().unwrap();
     if ffmpeg_dll_path.is_dir() {
-        if env_vars.ffmpeg_libs_dir.is_none() {
-            env_vars.ffmpeg_libs_dir = Some(ffmpeg_dll_path.clone());
-        }
-        if env_vars.ffmpeg_link_mode.is_none() {
-            env_vars.ffmpeg_link_mode = Some(FfmpegLinkMode::Dynamic);
-        }
-
-        return linking(env_vars);
+        linking_with_libs_dir(&*LIBS, ffmpeg_dll_path, FFmpegLinkMode::Dynamic);
+    } else {
+        let (lib_name, ffmpeg_dll_dir) = (
+            ffmpeg_dll_path
+                .file_stem()
+                .map(|stem| {
+                    if cfg!(target_os = "windows") {
+                        stem
+                    } else {
+                        stem.trim_start_matches("lib")
+                    }
+                })
+                .unwrap()
+                .to_string(),
+            ffmpeg_dll_path.parent().unwrap().to_path_buf(),
+        );
+        linking_with_single_lib(&lib_name, &ffmpeg_dll_dir, FFmpegLinkMode::Dynamic);
     }
 
     let output_binding_path = &env_vars.out_dir.as_ref().unwrap().join("binding.rs");
-
-    // Extract dll name and the dir the dll is in.
-    let (ffmpeg_dll_name, ffmpeg_dll_dir) = {
-        let mut ffmpeg_dll_path = PathBuf::from(ffmpeg_dll_path);
-        // Without extension.
-        let ffmpeg_dll_filename = ffmpeg_dll_path.file_stem().unwrap();
-        let ffmpeg_dll_name = if cfg!(target_os = "windows") {
-            ffmpeg_dll_filename
-        } else {
-            ffmpeg_dll_filename.trim_start_matches("lib")
-        }
-        .to_string();
-        // Remove file name.
-        ffmpeg_dll_path.pop();
-        let ffmpeg_dll_path = ffmpeg_dll_path.to_string();
-        (ffmpeg_dll_name, ffmpeg_dll_path)
-    };
-
-    println!("cargo:rustc-link-lib=dylib={}", ffmpeg_dll_name);
-    println!("cargo:rustc-link-search=native={}", ffmpeg_dll_dir);
-
     if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
         use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
     } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
@@ -466,7 +467,7 @@ fn linking(env_vars: EnvVars) {
             linking_with_libs_dir(
                 &*LIBS,
                 ffmpeg_libs_dir,
-                env_vars.ffmpeg_link_mode.unwrap_or(FfmpegLinkMode::Static),
+                env_vars.ffmpeg_link_mode.unwrap_or(FFmpegLinkMode::Static),
             );
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
@@ -528,7 +529,7 @@ Enable `link_vcpkg_ffmpeg` feature if you want to link ffmpeg libraries installe
             linking_with_libs_dir(
                 &*LIBS,
                 ffmpeg_libs_dir,
-                env_vars.ffmpeg_link_mode.unwrap_or(FfmpegLinkMode::Static),
+                env_vars.ffmpeg_link_mode.unwrap_or(FFmpegLinkMode::Static),
             );
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
@@ -574,7 +575,7 @@ fn main() {
     } else if env_vars.ffmpeg_dll_path.is_some() {
         dynamic_linking(env_vars);
     } else {
-        // fallback to static linking
+        // fallback to normal linking
         linking(env_vars);
     }
 }
