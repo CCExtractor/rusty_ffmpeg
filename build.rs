@@ -187,10 +187,17 @@ impl callbacks::ParseCallbacks for FilterCargoCallbacks {
     }
 }
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 enum FFmpegLinkMode {
     Static,
     Dynamic,
+}
+
+#[cfg(not(target_os = "windows"))]
+impl FFmpegLinkMode {
+    fn is_static(&self) -> bool {
+        self == &Self::Static
+    }
 }
 
 impl From<String> for FFmpegLinkMode {
@@ -333,10 +340,12 @@ mod pkg_config_linking {
     /// Note: no side effect if this function errors.
     pub fn linking_with_pkg_config(
         library_names: &[&str],
+        statik: bool,
     ) -> Result<Vec<PathBuf>, pkg_config::Error> {
         // dry run for library linking
         for libname in library_names {
             pkg_config::Config::new()
+                .statik(statik)
                 .cargo_metadata(false)
                 .env_metadata(false)
                 .print_system_libs(false)
@@ -348,6 +357,7 @@ mod pkg_config_linking {
         let mut paths = HashSet::new();
         for libname in library_names {
             let new_paths = pkg_config::Config::new()
+                .statik(statik)
                 .probe(&format!("lib{}", libname))
                 .unwrap_or_else(|_| panic!("{} not found!", libname))
                 .include_paths;
@@ -437,7 +447,13 @@ fn linking(env_vars: EnvVars) {
             output_binding_path: &Path,
         ) -> Result<(), pkg_config::Error> {
             // Probe libraries(enable emitting cargo metadata)
-            let include_paths = pkg_config_linking::linking_with_pkg_config(&*LIBS)?;
+            let include_paths = pkg_config_linking::linking_with_pkg_config(
+                &*LIBS,
+                env_vars
+                    .ffmpeg_link_mode
+                    .map(|x| x.is_static())
+                    .unwrap_or_default(),
+            )?;
             if let Some(ffmpeg_binding_path) = env_vars.ffmpeg_binding_path.as_ref() {
                 use_prebuilt_binding(ffmpeg_binding_path, output_binding_path);
             } else if let Some(ffmpeg_include_dir) = env_vars.ffmpeg_include_dir.as_ref() {
