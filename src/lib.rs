@@ -9,6 +9,8 @@ mod avutil;
     clippy::all
 )]
 pub mod ffi {
-    pub use crate::avutil::{_avutil::*, common::*, error::*, pixfmt::*, rational::*};
+    pub use crate::avutil::{
+        _avutil::*, channel_layout::*, common::*, error::*, pixfmt::*, rational::*,
+    };
     include!(concat!(env!("OUT_DIR"), "/binding.rs"));
 }
