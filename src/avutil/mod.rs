@@ -5,3 +5,5 @@ pub mod error;
 #[rustfmt::skip]
 pub mod pixfmt;
 pub mod rational;
+#[rustfmt::skip]
+pub mod channel_layout;

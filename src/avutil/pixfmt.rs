@@ -1,5 +1,3 @@
-#![allow(non_upper_case_globals)]
-
 use crate::ffi::*;
 
 macro_rules! AV_PIX_FMT_NE {

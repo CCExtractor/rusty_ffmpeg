@@ -40,6 +40,10 @@ link_vcpkg_ffmpeg = ["vcpkg"]
 # FFmpeg 5.* support
 ffmpeg5 = []
 # FFmpeg 6.* support
-ffmpeg6 = []
+ffmpeg6 = ["ffmpeg5"]
 # FFmpeg 7.* support
-ffmpeg7 = []
+ffmpeg7 = ["ffmpeg6"]
+# FFmpeg 7.1+ support
+ffmpeg7_1 = ["ffmpeg7"]
+# FFmpeg 8.* support
+ffmpeg8 = ["ffmpeg7_1"]
