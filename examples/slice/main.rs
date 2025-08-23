@@ -176,12 +176,11 @@ fn decode_packet(
             ));
         } else {
             println!(
-                "Frame {} (type={}, size={} bytes) pts {} key_frame {}",
+                "Frame {} (type={}, size={} bytes) pts {}",
                 codec_context.frame_num,
                 unsafe { ffi::av_get_picture_type_char(frame.pict_type) },
-                frame.pkt_size,
+                frame.linesize[0] * frame.height,
                 frame.pts,
-                frame.key_frame,
             );
 
             let frame_filename = format!(
