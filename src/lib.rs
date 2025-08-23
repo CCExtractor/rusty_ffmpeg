@@ -9,10 +9,8 @@ mod avutil;
     clippy::all
 )]
 pub mod ffi {
-    pub use crate::avutil::{
-        _avutil::*, common::*, error::*, pixfmt::*, rational::*,
-    };
     #[cfg(feature = "ffmpeg6")]
     pub use crate::avutil::channel_layout::*;
+    pub use crate::avutil::{_avutil::*, common::*, error::*, pixfmt::*, rational::*};
     include!(concat!(env!("OUT_DIR"), "/binding.rs"));
 }
