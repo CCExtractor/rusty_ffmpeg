@@ -320,6 +320,45 @@ jobs:
             echo "1"
           fi
 
+  build_static_and_test_windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      # Using this since it's used by clang-sys's CI
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "10.0"
+          directory: ${{ github.workspace }}/clang
+
+      - name: Clone vcpkg FFmpeg
+        run: git clone https://github.com/microsoft/vcpkg --depth 1
+      - name: Bootstrap vcpkg FFmpeg
+        run: ./vcpkg/bootstrap-vcpkg.bat
+      - name: Vcpkg install ffmpeg
+        run: ./vcpkg/vcpkg.exe install ffmpeg:x64-windows-static-md
+
+      - name: Build and run Slice Example
+        env:
+          VCPKG_ROOT: ${{ github.workspace }}/vcpkg
+          LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
+          LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
+        run: cargo run --example slice
+
+      - name: Check test result correctness
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "0"
+          else
+            echo "1"
+          fi
+
   build_with_vcpkg_ffmpeg_windows:
     runs-on: windows-latest
     strategy:
