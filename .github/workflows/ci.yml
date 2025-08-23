@@ -71,7 +71,7 @@ jobs:
             libopus-dev
 
       - run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/8.0
           cd ffmpeg
           mkdir build
           cd build
@@ -84,7 +84,7 @@ jobs:
       - run: |
           FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
           FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
-          cargo clippy -- -D warnings
+          cargo clippy --features ffmpeg8 -- -D warnings
 
   rust_clippy_check_windows:
     runs-on: windows-latest
@@ -290,7 +290,7 @@ jobs:
       # Disable exr,phm to workaround "multiple definition of 'ff_init_half2float_tables'"
       # Ref: `https://github.com/larksuite/rsmpeg/pull/98#issuecomment-1467511193`
       - run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/8.0
           cd ffmpeg
           mkdir build
           cd build
@@ -304,7 +304,7 @@ jobs:
         run: |
           FFMPEG_INCLUDE_DIR=${HOME}/ffmpeg_build/include \
           FFMPEG_PKG_CONFIG_PATH=${HOME}/ffmpeg_build/lib/pkgconfig \
-          cargo test --verbose
+          cargo test --features ffmpeg8 --verbose
 
       - name: Run Slice Example
         run: |
@@ -452,7 +452,7 @@ jobs:
 
       - name: Build FFmpeg dylib
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/8.0
           cd ffmpeg
           mkdir build
           cd build
@@ -462,7 +462,6 @@ jobs:
             --enable-small \
             --disable-debug \
             --disable-programs \
-            --disable-postproc \
             --disable-doc \
             --disable-hwaccels \
             --disable-parsers \
@@ -508,8 +507,8 @@ jobs:
           LD_LIBRARY_PATH: ${{ github.workspace }}/ffmpeg_prebuilt/lib/
         run: |
           cp -r ~/ffmpeg_prebuilt ${{ github.workspace }}/ffmpeg_prebuilt
-          cargo build --example slice
-          cargo run --example slice
+          cargo build --example slice --features ffmpeg8
+          cargo run --example slice --features ffmpeg8
 
   build_dynamic_and_test_macos:
     runs-on: macos-latest
@@ -535,7 +534,7 @@ jobs:
 
       - name: Build FFmpeg dylib
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/8.0
           cd ffmpeg
           mkdir build
           cd build
@@ -545,7 +544,6 @@ jobs:
             --enable-small \
             --disable-debug \
             --disable-programs \
-            --disable-postproc \
             --disable-doc \
             --disable-hwaccels \
             --disable-parsers \
@@ -591,9 +589,9 @@ jobs:
           FFMPEG_DLL_PATH: ${{ github.workspace }}/ffmpeg_prebuilt/lib/libffmpeg.dylib
         run: |
           cp -r ~/ffmpeg_prebuilt ${{ github.workspace }}/ffmpeg_prebuilt
-          cargo build --example slice
+          cargo build --example slice --features ffmpeg8
           cp ${{ github.workspace }}/ffmpeg_prebuilt/lib/libffmpeg.dylib .
-          cargo run --example slice
+          cargo run --example slice --features ffmpeg8
 
   build_dynamic_and_test_windows_pre:
     runs-on: ubuntu-latest
@@ -622,7 +620,7 @@ jobs:
           cd ../..
       - name: Build FFmpeg
         run: |
-          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/7.1
+          git clone https://github.com/ffmpeg/ffmpeg --depth 1 --single-branch --branch release/8.0
           cd ffmpeg
           mkdir build
           cd build
@@ -631,7 +629,6 @@ jobs:
             --enable-small \
             --disable-debug \
             --disable-programs \
-            --disable-postproc \
             --disable-doc \
             --disable-hwaccels \
             --disable-parsers \
@@ -663,6 +660,8 @@ jobs:
             -lgdi32 \
             -lpsapi \
             -lole32 \
+            -lcrypt32 \
+            -lncrypt \
             -lstrmiids \
             -luuid \
             -loleaut32 \
@@ -717,9 +716,9 @@ jobs:
           LIBCLANG_PATH: ${{ github.workspace }}/clang/lib
           LLVM_CONFIG_PATH: ${{ github.workspace }}/clang/bin/llvm-config
         run: |
-          cargo build --target i686-pc-windows-msvc --example slice
+          cargo build --target i686-pc-windows-msvc --example slice  --features ffmpeg8
           copy ${{ github.workspace }}/ffmpeg_prebuilt_cross/lib/libffmpeg.dll .
-          cargo run --target i686-pc-windows-msvc --example slice
+          cargo run --target i686-pc-windows-msvc --example slice  --features ffmpeg8
 
   # Check if correct documentation can be generated by docs.rs
   docs_rs_check:
