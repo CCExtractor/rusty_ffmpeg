@@ -10,7 +10,9 @@ mod avutil;
 )]
 pub mod ffi {
     pub use crate::avutil::{
-        _avutil::*, channel_layout::*, common::*, error::*, pixfmt::*, rational::*,
+        _avutil::*, common::*, error::*, pixfmt::*, rational::*,
     };
+    #[cfg(feature = "ffmpeg6")]
+    pub use crate::avutil::channel_layout::*;
     include!(concat!(env!("OUT_DIR"), "/binding.rs"));
 }
