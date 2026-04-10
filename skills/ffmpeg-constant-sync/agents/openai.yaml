@@ -1,0 +1,4 @@
+interface:
+  display_name: "FFmpeg Constant Sync"
+  short_description: "Audit and sync FFmpeg constant gates"
+  default_prompt: "Use $ffmpeg-constant-sync to audit hand-written FFmpeg constants and version gates against upstream release tags."

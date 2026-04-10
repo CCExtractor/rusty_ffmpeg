@@ -44,9 +44,13 @@ use_prebuilt_binding = []
 ffmpeg5 = []
 # FFmpeg 6.* support
 ffmpeg6 = ["ffmpeg5"]
+# FFmpeg 6.1+ support
+ffmpeg6_1 = ["ffmpeg6"]
 # FFmpeg 7.* support
-ffmpeg7 = ["ffmpeg6"]
+ffmpeg7 = ["ffmpeg6_1"]
 # FFmpeg 7.1+ support
 ffmpeg7_1 = ["ffmpeg7"]
 # FFmpeg 8.* support
 ffmpeg8 = ["ffmpeg7_1"]
+# FFmpeg 8.1+ support
+ffmpeg8_1 = ["ffmpeg8"]
