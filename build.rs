@@ -417,9 +417,12 @@ fn dynamic_linking(env_vars: EnvVars) {
                         stem.trim_start_matches("lib")
                     }
                 })
-                .unwrap()
+                .expect("FFMPEG_DLL_PATH does not point to a valid file. Ensure the path includes a filename.")
                 .to_string(),
-            ffmpeg_dll_path.parent().unwrap().to_path_buf(),
+            ffmpeg_dll_path
+                .parent()
+                .expect("FFMPEG_DLL_PATH has no parent directory. Please provide a full path including the directory.")
+                .to_path_buf(),
         );
         linking_with_single_lib(&lib_name, &ffmpeg_dll_dir, FFmpegLinkMode::Dynamic);
     }
