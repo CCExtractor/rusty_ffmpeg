@@ -45,6 +45,8 @@ pub const AVERROR_HTTP_BAD_REQUEST: c_int   = FFERRTAG!(0xF8, b'4', b'0', b'0');
 pub const AVERROR_HTTP_UNAUTHORIZED: c_int  = FFERRTAG!(0xF8, b'4', b'0', b'1');
 pub const AVERROR_HTTP_FORBIDDEN: c_int     = FFERRTAG!(0xF8, b'4', b'0', b'3');
 pub const AVERROR_HTTP_NOT_FOUND: c_int     = FFERRTAG!(0xF8, b'4', b'0', b'4');
+#[cfg(feature = "ffmpeg7_1")]
+pub const AVERROR_HTTP_TOO_MANY_REQUESTS: c_int = FFERRTAG!(0xF8, b'4', b'2', b'9');
 pub const AVERROR_HTTP_OTHER_4XX: c_int     = FFERRTAG!(0xF8, b'4', b'X', b'X');
 pub const AVERROR_HTTP_SERVER_ERROR: c_int  = FFERRTAG!(0xF8, b'5', b'X', b'X');
 
