@@ -66,6 +66,7 @@ Current repository feature boundaries should follow this pattern when needed:
 - `ffmpeg7_1`
 - `ffmpeg8`
 - `ffmpeg8_1`
+- `ffmpeg9`
 
 If the repo is missing a needed boundary, add it to `Cargo.toml` before moving symbol gates.
 

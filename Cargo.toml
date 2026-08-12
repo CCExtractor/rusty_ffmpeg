@@ -1,6 +1,6 @@
 [package]
 name = "rusty_ffmpeg"
-version = "0.17.0+ffmpeg.8.1"
+version = "0.18.0+ffmpeg.9.0"
 authors = ["ldm0 <ldm2993593805@163.com>"]
 edition = "2021"
 description = "A library that provides Rust bindings for FFmpeg"
@@ -37,7 +37,7 @@ pkg-config = "0.3"
 link_system_ffmpeg = []
 # Probe and link FFmpeg with vcpkg
 link_vcpkg_ffmpeg = ["vcpkg"]
-# Use the prebuilt FFmpeg 7 bindings from src/binding.rs instead of generating at build time
+# Use the prebuilt FFmpeg 9 bindings from src/binding.rs instead of generating at build time
 # This ensures consistent API signatures across all platforms
 use_prebuilt_binding = []
 # FFmpeg 5.* support
@@ -54,3 +54,5 @@ ffmpeg7_1 = ["ffmpeg7"]
 ffmpeg8 = ["ffmpeg7_1"]
 # FFmpeg 8.1+ support
 ffmpeg8_1 = ["ffmpeg8"]
+# FFmpeg 9.* support
+ffmpeg9 = ["ffmpeg8_1"]
