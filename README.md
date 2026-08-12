@@ -60,6 +60,7 @@ You can link FFmpeg libraries installed by vcpkg by enabling feature `link_vcpkg
 - Enable `ffmpeg7` feature when you are using FFmpeg `7.*`
 - Enable `ffmpeg8` feature when you are using FFmpeg `8.*`
 - Enable `ffmpeg8_1` feature when you are using FFmpeg `8.1+`
+- Enable `ffmpeg9` feature when you are using FFmpeg `9.*`
 
 ## Attention
 
