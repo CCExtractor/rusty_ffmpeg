@@ -265,6 +265,10 @@ fn generate_bindings(ffmpeg_include_dir: &Path, headers: &[PathBuf]) -> Bindings
                     .clang_arg(format!("-I{}", ffmpeg_include_dir))
                     // Workaround: https://github.com/rust-lang/rust-bindgen/issues/2159
                     .blocklist_type("__mingw_ldbl_type_t")
+                    // The C library's functions that Rust's standard library also uses: FFmpeg's headers include
+                    // <string.h>, and bindgen declares them with `c_ulong` for `size_t` where std has `usize`, which
+                    // rustc warns about (`suspicious_runtime_symbol_definitions`). They aren't FFmpeg's API
+                    .blocklist_function("memcpy|memmove|memset|memcmp|bcmp|strlen")
                     // Stop bindgen from prefixing enums
                     .prepend_enum_name(false)
             },
